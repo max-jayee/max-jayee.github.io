@@ -2,5 +2,5 @@
 블로그를 위한 테스트를 수행하고 있숩니다.
 
 카테고리 1 으로 가려면 아래로 가시오
-카테고리1: [Category 1](https://github.com/home-max/home-max.github.io/blob/main/category1, "category 1 link")
-https://github.com/home-max/home-max.github.io/blob/main/category1
+카테고리1: [Category 1](./category1, "category 1 link")
+
