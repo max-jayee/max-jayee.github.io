@@ -5,4 +5,4 @@
 카테고리2: [Category 2](./cate2 "category 2 rel")  
 카테고리2: [Category 2](https://home-max.github.io/cate2 "category 2 abs")
 
-이미지 테스트 ![이모지_양말](../images/이모지_양말.png)
+이미지 테스트 ![이모지_양말](https://github.com/home-max/images/이모지_양말.png)
