@@ -1,5 +1,5 @@
-<style>
-  h1:first-of-type { display:none; }
+<style type="text/css">
+  @import url("/css/style-header.css");
 </style>
 
 # [맥쓰네 블로그](/ "https://home-max.github.io")
