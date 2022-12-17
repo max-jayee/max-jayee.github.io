@@ -1,3 +1,7 @@
+<style>
+  h1:first-of-type { display:none; }
+</style>
+
 # [맥쓰네 블로그](/ "https://home-max.github.io")
 
 # MacOS 문제&해결 모음

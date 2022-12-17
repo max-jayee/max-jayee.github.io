@@ -1,3 +1,7 @@
+<style>
+  h1:first-of-type { display:none; }
+</style>
+
 # [맥쓰네 블로그](/ "https://home-max.github.io")
 
 # 소프트웨어 도구 관리 페이지
