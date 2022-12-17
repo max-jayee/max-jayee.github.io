@@ -1,4 +1,4 @@
-# home-max.github.io
+# [맥쓰네 블로그](/ "https://home-max.github.io")
 
 # Visual Studio 단축키 모음
 ## 설명

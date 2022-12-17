@@ -1,4 +1,4 @@
-# home-max.github.io
+# [맥쓰네 블로그](/ "https://home-max.github.io")
 
 # 소프트웨어 도구 관리 페이지
 아래와 같은 소프트웨어 도구들을 관리하는 페이지입니다.

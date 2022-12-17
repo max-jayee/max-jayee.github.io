@@ -1,4 +1,4 @@
-# home-max.github.io
+# [맥쓰네 블로그](/ "https://home-max.github.io")
 
 # 운영체제 관련 페이지
 아래와 같은 운영체제와 관련된 정보를 관리하는 페이지입니다.

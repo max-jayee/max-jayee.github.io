@@ -1,4 +1,4 @@
-# home-max.github.io
+# [맥쓰네 블로그](/ "https://home-max.github.io")
 
 # Jenkins
 ## 설명
