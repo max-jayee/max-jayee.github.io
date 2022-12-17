@@ -1,4 +1,4 @@
-# home-max.github.io
+# [맥쓰네](/ "https://home-max.github.io")
 맥쓰네 블로그
 
 # Index of this blog
