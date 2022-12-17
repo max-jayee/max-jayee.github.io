@@ -1,3 +1,7 @@
+<script>
+  $("h1:first").remove();
+</script>
+
 <h1 id="home-max.github.io" style="display:none;">
   <a href="https://home-max.github.io/">home-max.github.io</a>
 </h1>
