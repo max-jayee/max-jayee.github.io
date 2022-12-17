@@ -2,7 +2,7 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+# [맥쓰네 블로그](https://home-max.github.io "https://home-max.github.io")
 맥쓰네 블로그 입니덩~~ 🎉
 
 좋은 하루 되세요 ~ 😁
