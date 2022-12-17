@@ -1,6 +1,6 @@
-<script>
-  $("h1:first").remove();
-</script>
+<style>
+  h1:first-of-type { display:none; }
+</style>
 
 <h1 id="home-max.github.io" style="display:none;">
   <a href="https://home-max.github.io/">home-max.github.io</a>
