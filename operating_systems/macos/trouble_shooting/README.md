@@ -10,6 +10,6 @@ MacOS 를 사용하며 어떠한 이유(궁금하거나, 문제를 마주하거�
 
 ## 문제&해결 목록
 
-| No. | 증상 | 원인 | 해결방안 | 비고 |
+| No. | 상황 | 원인 | 해결방안 | 비고 |
 | :---: | --- | --- | --- | --- |
 | 1 | `xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun` | 이는 각 도구들이 CommandLineTools를 식별하지 못해 발생한 문제로, MacOS 를 업그레이드 한 경우 주로 발생합니다. | `xcode-select --install` 를 사용하여 CommandLineTools 를 설치하면 해소됩니다. | MacOS 를 업그레이드 한 이후 git, make, gcc 등과 같은 명령어를 사용하는 경우 만날 수 있습니다. |
