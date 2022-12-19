@@ -13,7 +13,7 @@ scm
 1. ...
 
 ### Public 환경 (인터넷을 사용 할 수 있는 상황)
-#### CentOS 8
+#### CentOS 8 (https://about.gitlab.com/install/#centos-7)
 ```bash
 
 sudo yum install -y curl policycoreutils-python-utils perl libcurl-devel
@@ -36,7 +36,7 @@ sudo EXTERNAL_URL="https://gitlab.example.com" yum install -y gitlab-ce
 ```
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
-#### CentOS 8
+#### CentOS 8 (https://docs.gitlab.com/ee/install/installation.html)
 ```bash
 t3.xlarge
 
