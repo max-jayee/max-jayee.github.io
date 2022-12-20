@@ -12,3 +12,4 @@
 | No. | 종류 | 요약 | 비고 |
 | :---: | --- | --- | --- |
 | 1 | [MacOS](./macos "https://home-max.github.io/operating_systems/macos") | Apple 사(🍎)에서 관리중인 MacOS | [Official Web Site](https://support.apple.com/macos "https://support.apple.com/macos") |
+| 2 | [CentOS](./centos "https://home-max.github.io/operating_systems/centos") | Redhat 사에서 관리중인 CentOS | [Official Web Site](https://www.centos.org "https://www.centos.org") |
