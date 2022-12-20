@@ -42,6 +42,71 @@
     ```
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
+#### CentOS 8 - rpm + source (권장)
+1. 설치할 rpm, source 는 반입되어있다고 가정하고 local repository 를 구성 ([CentOS 로컬 리파지토리 구성 참고](/operating_systems/centos/configuration/local_repository "https://home-max.github.io/operating_systems/centos/configuration/local_repository"))
+
+2. openjdk 1.8.0 & fontconfig 설치
+    ```bash
+    sudo rpm -ivh ~/local-repo/javapackages-filesystem-5.3.0-1.module+el8+2447+6f56d9a6.noarch.rpm # javapackages-filesystem 은 수동 설치 - No available modula metadata for modular package 에러 발생하기 때문
+    sudo dnf install --disablerepo=\* --enablerepo=local-repo java-1.8.0-openjdk-devel.x86_64
+    java -version # check version 1.8.0_*
+    ```
+
+3. 방화벽 확인 및 방화벽 개방
+    ```bash
+    sudo netstat | grep LISTEN # or sudo netstat | grep 8080
+    sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+    sudo firewall-cmd --reload
+    ```
+
+4. 계정 설정
+    ```bash
+    sudo groupadd -g 300 appadm # check cat /etc/group
+    sudo useradd -u 301 -g appadm jenkins # check cat /etc/passwd
+    sudo passwd jenkins
+    sudo mkdir /app && sudo mkdir /app/jenkins # + sudo mv jenkins.war /app/jenkins/
+    sudo chown jenkins:appadm /app/jenkins/jenkins.war
+    sudo chown jenkins:appadm /app/jenkins
+    su jenkins
+    vi ~/.bashrc
+    ---------- ~/.bashrc
+    export $JENKINS_HOME=/app/jenkins
+    ----------
+    ```
+
+5. jenkins 실행
+    ```bash
+    java -jar /app/jenkins/jenkins.war
+    cat /app/jenkins/secrets/initialAdminPassword
+    ```
+
+6. System service 등록 (데몬으로 실행하기 위함)
+    ```bash
+    sudo vi /etc/systemd/system/jenkins.service
+    ########## /etc/systemd/system/jenkins.service
+    [Unit]
+    Description=Jenkins Systemd Daemon
+
+    [Service]
+    Type=simple
+
+    Environment=JENKINS_HOME=/app/jenkins
+
+    ExecStart=java -jar /app/jenkins/jenkins.war
+    SuccessExitStatus=143 
+
+    User=jenkins
+    Group=jenkins
+
+    [Install]
+    WantedBy=multi-user.target
+    ##########
+
+    sudo systemctl enable --now jenkins.service
+    sudo systemctl status jenkins.service
+    # 값 바꿀땐 sudo systemctl daemon-reload
+    ```
+
 #### CentOS 8
 1. Java 설치 (Jenkins 는 war 로 java 로 구동함)
     ```bash
@@ -63,13 +128,13 @@
     cd jenkins
     wget https://get.jenkins.io/war-stable/2.346.1/jenkins.war # ref: https://get.jenkins.io/war-stable/
     ```
-4. Jenkins 실행
+3. Jenkins 실행
     ```bash
     java -jar jenkins.war
     #Open up your browser and type localhost:8080 url
     #Copy and Insert the password (ex: cat ~/.jenkins/secrets/initialAdminPassword)
     ```
-5. System service 등록 (데몬으로 실행하기 위함)
+4. System service 등록 (데몬으로 실행하기 위함)
     ```bash
     sudo vi /etc/systemd/system/jenkins.service
     ########## /etc/systemd/system/jenkins.service
