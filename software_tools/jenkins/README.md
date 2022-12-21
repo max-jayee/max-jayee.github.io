@@ -69,9 +69,10 @@
     sudo chown jenkins:appadm /app/jenkins
     su jenkins
     vi ~/.bashrc
-    ---------- ~/.bashrc
+    # ---------- ~/.bashrc
+    ...
     export $JENKINS_HOME=/app/jenkins
-    ----------
+    # ----------
     ```
 
 5. jenkins 실행
@@ -83,7 +84,7 @@
 6. System service 등록 (데몬으로 실행하기 위함)
     ```bash
     sudo vi /etc/systemd/system/jenkins.service
-    ########## /etc/systemd/system/jenkins.service
+    # ---------- /etc/systemd/system/jenkins.service
     [Unit]
     Description=Jenkins Systemd Daemon
 
@@ -100,7 +101,7 @@
 
     [Install]
     WantedBy=multi-user.target
-    ##########
+    # ----------
 
     sudo systemctl enable --now jenkins.service
     sudo systemctl status jenkins.service
@@ -113,10 +114,10 @@
     # wget https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u342-b07/OpenJDK8U-jdk_x64_linux_8u342b07.tar.gz # 외부에서 받아서 폐쇄망으로 반입과 동일한 과정을 수행
     tar zxvf OpenJDK8U-jdk_x64_linux_8u342b07.tar.gz # 압축 해제
     vi ~/.bash_profile # java 를 위한 사용자 환경 변수 값 설정
-    ########## ~/.bash_profile
+    # ---------- ~/.bash_profile
     JAVA_HOME=/home/ec2-user/java/openjdk-8u342-b07
     PATH=$JAVA_HOME/bin:
-    ##########
+    # ----------
     source ~/.bash_profile # 정의한 사용자 변수 적용
     java -version # java 명령어 & 설치된 버전 확인
     ```
@@ -137,7 +138,7 @@
 4. System service 등록 (데몬으로 실행하기 위함)
     ```bash
     sudo vi /etc/systemd/system/jenkins.service
-    ########## /etc/systemd/system/jenkins.service
+    # ---------- /etc/systemd/system/jenkins.service
     [Unit]
     Description=Jenkins Systemd Daemon
 
@@ -153,13 +154,12 @@
 
     [Install]
     WantedBy=multi-user.target
-    ##########
+    # ----------
     vi ~/jenkins-daemon.sh
-    ########## ~/jenkins-daemon.sh
+    # ---------- ~/jenkins-daemon.sh
     #! /bin/bash
-
     ${JAVA_HOME}/bin/java -jar /home/userAccount/jenkins/jenkins.war &
-    ##########
+    # ----------
     chmod +x ~/jenkins-daemon.sh
     sudo systemctl enable --now jenkins.service
     sudo systemctl status jenkins.service

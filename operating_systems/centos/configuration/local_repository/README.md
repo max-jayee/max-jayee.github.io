@@ -26,6 +26,7 @@ RPM(Redhat Package Manager) 의존성을 유지하며 패키지를 설치하는 
     sudo rpm -ivh drpm-0.4.1-3.el8.x86_64.rpm 
     sudo rpm -ivh createrepo_c-libs-0.17.7-6.el8.x86_64.rpm
     sudo rpm -ivh createrepo_c-0.17.7-6.el8.x86_64.rpm
+    # sudo rpm -ivh --nodeps createrepo_c-0.17.7-6.el8.x86_64.rpm 
     createrepo --version # check version 0.17.7 
     ```
 
@@ -39,14 +40,14 @@ RPM(Redhat Package Manager) 의존성을 유지하며 패키지를 설치하는 
     ```bash
     createrepo --database ~/local-repo
     sudo vi /etc/yum.repos.d/local-repo.repo
-    ---------- # /etc/yum.repos.d/local-repo.repo 
+    # ---------- /etc/yum.repos.d/local-repo.repo 
     [local-repo]
     name=CentOS-8.5 - Local Repository
     baseurl=file:///home/${user-account}/local-repo
     enabled=1
     gpgcheck=0
     gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-    ----------
+    # ----------
     ```
 
 4. mirror repository 에서만 파일 설치하는 예시
