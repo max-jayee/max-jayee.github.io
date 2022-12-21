@@ -13,50 +13,60 @@ scm
 1. ...
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
-#### CentOS 8 (https://about.gitlab.com/install/#centos-7)
+#### CentOS 8
 ```bash
+(optional) sudo dnf install postfix
+sudo dnf install createrepo
+createrepo --version # 0.17.7
+sudo dnf groupinstall 'Development Tools'
+perl -V # 15 revision 5 version 26 subversion 3
+git --version # 2.31.1 -> 2.37.x
+g++ --version # 8.5.0
+autoconf --version # 2.69
+java -version # openjdk 1.8.0_352
+sudo dnf install golang
+# ---------- Trouble Shooting
+RPM: error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
+RPM: error: cannot open Packages index using db5 – (-30969)
+RPM: error: cannot open Packages database in /var/lib/rpm
+The downloaded packages were saved in cache until the next successful transaction.
 
-mkdir createrepo
-sudo dnf install --downloadonly --downloaddir=createrepo createrepo
-cd createrepo
-sudo rpm -ivh drpm-0.4.1-3.el8.x86_64.rpm # https://zetawiki.com/wiki/리눅스_rpm_명령어
-sudo rpm -ivh createrepo_c-libs-0.17.7-6.el8.x86_64.rpm
-sudo rpm -ivh createrepo_c-0.17.7-6.el8.x86_64.rpm
+cd /var/lib/rpm
+rm -rf __db.*
+rpm --rebuilddb
+# ----------
+go version # 1.18.4
+sudo dnf install @ruby:2.7
+ruby --version # 2.7.6
 
-mkdir local-repo
-sudo dnf list java*openjdk*
-sudo dnf install --downloadonly --downloaddir=local-repo java-1.8.0-openjdk-devel.x86_64
+sudo dnf install @nodejs:16
+node --version # 16.18.1
+#TODO yarn install
+sudo dnf install @postgresql:13
+psql --version # 13.7
+sudo dnf install @redis:6
+redis-cli --version # 6.2.7
 
-sudo yumdownloader --downloadonly --resolve --destdir local-repo java-1.8.0-openjdk-devel.x86_64
+sudo dnf install perl-libs
 
-sudo rpm -ivh javapackages-filesystem-5.3.0-1.module+el8+2447+6f56d9a6.noarch.rpm
+createrepo --database local-repo
+sudo yum repolist # check added the local-repo in list
 
 sudo dnf clean all
+sudo dnf install --disablerepo=\* --enablerepo=local-repo gitlab-ce
 
-sudo yum repolist
-# ansible-2-for-rhel-8-rhui-rpms Red Hat Ansible Engine 2 for RHEL 8 (RPMs) from RHUI
-# packages-microsoft-com-mssql-server-2019 packages-microsoft-com-mssql-server-2019
-# packages-microsoft-com-prod packages-microsoft-com-prod
-# rhel-8-appstream-rhui-rpms Red Hat Enterprise Linux 8 for x86_64 - AppStream from RHUI (RPMs)
-# rhel-8-baseos-rhui-rpms Red Hat Enterprise Linux 8 for x86_64 - BaseOS from RHUI (RPMs)
-# rhui-client-config-server-8 Red Hat Update Infrastructure 3 Client Configuration Server 8
+sudo netstat -anp | grep LISTEN # or sudo netstat -anp | grep 80
+sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
+sudo firewall-cmd --reload
 
-mkdir target-repo
-createrepo --database target-repo
-sudo vi /etc/yum.repos.d/target-repo.repo
----------- /etc/yum.repos.d/target-repo.repo
-[target-repo]
-name=CentOS-8.5 - My Repository
-baseurl=file:///home/ec2-user/test/target-repo
-enabled=1
-gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-----------
+sudo vi /etc/gitlab/gitlab.rb
+#---------- /etc/gitlab/gitlab.rb
+...
+external_url 'http://${GITLAB_DASHBOARD_URL}'
+...
+#----------
+sudo gitlab-ctl reconfigure
 
-sudo dnf install --disablerepo=\* --enablerepo=target-repo java-1.8.0-openjdk-devel.x86_64
+# more gitlab configure - https://docs.gitlab.com/omnibus/settings/
 
-
-wget https://get.jenkins.io/war-stable/2.346.1/jenkins.war
-
-java -jar jenkins.war
 ```

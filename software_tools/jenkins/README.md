@@ -54,7 +54,7 @@
 
 3. 방화벽 확인 및 방화벽 개방
     ```bash
-    sudo netstat | grep LISTEN # or sudo netstat | grep 8080
+    sudo netstat -anp | grep LISTEN # or sudo netstat -anp | grep 8080
     sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
     sudo firewall-cmd --reload
     ```
