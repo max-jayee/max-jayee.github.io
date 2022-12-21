@@ -330,3 +330,104 @@ sudo systemctl status redis.service
 su - git
 sudo -u git -H git clone https://gitlab.com/gitlab-org/gitlab-foss.git -b 14-10-stable gitlab
 ```
+
+#### CentOS 8 (https://docs.gitlab.com/ee/install/installation.html) - 221220
+
+Software requirements
+
+| Software | Minimum version | Notes |
+|---|---|---|
+| Ruby | 2.7 | From GitLab 13.6, Ruby 2.7 is required. Ruby 3.0 is not supported yet (see the relevant epic for the current status). **You must use the standard MRI implementation of Ruby.** We love JRuby and Rubinius, but GitLab needs several Gems that have native extensions. |
+| Go | 1.18 | From GitLab 15.6, Go 1.18 or later is required. |
+| Git | 2.37.x | From GitLab 15.6, Git 2.37.x and later is required. It’s highly recommended that you use the Git version provided by Gitaly. |
+| Node.js | 16.15.0 | From GitLab 15.7, Node.js 16.15.0 or later is required. |
+
+# install pkgs
+```bash
+#sudo dnf install --downloadonly --downloaddir=perl perl
+#sudo yumdownloader --downloadonly --resolve --destdir downloader-perl perl
+sudo dnf install --downloadonly --downloaddir=dev-tools-base curl policycoreutils-python-utils perl libcurl-devel
+sudo dnf groupinstall --downloadonly --downloaddir=dev-tools 'Development Tools'
+sudo dnf install --downloadonly --downloaddir=ruby @ruby:2.7
+sudo dnf install --downloadonly --downloaddir=golang golang
+curl --location "https://rpm.nodesource.com/setup_16.x" | sudo bash -
+sudo dnf install --downloadonly --downloaddir=nodejs nodejs
+sudo dnf install @postgresql:13
+sudo dnf install redis
+clone https://gitlab.com/gitlab-org/gitlab-foss.git -b 14-10-stable gitlab
+```
+
+# after move pkgs into private network
+# configure local-repo
+```bash
+createrepo --database ~/local-repo
+sudo vi /etc/yum.repos.d/local-repo.repo
+---------- /etc/yum.repos.d/local-repo.repo
+[local-repo]
+name=CentOS-8.5 - My Repository
+baseurl=file:///home/${USER}/local-repo
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+----------
+
+```
+
+# install gitlab
+## 0. pre
+```bash
+sudo dnf clean all
+sudo dnf install --disablerepo=\* --enablerepo=local-repo curl
+sudo dnf install --disablerepo=\* --enablerepo=local-repo policycoreutils-python-utils
+sudo dnf install --disablerepo=\* --enablerepo=local-repo libcurl-devel
+sudo rpm -ivh --nodeps perl-Encode-Locale-1.05-10.module+el8.3.0+6498+9eecfe51.noarch.rpm
+sudo rpm -ivh --nodeps perl-IO-Socket-SSL-2.066-4.module+el8.3.0+6446+594cad75.noarch.rpm
+sudo rpm -ivh --nodeps perl-Mozilla-CA-20160104-7.module+el8.3.0+6498+9eecfe51.noarch.rpm
+sudo rpm -ivh --nodeps perl-Net-SSLeay-1.88-2.module+el8.6.0+13392+f0897f98.x86_64.rpm
+sudo dnf install --disablerepo=\* --enablerepo=local-repo perl
+perl -V
+
+```
+
+## 1. install git
+```bash
+sudo dnf clean all
+sudo dnf install --disablerepo=\* --enablerepo=local-repo git
+git --version
+sudo dnf install --disablerepo=\* --enablerepo=local-repo gcc-c++
+g++ --version
+#sudo dnf groups mark install --disablerepo=\* --enablerepo=local-repo 'Development Tools'
+#sudo dnf groups mark convert --disablerepo=\* --enablerepo=local-repo 'Development Tools'
+#sudo dnf groupinstall --disablerepo=\* --enablerepo=local-repo 'Development Tools'
+```
+
+## 2. install ruby
+```bash
+sudo dnf install --disablerepo=\* --enablerepo=local-repo ruby-2.7.6
+sudo rpm -ivh ruby-libs-2.7.6-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh ruby-2.7.6-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh --nodeps rubygems-3.1.6-138.module+el8.6.0+16148+54b2ba8f.noarch.rpm
+sudo rpm -ivh ruby-default-gems-2.7.6-138.module+el8.6.0+16148+54b2ba8f.noarch.rpm
+sudo rpm -ivh rubygem-bigdecimal-2.0.0-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh rubygem-io-console-0.5.6-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh rubygem-irb-1.2.6-138.module+el8.6.0+16148+54b2ba8f.noarch.rpm
+sudo rpm -ivh rubygem-json-2.3.0-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh rubygem-openssl-2.1.3-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh rubygem-psych-3.1.0-138.module+el8.6.0+16148+54b2ba8f.x86_64.rpm
+sudo rpm -ivh rubygem-rdoc-6.2.1.1-138.module+el8.6.0+16148+54b2ba8f.noarch.rpm
+sudo rpm -ivh rubygem-bundler-2.2.24-138.module+el8.6.0+16148+54b2ba8f.noarch.rpm
+ruby --version
+```
+
+## 3. install go
+```bash
+sudo dnf clean all
+sudo dnf install --disablerepo=\* --enablerepo=local-repo golang*
+go --version
+```
+
+## 4. install nodejs
+```bash
+sudo dnf install --disablerepo=\* --enablerepo=local-repo nodejs
+nodejs --version
+```
