@@ -25,3 +25,9 @@
   `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 1. ed25519 타입 키 생성  
   `ssh-keygen -t ed25519 -C "your_email@example.com""`
+
+### 서버에 키 공유하여 로그인 없이 접근할 수 있도록 하기
+```bash
+ssh-keygen -t rsa -b 4096 -C "account@url or ip" # 소스 서버
+ssh-copy-id remote_username@server_ip_address # remote = 타겟 서버
+```

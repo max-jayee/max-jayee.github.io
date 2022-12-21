@@ -108,6 +108,12 @@
     # 값 바꿀땐 sudo systemctl daemon-reload
     ```
 
+7. 배포 타겟 서버에 전자서명 키 공유
+    ```bash
+    ssh-keygen -t rsa -b 4096 -C "account@url or ip" # in jenkins 서버
+    ssh-copy-id remote_username@server_ip_address # in jenkins 서버, remote = 타겟 서버
+    ```
+
 #### CentOS 8
 1. Java 설치 (Jenkins 는 war 로 java 로 구동함)
     ```bash

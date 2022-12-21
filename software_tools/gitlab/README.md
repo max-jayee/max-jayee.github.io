@@ -69,4 +69,9 @@ sudo gitlab-ctl reconfigure
 
 # more gitlab configure - https://docs.gitlab.com/omnibus/settings/
 
+open a browser and request ${external_url}
+# id: root
+# pw: /etc/gitlab/initial_root_password 
+# notice: 패스워드는 24시간 후에 사라짐
+
 ```
