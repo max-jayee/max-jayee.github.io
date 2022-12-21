@@ -13,4 +13,5 @@
 | :---: | --- | --- | --- |
 | 1 | [ssh-keygen](./ssh_keygen "https://home-max.github.io/software_tools/ssh_keygen") | 암호키를 관리하는 도구 | [Official Web Site](https://linux.die.net/man/1/ssh-keygen "https://linux.die.net/man/1/ssh-keygen") |
 | 2 | [Visual Studio Code](./visual_studio_code "https://home-max.github.io/software_tools/visual_studio_code") | 코드 & 문서 등을 편리하게 작성할 수 있도록 지원하는 IDE(Integration Development Environment) 도구 | [Official Web Site](https://code.visualstudio.com "https://code.visualstudio.com") |
-| 3 | [Jenkins](./jenkins "https://home-max.github.io/software_tools/jenkins") | 프로젝트 별로 CI/CD 환경을 구성할 때 파이프라인을 지원하는 도구 | [Official Web Site](https://www.jenkins.io "https://www.jenkins.io") |
+| 3 | [Gitlab](./gitlab "https://home-max.github.io/software_tools/gitlab") | 소스 형상관리나 CI/CD 파이프라인을 지원하는 도구 | [Official Web Site](https://about.gitlab.com "https://about.gitlab.com") |
+| 4 | [Jenkins](./jenkins "https://home-max.github.io/software_tools/jenkins") | 프로젝트 별로 CI/CD 환경을 구성할 때 파이프라인을 지원하는 도구 | [Official Web Site](https://www.jenkins.io "https://www.jenkins.io") |
