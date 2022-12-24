@@ -135,13 +135,34 @@
     cd jenkins
     wget https://get.jenkins.io/war-stable/2.346.1/jenkins.war # ref: https://get.jenkins.io/war-stable/
     ```
-3. Jenkins 실행
+3. 방화벽 확인 및 방화벽 개방
+    ```bash
+    sudo netstat -anp | grep LISTEN # or sudo netstat -anp | grep 8080
+    sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+    sudo firewall-cmd --reload
+    ```
+4. 계정 설정
+    ```bash
+    sudo groupadd -g 300 appadm # check cat /etc/group
+    sudo useradd -u 301 -g appadm jenkins # check cat /etc/passwd
+    sudo passwd jenkins
+    sudo mkdir /app && sudo mkdir /app/jenkins # + sudo mv jenkins.war /app/jenkins/
+    sudo chown jenkins:appadm /app/jenkins/jenkins.war
+    sudo chown jenkins:appadm /app/jenkins
+    su jenkins
+    vi ~/.bashrc
+    # ---------- ~/.bashrc
+    ...
+    export $JENKINS_HOME=/app/jenkins
+    # ----------
+    ```
+5. Jenkins 실행
     ```bash
     java -jar jenkins.war
     #Open up your browser and type localhost:8080 url
     #Copy and Insert the password (ex: cat ~/.jenkins/secrets/initialAdminPassword)
     ```
-4. System service 등록 (데몬으로 실행하기 위함)
+6. System service 등록 (데몬으로 실행하기 위함)
     ```bash
     sudo vi /etc/systemd/system/jenkins.service
     # ---------- /etc/systemd/system/jenkins.service
@@ -169,4 +190,9 @@
     chmod +x ~/jenkins-daemon.sh
     sudo systemctl enable --now jenkins.service
     sudo systemctl status jenkins.service
+    ```
+7. 배포 타겟 서버에 전자서명 키 공유
+    ```bash
+    ssh-keygen -t rsa -b 4096 -C "account@url or ip" # in jenkins 서버
+    ssh-copy-id remote_username@server_ip_address # in jenkins 서버, remote = 타겟 서버
     ```
