@@ -6,7 +6,7 @@
 
 # 로컬 리파지토리 구성
 ## 설명
-RPM(Redhat Package Manager) 의존성을 유지하며 패키지를 설치하는 방법 중 대표적으로 mirror repository 를 구성하여 사용하는 것으로, 폐쇄망(private)에서 의존성을 유지하며 패키지를 구성할 때 용이하게 사용할 수 있다.
+RPM(Redhat Package Manager) 의존성을 유지하며 패키지를 설치하는 방법 중 대표적으로 mirror repository 를 구성하여 사용하는 것으로, 폐쇄망(private)에서 의존성을 유지하며 패키지를 구성할 때 용이하게 사용할 수 있습니다.
 
 ## 방법
 0. mirror repository 에 구성할 rpm 패키지 파일 설치
