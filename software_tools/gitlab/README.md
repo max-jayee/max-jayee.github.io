@@ -53,7 +53,7 @@ Project 형상관리와 CI/CD 파이프라인을 지원하는 도구로, 프라�
     ```
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
-#### CentOS 8
+#### CentOS 8 (https://docs.gitlab.com/ee/install/installation.html)
 1. 기본 개발 도구 설치
     ```bash
     createrepo --database local-repo
