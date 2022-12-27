@@ -103,7 +103,7 @@ done <$files
 `` 변수=`command` ``
 
 #### 특정 파일이 실행되고 있는 프로세스 죽이기
-`` kill -9 `ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'` ``{:.bash}
+`` kill -9 `ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'` ``
 
 
 
