@@ -86,3 +86,24 @@ do
     curl -v -u ${username}:${password} --upload-file ${i} "${nexusurl}${i}"
 done <$files
 ```
+
+#### cut 명령어
+`cut -c 5-7` 맨 첫글짜가 1이고 5-7 번째 문자만 자르기
+
+#### 소문자로 모두 바꾸기
+`awk '{print tolower(0)}'`
+
+#### 행 문자 바꾸기
+`sed 's/_/-/g'`
+
+#### 현재 위치에서 절대 경로 얻기
+`pwd -P`
+
+#### 결과값 shell 에서 받기
+`` 변수=`command` ``
+
+#### 특정 파일이 실행되고 있는 프로세스 죽이기
+`` kill -9 `ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'` ``{:.bash}
+
+
+
