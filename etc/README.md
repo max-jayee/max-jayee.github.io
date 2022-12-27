@@ -105,5 +105,31 @@ done <$files
 #### 특정 파일이 실행되고 있는 프로세스 죽이기
 `` kill -9 `ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'` ``
 
+#### 패스워드 없이 git clone (ssh key)
+```bash
+# 1. Register SSH Key to git repository(github, gitlab etc..)
+# 2. git clone (ex. github)
+git clone git@github.com-${github id}:${username}/${repo name}.git
+```
 
+#### 패스워드 없이 git clone (http(s))
+```bash
+git clone http(s)://${id}:${password / access token}@${server uri}/${username / repo group}/${repo name}.git
+```
 
+#### 다수의 ssh key 관리
+```bash
+vi ~/.ssh/config
+########## ~/.ssh/config
+Host my-private-server # alias
+    Hostname 192.168.0.1 # real ip or dns
+    User user1 # (optional) user account 
+    Port 22 # (optional) connecting port
+    IdentityFile ~/.ssh/aws-key.pem # using identity file path + file name
+Host my-private-server2 # alias
+    Hostname 192.168.0.1 # real ip or dns
+    ...
+    IdentityFile ~/.ssh/aws-key2.pem # using identity file path + file name
+##########
+```
+⭐️Tip: SSH config 파일은 다른 사용자가 사용할 수 있으면 보안상 문제의 요지가 됨으로 권한은 조절하는 것이 좋다. `chmod 400 ~/.ssh/config`
