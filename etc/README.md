@@ -133,34 +133,3 @@ Host my-private-server2 # alias
 ##########
 ```
 ⭐️Tip: SSH config 파일은 다른 사용자가 사용할 수 있으면 보안상 문제의 요지가 됨으로 권한은 조절하는 것이 좋다. `chmod 400 ~/.ssh/config`
-
-#### 테이블 정렬 테스트
-
-```json:table
-{
-  "fields": [
-    {"key":"a","label":"aa","sortable":true},
-    {"key":"b","label":"bb","sortable":true},
-    {"key":"c","label":"cc","sortable":true}
-  ],
-  "items": [
-    {"a":"aaa1","b":"bbb1","c":"ccc1"},
-    {"a":"aaa2","b":"bbb2","c":"ccc2"}
-  ],
-  "filter": true
-}
-```
-
-```json:table
-{
-    "fields" : [
-        {"key": "a", "label": "AA", "sortable": true},
-        {"key": "b", "label": "BB"},
-        {"key": "c", "label": "CC"}
-    ],
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"},
-      {"a": "211", "b": "222", "c": "233"}
-    ]
-}
-```

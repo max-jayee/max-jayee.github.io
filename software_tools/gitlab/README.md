@@ -4,123 +4,13 @@
 
 # [맥쓰네 블로그](/ "https://home-max.github.io")
 
-# Gitlab
-## 설명
+# Gitlab 도구 정보
 Project 형상관리와 CI/CD 파이프라인을 지원하는 도구로, 프라이빗으로 구성하기 편하고 무료로 제공되는 서비스 케파가 다른 서비스보다 커서 많은 이들의 관심을 받고 있는 소프트웨어입니다.
 본 설명은 무료 버전인 ce(community edition) 버전을 기준으로 작성하였습니다.
 
-## 설치 방법
-**설치 과정**
-1. 기본 개발 도구 설치
-2. 방화벽 개방
-3. Gitlab 설치 (community edition(무료), enterprise edition(유료) 두가지 버전이 존재)
-4. Gitlab 초기 설정
+## Gitlab 관련 정보
 
-### Public 환경 (인터넷을 사용 할 수 있는 상황)
-#### CentOS 8 (https://about.gitlab.com/install/)
-1. 기본 개발 도구 설치
-    ```bash
-    sudo yum install -y curl policycoreutils-python-utils openssh-server perl postfix
-    sudo systemctl enable sshd
-    sudo systemctl start sshd
-    sudo systemctl enable postfix
-    sudo systemctl start postfix
-    ```
-2. 방화벽 개방
-    ```bash
-    sudo firewall-cmd --permanent --add-service=http
-    sudo firewall-cmd --permanent --add-service=https
-    sudo systemctl reload firewalld
-    ```
-3. Gitlab 설치 - ce 버전
-    ```bash
-    curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
-    sudo yum install -y gitlab-ce
-    ```
-4. Gitlab 초기 설정
-    ```bash
-    sudo vi /etc/gitlab/gitlab.rb
-    #---------- /etc/gitlab/gitlab.rb
-    ...
-    external_url 'http://${GITLAB_DASHBOARD_URL}'
-    ...
-    #----------
-    sudo gitlab-ctl reconfigure
-    open a browser and request ${external_url}
-    # id: root
-    # pw: /etc/gitlab/initial_root_password 
-    # notice: 패스워드는 24시간 후에 사라짐
-    ```
-
-### Private 환경 (인터넷을 사용 할 수 없는 상황)
-#### CentOS 8 (https://docs.gitlab.com/ee/install/installation.html)
-1. 기본 개발 도구 설치
-    ```bash
-    createrepo --database local-repo
-    sudo yum repolist # check added the local-repo in list
-    (optional) sudo dnf install postfix
-    
-    sudo dnf groupinstall 'Development Tools'
-    perl -V # 15 revision 5 version 26 subversion 3
-    git --version # 2.31.1 -> 2.37.x
-    g++ --version # 8.5.0
-    autoconf --version # 2.69
-    java -version # openjdk 1.8.0_352
-
-    sudo dnf install golang
-    # ---------- Trouble Shooting
-    RPM: error: db5 error(-30969) from dbenv->open: BDB0091 DB_VERSION_MISMATCH: Database environment version mismatch
-    RPM: error: cannot open Packages index using db5 – (-30969)
-    RPM: error: cannot open Packages database in /var/lib/rpm
-    The downloaded packages were saved in cache until the next successful transaction.
-
-    cd /var/lib/rpm
-    rm -rf __db.*
-    rpm --rebuilddb
-    # ----------
-    go version # 1.18.4
-
-    sudo dnf install @ruby:2.7
-    ruby --version # 2.7.6
-
-    sudo dnf install @nodejs:16
-    node --version # 16.18.1
-
-    #TODO yarn install
-    sudo dnf install @postgresql:13
-    psql --version # 13.7
-
-    sudo dnf install @redis:6
-    redis-cli --version # 6.2.7
-
-    sudo dnf install perl-libs
-    ```
-
-2. 방화벽 개방
-    ```bash
-    sudo netstat -anp | grep LISTEN # or sudo netstat -anp | grep 80
-    sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
-    sudo firewall-cmd --reload
-    ```
-3. Gitlab 설치 - ce 버전
-    ```bash
-    sudo dnf clean all
-    sudo dnf install --disablerepo=\* --enablerepo=local-repo gitlab-ce
-    ```
-4. Gitlab 초기 설정
-    ```bash
-    sudo vi /etc/gitlab/gitlab.rb
-    #---------- /etc/gitlab/gitlab.rb
-    ...
-    external_url 'http://${GITLAB_DASHBOARD_URL}'
-    ...
-    #----------
-    sudo gitlab-ctl reconfigure
-
-    # more gitlab configure - https://docs.gitlab.com/omnibus/settings/
-
-    open a browser and request ${external_url}
-    # id: root
-    # pw: /etc/gitlab/initial_root_password 
-    # notice: 패스워드는 24시간 후에 사라짐
-    ```
+| No. | 도구 명 | 요약 | 비고 |
+| :---: | --- | --- | --- |
+| 1 | [설치 방법](./installation "https://home-max.github.io/software_tools/gitlab/installation") | 다양한 환경에서 Gitlab 을 설치하는 방법 | [Official Web Site](https://about.gitlab.com/install/ "https://about.gitlab.com/install/") |
+| 2 | [권한관리](./permissions "https://home-max.github.io/software_tools/gitlab/permissions") | Gitlab 에서의 권한 관리 정보 | [Official Web Site](https://docs.gitlab.com/ee/user/permissions.html "https://docs.gitlab.com/ee/user/permissions.html") |
