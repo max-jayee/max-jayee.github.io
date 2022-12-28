@@ -25,3 +25,4 @@ Visual Studio 를 사용하며 어떠한 이유(궁금하거나, 사용하기 �
 1. 열고있는 파일 닫기 : `cmd + w`
 1. 새로운 터미널 생성하기 : ``ctrl + shift + ` ``
 1. Markdown 미리보기를 측면에 생성 : `` cmd + k, v ``
+1. 파일 자동 정렬 : ` alt + shift + f `
