@@ -1,6 +1,11 @@
 <style type="text/css">
   @import url("/css/style-header.css");
 </style>
+<link rel="import" href="/README.md"/> 
+<div data-include-path="/README.md"></div>
+<script src="/README.md"></script>
+
+
 
 # [맥쓰네 블로그](https://home-max.github.io "https://home-max.github.io")
 여긴 낙서장 같은 곳
@@ -120,7 +125,7 @@ git clone http(s)://${id}:${password / access token}@${server uri}/${username / 
 #### 다수의 ssh key 관리
 ```bash
 vi ~/.ssh/config
-########## ~/.ssh/config
+# ---------- ~/.ssh/config
 Host my-private-server # alias
     Hostname 192.168.0.1 # real ip or dns
     User user1 # (optional) user account 
@@ -130,6 +135,22 @@ Host my-private-server2 # alias
     Hostname 192.168.0.1 # real ip or dns
     ...
     IdentityFile ~/.ssh/aws-key2.pem # using identity file path + file name
-##########
+# ----------
 ```
 ⭐️Tip: SSH config 파일은 다른 사용자가 사용할 수 있으면 보안상 문제의 요지가 됨으로 권한은 조절하는 것이 좋다. `chmod 400 ~/.ssh/config`
+
+#### javascript 테스트
+
+
+
+|a|b|
+|---|---|
+|a|b|
+|a1|b1|
+
+<button onclick="javascript:btn()"> 버튼 </button>
+<script>
+function btn(){
+    alert('버튼이 클릭되었습니다');
+}
+</script>
