@@ -4,8 +4,13 @@
 <link rel="import" href="/README.md"/> 
 <div data-include-path="/README.md"></div>
 <script src="/README.md"></script>
-
-
+<script src="jquery.js"></script> 
+<script> 
+  $(function(){
+    $("#includedContent").load("/README.md"); 
+  });
+</script> 
+<div id="includedContent"></div>
 
 # [맥쓰네 블로그](https://home-max.github.io "https://home-max.github.io")
 여긴 낙서장 같은 곳
