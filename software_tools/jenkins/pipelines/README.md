@@ -22,6 +22,7 @@ p2_build_sources() {
 
 p3_release_results() {
     ssh ${was_account}@${was_url} "${run_stop_was_script}"
+    ssh ${was_account}@${was_url} "mkdir -p ${target_server_path}"
     scp -r ${results} ${was_account}@${was_url}:${target_server_path}
 }
 
@@ -69,6 +70,7 @@ p3_release_results() {
 }
 
 p4_deploy_results() {
+    ssh ${web_account}@${web_url} "mkdir -p ${target_server_path}"
     scp -r ${results} ${web_account}@${web_url}:${target_server_path}
 }
 

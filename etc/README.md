@@ -144,6 +144,9 @@ Host my-private-server2 # alias
 ```
 ⭐️Tip: SSH config 파일은 다른 사용자가 사용할 수 있으면 보안상 문제의 요지가 됨으로 권한은 조절하는 것이 좋다. `chmod 400 ~/.ssh/config`
 
+#### 방화벽 확인 centos 8
+sudo firewall-cmd --list-ports
+
 #### javascript 테스트
 
 
