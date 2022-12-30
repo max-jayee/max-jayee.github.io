@@ -4,9 +4,9 @@
 
 # [맥쓰네 블로그](/ "https://home-max.github.io")
 
-# Visual Studio 단축키 모음
+# Visual Studio Code 단축키 모음
 ## 설명
-Visual Studio 를 사용하며 어떠한 이유(궁금하거나, 사용하기 위해서 등)에서 한 번이라도 알아보았던 기본 단축키들에 대해 정리합니다.
+Visual Studio Code 를 사용하며 어떠한 이유(궁금하거나, 사용하기 위해서 등)에서 한 번이라도 알아보았던 기본 단축키들에 대해 정리합니다.
 
 ## 단축키 목록
 ### MacOS 전용 키보드 매핑
