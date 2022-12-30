@@ -4,12 +4,12 @@
 
 # [맥쓰네 블로그](/ "https://home-max.github.io")
 
-# Visual Studio Code 문제&해결 모음
+# Spring Tool Suite 문제&해결 모음
 ## 설명
-VSCode(Visual Studio Code) 를 사용하며 어떠한 이유(궁금하거나, 문제를 마주하거나 등)에서 한 번이라도 알아보았던 문제와 문제에 대한 해결 방안들에 대해 정리합니다.
+STS(Spring Tool Suite) 를 사용하며 어떠한 이유(궁금하거나, 문제를 마주하거나 등)에서 한 번이라도 알아보았던 문제와 문제에 대한 해결 방안들에 대해 정리합니다.
 
 ## 문제&해결 목록
 
 | No. | 상황 | 원인 | 해결방안 | 비고 |
 | :---: | --- | --- | --- | --- |
-| 1 | 한글을 입력하는 중 종종 문자가 먹히는 경우 | 도구 자체의 표시하는 언어가 한글로 설정되어 있지않아 제대로 표현되지 않은 것입니다. | 명령어 실행 단축키 (`cmd + shift + p`) 를 이용하여 Configuration Display Language 를 실행하고 ko(한국어) 로 설정한 후, 프로그램을 재부팅 합니다. | Mac 용 VSCode 에서 주로 발생한다. |
+| 1 | gradle project 를 git 에서 import 했는데 gradle 프로젝트가 적용 안 될 때 | 프로젝트 import 시 그냥 java 프로젝트로 import 되어 gradle 화 시켜주어야한다. | 프로젝트 마우스 우클릭 -> Configure -> Add Gradle Nature 을 선택하여 gradle 화 시켜준다. | |
