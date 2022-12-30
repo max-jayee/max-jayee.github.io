@@ -162,3 +162,6 @@ function btn(){
     alert('버튼이 클릭되었습니다');
 }
 </script>
+
+#### windows 특정 프로세스 킬
+https://seomile.tistory.com/91
