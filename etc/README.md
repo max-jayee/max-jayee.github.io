@@ -5,7 +5,16 @@
 <link rel="preload" type="text/markdown" href="/README.md">
 <link rel="prev" type="text/markdown" href="/README.md">
 
-# [맥쓰네 블로그](/ "https://max-jayee.github.io")
+<div class="sticky-top bg-white pb-2">
+<h1> <a href="/">맥쓰네 블로그</a> </h1>
+
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools">Software Tools</a>
+</h5>
+</div>
+
 여긴 낙서장 같은 곳
 
 첫번째 파라미터에 해당하는 파일의 절대 경로 : `SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"`
