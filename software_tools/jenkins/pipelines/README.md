@@ -8,7 +8,14 @@
 ## 설명
 다양한 파이프라인을 구성하는 예시를 공유합니다.
 
-## WAS 배포 (only jenkins)
+## groovy script
+### WAS 빌드/배포
+<!-- TODO: 스크립트 추가 -->
+### WEB 빌드/배포
+<!-- TODO: 스크립트 추가 -->
+
+## shell script
+### WAS 빌드/배포
 ```bash
 p1_download_sources() {
     # ex. git
@@ -35,6 +42,8 @@ cleanup() {
 }
 
 main() {
+cleanup
+
 # P-1. download sources.
 p1_download_sources
 
@@ -53,7 +62,7 @@ cleanup
 main
 ```
 
-## WEB 배포 (only jenkins)
+### WEB 빌드/배포
 ```bash
 p1_download_sources() {
     # ex. git
@@ -79,6 +88,8 @@ cleanup() {
 }
 
 main() {
+cleanup
+
 # P-1. download sources.
 p1_download_sources
 

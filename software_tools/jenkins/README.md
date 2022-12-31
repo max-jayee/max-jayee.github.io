@@ -11,6 +11,6 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [설치 방법](./installation "https://home-max.github.io/software_tools/jenkins/installation") | 다양한 환경에서 Jenkins 를 설치하는 방법 | [Official Web Site](https://www.jenkins.io/doc/book/installing/ "https://www.jenkins.io/doc/book/installing/") |
+| 1 | [설치 방법](./installation "https://home-max.github.io/software_tools/jenkins/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://www.jenkins.io/doc/book/installing/ "https://www.jenkins.io/doc/book/installing/") |
 | 2 | [환경변수](./environments "https://home-max.github.io/software_tools/jenkins/environments") | Jenkins job 을 실행할 때 사용할 수 있는 환경변수 | [Official Web Site](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project "https://wiki.jenkins.io/display/JENKINS/Building+a+software+project") |
 | 3 | [파이프라인 예시](./pipelines "https://home-max.github.io/software_tools/jenkins/installation") | 빌드 / 배포를 위한 파이프라인 예제 | |

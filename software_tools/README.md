@@ -16,3 +16,11 @@
 | 3 | [Spring Tool Suite](./spring_tool_suite "https://home-max.github.io/software_tools/spring_tool_suite") | 코드 등을 편리하게 작성할 수 있도록 지원하는 IDE(Integration Development Environment) 도구 | [Official Web Site](https://spring.io/tools "https://spring.io/tools") |
 | 4 | [Gitlab](./gitlab "https://home-max.github.io/software_tools/gitlab") | 소스 형상관리나 CI/CD 파이프라인을 지원하는 도구 | [Official Web Site](https://about.gitlab.com "https://about.gitlab.com") |
 | 5 | [Jenkins](./jenkins "https://home-max.github.io/software_tools/jenkins") | 프로젝트 별로 CI/CD 환경을 구성할 때 파이프라인을 지원하는 도구 | [Official Web Site](https://www.jenkins.io "https://www.jenkins.io") |
+<!-- TODO: rpm -->
+<!-- TODO: nexus -->
+<!-- TODO: nginx -->
+<!-- TODO: apt -->
+<!-- TODO: dnf -->
+<!-- TODO: awk -->
+<!-- TODO: sed -->
+<!-- TODO: intellij -->

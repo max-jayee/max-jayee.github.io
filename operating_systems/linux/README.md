@@ -14,4 +14,4 @@ Linus Tovalds 가 개발한 오픈소스 운영체제로 많은 서버의 운영
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [권한 관리](./permissions "https://home-max.github.io/operating_systems/linux/permissions") | 파일, 사용자의 권한 관리를 하는 방법 | |
+| 1 | [권한 관리](./permissions "https://home-max.github.io/operating_systems/linux/permissions") | 권한 관리 정보 | |

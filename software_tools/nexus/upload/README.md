@@ -4,6 +4,8 @@
 
 # [맥쓰네 블로그](/ "https://home-max.github.io")
 
+<!-- TODO: nexus upload 추가 -->
+
 # Jenkins 파이프라인 예시
 ## 설명
 다양한 파이프라인을 구성하는 예시를 공유합니다.
