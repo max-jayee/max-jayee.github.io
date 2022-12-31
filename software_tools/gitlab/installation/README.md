@@ -85,7 +85,6 @@
     sudo dnf install @nodejs:16
     node --version # 16.18.1
 
-    #TODO yarn install
     sudo dnf install @postgresql:13
     psql --version # 13.7
 
