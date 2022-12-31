@@ -10,7 +10,7 @@
 >
 <a href="/operating_systems/centos/">CentOS</a>
 >
-<a href="/operating_systems/configuration/">Configuration</a>
+<a href="/operating_systems/centos/configuration/">Configuration</a>
 >
 </h5>
 </div>
