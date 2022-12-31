@@ -16,9 +16,9 @@
 
 | No. | 종류 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [Linux](./linux "https://max-jayee.github.io/operating_systems/linux") | Linus Tovalds 가 개발하고 maintainer 로 활동하는 운영체제 | [Official Web Site](https://www.linux.org/ "https://www.linux.org/") |
-| 2 | [MacOS](./macos "https://max-jayee.github.io/operating_systems/macos") | Apple 사(🍎)에서 관리중인 MacOS | [Official Web Site](https://support.apple.com/macos "https://support.apple.com/macos") |
-| 3 | [CentOS](./centos "https://max-jayee.github.io/operating_systems/centos") | Redhat 사에서 관리중인 CentOS | [Official Web Site](https://www.centos.org "https://www.centos.org") |
+| 1 | [Linux](./linux/ "https://max-jayee.github.io/operating_systems/linux") | Linus Tovalds 가 개발하고 maintainer 로 활동하는 운영체제 | [Official Web Site](https://www.linux.org/ "https://www.linux.org/") |
+| 2 | [MacOS](./macos/ "https://max-jayee.github.io/operating_systems/macos") | Apple 사(🍎)에서 관리중인 MacOS | [Official Web Site](https://support.apple.com/macos "https://support.apple.com/macos") |
+| 3 | [CentOS](./centos/ "https://max-jayee.github.io/operating_systems/centos") | Redhat 사에서 관리중인 CentOS | [Official Web Site](https://www.centos.org "https://www.centos.org") |
 
 <!-- TODO: computing systems -->
 <!-- TODO: windows -->

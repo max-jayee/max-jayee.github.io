@@ -6,11 +6,11 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/operating_systems">Operating Systems</a>
+<a href="/operating_systems/">Operating Systems</a>
 >
-<a href="/operating_systems/centos">CentOS</a>
+<a href="/operating_systems/centos/">CentOS</a>
 >
-<a href="/operating_systems/configuration">Configuration</a>
+<a href="/operating_systems/configuration/">Configuration</a>
 >
 </h5>
 </div>

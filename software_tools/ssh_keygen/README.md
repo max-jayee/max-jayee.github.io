@@ -6,7 +6,7 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/software_tools">Software Tools</a>
+<a href="/software_tools/">Software Tools</a>
 >
 </h5>
 </div>

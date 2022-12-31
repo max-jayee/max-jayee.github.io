@@ -6,7 +6,7 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/operating_systems">Operating Systems</a>
+<a href="/operating_systems/">Operating Systems</a>
 >
 </h5>
 </div>
@@ -21,4 +21,4 @@ Linus Tovalds 가 개발한 오픈소스 운영체제로 많은 서버의 운영
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [권한 관리](./permissions "https://max-jayee.github.io/operating_systems/linux/permissions") | 권한 관리 정보 | |
+| 1 | [권한 관리](./permissions/ "https://max-jayee.github.io/operating_systems/linux/permissions") | 권한 관리 정보 | |

@@ -6,9 +6,9 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/software_tools">Software Tools</a>
+<a href="/software_tools/">Software Tools</a>
 >
-<a href="/software_tools/jenkins">Jenkins</a>
+<a href="/software_tools/jenkins/">Jenkins</a>
 >
 </h5>
 </div>
@@ -52,7 +52,7 @@
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
 #### CentOS 8 - rpm + source (권장)
-1. 설치할 rpm, source 는 반입되어있다고 가정하고 local repository 를 구성 ([CentOS 로컬 리파지토리 구성 참고](/operating_systems/centos/configuration/local_repository "https://max-jayee.github.io/operating_systems/centos/configuration/local_repository"))
+1. 설치할 rpm, source 는 반입되어있다고 가정하고 local repository 를 구성 ([CentOS 로컬 리파지토리 구성 참고](/operating_systems/centos/configuration/local_repository/ "https://max-jayee.github.io/operating_systems/centos/configuration/local_repository"))
 
 2. openjdk 1.8.0 & fontconfig 설치
     ```bash

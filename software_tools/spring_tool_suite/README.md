@@ -6,7 +6,7 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/software_tools">Software Tools</a>
+<a href="/software_tools/">Software Tools</a>
 >
 </h5>
 </div>
@@ -20,6 +20,6 @@ Spring Tool Suite 를 사용하며 유용하게 사용하는 단축키, 문제 �
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [단축키](./shortcuts "https://max-jayee.github.io/software_tools/spring_tool_suite/shortcuts") | 궁금하거나 사용하기위해 한번이라도 알아본 기본 단축키 모음 | |
-| 2 | [도구 설정](./settings "https://max-jayee.github.io/software_tools/spring_tool_suite/settings") | 도구 설정 정보 | |
-| 3 | [문제해결](./trouble_shooting "https://max-jayee.github.io/software_tools/spring_tool_suite/trouble_shooting") | 사용중 문제가 발생하여 해결한 경우들의 모음 | |
+| 1 | [단축키](./shortcuts/ "https://max-jayee.github.io/software_tools/spring_tool_suite/shortcuts") | 궁금하거나 사용하기위해 한번이라도 알아본 기본 단축키 모음 | |
+| 2 | [도구 설정](./settings/ "https://max-jayee.github.io/software_tools/spring_tool_suite/settings") | 도구 설정 정보 | |
+| 3 | [문제해결](./trouble_shooting/ "https://max-jayee.github.io/software_tools/spring_tool_suite/trouble_shooting") | 사용중 문제가 발생하여 해결한 경우들의 모음 | |

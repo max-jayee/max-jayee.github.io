@@ -6,7 +6,7 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/software_tools">Software Tools</a>
+<a href="/software_tools/">Software Tools</a>
 >
 </h5>
 </div>
@@ -18,5 +18,5 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [설치 방법](./installation "https://max-jayee.github.io/software_tools/nginx/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://nginx.org/en/docs/install.html "https://nginx.org/en/docs/install.html") |
-| 2 | [도구 설정](./settings "https://max-jayee.github.io/software_tools/nginx/settings") | 도구 설정 정보 | |
+| 1 | [설치 방법](./installation/ "https://max-jayee.github.io/software_tools/nginx/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://nginx.org/en/docs/install.html "https://nginx.org/en/docs/install.html") |
+| 2 | [도구 설정](./settings/ "https://max-jayee.github.io/software_tools/nginx/settings") | 도구 설정 정보 | |

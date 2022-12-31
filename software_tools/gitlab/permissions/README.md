@@ -6,9 +6,9 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/software_tools">Software Tools</a>
+<a href="/software_tools/">Software Tools</a>
 >
-<a href="/software_tools/gitlab">Gitlab</a>
+<a href="/software_tools/gitlab/">Gitlab</a>
 >
 </h5>
 </div>

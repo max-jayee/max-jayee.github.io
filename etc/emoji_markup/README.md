@@ -6,7 +6,7 @@
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
-<a href="/etc">ETC</a>
+<a href="/etc/">ETC</a>
 >
 </h5>
 </div>
