@@ -162,5 +162,27 @@ function btn(){
 }
 </script>
 
+<div class="container text-center">
+  <div class="row">
+    <div class="col-4">col-4</div>
+    <div class="col-8">
+
+    ddasdfasdfasd
+    dd
+    ```bash
+    while read i;
+    do
+    echo "upload ${i} to ${nexusurl}"
+    curl -v -u ${username}:${password} --upload-file ${i} "${nexusurl}${i}"
+    done <$files
+    ```
+    dd`as`dd
+    *abd*
+    dd
+
+    </div>
+  </div>
+</div>
+
 #### windows 특정 프로세스 킬
 https://seomile.tistory.com/91
