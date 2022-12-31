@@ -2,7 +2,7 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+# [맥쓰네 블로그](/ "https://max-jayee.github.io")
 
 # Linux
 ## 설명
@@ -14,4 +14,4 @@ Linus Tovalds 가 개발한 오픈소스 운영체제로 많은 서버의 운영
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [권한 관리](./permissions "https://home-max.github.io/operating_systems/linux/permissions") | 권한 관리 정보 | |
+| 1 | [권한 관리](./permissions "https://max-jayee.github.io/operating_systems/linux/permissions") | 권한 관리 정보 | |

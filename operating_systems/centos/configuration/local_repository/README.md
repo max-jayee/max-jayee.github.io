@@ -2,7 +2,7 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+# [맥쓰네 블로그](/ "https://max-jayee.github.io")
 
 # 로컬 리파지토리 구성
 ## 설명

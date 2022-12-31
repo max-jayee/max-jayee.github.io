@@ -2,7 +2,7 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+# [맥쓰네 블로그](/ "https://max-jayee.github.io")
 
 <!-- TODO: nexus upload 추가 -->
 

@@ -2,15 +2,15 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](https://home-max.github.io "https://home-max.github.io")
+# [맥쓰네 블로그](https://max-jayee.github.io "https://max-jayee.github.io")
 맥쓰네 블로그 입니덩~~ 🎉
 
 좋은 하루 되세요 ~ 😁
 
 # Index of this blog
 
-1. [Software Tools](./software_tools "https://home-max.github.io/software_tools")
-1. [Operating Systems](./operating_systems "https://home-max.github.io/operating_systems")
+1. [Software Tools](./software_tools "https://max-jayee.github.io/software_tools")
+1. [Operating Systems](./operating_systems "https://max-jayee.github.io/operating_systems")
 <!-- TODO: problem solving -->
 <!-- TODO: programming language -->
 

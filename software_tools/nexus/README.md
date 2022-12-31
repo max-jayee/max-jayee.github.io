@@ -2,7 +2,7 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+# [맥쓰네 블로그](/ "https://max-jayee.github.io")
 
 # Nexus Repository
 ## 설명
@@ -12,5 +12,5 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [파일 업로드](./upload "https://home-max.github.io/software_tools/nexus/upload") | Nexus repository 에 파일을 업로드하는 방법 | |
-| 2 | [파일 다운로드](./download "https://home-max.github.io/software_tools/nexus/download") | Nexus repository 에서 파일을 다운로드하는 방법 | |
+| 1 | [파일 업로드](./upload "https://max-jayee.github.io/software_tools/nexus/upload") | Nexus repository 에 파일을 업로드하는 방법 | |
+| 2 | [파일 다운로드](./download "https://max-jayee.github.io/software_tools/nexus/download") | Nexus repository 에서 파일을 다운로드하는 방법 | |

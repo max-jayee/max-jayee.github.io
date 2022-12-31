@@ -2,7 +2,7 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+# [맥쓰네 블로그](/ "https://max-jayee.github.io")
 
 # CentOS 환경 구성 설정 페이지
 ## 설명
@@ -12,4 +12,4 @@ CentOS 를 사용하며 어떠한 이유(궁금하거나, 문제를 마주하거
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [로컬 리파지토리](./local_repository "https://home-max.github.io/operating_systems/centos/configuration/local_repository") | 로컬에 mirror repository 를 구성한다. | |
+| 1 | [로컬 리파지토리](./local_repository "https://max-jayee.github.io/operating_systems/centos/configuration/local_repository") | 로컬에 mirror repository 를 구성한다. | |
