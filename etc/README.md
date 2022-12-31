@@ -1,9 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/style-header.css"> -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<link rel="stylesheet" type="text/markdown" href="/README.md">
-<link rel="prefetch" type="text/markdown" href="/README.md">
-<link rel="preload" type="text/markdown" href="/README.md">
-<link rel="prev" type="text/markdown" href="/README.md">
 
 <div class="sticky-top bg-white pb-2">
 <h1> <a href="/">맥쓰네 블로그</a> </h1>
@@ -13,6 +9,7 @@
 <a href="/software_tools">Software Tools</a>
 </h5>
 </div>
+<hr>
 
 여긴 낙서장 같은 곳
 
