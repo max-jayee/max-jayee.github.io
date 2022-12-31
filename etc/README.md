@@ -1,9 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/style-header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<link rel="import" href="/README.md"/> 
-<div data-include-path="/README.md"></div>
-<script src="/README.md"></script>
-<script src="jquery.js"></script> 
+<link rel="stylesheet" type="text/markdown" href="/README.md">
+
 <script> 
   $(function(){
     $("#includedContent").load("/README.md"); 
@@ -165,7 +163,7 @@ function btn(){
 <div class="container text-center">
   <div class="row">
     <div class="col-4">col-4</div>
-    <div class="col-8">
+    <div class="col-8" >
 
     ddasdfasdfasd
     dd
