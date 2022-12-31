@@ -7,7 +7,6 @@
 
 <div class="sticky-top bg-white pb-2">
 <h1> <a href="/">맥쓰네 블로그</a> </h1>
-
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
