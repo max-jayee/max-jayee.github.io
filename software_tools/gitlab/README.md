@@ -1,7 +1,15 @@
 <link rel="stylesheet" type="text/css" href="/css/style-header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-# [맥쓰네 블로그](/ "https://max-jayee.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools">Software Tools</a>
+>
+</h5>
+</div>
 
 # Gitlab 도구 정보
 Project 형상관리와 CI/CD 파이프라인을 지원하는 도구로, 프라이빗으로 구성하기 편하고 무료로 제공되는 서비스 케파가 다른 서비스보다 커서 많은 이들의 관심을 받고 있는 소프트웨어입니다.

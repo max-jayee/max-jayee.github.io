@@ -1,7 +1,15 @@
 <link rel="stylesheet" type="text/css" href="/css/style-header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-# [맥쓰네 블로그](/ "https://max-jayee.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools">Software Tools</a>
+>
+</h5>
+</div>
 
 # Jenkins 도구 정보
 프로젝트 별로 CI/CD 환경을 구성할 때 파이프라인을 지원하는 도구로, 다양한 플러그인을 제공하여 손쉽게 파이프라인을 구성할 수 있도록 지원합니다.
