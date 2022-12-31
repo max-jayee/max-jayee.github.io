@@ -2,15 +2,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 <div class="sticky-top bg-white pb-2">
-<h1> <a href="/">맥쓰네 블로그</a> </h1>
+<h2> <a href="/">맥쓰네 블로그</a> </h1>
 <h5> 
 <a href="/">맥쓰네 블로그</a>
 >
 <a href="/software_tools">Software Tools</a>
 </h5>
 </div>
-<hr>
 
+# ETC
 여긴 낙서장 같은 곳
 
 첫번째 파라미터에 해당하는 파일의 절대 경로 : `SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"`
