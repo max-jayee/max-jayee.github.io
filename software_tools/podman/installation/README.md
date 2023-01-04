@@ -68,6 +68,7 @@ podman build -t openjdk-1.8.0:0.0.1 ./
 6. container 실행
 ```bash
 podman run -itd --name base openjdk-1.8.0:0.0.1
+#podman run -itd -p 9070:9070 --name base openjdk-1.8.0:0.0.1
 podman ps
 ```
 
@@ -97,3 +98,12 @@ insecure = true
 location = "localhost:5000"
 insecure = true
 ```
+
+1. Trouble Shooting
+```bash
+권한으로 인해 podman images 잘 안될때 /etc/subuid, /etc/subgid 에 계정 정보 추가
+rm -rf ~/.config/containers ~/.local/share/containers
+podman system migrate
+#podman unshare cat /proc/self/uid_map
+```
+

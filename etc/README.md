@@ -187,3 +187,23 @@ livenessProbe:
         port: 8080
       initialDelaySeconds: 5
       periodSeconds: 5
+
+#### TODO Dockerfile add, copy, run, cmd, env, arg 등..
+
+#### TODO jenkins 모든 빌드 히스토리 제거
+Script Console 이동
+Jenkins 관리 → Script Console 이동 후 아래 스크립트 수행
+
+모든 아이템의 빌드 히스토리 제거
+item = Jenkins.instance.getAllItems().each() { item ->
+  item.builds.each() { build ->
+    build.delete()
+  }
+  item.updateNextBuildNumber(1) 
+}
+특정 아이템의 빌드 히스토리 제거
+item = Jenkins.instance.getItemByFullName("jobname")
+item.builds.each() { build ->
+  build.delete()
+}
+item.updateNextBuildNumber(1)
