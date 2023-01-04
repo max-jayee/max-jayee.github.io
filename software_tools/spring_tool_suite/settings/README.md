@@ -22,8 +22,8 @@ STS 환경 설정은 SpringToolSuite4.ini 파일에서 수행할 수 있으며, 
 |-XX:MaxPermSize=512m |  class 로딩 최대 메모리 설정<br/> Out Of Memory <br/>Error가 자주 발생하면 이 부분을 늘려 해결할 수 있음 | 
 |-XX:NewSize=128m | JVM에서 새로운 객체 생성시 로딩되는 최소 메모리 설정 | 
 |-XX:MaxNewSize=128m | JVM에서 새로운 객체 생성시 로딩되는 최대 메모리 설정 | 
-|-Xms1024m | Heap 최소 메모리 설정 <br/> RAM 용량에 따른 적정설정<br/> 4GB~8GB - Xms512m <br/> 8GB 이상 - Xms1024m <br/> |
-|-Xmx2048 | Heap 최대 메모리 설정 <br/> RAM 용량에 따른 적정설정 <br/> 4GB 이하 - Xmx512m <br/> 4GB~8GB : Xmx1024m <br/> 16GB 이상 : Xmx2048m  <br/> |
+|-Xms1024m | Heap 최소 메모리 설정 <br/><br/> RAM 용량에 따른 적정설정<br/> 4GB~8GB - Xms512m <br/> 8GB 이상 - Xms1024m <br/> |
+|-Xmx2048 | Heap 최대 메모리 설정 <br/><br/> RAM 용량에 따른 적정설정 <br/> 4GB 이하 - Xmx512m <br/> 4GB~8GB : Xmx1024m <br/> 16GB 이상 : Xmx2048m  <br/> |
 
 ## 단축키 세팅
 
