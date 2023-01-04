@@ -1,14 +1,30 @@
-<style type="text/css">
-  @import url("/css/style-header.css");
-</style>
+<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools/">Software Tools</a>
+>
+<a href="/software_tools/jenkins/">Jenkins</a>
+>
+</h5>
+</div>
 
 # Jenkins 파이프라인 예시
 ## 설명
 다양한 파이프라인을 구성하는 예시를 공유합니다.
 
-## WAS 배포 (only jenkins)
+## groovy script
+### WAS 빌드/배포
+<!-- TODO: 스크립트 추가 -->
+### WEB 빌드/배포
+<!-- TODO: 스크립트 추가 -->
+
+## shell script
+### WAS 빌드/배포
 ```bash
 p1_download_sources() {
     # ex. git
@@ -35,6 +51,8 @@ cleanup() {
 }
 
 main() {
+cleanup
+
 # P-1. download sources.
 p1_download_sources
 
@@ -53,7 +71,7 @@ cleanup
 main
 ```
 
-## WEB 배포 (only jenkins)
+### WEB 빌드/배포
 ```bash
 p1_download_sources() {
     # ex. git
@@ -79,6 +97,8 @@ cleanup() {
 }
 
 main() {
+cleanup
+
 # P-1. download sources.
 p1_download_sources
 

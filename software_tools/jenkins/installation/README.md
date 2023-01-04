@@ -1,8 +1,17 @@
-<style type="text/css">
-  @import url("/css/style-header.css");
-</style>
+<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools/">Software Tools</a>
+>
+<a href="/software_tools/jenkins/">Jenkins</a>
+>
+</h5>
+</div>
 
 # Jenkins 설치 방법
 ## 설명
@@ -43,7 +52,7 @@
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
 #### CentOS 8 - rpm + source (권장)
-1. 설치할 rpm, source 는 반입되어있다고 가정하고 local repository 를 구성 ([CentOS 로컬 리파지토리 구성 참고](/operating_systems/centos/configuration/local_repository "https://home-max.github.io/operating_systems/centos/configuration/local_repository"))
+1. 설치할 rpm, source 는 반입되어있다고 가정하고 local repository 를 구성 ([CentOS 로컬 리파지토리 구성 참고](/operating_systems/centos/configuration/local_repository/ "https://max-jayee.github.io/operating_systems/centos/configuration/local_repository"))
 
 2. openjdk 1.8.0 & fontconfig 설치
     ```bash

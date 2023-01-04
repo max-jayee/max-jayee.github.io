@@ -1,8 +1,15 @@
-<style type="text/css">
-  @import url("/css/style-header.css");
-</style>
+<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-# [맥쓰네 블로그](/ "https://home-max.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools/">Software Tools</a>
+>
+</h5>
+</div>
 
 # Nexus Repository
 ## 설명
@@ -12,5 +19,5 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [파일 업로드](./upload "https://home-max.github.io/software_tools/nexus/upload") | Nexus repository 에 파일을 업로드하는 방법 | |
-| 2 | [파일 다운로드](./download "https://home-max.github.io/software_tools/nexus/download") | Nexus repository 에서 파일을 다운로드하는 방법 | |
+| 1 | [파일 업로드](./upload/ "https://max-jayee.github.io/software_tools/nexus/upload") | Nexus repository 에 파일을 업로드하는 방법 | |
+| 2 | [파일 다운로드](./download/ "https://max-jayee.github.io/software_tools/nexus/download") | Nexus repository 에서 파일을 다운로드하는 방법 | |

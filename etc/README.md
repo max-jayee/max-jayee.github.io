@@ -1,18 +1,15 @@
-<style type="text/css">
-  @import url("/css/style-header.css");
-</style>
-<link rel="import" href="/README.md"/> 
-<div data-include-path="/README.md"></div>
-<script src="/README.md"></script>
-<script src="jquery.js"></script> 
-<script> 
-  $(function(){
-    $("#includedContent").load("/README.md"); 
-  });
-</script> 
-<div id="includedContent"></div>
+<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-# [맥쓰네 블로그](https://home-max.github.io "https://home-max.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+</h5>
+</div>
+
+# ETC
 여긴 낙서장 같은 곳
 
 첫번째 파라미터에 해당하는 파일의 절대 경로 : `SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"`

@@ -1,1 +1,1 @@
-h1:first-of-type { display:none; }
+div.markdown-body > h1:first-of-type { display:none; }

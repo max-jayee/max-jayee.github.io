@@ -8,7 +8,7 @@
 >
 <a href="/software_tools/">Software Tools</a>
 >
-<a href="/software_tools/gitlab/">Gitlab</a>
+<a href="/software_tools/nginx/">Nginx</a>
 >
 </h5>
 </div>
