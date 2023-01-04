@@ -29,4 +29,6 @@
 <!-- TODO: dnf -->
 <!-- TODO: awk -->
 <!-- TODO: sed -->
+<!-- TODO: perl -->
+<!-- TODO: regexp -->
 <!-- TODO: intellij -->
