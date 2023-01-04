@@ -162,3 +162,28 @@ function btn(){
 
 #### windows 특정 프로세스 킬
 https://seomile.tistory.com/91
+
+
+#### TODO readinessProbe, livenessProbe
+readinessProbe: 서비스가 가능한 상태인지
+livenessProbe: 컨테이너가 살아있는지
+Command probe
+ livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+
+
+HTTP probe
+eadinessProbe:
+          httpGet:
+            path: /readiness
+            port: 8080
+
+TCP probe
+livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 5
