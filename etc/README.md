@@ -207,3 +207,10 @@ item.builds.each() { build ->
   build.delete()
 }
 item.updateNextBuildNumber(1)
+
+#### TODO: sts 에서 remote branch 추가하기
+git -> project 우클릭 -> Fetch from ... -> Configure -> Advanced... -> 'All Branches' or 'All Tags' 클릭해서 설정
+
+#### TODO: windows etc hosts 추가
+C:\Windows\System32\drivers\etc\hosts 에 추가
+\+ TODO: System, System32 차이
