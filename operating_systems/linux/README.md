@@ -22,3 +22,4 @@ Linus Tovalds 가 개발한 오픈소스 운영체제로 많은 서버의 운영
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
 | 1 | [권한 관리](./permissions/ "https://max-jayee.github.io/operating_systems/linux/permissions") | 권한 관리 정보 | |
+| 2 | [설정 관리](./settings/ "https://max-jayee.github.io/operating_systems/linux/settings") | 설정 관리 정보 | |
