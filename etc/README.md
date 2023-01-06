@@ -214,3 +214,34 @@ git -> project 우클릭 -> Fetch from ... -> Configure -> Advanced... -> 'All B
 #### TODO: windows etc hosts 추가
 C:\Windows\System32\drivers\etc\hosts 에 추가
 \+ TODO: System, System32 차이
+
+#### TODO: 특정 디렉토리 빼고 검색
+grep -R --execlude-dir=${dir} -rn "string" path
+
+#### TODO: aws 액세스 키, 비밀 액세스 키 차이
+
+#### TODO: No X11 DISPLAY variable was set, but this program performed an operation which requires it 에러
+export DISPLAY=:0.0
+export DISPLAY=:0
+
+#### TODO: 두 날짜 사이 간격 구하기
+```java
+String date1 = "2021/01/02"; //날짜1
+String date2 = "2021/01/01"; //날짜2
+
+Date format1 = new SimpleDateFormat("yyyy/MM/dd").parse(date1);
+Date format2 = new SimpleDateFormat("yyyy/MM/dd").parse(date2);
+
+long diffSec = (format1.getTime() - format2.getTime()) / 1000; //초 차이
+long diffMin = (format1.getTime() - format2.getTime()) / 60000; //분 차이
+long diffHor = (format1.getTime() - format2.getTime()) / 3600000; //시 차이
+long diffDays = diffSec / (24*60*60); //일자수 차이
+
+System.out.println(diffSec + "초 차이");
+System.out.println(diffMin + "분 차이");
+System.out.println(diffHor + "시 차이");
+System.out.println(diffDays + "일 차이");
+```
+
+#### TODO: intellij
+https://www.jetbrains.com/help/idea/searching-everywhere.html#search_all
