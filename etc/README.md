@@ -262,3 +262,30 @@ private static String AddDate(String strDate, int year, int month, int day) thro
 
 #### TODO: intellij
 https://www.jetbrains.com/help/idea/searching-everywhere.html#search_all
+
+#### TODO: pem <-> ppk
+pem : openssh, ppk : putty 용
+Windows puttygen 설치
+Linux sudo yum install putty or sudo apt install putty-tools
+Windows
+Macos brew install putty
+pem -> ppk
+puttygen pemKey.pem -o ppkKey.ppk -O private
+ppk -> pem
+puttygen ppkkey.ppk -O private-openssh -o pemkey.pem
+
+#### TODO: private -> public
+ssh-keygen -y -f private-key.pem
+
+#### TODO: aws 
+- internet gateway
+- vpc
+- subnet
+- vpc router
+- available zone
+
+#### TODO: first aws option
+- create vpc
+- create subnet
+- create internet g/w
+- set vpc routing table (internet g/w)
