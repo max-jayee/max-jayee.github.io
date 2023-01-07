@@ -66,6 +66,9 @@
     sudo netstat -anp | grep LISTEN # or sudo netstat -anp | grep 8080
     sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
     sudo firewall-cmd --reload
+
+    # sudo dnf install -y firewalld
+    # systemctl enable --now firewalld
     ```
 
 4. 계정 설정
@@ -86,6 +89,7 @@
 
 5. jenkins 실행
     ```bash
+    # https://get.jenkins.io/war-stable/2.346.1/jenkins.war
     java -jar /app/jenkins/jenkins.war
     cat /app/jenkins/secrets/initialAdminPassword
     ```
@@ -100,9 +104,10 @@
     [Service]
     Type=simple
 
-    Environment=JENKINS_HOME=/app/jenkins
+    Environment="JENKINS_HOME=/app/jenkins"
+    Environment="JENKINS_PORT=8080"
 
-    ExecStart=java -jar /app/jenkins/jenkins.war
+    ExecStart=java -jar ${JENKINS_HOME}/jenkins.war
     SuccessExitStatus=143 
 
     User=jenkins
