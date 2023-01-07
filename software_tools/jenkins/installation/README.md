@@ -107,7 +107,7 @@
     Environment="JENKINS_HOME=/app/jenkins"
     Environment="JENKINS_PORT=8080"
 
-    ExecStart=java -jar ${JENKINS_HOME}/jenkins.war
+    ExecStart=java -jar ${JENKINS_HOME}/jenkins.war --httpPort=${JENKINS_PORT}
     SuccessExitStatus=143 
 
     User=jenkins
