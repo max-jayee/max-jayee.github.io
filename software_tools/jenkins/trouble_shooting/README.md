@@ -21,4 +21,4 @@ Jenkins 를 사용하며 어떠한 이유(궁금하거나, 문제를 마주하�
 
 | No. | 상황 | 원인 | 해결방안 | 비고 |
 | :---: | --- | --- | --- | --- |
-| 1 | 빌드 중 `Could not find tools.jar.` 와 같이 `~ valid JDK installation` 을 확인하라고 나오며 빌드가 되지 않습니다. | 빌드 도구인 javac 가 설치되지 않은 경우로 `sudo dnf install java-1.8.0-openjdk-devel.x86_64` 와 같이 jdk 를 설치합니다. | 관련 task: `Execution failed for task ':compileJava'.` |
+| 1 | 빌드 중 `Could not find tools.jar.` 와 같이 `~ valid JDK installation` 을 확인하라고 나오며 빌드가 되지 않습니다. | 빌드 도구인 javac 가 설치되지 않거나 잘못 설치된 경우입니다. | `sudo dnf install java-1.8.0-openjdk-devel.x86_64` 와 같이 jdk 를 설치합니다. | 관련 task: `Execution failed for task ':compileJava'.` |
