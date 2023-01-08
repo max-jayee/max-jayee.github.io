@@ -2,7 +2,17 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://max-jayee.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools/">Software Tools</a>
+>
+<a href="/software_tools/podman/">Podman</a>
+>
+</h5>
+</div>
 
 # Podman 설치 방법
 ## 설명
@@ -99,7 +109,7 @@ location = "localhost:5000"
 insecure = true
 ```
 
-1. Trouble Shooting
+1. Trouble Shooting #TODO: podman trouble shooting
 ```bash
 권한으로 인해 podman images 잘 안될때 /etc/subuid, /etc/subgid 에 계정 정보 추가
 rm -rf ~/.config/containers ~/.local/share/containers

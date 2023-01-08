@@ -2,7 +2,15 @@
   @import url("/css/style-header.css");
 </style>
 
-# [맥쓰네 블로그](/ "https://max-jayee.github.io")
+<div class="sticky-top bg-white pt-1 pb-2">
+<h1><a href="/">맥쓰네 블로그</a></h1>
+<h5> 
+<a href="/">맥쓰네 블로그</a>
+>
+<a href="/software_tools/">Software Tools</a>
+>
+</h5>
+</div>
 
 # Podman 도구 정보
 Linux 시스템에서 컨테이너를 개발, 관리, 실행하기 위한 오픈소스 도구입니다.
