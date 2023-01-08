@@ -19,7 +19,43 @@
 
 ## groovy script
 ### WAS 빌드/배포
-<!-- TODO: 스크립트 추가 -->
+```groovy
+pipeline {
+    agent any
+
+    environment {
+        GITLAB_CREDS = credentials('gitlab')
+    }
+
+    stages {
+        stage("Prepare"){
+            steps {
+                sh 'rm -rf sample'
+                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@13.209.11.11:48080/pipeline/sample.git -b main'
+                sh 'whoami'
+                sh 'env'
+            }
+        }
+        stage("Build"){
+            steps {
+                sh 'cd ./sample && ./gradlew build'
+            }
+        }
+        stage("Release"){
+            steps {
+                sh 'cp ./sample/build/libs/demo-0.0.1-SNAPSHOT.jar ./'
+            }
+        }
+        stage("Deploy"){
+            steps {
+                sh 'nohub java -jar demo-0.0.1-SNAPSHOT.jar &'
+                sh 'rm -rf sample'
+            }
+        }
+    }
+}
+
+```
 ### WEB 빌드/배포
 <!-- TODO: 스크립트 추가 -->
 
