@@ -26,6 +26,7 @@ Jenkins management -> Security -> Manage and Assign Roles
 Manage Roles
 Global roles : 전반적인 그룹의 권한을 설정하는 것
 Item roles : Pattern 에 필터링된 아이템별로 그룹의 권한을 설정하는 것
+  `(?i)${Item 구분자}.*` 와 같이 패턴을 주면 Item 구분자로 그룹을 설정할 수 있음
 
 Assign Roles
 Global roles : 전체적인 권한에 대한 그룹을 관리하는 것으로 관리자 / 관리자 이외 정도로만 구분해도 충분할 듯 합니다.
