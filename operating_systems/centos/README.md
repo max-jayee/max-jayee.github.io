@@ -21,5 +21,5 @@ CentOS 를 사용하며 유용하게 사용하는 문제 발생시 해결 방법
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [문제해결](./trouble_shooting/ "https://max-jayee.github.io/operating_systems/centos/trouble_shooting") | 사용중 문제가 발생하여 해결한 경우들의 모음 | |
+| 1 | [문제 / 해결](./trouble_shooting/ "https://max-jayee.github.io/operating_systems/centos/trouble_shooting") | 다양한 문제 해결 방법 | |
 | 2 | [환경 구성](./configuration/ "https://max-jayee.github.io/operating_systems/centos/configuration") | 사용중 환경 구성을 한 경우들의 모음 | |

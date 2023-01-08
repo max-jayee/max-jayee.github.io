@@ -21,5 +21,5 @@ MacOS 를 사용하며 유용하게 사용하는 단축키, 문제 발생시 해
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [단축키](./shortcuts/ "https://max-jayee.github.io/operating_systems/macos/shortcuts") | 궁금하거나 사용하기위해 한번이라도 알아본 기본 단축키 모음 | [Official Web Site](https://support.apple.com/en-us/HT201236 "https://support.apple.com/en-us/HT201236") |
-| 2 | [문제해결](./trouble_shooting/ "https://max-jayee.github.io/operating_systems/macos/trouble_shooting") | 사용중 문제가 발생하여 해결한 경우들의 모음 | |
+| 1 | [문제 / 해결](./trouble_shooting/ "https://max-jayee.github.io/operating_systems/macos/trouble_shooting") | 다양한 문제 해결 방법 | |
+| 2 | [단축키](./shortcuts/ "https://max-jayee.github.io/operating_systems/macos/shortcuts") | 궁금하거나 사용하기위해 한번이라도 알아본 기본 단축키 모음 | [Official Web Site](https://support.apple.com/en-us/HT201236 "https://support.apple.com/en-us/HT201236") |

@@ -18,8 +18,9 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [설치 방법](./installation/ "https://max-jayee.github.io/software_tools/jenkins/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://www.jenkins.io/doc/book/installing/ "https://www.jenkins.io/doc/book/installing/") |
-| 2 | [환경변수](./environments/ "https://max-jayee.github.io/software_tools/jenkins/environments") | Jenkins job 을 실행할 때 사용할 수 있는 환경변수 | [Official Web Site](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project "https://wiki.jenkins.io/display/JENKINS/Building+a+software+project") |
-| 3 | [도구 세팅](./settings/ "https://max-jayee.github.io/software_tools/jenkins/settings") | Jenkins 도구를 설정하는 방법 | |
-| 4 | [사용자/그룹 관리](./user_group/ "https://max-jayee.github.io/software_tools/jenkins/user_group") | 사용자 / 그룹을 관리하는 방법 | |
-| 5 | [파이프라인 예시](./pipelines/ "https://max-jayee.github.io/software_tools/jenkins/pipelines") | 빌드 / 배포를 위한 파이프라인 구성 방법 | |
+| 1 | [문제 / 해결](./trouble_shooting/ "https://max-jayee.github.io/software_tools/jenkins/trouble_shooting") | 다양한 문제 해결 방법 | |
+| 2 | [설치 방법](./installation/ "https://max-jayee.github.io/software_tools/jenkins/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://www.jenkins.io/doc/book/installing/ "https://www.jenkins.io/doc/book/installing/") |
+| 3 | [환경변수](./environments/ "https://max-jayee.github.io/software_tools/jenkins/environments") | Jenkins job 을 실행할 때 사용할 수 있는 환경변수 | [Official Web Site](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project "https://wiki.jenkins.io/display/JENKINS/Building+a+software+project") |
+| 4 | [도구 세팅](./settings/ "https://max-jayee.github.io/software_tools/jenkins/settings") | Jenkins 도구를 설정하는 방법 | |
+| 5 | [사용자/그룹 관리](./user_group/ "https://max-jayee.github.io/software_tools/jenkins/user_group") | 사용자 / 그룹을 관리하는 방법 | |
+| 6 | [파이프라인 예시](./pipelines/ "https://max-jayee.github.io/software_tools/jenkins/pipelines") | 빌드 / 배포를 위한 파이프라인 구성 방법 | |
