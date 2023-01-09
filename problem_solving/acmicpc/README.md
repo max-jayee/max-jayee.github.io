@@ -18,3 +18,6 @@
 ## 소개
 Rust 를 지원하는 온라인 저지 중 하나로 아래 문제를 해결하고자 시도하였습니다.
 
+| No. | 제목 | 알고리즘 | 비고 |
+| :---: | --- | --- | --- |
+| 2557 | [Hello World](./2557/ "https://max-jayee.github.io/problem_solving/acmicpc/2557") | #출력 | [Acmicpc](https://www.acmicpc.net/problem/2557 "https://www.acmicpc.net/problem/2557") |
