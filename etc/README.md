@@ -216,7 +216,7 @@ C:\Windows\System32\drivers\etc\hosts 에 추가
 \+ TODO: System, System32 차이
 
 #### TODO: 특정 디렉토리 빼고 검색
-grep -R --execlude-dir=${dir} -rn "string" path
+grep -R --exclude-dir=${dir} -rn "string" path
 
 #### TODO: aws 액세스 키, 비밀 액세스 키 차이
 
