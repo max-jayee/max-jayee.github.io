@@ -69,6 +69,7 @@ curl -X POST "${gitlab_url}/api/v4/users" -H "PRIVATE-TOKEN: ${gitlab_access_tok
 
 rm ${username}.json
 ```
+
 2. Delete an user.
 ```bash
 #! /bin/bash
