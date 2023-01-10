@@ -32,7 +32,6 @@ PRIVATE-TOKEN 에 발급한 Access Token 을 담아주면 됩니다.
 Rest API 명세는 [Gitlab Rest API 명세](https://docs.gitlab.com/ee/api/api_resources.html "https://docs.gitlab.com/ee/api/api_resources.html")에서 확인할 수 있습니다.
 
 #### curl command
-
 1. Create an user.
 ```bash
 curl -X POST "${gitlab_url}/api/v4/users" -H "PRIVATE-TOKEN: ${gitlab_access_token}" -H "Content-Type: application/json" -d @${data_json_file}
@@ -49,7 +48,6 @@ curl -X DETETE "${gitlab_url}/api/v4/users/${user_id}" -H "PRIVATE-TOKEN: ${gitl
 ```
 
 #### shell script
-
 1. Create an user.
 ```bash
 #! /bin/bash
@@ -58,7 +56,7 @@ name=$1
 username=$2
 password="12345678"
 
-bodydata="
+bodydata="\
 {\
     \"email\":\"${username}@sample.com\",\
     \"name\":\"${name}\",\
