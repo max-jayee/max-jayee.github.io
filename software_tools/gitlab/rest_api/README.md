@@ -48,7 +48,9 @@ curl -X DETETE "${gitlab_url}/api/v4/users/${user_id}" -H "PRIVATE-TOKEN: ${gitl
 ```
 
 #### shell script
+
 1. Create an user.
+
 ```bash
 #! /bin/bash
 
@@ -73,6 +75,7 @@ rm ${username}.json
 ```
 
 2. Delete an user.
+
 ```bash
 #! /bin/bash
 
