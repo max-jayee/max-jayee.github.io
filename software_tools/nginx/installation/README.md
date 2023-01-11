@@ -28,40 +28,36 @@
 ngninx 컨테이너 이미지 목록: https://hub.docker.com/_/nginx
 
 1. 컨테이너 이미지 다운로드
-   
-```bash
-podman pull nginx:1.23.3-alpine
-```
+    ```bash
+    podman pull nginx:1.23.3-alpine
+    ```
 
 2. Dockerfile 작성
+    ```bash
+    FROM nginx:--
 
-```bash
-FROM nginx:--
+    COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+    CMD nginx -g 'daemon off;'
 
-CMD nginx -g 'daemon off;'
-
-EXPOSE 80
-```
+    EXPOSE 80
+    ```
 
 3. 이미지 생성
-
-```bash
-podman build -t nginx-1.23.3:0.0.1 ./
-```
+    ```bash
+    podman build -t nginx-1.23.3:0.0.1 ./
+    ```
 
 4. 컨테이너 생성
-
-```bash
-podman run -itd --name nginx nginx-1.23.3:0.0.1
-#podman run -itd -p 80:80 --name nginx nginx-1.23.3:0.0.1
-podman ps
-```
+    ```bash
+    podman run -itd --name nginx nginx-1.23.3:0.0.1
+    #podman run -itd -p 80:80 --name nginx nginx-1.23.3:0.0.1
+    podman ps
+    ```
 
 5. 컨테이너 접근
-```bash
-podman exec -it nginx ash
-```
+    ```bash
+    podman exec -it nginx ash
+    ```
 
 <!-- TODO: ## CentOS 8 설치 -->

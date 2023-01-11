@@ -18,5 +18,6 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [설치 방법](./installation/ "https://max-jayee.github.io/software_tools/nginx/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://nginx.org/en/docs/install.html "https://nginx.org/en/docs/install.html") |
-| 2 | [도구 설정](./settings/ "https://max-jayee.github.io/software_tools/nginx/settings") | 도구 설정 정보 | |
+| 1 | [문제 / 해결](./trouble_shooting/ "https://max-jayee.github.io/software_tools/gitlab/trouble_shooting") | 다양한 문제 해결 방법 | |
+| 2 | [설치 방법](./installation/ "https://max-jayee.github.io/software_tools/nginx/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://nginx.org/en/docs/install.html "https://nginx.org/en/docs/install.html") |
+| 3 | [도구 설정](./settings/ "https://max-jayee.github.io/software_tools/nginx/settings") | 도구 설정 정보 | |
