@@ -32,7 +32,7 @@ RPM(Redhat Package Manager) 의존성을 유지하며 패키지를 설치하는 
     #sudo yumdownloader --downloadonly --resolve --destdir local-repo java-1.8.0-openjdk-devel.x86_64
     ```
 
-1. createrepo 패키지 설치 ([RPM command](https://zetawiki.com/wiki/리눅스_rpm_명령어 "https://zetawiki.com/wiki/리눅스_rpm_명령어")) #TODO: software_tools 에 rpm 추가하고 거기로 링크 바꿀 예정
+1. createrepo 패키지 설치 ([RPM command](https://zetawiki.com/wiki/리눅스_rpm_명령어 "https://zetawiki.com/wiki/리눅스_rpm_명령어")) <!-- TODO: software_tools 에 rpm 추가하고 거기로 링크 바꿀 예정 -->
     ```bash
     sudo rpm -ivh drpm-0.4.1-3.el8.x86_64.rpm 
     sudo rpm -ivh createrepo_c-libs-0.17.7-6.el8.x86_64.rpm

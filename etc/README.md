@@ -164,7 +164,7 @@ function btn(){
 https://seomile.tistory.com/91
 
 
-#### TODO readinessProbe, livenessProbe
+<!-- TODO readinessProbe, livenessProbe -->
 readinessProbe: 서비스가 가능한 상태인지
 livenessProbe: 컨테이너가 살아있는지
 Command probe
@@ -188,9 +188,9 @@ livenessProbe:
       initialDelaySeconds: 5
       periodSeconds: 5
 
-#### TODO Dockerfile add, copy, run, cmd, env, arg 등..
+<!-- TODO Dockerfile add, copy, run, cmd, env, arg 등.. -->
 
-#### TODO jenkins 모든 빌드 히스토리 제거
+<!-- TODO jenkins 모든 빌드 히스토리 제거 -->
 Script Console 이동
 Jenkins 관리 → Script Console 이동 후 아래 스크립트 수행
 
@@ -208,23 +208,23 @@ item.builds.each() { build ->
 }
 item.updateNextBuildNumber(1)
 
-#### TODO: sts 에서 remote branch 추가하기
+<!-- TODO: sts 에서 remote branch 추가하기 -->
 git -> project 우클릭 -> Fetch from ... -> Configure -> Advanced... -> 'All Branches' or 'All Tags' 클릭해서 설정
 
-#### TODO: windows etc hosts 추가
+<!-- TODO: windows etc hosts 추가 -->
 C:\Windows\System32\drivers\etc\hosts 에 추가
-\+ TODO: System, System32 차이
+<!-- TODO: System, System32 차이 -->
 
-#### TODO: 특정 디렉토리 빼고 검색
+<!-- TODO: 특정 디렉토리 빼고 검색 -->
 grep -R --exclude-dir=${dir} -rn "string" path
 
-#### TODO: aws 액세스 키, 비밀 액세스 키 차이
+<!-- TODO: aws 액세스 키, 비밀 액세스 키 차이 -->
 
-#### TODO: No X11 DISPLAY variable was set, but this program performed an operation which requires it 에러
+<!-- TODO: No X11 DISPLAY variable was set, but this program performed an operation which requires it 에러 -->
 export DISPLAY=:0.0
 export DISPLAY=:0
 
-#### TODO: 두 날짜 사이 간격 구하기
+<!-- TODO: 두 날짜 사이 간격 구하기 -->
 ```java
 String date1 = "2021/01/02"; //날짜1
 String date2 = "2021/01/01"; //날짜2
@@ -260,10 +260,10 @@ private static String AddDate(String strDate, int year, int month, int day) thro
 	}
 ```
 
-#### TODO: intellij
+<!-- TODO: intellij -->
 https://www.jetbrains.com/help/idea/searching-everywhere.html#search_all
 
-#### TODO: pem <-> ppk
+<!-- TODO: pem <-> ppk -->
 pem : openssh, ppk : putty 용
 Windows puttygen 설치
 Linux sudo yum install putty or sudo apt install putty-tools
@@ -274,17 +274,17 @@ puttygen pemKey.pem -o ppkKey.ppk -O private
 ppk -> pem
 puttygen ppkkey.ppk -O private-openssh -o pemkey.pem
 
-#### TODO: private -> public
+<!-- TODO: private -> public -->
 ssh-keygen -y -f private-key.pem
 
-#### TODO: aws 
+<!-- TODO: aws  -->
 - internet gateway
 - vpc
 - subnet
 - vpc router
 - available zone
 
-#### TODO: first aws option
+<!-- TODO: first aws option -->
 - create vpc
 - create subnet
 - create internet g/w

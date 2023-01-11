@@ -13,20 +13,103 @@
 </h5>
 </div>
 
-# Gitlab 권한 관리
+# Nginx 세팅
 ## 설명
-Git 프로젝트를 매니징하고 CI/CD 를 지원하는 도구에서 리파지토리, 사용자 등과 같은 권한 관리는 어떻게 하는지 이해합니다.
+Nginx 의 routing 과 reversing 을 설정하는 방법을 소개합니다.
+Nginx 는 default 로 /etc/nginx/nginx.conf 설정 파일을 기반으로 설정합니다.
 
-## 역할 관리
-사용자, 그룹별 역할을 지정하여 권한을 관리할 수 있습니다.
+## 기본 nginx.conf (/etc/nginx/)
+```conf
+# For more information on configuration, see:
+# * Official English Documentation: http://ninx.org/en/docs/
+# * Official Russian Documentation: http://ninx.org/ru/docs/
 
-### 역할 별 권한
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
 
-|역할|설명|비고|
-|---|---|---|
-|Guest|이슈 생성만 가능||
-|Reporter|이슈 관리, Merge Request 생성 가능||
-|Developer|브랜치 생성, Merge Request 생성 가능|개발자(주니어)들에게 주로 부여|
-|Maintainer|main 브랜치 push, 배포, Merge Request 승인 등 가능|PL, 개발자(시니어)들에게 주로 부여 <br/> Owner 역할에서 그룹, 프로젝트, 구성원 관리를 제외하였다고 보면 쉬움|
-|Owner|그룹이, 프로젝트, 구성원 관리 권한 부여|PM, 팀장, 관리자 주로 부여|
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
 
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                    '$status $body_bytes_sent "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for" ';
+    
+    access_log /var/log/nginx/access.log main;
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    #Load modular configuration files from the /etc/nginx/conf.d directory.
+    #See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name _;
+        root /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / {
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+
+# Settings for a TLS enabled server.
+# 
+#   server {
+#       listen 443 ssl http2 default_server;
+#       listen [::]:443 ssl http2 default_server;
+#       server_name _;
+#       root /usr/share/nginx/html;
+#       ssl_certificate "/etc/pki/nginx/server.crt";
+#       ssl_certificate_key "/etc/pki/nginx/private/server.key";
+#       ssl_session_cache shared:SSL:1m;
+#       ssl_session_timeout 10m;
+#       ssl_ciphers PROFILE=SYSTEM;
+#       ssl_prefer_server_ciphers on;
+#
+#       # Load configuration files for the default server block.
+#       include /etc/nginx/default.d/*.conf;
+#       
+#       location / {
+#       }
+
+#       error_page 404 /404.html;
+#           location = /40x.html {
+#       }
+#
+#       error_page 500 502 503 504 /50x.html;
+#           location = /50x.html {
+#       }
+#   }   
+}
+
+```
+
+## Routing <!-- TODO: nginx routing-->
+
+## Reversing <!-- TODO: nginx reversing-->

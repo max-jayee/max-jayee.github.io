@@ -22,10 +22,10 @@
 | 4 | [Gitlab](./gitlab/ "https://max-jayee.github.io/software_tools/gitlab") | 소스 형상관리나 CI/CD 파이프라인을 지원하는 도구 | [Official Web Site](https://about.gitlab.com "https://about.gitlab.com") |
 | 5 | [Jenkins](./jenkins/ "https://max-jayee.github.io/software_tools/jenkins") | 프로젝트 별로 CI/CD 환경을 구성할 때 파이프라인을 지원하는 도구 | [Official Web Site](https://www.jenkins.io "https://www.jenkins.io") |
 | 6 | [Podman](./podman/ "https://max-jayee.github.io/software_tools/podman") | container 관리 도구 | [Official Web Site](https://podman.io/ "https://podman.io/") |
+| 7 | [Nginx](./nginx/ "https://max-jayee.github.io/software_tools/nginx") | 웹 프록시 도구 | [Official Web Site](https://nginx.org/en/ "https://nginx.org/en/") |
 
 <!-- TODO: rpm -->
 <!-- TODO: nexus -->
-<!-- TODO: nginx -->
 <!-- TODO: apt -->
 <!-- TODO: dnf -->
 <!-- TODO: awk -->

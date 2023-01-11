@@ -18,7 +18,7 @@
 Jenkins 에서 다양한 방법으로 사용자/그룹을 관리하는 방법에 대해 소개합니다.
 
 ## Active Directory
-TODO: Jenkins AD 
+<!-- TODO: Jenkins AD -->
 
 ## Jenkins' own user database
 Role-Based Strategy plugin
@@ -35,7 +35,7 @@ Item roles : 사용자별 그룹 권한 부여 (중복 가능)
 정리하면 Manage roles 에서 그룹을 관리하고, Assign roles 에서 그룹고 사용자를 매핑하는 것으로 이해할 수 있습니다.
 
 ## LDAP
-TODO: Jenkins LDAP
+<!-- TODO: Jenkins LDAP -->
 
 ## Unix user/group database
-TODO: Jenkins Unix user/group DB
+<!-- TODO: Jenkins Unix user/group DB -->

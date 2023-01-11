@@ -45,7 +45,7 @@ podman load -i alpine-3.16.3.tar
 podman load < alpine-3.16.3.tar
 ```
 
-4. base docker file 작성 # TODO: alpine 내부에서 java 가 실행이 안됨
+4. base docker file 작성 <!-- TODO: alpine 내부에서 java 가 실행이 안됨 -->
 ```bash
 FROM alpine:3.16.3
 
@@ -108,7 +108,7 @@ location = "localhost:5000"
 insecure = true
 ```
 
-1. Trouble Shooting #TODO: podman trouble shooting
+1. Trouble Shooting <!-- TODO: podman trouble shooting -->
 ```bash
 권한으로 인해 podman images 잘 안될때 /etc/subuid, /etc/subgid 에 계정 정보 추가
 rm -rf ~/.config/containers ~/.local/share/containers
