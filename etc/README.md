@@ -289,3 +289,68 @@ ssh-keygen -y -f private-key.pem
 - create subnet
 - create internet g/w
 - set vpc routing table (internet g/w)
+
+<!-- TODO: 특정 문자로 자르기-->
+```bash
+#!/bin/bash
+
+str="Hello:World:Bash"
+
+echo $str | cut -d ':' -f1
+echo $str | cut -d ':' -f2
+echo $str | cut -d ':' -f3
+```
+
+<!-- TODO: 특정 문자로 자르기 응용-->
+```bash
+#!/bin/bash
+file_name_len=${#1} # #은 문자열 길이 반환
+
+end=$((file_name_len-4)) # 산술 식
+fn=`echo $1 | cut -c 1-$end` # 1부터 시작, 뒤에서 4자리 날리기
+
+image_name=`echo $file_name_len | cut -d '-' -f1`
+image_tag="`echo $file_name_len | cut -d '-' -f2`-`echo $file_name_len | cut -d '-' -f3`"
+
+```
+
+<!-- local image translate to remote image-->
+file format : ${image_name}_${image_tag}.tar
+```bash
+#! /bin/bash
+image_registry=""
+
+fn=$1
+podman load -i $fn
+fn_len=${#fn}
+
+end=$((fn_len-4)) #.tar 기준
+fn=`echo $1 | cut -c 1-$end`
+
+in=`echo $fn | cut -d '_' -f1` # image name
+tag=`echo $fn | cut -d '_' -f2`
+
+podman tag $in:$tag $image_registry/repo/path/$in:$tag
+podman rmi docker.io/library/$in:tag
+```
+
+<!-- push remote image-->
+file format : ${image_name}_${image_tag}.tar
+```bash
+#! /bin/bash
+image_registry=""
+image_registry_token=`cat ${token_path}`
+
+fn=$1
+fn_len=${#fn}
+
+end=$((fn_len-4)) #.tar 기준
+fn=`echo $1 | cut -c 1-$end`
+
+in=`echo $fn | cut -d '_' -f1` # image name
+tag=`echo $fn | cut -d '_' -f2`
+
+podman login -u ${registry_id} -p ${image_registry_token} ${image_registry}
+
+podman push ${image_registry}/repo/path/${in}:${tag}
+```
