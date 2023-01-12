@@ -112,6 +112,9 @@ done <$files
 #### 특정 파일이 실행되고 있는 프로세스 죽이기
 `` kill -9 `ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'` ``
 
+#### 특정 프로세스 stdout 보기
+`` cat /proc/`ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'`/fd/1 `` <!-- 1: stdout, 2: stderr -->
+
 #### 패스워드 없이 git clone (ssh key)
 ```bash
 # 1. Register SSH Key to git repository(github, gitlab etc..)

@@ -52,10 +52,6 @@ FROM alpine:3.16.3
 ENV TZ=Asia/Seoul
 ENV LANG=en_US.UTF-8
 
-RUN apk add --update \
-    curl \
-    && rm -rf /var/cache/apk/*
-
 COPY OpenJDK8U-jdk_x64_linux_8u332b09.tar.gz /
 RUN tar zxf /OpenJDK8U-jdk_x64_linux_8u332b09.tar.gz -C /usr/lib
 #RUN rm /OpenJDK8U-jdk_x64_linux_8u342b07.tar.gz
@@ -120,3 +116,30 @@ podman system migrate
 #podman unshare cat /proc/self/uid_map
 ```
 
+<!-- TODO: 특정 dockerfile 로 특정 이름의 이미지 생성 -->
+```bash
+# in openjdk.dockerfile
+FROM openjdk:8-jdk-alpine
+
+RUN apk --no-cache add curl
+# or
+RUN apk add --update curl \
+    && rm -rf /var/cache/apk/*
+```
+```bash
+podman build -f openjdk.dockerfile -t ${sampleurl}/openjdk:8-jdk-alpine
+```
+```bash
+podman run -itd --name ctn ${sampleurl}/openjdk:8-jdk-alpine
+```
+```bash
+podman exec -it ctn ash
+```
+```bash
+podman stop ctn;podman rm ctn
+```
+```bash
+podman rmi ${sampleurl}/openjdk:8-jdk-alpine
+```
+
+podman rmi kblife.co.kr/openjdk:8-jdk-alpine
