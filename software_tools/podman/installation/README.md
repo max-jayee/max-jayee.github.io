@@ -52,6 +52,10 @@ FROM alpine:3.16.3
 ENV TZ=Asia/Seoul
 ENV LANG=en_US.UTF-8
 
+RUN apk add --update \
+    curl \
+    && rm -rf /var/cache/apk/*
+
 COPY OpenJDK8U-jdk_x64_linux_8u332b09.tar.gz /
 RUN tar zxf /OpenJDK8U-jdk_x64_linux_8u332b09.tar.gz -C /usr/lib
 #RUN rm /OpenJDK8U-jdk_x64_linux_8u342b07.tar.gz

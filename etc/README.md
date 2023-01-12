@@ -354,3 +354,17 @@ podman login -u ${registry_id} -p ${image_registry_token} ${image_registry}
 
 podman push ${image_registry}/repo/path/${in}:${tag}
 ```
+
+<!-- TODO: vi tab space 4-->
+```bash
+set smartindent # 새로운 라인에서 auto indentation 설정, 이건 딱히..
+set tabstop=4 # tab 눌렀을 때 인식하는 칸 수
+set expandtab # tab 을 스페이스로 확장
+set shiftwidth=4 # >>, << 키로 들여쓰거나 내어쓸때 스페이스 수
+```
+
+<!-- TODO: git config -->
+```bash
+git config --global user.name "Your Name"
+$ git config --global user.email you@example.com
+```
