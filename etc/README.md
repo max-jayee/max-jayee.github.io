@@ -247,19 +247,17 @@ System.out.println(diffDays + "일 차이");
 
 private static String AddDate(String strDate, int year, int month, int day) throws Exception {
 		
-        SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+    Date parsedDate = simpleDateFormat.parse(strDate);
+		Calendar calendar = Calendar.getInstance();
         
-		Calendar cal = Calendar.getInstance();
+		calendar.setTime(parsedDate);
         
-		Date dt = dtFormat.parse(strDate);
+		calendar.add(Calendar.YEAR,  year);
+		calendar.add(Calendar.MONTH, month);
+		calendar.add(Calendar.DATE,  day);
         
-		cal.setTime(dt);
-        
-		cal.add(Calendar.YEAR,  year);
-		cal.add(Calendar.MONTH, month);
-		cal.add(Calendar.DATE,  day);
-        
-		return dtFormat.format(cal.getTime());
+		return simpleDateFormat.format(calendar.getTime());
 	}
 ```
 
@@ -369,5 +367,7 @@ set shiftwidth=4 # >>, << 키로 들여쓰거나 내어쓸때 스페이스 수
 <!-- TODO: git config -->
 ```bash
 git config --global user.name "Your Name"
-$ git config --global user.email you@example.com
+git config --global user.email you@example.com
 ```
+
+<!-- TODO: cors https://coding-groot.tistory.com/91 -->
