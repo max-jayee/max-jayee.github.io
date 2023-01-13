@@ -35,3 +35,4 @@
 <!-- TODO: intellij -->
 <!-- TODO: git -->
 <!-- TODO: vim -->
+<!-- TODO: shell -->

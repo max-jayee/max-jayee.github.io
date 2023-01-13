@@ -371,3 +371,16 @@ git config --global user.email you@example.com
 ```
 
 <!-- TODO: cors https://coding-groot.tistory.com/91 -->
+
+<!-- TODO: shell parameter 수 체크 -->
+```bash
+#! /bin/bash
+
+np=
+if [ $# -ne ${np} ];
+then
+  echo "${np} parameters are required."
+  echo "usage 1.) $0 name username etc..
+  exit 1
+fi
+```
