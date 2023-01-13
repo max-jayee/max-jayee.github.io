@@ -19,7 +19,11 @@ Nginx 의 routing 과 reversing 을 설정하는 방법을 소개합니다.
 Nginx 는 default 로 /etc/nginx/nginx.conf 설정 파일을 기반으로 설정합니다.
 
 ## 기본 nginx.conf (/etc/nginx/)
-```conf
+nginx 를 설치하면 아래와 같은 default 값으로 값이 세팅되어 있습니다.
+
+```bash
+vi nginx.conf
+#---------- nginx.conf
 # For more information on configuration, see:
 # * Official English Documentation: http://ninx.org/en/docs/
 # * Official Russian Documentation: http://ninx.org/ru/docs/
@@ -107,9 +111,51 @@ http {
 #       }
 #   }   
 }
-
+#----------
 ```
 
-## Routing <!-- TODO: nginx routing-->
+## Routing 
+nginx 를 이용하여 static resources 를 접근하기 위해서는 아래와 같이 라우팅 해주어야합니다.  
+아래 예시는 `${web-server-url}/examplepath` 라고 브라우저에서 요청했을 때 `/app/ui/main/resources/static` 하위에 있는 static resources 를 반환하는 예제 입니다.
 
-## Reversing <!-- TODO: nginx reversing-->
+```bash
+#---------- nginx.conf
+...
+http {
+    ...
+    server {
+        ...
+        location /examplepath {
+            alias /app/ui/main/resources/static;
+        }
+    }
+}
+#----------
+```
+
+## Reversing
+nginx 를 이용하여 리버스 프록시를 구성하기 위해서는 아래와 같이 리버싱 해주어야 합니다.
+아래 예시는 `${web-server-url}/examplepath/` 라고 브라우저에서 요청했을 때 `${was-ip}` back-end 를 호출하는 예제입니다.
+
+```bash
+#---------- nginx.conf
+...
+http {
+    ...
+    upstream max.was.co.kr {
+        server ${was-ip}; # with port
+    }
+
+    server {
+        ...
+        location /examplepath/ {
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_pass http://max.was.co.kr/;
+        }
+    }
+}
+#----------
+```
