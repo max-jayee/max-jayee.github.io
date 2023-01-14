@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="/css/style-header.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
-<link rel="import" href="/common/header.html">
+<details id="display-none"><summary></summary>
+  <script src="/common/header.html"></script>
+</details>
 
 Markdown emoji 모음 (from. https://gist.github.com/rxaviers/7360908)
 
