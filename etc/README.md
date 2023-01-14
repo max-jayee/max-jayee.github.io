@@ -149,7 +149,7 @@ sudo firewall-cmd --list-ports
 
 #### css 테스트
 
-<button type="button" class="btn btn-primary" onclick="(()=>{ \
+<button type="button" class="btn btn-primary" onclick="(()=\>{ \
   alert('버튼이 클릭 되었습니다.'); \
 })()">버튼</button>
 
