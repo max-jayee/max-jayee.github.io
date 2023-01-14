@@ -150,7 +150,10 @@ sudo firewall-cmd --list-ports
 
 #### css 테스트
 
-<button type="button" class="btn btn-primary" onclick="javascript:btn()>버튼</button>
+<button type="button" class="btn btn-primary">버튼1</button>
+<button type="button" class="btn btn-primary" onclick="btn()">버튼2</button>
+<button type="button" onclick="btn()">버튼3</button>
+
 <script>
 function btn(){
     alert('버튼이 클릭되었습니다');
