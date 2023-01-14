@@ -1,2 +1,2 @@
 div.markdown-body > h1:first-of-type { display:none; }
-.custom-display-none { display:none; }
+#custom-display-none { display:none; }
