@@ -149,9 +149,12 @@ sudo firewall-cmd --list-ports
 
 #### css 테스트
 
-<button type="button" class="btn btn-primary" onclick="(()=\>{ \
-  alert('버튼이 클릭 되었습니다.'); \
-})()">버튼</button>
+<button type="button" class="btn btn-primary" onclick="btn()">버튼</button>
+<script>
+function btn(){
+    alert('버튼이 클릭되었습니다');
+}
+</script>
 
 
 #### windows 특정 프로세스 킬
