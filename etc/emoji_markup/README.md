@@ -1,6 +1,9 @@
-<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<link rel="stylesheet" type="text/css" href="/css/header.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
-<div w3-include-html="/common/header.html"></div>
+<div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
+<details id="display-none"><summary></summary>
+  <script src="/js/header.js" defer="defer"></script>
+</details>
 
 Markdown emoji 모음 (from. https://gist.github.com/rxaviers/7360908)
 
