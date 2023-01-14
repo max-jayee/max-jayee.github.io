@@ -379,6 +379,6 @@ then
 fi
 ```
 
-<details><summary></summary>
+<details hidden><summary></summary>
   <script src="/js/fixed-header.js" defer="defer"></script>
 </details>
