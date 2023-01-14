@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/css/style-header.css">
+<link rel="stylesheet" type="text/css" href="/css/header.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
 
 # [맥쓰네 블로그](https://max-jayee.github.io "https://max-jayee.github.io")
