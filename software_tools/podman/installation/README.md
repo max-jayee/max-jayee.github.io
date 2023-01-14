@@ -133,5 +133,6 @@ podman stop ctn;podman rm ctn
 ```bash
 podman rmi ${sampleurl}/openjdk:8-jdk-alpine
 ```
-
-podman rmi kblife.co.kr/openjdk:8-jdk-alpine
+```bash
+podman rmi ${sampleurl}/openjdk:8-jdk-alpine
+```
