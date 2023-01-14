@@ -3,7 +3,6 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
-  <script src="/js/bootstrap.bundle.js"></script>
 </details>
 
 # ETC
