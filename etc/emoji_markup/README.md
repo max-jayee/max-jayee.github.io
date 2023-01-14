@@ -4,9 +4,9 @@
   <h1><a href="/">맥쓰네 블로그</a></h1>
   <h5 id="fixed-header-id"></h5>
 </div>
-<details style="visibility: hidden;"><summary></summary>
-  <script src="/js/fixed-header.js" defer="defer"></script>
-</details>
+<div id="display-none">
+<script src="/js/fixed-header.js" defer="defer"></script>
+</div>
 
 Markdown emoji 모음 (from. https://gist.github.com/rxaviers/7360908)
 
