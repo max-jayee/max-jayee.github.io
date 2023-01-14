@@ -5,7 +5,7 @@
   <h5 id="fixed-header-id"></h5>
 </div>
 <div id="display-none">
-  <script src="/js/fixed-header.js" defer="defer"></script>
+  <script hidden src="/js/fixed-header.js" defer="defer"></script>
 </div>
 
 # ETC
