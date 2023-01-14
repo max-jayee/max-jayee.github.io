@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/css/style-header.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
-<link rel="stylesheet" type="text/javascript" href="/css/bootstrap/5.3.0-alpha1/bootstrap.bundle.js">
+<link rel="script" type="text/javascript" href="/css/bootstrap/5.3.0-alpha1/bootstrap.bundle.js">
 
 <div class="sticky-top bg-white pt-1 pb-2">
 <h1><a href="/">맥쓰네 블로그</a></h1>
