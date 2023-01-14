@@ -1,13 +1,15 @@
 <link rel="stylesheet" type="text/css" href="/css/style-header.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
-
+<script src="/js/fixed-header.js"></script>
 <div class="sticky-top bg-white pt-1 pb-2">
 <h1><a href="/">맥쓰네 블로그</a></h1>
-<h5> 
+<h5 id="fixed-header-id"> 
 <a href="/">맥쓰네 블로그</a>
 >
 </h5>
 </div>
+
+
 
 # ETC
 여긴 낙서장 같은 곳
@@ -310,7 +312,9 @@ image_tag="`echo $file_name_len | cut -d '-' -f2`-`echo $file_name_len | cut -d 
 ```
 
 <!-- local image translate to remote image-->
+```bash
 file format : ${image_name}_${image_tag}.tar
+```
 ```bash
 #! /bin/bash
 image_registry=""
@@ -330,7 +334,9 @@ podman rmi docker.io/library/$in:tag
 ```
 
 <!-- push remote image-->
+```bash
 file format : ${image_name}_${image_tag}.tar
+```
 ```bash
 #! /bin/bash
 image_registry=""
