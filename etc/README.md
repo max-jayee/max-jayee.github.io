@@ -4,8 +4,8 @@
   <h1><a href="/">맥쓰네 블로그</a></h1>
   <h5 id="fixed-header-id"></h5>
 </div>
-<div id="display-none">
-  <script hidden src="/js/fixed-header.js" defer="defer"></script>
+<div hidden id="display-none">
+  <script src="/js/fixed-header.js" defer="defer"></script>
 </div>
 
 # ETC
