@@ -4,9 +4,9 @@
   <h1><a href="/">맥쓰네 블로그</a></h1>
   <h5 id="fixed-header-id"></h5>
 </div>
-<div id="display-none">
-<script src="/js/fixed-header.js" defer="defer"></script>
-</div>
+<details id="display-none"><summary></summary>
+  <script src="/js/fixed-header.js" defer="defer"></script>
+</details>
 
 # ETC
 여긴 낙서장 같은 곳
