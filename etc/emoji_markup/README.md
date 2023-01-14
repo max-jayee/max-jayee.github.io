@@ -4,9 +4,9 @@
   <h1><a href="/">맥쓰네 블로그</a></h1>
   <h5 id="fixed-header-id"></h5>
 </div>
-<div style="visibility:hidden">
+<details><summary><summary>
   <script src="/js/fixed-header.js" defer="defer"></script>
-</div>
+</details>
 
 Markdown emoji 모음 (from. https://gist.github.com/rxaviers/7360908)
 
@@ -321,3 +321,4 @@ Markdown emoji 모음 (from. https://gist.github.com/rxaviers/7360908)
 | :large_blue_circle: `:large_blue_circle:` | :large_blue_diamond: `:large_blue_diamond:` | :large_orange_diamond: `:large_orange_diamond:` |
 | :small_blue_diamond: `:small_blue_diamond:` | :small_orange_diamond: `:small_orange_diamond:` | :small_red_triangle: `:small_red_triangle:` |
 | :small_red_triangle_down: `:small_red_triangle_down:` | :shipit: `:shipit:` |
+
