@@ -1,5 +1,3 @@
-import "/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js";
-
 const headerNode = document.getElementById("header-div-max");
 const titleNode = document.createElement("h1");
 const navNode = document.createElement("h5");
