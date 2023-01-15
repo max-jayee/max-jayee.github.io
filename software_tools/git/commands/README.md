@@ -50,4 +50,11 @@ git push ${remote-name} ${local-branch-name}:${remote-branch-name}
 ##### 리모트 브랜치 제거
 git push ${remote-name} -d ${remote-branch-name}
 
+##### fork한 소스 오리지날과 싱크
+git remote add ${forking-origin} ${forking-origin-git-url}
+
+git fetch ${forking-origin}
+
+git merge ${forking-origin}/master
+
 ```
