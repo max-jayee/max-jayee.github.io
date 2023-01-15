@@ -33,3 +33,6 @@
 <!-- TODO: intellij -->
 <!-- TODO: vim -->
 <!-- TODO: shell -->
+<!-- TODO: spectacle -->
+<!-- TODO: movist -->
+<!-- TODO: teamviewer>
