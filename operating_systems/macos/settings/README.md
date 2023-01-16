@@ -41,23 +41,6 @@ $ : Shift
 @ : Command (Apple)
 # : Numeric Keypad
 
-Non-Printable Key Codes
-
-Standard
-Up Arrow:     \UF700        Backspace:    \U0008        F1:           \UF704
-Down Arrow:   \UF701        Tab:          \U0009        F2:           \UF705
-Left Arrow:   \UF702        Escape:       \U001B        F3:           \UF706
-Right Arrow:  \UF703        Enter:        \U000A        ...
-Insert:       \UF727        Page Up:      \UF72C
-Delete:       \UF728        Page Down:    \UF72D
-Home:         \UF729        Print Screen: \UF72E
-End:          \UF72B        Scroll Lock:  \UF72F
-Break:        \UF732        Pause:        \UF730
-SysReq:       \UF731        Menu:         \UF735
-Help:         \UF746
-
-OS X
-delete:       \U007F
 
 For a good reference see http://osxnotes.net/keybindings.html.
 
