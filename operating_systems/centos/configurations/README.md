@@ -14,5 +14,5 @@ CentOS 를 사용하며 어떠한 이유(궁금하거나, 문제를 마주하거
 
 | No. | 항목 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [로컬 리파지토리](./local_repository/ "https://max-jayee.github.io/operating_systems/centos/configuration/local_repository") | 로컬에 mirror repository 를 구성한다. | |
-| 2 | [네트워크 관리](./net_tools/ "https://max-jayee.github.io/operating_systems/centos/configuration/net_tools") | 네트워크 관리를 위해 네트워크 관리 패키지를 구성한다. | |
+| 1 | [로컬 리파지토리](./local_repository/ "https://max-jayee.github.io/operating_systems/centos/configurations/local_repository") | 로컬에 mirror repository 를 구성한다. | |
+| 2 | [네트워크 관리](./net_tools/ "https://max-jayee.github.io/operating_systems/centos/configurations/net_tools") | 네트워크 관리를 위해 네트워크 관리 패키지를 구성한다. | |
