@@ -103,7 +103,9 @@ brew list --cask
 # iterm set colors
 vi ~/.zshrc
 #---------- ~/.zshrc
-
+# Text {% raw %} {% endraw %} to resolve liquid syntax error in generating github page by Jekyll.
+# To use this line, remove '{% raw %}' the beginning of line and '{% endraw %}' the end of line.
+PS1="{% raw %}%{%F{033}%}%n%{%f%}@%{%F{green}%}%m:%{%F{yellow}%}%~%{$%f%}%{% endraw %}  "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 #----------
