@@ -428,3 +428,5 @@ then
   exit 1
 fi
 ```
+
+<!-- TODO: sidecar container https://kubebyexample.com/learning-paths/istio/intro -->
