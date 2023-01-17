@@ -13,7 +13,7 @@
 
 | No. | 도구 명 | 요약 | 비고 |
 | :---: | --- | --- | --- |
-| 1 | [백준 O/J](./acmicpc/ "https://max-jayee.github.io/problem_solving/acmicpc") | 국내 온라인 저지 사이트 중 하나인 백준 온라인 저지 | [Official Web Site](https://www.acmicpc.net/ "https://www.acmicpc.net/") |
+| 1 | [백준 O/J](./acmicpc/ "https://max-jayee.github.io/problem_solutions/acmicpc") | 국내 온라인 저지 사이트 중 하나인 백준 온라인 저지 | [Official Web Site](https://www.acmicpc.net/ "https://www.acmicpc.net/") |
 
 <!-- TODO: topcoder -->
 <!-- TODO: codeforces -->

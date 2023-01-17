@@ -8,10 +8,9 @@
 
 # Index of this blog
 
-
 1. [Operating Systems](./operating_systems/ "https://max-jayee.github.io/operating_systems")
 1. [Software Tools](./software_tools/ "https://max-jayee.github.io/software_tools")
-<!-- TODO: problem solving -->
+<!-- TODO: problem solutions -->
 <!-- TODO: programming language -->
 
 ### 참고
