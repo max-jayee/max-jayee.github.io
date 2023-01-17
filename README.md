@@ -2,9 +2,9 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
 
 # [맥쓰네 블로그](https://max-jayee.github.io "https://max-jayee.github.io")
-맥쓰네 블로그 입니덩~~ 🎉
+Welcome to Max's blog ~~ 🎉
 
-좋은 하루 되세요 ~ 😁
+Have a nice day ~ 😁
 
 # Index of this blog
 
