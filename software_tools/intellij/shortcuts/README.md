@@ -22,3 +22,6 @@ IntelliJ 를 사용하며 어떠한 이유(궁금하거나, 사용하기 위해�
 ### 도구 단축키
 
 1. 사용하지 않는 패키지 제거 : `ctrl + alt + o`
+2. fully search : `shift` * 2
+3. show context actions : `alt + enter`
+4. 정렬 : `ctrl + alt + l`
