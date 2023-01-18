@@ -14,4 +14,4 @@ Have a nice day ~ 😁
 <!-- TODO: programming language -->
 
 ### 참고
-마크다운 문법: [Markdown Guide](https://www.markdownguide.org/ "markdown guide website")
+Markdown guide page: [Markdown Guide](https://www.markdownguide.org/ "markdown guide website")
