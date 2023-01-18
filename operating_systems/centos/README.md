@@ -20,4 +20,4 @@ CentOS 를 사용하며 유용하게 사용하는 문제 발생시 해결 방법
 | 항목 | 요약 | 비고 |
 | :--- | :--- | :--- |
 | [환경 구성](./configurations/ "https://max-jayee.github.io/operating_systems/centos/configurations") | 사용중 환경 구성을 한 경우들의 모음 | |
-| [문제 / 해결](./trouble_shooting/ "https://max-jayee.github.io/operating_systems/centos/trouble_shooting") | 다양한 문제 해결 방법 | |
+| [문제 / 해결](./trouble_shootings/ "https://max-jayee.github.io/operating_systems/centos/trouble_shootings") | 다양한 문제 해결 방법 | |

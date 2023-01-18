@@ -16,7 +16,7 @@ Project 형상관리와 CI/CD 파이프라인을 지원하는 도구로, 프라�
 
 | 도구 명 | 요약 | 비고 |
 | :--- | :--- | :--- |
-| [문제 / 해결](./trouble_shooting/ "https://max-jayee.github.io/software_tools/gitlab/trouble_shooting") | 다양한 문제 해결 방법 | |
+| [문제 / 해결](./trouble_shootings/ "https://max-jayee.github.io/software_tools/gitlab/trouble_shootings") | 다양한 문제 해결 방법 | |
 | [설치 방법](./installation/ "https://max-jayee.github.io/software_tools/gitlab/installation") | 다양한 환경에서 설치하는 방법 | [Official Web Site](https://about.gitlab.com/install/ "https://about.gitlab.com/install/") |
 | [권한관리](./permissions/ "https://max-jayee.github.io/software_tools/gitlab/permissions") | 권한 관리 정보 | [Official Web Site](https://docs.gitlab.com/ee/user/permissions.html "https://docs.gitlab.com/ee/user/permissions.html") |
 | [이관](./migration/ "https://max-jayee.github.io/software_tools/gitlab/migration") | 이관 관련 정보 | |
