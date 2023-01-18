@@ -1,7 +1,7 @@
 for (const theadNode of document.getElementsByTagName(`thead`)) {
-    const thNode = document.createElement(`th`)
-    .style.textAlign(`center`)
-    .innerHtml(`No.`);
+    const thNode = document.createElement(`th`);
+    thNode.style.textAlign = `center`;
+    thNode.innerHtml = `No.`;
 
     const trNode = theadNode.firstElementChild;
     trNode.prepend(thNode);
@@ -9,9 +9,9 @@ for (const theadNode of document.getElementsByTagName(`thead`)) {
 
 for (const tbodyNode of document.getElementsByTagName(`tbody`)) {
     tbodyNode.children.forEach((trNode, i) => {
-        const tdNode = document.createElement(`td`)
-        .style.textAlign(`center`)
-        .innerHtml(`${i + 1}`);
+        const tdNode = document.createElement(`td`);
+        tdNode.style.textAlign = `center`;
+        tdNode.innerHtml = `${i + 1}`;
 
         trNode.prepend(tdNode);
     });
