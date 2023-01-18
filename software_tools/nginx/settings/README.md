@@ -3,15 +3,19 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Nginx 세팅
+
 ## 설명
+
 Nginx 의 routing 과 reversing 을 설정하는 방법을 소개합니다.
 Nginx 는 default 로 /etc/nginx/nginx.conf 설정 파일을 기반으로 설정합니다.
 
 ## 기본 nginx.conf (/etc/nginx/)
+
 nginx 를 설치하면 아래와 같은 default 값으로 값이 세팅되어 있습니다.
 
 ```bash
@@ -107,7 +111,8 @@ http {
 #----------
 ```
 
-## Routing 
+## Routing
+
 nginx 를 이용하여 static resources 를 접근하기 위해서는 아래와 같이 라우팅 해주어야합니다.  
 아래 예시는 `${web-server-url}/examplepath` 라고 브라우저에서 요청했을 때 `/app/ui/main/resources/static` 하위에 있는 static resources 를 반환하는 예제 입니다.
 
@@ -127,6 +132,7 @@ http {
 ```
 
 ## Reversing
+
 nginx 를 이용하여 리버스 프록시를 구성하기 위해서는 아래와 같이 리버싱 해주어야 합니다.
 아래 예시는 `${web-server-url}/examplepath/` 라고 브라우저에서 요청했을 때 `${was-ip}` back-end 를 호출하는 예제입니다.
 

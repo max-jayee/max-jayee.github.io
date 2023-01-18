@@ -3,17 +3,21 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Jenkins 사용자/그룹 관리
+
 ## 설명
+
 Jenkins 에서 다양한 방법으로 사용자/그룹을 관리하는 방법에 대해 소개합니다.
 
 ## Active Directory
 <!-- TODO: Jenkins AD -->
 
 ## Jenkins' own user database
+
 Role-Based Strategy plugin
 Jenkins management -> Security -> Manage and Assign Roles
 Manage Roles

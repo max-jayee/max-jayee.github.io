@@ -3,18 +3,22 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Jenkins 환경변수
+
 ## 설명
+
 Jenkins 의 Item(=job) 을 실행할 때 사용할 수 있는 Jenkins 관련 환경 변수로 파이프라인을 구성할 때 유용하게 사용할 수 있습니다.
 
 ## Job 환경변수
+
 Job 을 실행하여 명령을 실행하는 경우 아래의 목록에 해당하는 환경변수를 사용할 수 있습니다.
 
 |환경변수|설명|
-|---|---|
+| :--- | :--- |
 |BUILD_NUMBER|The current build number, such as "153"|
 |BUILD_ID|The current build id, such as "2005-08-22_23-59-59" (YYYY-MM-DD_hh-mm-ss, defunct since version 1.597)|
 |BUILD_URL|The URL where the results of this build can be found (e.g. http://buildserver/jenkins/job/MyJobName/666/)|

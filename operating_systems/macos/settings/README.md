@@ -3,15 +3,20 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Maxos 설정 관리
+
 ## 설명
+
 MacOS 를 세팅하는 방법을 알아봅니다.
 
 ## 최초 가장 간단한 프로그램 구성
+
 프로그램 구성은 명령어 command 명령어 단위로 수행되는 경우가 많음으로 `code` 형태로 작성합니다.
+
 ```bash
 # Homebrew installation
 1. access: https://brew.sh/index_ko

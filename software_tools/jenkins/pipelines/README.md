@@ -3,15 +3,20 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Jenkins 파이프라인 예시
+
 ## 설명
+
 다양한 파이프라인을 구성하는 예시를 공유합니다.
 
 ## groovy script
+
 ### WAS 빌드/배포
+
 ```groovy
 pipeline {
     agent any
@@ -49,11 +54,14 @@ pipeline {
 }
 
 ```
+
 ### WEB 빌드/배포
 <!-- TODO: 스크립트 추가 -->
 
 ## shell script
+
 ### WAS 빌드/배포
+
 ```bash
 p1_download_sources() {
     # ex. git
@@ -101,6 +109,7 @@ main
 ```
 
 ### WEB 빌드/배포
+
 ```bash
 p1_download_sources() {
     # ex. git

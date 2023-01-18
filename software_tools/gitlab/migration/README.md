@@ -3,31 +3,37 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Gitlab 이관 방법
+
 ## 설명
+
 gitlab, repository 등을 이관하는 방법을 다룹니다.
 
 ## Gitlab 이관 <!-- TODO: gitlab 이관 -->
 
 ## Repository 이관
+
 1. 이관할 소스 리파지토리에서 클론
-```bash
-git clone --mirror ${source_repository_url}.git # 기존 repository 와 동일한 복사본을 생성하는 것으로 --bare 옵션을 내부적으로 수행하고 +a 작업을 추가로 함
-# or
-git clone --bare ${source_repository_url}.git # 독립적으로 repository 를 떠서 git config 관련 정보(예. origin 등)가 없음
-```
+
+    ```bash
+    git clone --mirror ${source_repository_url}.git # 기존 repository 와 동일한 복사본을 생성하는 것으로 --bare 옵션을 내부적으로 수행하고 +a 작업을 추가로 함
+    # or
+    git clone --bare ${source_repository_url}.git # 독립적으로 repository 를 떠서 git config 관련 정보(예. origin 등)가 없음
+    ```
 
 2. origin url 변경
-```bash
-cd ${source_repository_url}.git
-git remote set-url --push origin ${target_repository_url}.git 
-```
+
+    ```bash
+    cd ${source_repository_url}.git
+    git remote set-url --push origin ${target_repository_url}.git 
+    ```
 
 3. 이관 타켓 리파지토리에 푸쉬
-```bash
-git push --mirror 
-```
 
+    ```bash
+    git push --mirror 
+    ```

@@ -3,23 +3,31 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Gitlab 설치 방법
+
 ## 설명
+
 본 설치 방법은 무료 버전인 ce(community edition) 버전을 기준으로 작성하였습니다.
 
 ## 설치 방법
+
 **설치 과정**
+
 1. 기본 개발 도구 설치
 2. 방화벽 개방
 3. Gitlab 설치 (community edition(무료), enterprise edition(유료) 두가지 버전이 존재)
 4. Gitlab 초기 설정
 
 ### Public 환경 (인터넷을 사용 할 수 있는 상황)
+
 #### CentOS 8 (https://about.gitlab.com/install/)
+
 1. 기본 개발 도구 설치
+
     ```bash
     sudo yum install -y curl policycoreutils-python-utils openssh-server perl postfix
     sudo systemctl enable sshd
@@ -27,18 +35,24 @@
     sudo systemctl enable postfix
     sudo systemctl start postfix
     ```
+
 2. 방화벽 개방
+
     ```bash
     sudo firewall-cmd --permanent --add-service=http
     sudo firewall-cmd --permanent --add-service=https
     sudo systemctl reload firewalld
     ```
+
 3. Gitlab 설치 - ce 버전
+
     ```bash
     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
     sudo yum install -y gitlab-ce
     ```
+
 4. Gitlab 초기 설정
+
     ```bash
     sudo vi /etc/gitlab/gitlab.rb
     #---------- /etc/gitlab/gitlab.rb
@@ -54,8 +68,11 @@
     ```
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
+
 #### CentOS 8 (https://docs.gitlab.com/ee/install/installation.html)
+
 1. 기본 개발 도구 설치
+
     ```bash
     createrepo --database local-repo
     sudo yum repolist # check added the local-repo in list
@@ -97,17 +114,22 @@
     ```
 
 2. 방화벽 개방
+
     ```bash
     sudo netstat -anp | grep LISTEN # or sudo netstat -anp | grep 80
     sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
     sudo firewall-cmd --reload
     ```
+
 3. Gitlab 설치 - ce 버전
+
     ```bash
     sudo dnf clean all
     sudo dnf install --disablerepo=\* --enablerepo=local-repo gitlab-ce
     ```
+
 4. Gitlab 초기 설정
+
     ```bash
     sudo vi /etc/gitlab/gitlab.rb
     #---------- /etc/gitlab/gitlab.rb

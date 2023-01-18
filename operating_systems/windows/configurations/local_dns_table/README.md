@@ -3,11 +3,14 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # 로컬 DNS 목록 구성
+
 ## 설명
+
 DNS 로 접근하고자 할 때, 공인 DNS 가 아니면 인식할 수 없습니다.
 이에 특정 DNS 를 특정 ip 로 바라보게 끔 로컬 DNS 를 설정할 수 있습니다.
 

@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/5.3.0-alpha1/bootstrap.css">
 
 # [맥쓰네 블로그](https://max-jayee.github.io "https://max-jayee.github.io")
+
 Welcome to Max's blog ~~ 🎉
 
 Have a nice day ~ 😁
@@ -14,4 +15,5 @@ Have a nice day ~ 😁
 <!-- TODO: programming language -->
 
 ### 참고
+
 Markdown guide page: [Markdown Guide](https://www.markdownguide.org/ "markdown guide website")

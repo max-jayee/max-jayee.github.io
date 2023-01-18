@@ -3,14 +3,18 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Git 유용한 명령어 모음
+
 ## 설명
+
 Git 을 사용하며 유용한 명령어들을 정리합니다.
 
 ## 명령어 목록
+
 명령어 특성상 `code` 형태로 기술합니다.
 
 ```bash

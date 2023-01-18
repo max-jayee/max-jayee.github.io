@@ -3,11 +3,14 @@
 <div class="sticky-top bg-white pt-1 pb-2" id="header-div-max"></div>
 <details id="display-none"><summary></summary>
   <script src="/js/header.js" defer="defer"></script>
+  <script src="/js/table/numbering.js" defer="defer"></script>
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
 # Git 옵션 설명
+
 ## Git 옵션
+
 Git 은 아래와 같이 다양한 옵션을 제공합니다.
 
 ```bash
