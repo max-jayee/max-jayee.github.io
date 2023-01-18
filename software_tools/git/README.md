@@ -19,7 +19,7 @@ Git 을 사용하며 유용하게 사용하는 명령어, 문제 발생시 해�
 
 | 항목 | 요약 | 비고 |
 | :--- | :--- | :--- |
-| [도구 옵션](./options/ "https://max-jayee.github.io/software_tools/git/options") | 옵션들에 대한 설명 | [Official Web Site](https://git-scm.com/docs "https://git-scm.com/docs") |
 | [유용한 명령어](./commands/ "https://max-jayee.github.io/software_tools/git/commands") | 궁금하거나 사용하기 유용한 명령어 모음 |  |
+| [도구 옵션](./options/ "https://max-jayee.github.io/software_tools/git/options") | 옵션들에 대한 설명 | [Official Web Site](https://git-scm.com/docs "https://git-scm.com/docs") |
 
 <!-- TODO: ./trouble_shootings -->
