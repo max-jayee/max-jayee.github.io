@@ -34,3 +34,4 @@ Visual Studio Code 를 사용하며 어떠한 이유(궁금하거나, 사용하�
 7. 파일 자동 정렬 : `alt + shift + f`
 8. 테마 설정 변경 : `cmd + k, t`
 9. 단축키 확인 : `cmd + k, s`
+10. 터미널 열기/닫기 : ``ctrl + shift + ` ``
