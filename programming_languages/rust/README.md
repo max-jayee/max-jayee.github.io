@@ -17,3 +17,5 @@ This section is Rust programming language to develop applications.
 | :--- | :--- | :--- |
 | [Output](./output/ "https://max-jayee.github.io/programming_language/rust/output") | different ways for output | stdout, etc.. |
 | [Input](./input/ "https://max-jayee.github.io/programming_language/rust/input") | different ways for input | stdin, etc.. |
+
+<!-- TODO: rust output, input, error handling -->
