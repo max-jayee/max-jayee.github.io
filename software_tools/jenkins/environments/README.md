@@ -21,7 +21,7 @@ Job 을 실행하여 명령을 실행하는 경우 아래의 목록에 해당하
 | :--- | :--- |
 |BUILD_NUMBER|The current build number, such as "153"|
 |BUILD_ID|The current build id, such as "2005-08-22_23-59-59" (YYYY-MM-DD_hh-mm-ss, defunct since version 1.597)|
-|BUILD_URL|The URL where the results of this build can be found (e.g. http://buildserver/jenkins/job/MyJobName/666/)|
+|BUILD_URL|The URL where the results of this build can be found (e.g. <http://buildserver/jenkins/job/MyJobName/666/>)|
 |NODE_NAME|The name of the node the current build is running on. Equals 'master' for master node.|
 |JOB_NAME|Name of the project of this build. This is the name you gave your job when you first set it up. It's the third column of the Jenkins Dashboard main page.|
 |BUILD_TAG|String of jenkins-${JOB_NAME}-${BUILD_NUMBER}. Convenient to put into a resource file, a jar file, etc for easier identification.|

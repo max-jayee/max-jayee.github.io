@@ -15,7 +15,7 @@
 
 ## 설치 방법
 
-**설치 과정**
+### 설치 과정
 
 1. 기본 개발 도구 설치
 2. 방화벽 개방
@@ -24,7 +24,7 @@
 
 ### Public 환경 (인터넷을 사용 할 수 있는 상황)
 
-#### CentOS 8 (https://about.gitlab.com/install/)
+#### CentOS 8 (<https://about.gitlab.com/install/>)
 
 1. 기본 개발 도구 설치
 
@@ -69,7 +69,7 @@
 
 ### Private 환경 (인터넷을 사용 할 수 없는 상황)
 
-#### CentOS 8 (https://docs.gitlab.com/ee/install/installation.html)
+#### CentOS 8 (<https://docs.gitlab.com/ee/install/installation.html>)
 
 1. 기본 개발 도구 설치
 

@@ -34,13 +34,13 @@ vi C:\Windows\System32\drivers\etc\hosts
 #
 # For example:
 #
-#	102.54.94.97    rhino.acme.com      # source server
-#	38.25.63.10     x.acme.com          # x client host
+# 102.54.94.97    rhino.acme.com      # source server
+# 38.25.63.10     x.acme.com          # x client host
 
  ${user-ip-address} ${user-dns-address}
 
 # localhost name resolution is handled within DNS itself.
-#	127.0.0.1       localhost
-#	::1             localhost
+# 127.0.0.1       localhost
+# ::1             localhost
 #----------
 ```

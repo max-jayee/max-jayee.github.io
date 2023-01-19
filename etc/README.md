@@ -21,7 +21,8 @@ jpi -> hpi 로 변환 : `ls | grep '.jpi' | cut -d . -f 1 | while read line; do 
 
 Jenkins Execute shell 에서 원격 데몬 실행 명령시 return 올때까지 waiting 걸릴때 해소법 : `ssh -f  ${account}@${server} sh /home/administrator/bin/startServer.sh` 와 같이 -f 옵션 주기
 
-nexus bulk download : 
+nexus bulk download :  
+
 ```bash
 sourceServer=
 sourceRepo=
@@ -75,6 +76,7 @@ done
 ```
 
 nexus bulk upload :
+
 ```bash
 #! /bin/bash
 
@@ -94,27 +96,35 @@ done <$files
 ```
 
 #### cut 명령어
+
 `cut -c 5-7` 맨 첫글짜가 1이고 5-7 번째 문자만 자르기
 
 #### 소문자로 모두 바꾸기
+
 `awk '{print tolower(0)}'`
 
 #### 행 문자 바꾸기
+
 `sed 's/_/-/g'`
 
 #### 현재 위치에서 절대 경로 얻기
+
 `pwd -P`
 
 #### 결과값 shell 에서 받기
+
 `` 변수=`command` ``
 
 #### 특정 파일이 실행되고 있는 프로세스 죽이기
+
 `` kill -9 `ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'` ``
 
 #### 특정 프로세스 stdout 보기
+
 `` cat /proc/`ps -ef | grep ${filename} | grep -v grep | awk '{print $2}'`/fd/1 `` <!-- 1: stdout, 2: stderr -->
 
 #### 패스워드 없이 git clone (ssh key)
+
 ```bash
 # 1. Register SSH Key to git repository(github, gitlab etc..)
 # 2. git clone (ex. github)
@@ -122,11 +132,13 @@ git clone git@github.com-${github id}:${username}/${repo name}.git
 ```
 
 #### 패스워드 없이 git clone (http(s))
+
 ```bash
 git clone http(s)://${id}:${password / access token}@${server uri}/${username / repo group}/${repo name}.git
 ```
 
 #### 다수의 ssh key 관리
+
 ```bash
 vi ~/.ssh/config
 # ---------- ~/.ssh/config
@@ -141,14 +153,16 @@ Host my-private-server2 # alias
     IdentityFile ~/.ssh/aws-key2.pem # using identity file path + file name
 # ----------
 ```
+
 ⭐️Tip: SSH config 파일은 다른 사용자가 사용할 수 있으면 보안상 문제의 요지가 됨으로 권한은 조절하는 것이 좋다. `chmod 400 ~/.ssh/config`
 
 #### 방화벽 확인 centos 8
+
 sudo firewall-cmd --list-ports
 
 #### windows 특정 프로세스 킬
-https://seomile.tistory.com/91
 
+<https://seomile.tistory.com/91>
 
 <!-- TODO readinessProbe, livenessProbe -->
 readinessProbe: 서비스가 가능한 상태인지
@@ -159,7 +173,6 @@ Command probe
         command:
         - cat
         - /tmp/healthy
-
 
 HTTP probe
 eadinessProbe:
@@ -185,7 +198,7 @@ item = Jenkins.instance.getAllItems().each() { item ->
   item.builds.each() { build ->
     build.delete()
   }
-  item.updateNextBuildNumber(1) 
+  item.updateNextBuildNumber(1)
 }
 특정 아이템의 빌드 히스토리 제거
 item = Jenkins.instance.getItemByFullName("jobname")
@@ -229,23 +242,23 @@ System.out.println(diffHor + "시 차이");
 System.out.println(diffDays + "일 차이");
 
 private static String AddDate(String strDate, int year, int month, int day) throws Exception {
-		
+  
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
     Date parsedDate = simpleDateFormat.parse(strDate);
-		Calendar calendar = Calendar.getInstance();
+  Calendar calendar = Calendar.getInstance();
         
-		calendar.setTime(parsedDate);
+  calendar.setTime(parsedDate);
         
-		calendar.add(Calendar.YEAR,  year);
-		calendar.add(Calendar.MONTH, month);
-		calendar.add(Calendar.DATE,  day);
+  calendar.add(Calendar.YEAR,  year);
+  calendar.add(Calendar.MONTH, month);
+  calendar.add(Calendar.DATE,  day);
         
-		return simpleDateFormat.format(calendar.getTime());
-	}
+  return simpleDateFormat.format(calendar.getTime());
+ }
 ```
 
 <!-- TODO: intellij -->
-https://www.jetbrains.com/help/idea/searching-everywhere.html#search_all
+<https://www.jetbrains.com/help/idea/searching-everywhere.html#search_all>
 
 <!-- TODO: pem <-> ppk -->
 pem : openssh, ppk : putty 용
@@ -302,6 +315,7 @@ image_tag="`echo $file_name_len | cut -d '-' -f2`-`echo $file_name_len | cut -d 
 ```bash
 file format : ${image_name}_${image_tag}.tar
 ```
+
 ```bash
 #! /bin/bash
 image_registry=""
@@ -324,6 +338,7 @@ podman rmi docker.io/library/$in:tag
 ```bash
 file format : ${image_name}_${image_tag}.tar
 ```
+
 ```bash
 #! /bin/bash
 image_registry=""

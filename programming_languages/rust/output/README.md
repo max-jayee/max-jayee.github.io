@@ -29,13 +29,12 @@ Macros related to printing defined in `std::fmt` module.
 
 | Type | List | Note |
 | :--- | :--- | :--- |
-| Format text for debugging | `{:?}` | There is in `fmt::Debug` trait. <br> set `#[derive(Debug)]` code on the struct definition. |
+| Format text for debugging | `{:?}` | There is in `fmt::Debug` trait. </br> set `#[derive(Debug)]` code on the struct definition. |
 | Format text in a more elegant for user | `{}` | There is in `fmt::Display` trait. |
 
 ### Debug
 
 The `fmt::Debug` trait makes this very straightforward. All types can derive (automatically create) the `fmt::Debug` implementation.
-
 
 ## Example
 
