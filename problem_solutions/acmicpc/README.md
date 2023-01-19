@@ -15,8 +15,12 @@
 
 ## 소개
 
-Rust 를 지원하는 온라인 저지 중 하나로 아래 문제를 해결하고자 시도하였습니다.
+Rust 를 지원하는 온라인 저지 중 하나로 아래 문제를 해결하고자 시도하였습니다.  
+전략은 아래와 같이 접근하고자 합니다.  
+
+1. [단계별로 풀어보기](https://www.acmicpc.net/step "https://www.acmicpc.net/step") -> 2. [문제집](https://www.acmicpc.net/workbook/top "https://www.acmicpc.net/workbook/top")
 
 | No. | 제목 | 알고리즘 | 비고 |
 | :---: | :--- | :--- | :--- |
+| 1000 | [A+B](./1000/ "https://max-jayee.github.io/problem_solutions/acmicpc/1000") | #입력, #출력, #산술 | [Acmicpc](https://www.acmicpc.net/problem/1000 "https://www.acmicpc.net/problem/1000") |
 | 2557 | [Hello World](./2557/ "https://max-jayee.github.io/problem_solutions/acmicpc/2557") | #출력 | [Acmicpc](https://www.acmicpc.net/problem/2557 "https://www.acmicpc.net/problem/2557") |

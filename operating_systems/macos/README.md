@@ -17,7 +17,6 @@ Linux 기반으로 Apple 사(🍎)에서 만든 운영체제로 대표적으로 
 
 MacOS 를 사용하며 유용하게 사용하는 단축키, 문제 발생시 해결 방법 등을 다루는 페이지입니다.
 
-
 | 항목 | 요약 | 비고 |
 | :--- | :--- | :--- |
 | [설정 관리](./settings/ "https://max-jayee.github.io/operating_systems/macos/settings") | 설정 관리 정보 | |

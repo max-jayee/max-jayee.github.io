@@ -7,18 +7,18 @@
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
-# 2557번 문제
+# 1000번 문제
 
-`Hello World!` 를 출력하시오.
+두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
 
 ## 입력
 
-N/A
+첫째 줄에 A와 B가 주어진다. (0 < A, B < 10)
 
 ## 출력
 
-`Hello World!`
+첫째 줄에 A+B를 출력한다.
 
 ## 구현 코드
 
-[code: Rust](https://github.com/max-jayee/rust-language/blob/main/acmicpc/p2557/src/main.rs "https://github.com/max-jayee/rust-language/blob/main/acmicpc/p2557/src/main.rs")
+[code: Rust](https://github.com/max-jayee/rust-language/blob/main/acmicpc/p1000/src/main.rs "https://github.com/max-jayee/rust-language/blob/main/acmicpc/p1000/src/main.rs")
