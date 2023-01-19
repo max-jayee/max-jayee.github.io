@@ -10,10 +10,11 @@ Have a nice day ~ 😁
 # Index of this blog
 
 1. [Operating Systems](./operating_systems/ "https://max-jayee.github.io/operating_systems")
+1. [Problem Solutions](./problem_solutions/ "https://max-jayee.github.io/problem_solutions")
 1. [Software Tools](./software_tools/ "https://max-jayee.github.io/software_tools")
-<!-- TODO: problem solutions -->
+
 <!-- TODO: programming language -->
 
-### 참고
+## 참고
 
 Markdown guide page: [Markdown Guide](https://www.markdownguide.org/ "markdown guide website")
