@@ -22,4 +22,4 @@ This section is Rust programming language to develop applications.
 | [Structure](./structure/ "https://max-jayee.github.io/programming_language/rust/structure") | different structures | structure, enum, constannt, etc..  |
 | [Tips](./tips/ "https://max-jayee.github.io/programming_language/rust/tips") | useful tips | hide warnings for unused code, etc..  |
 
-<!-- TODO: rust output, input, error handling -->
+<!-- TODO: rust input, variable, error handling -->

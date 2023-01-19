@@ -24,7 +24,7 @@
 
 ## 컨테이너 이미지
 
-ngninx 컨테이너 이미지 목록: https://hub.docker.com/_/nginx
+ngninx 컨테이너 이미지 목록: <https://hub.docker.com/_/nginx>
 
 1. 컨테이너 이미지 다운로드
 

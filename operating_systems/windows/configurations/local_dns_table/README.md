@@ -15,7 +15,7 @@ DNS 로 접근하고자 할 때, 공인 DNS 가 아니면 인식할 수 없습�
 이에 특정 DNS 를 특정 ip 로 바라보게 끔 로컬 DNS 를 설정할 수 있습니다.
 
 ## 설정
-<!-- TODO: System32, System 차이-->
+
 ```bash
 vi C:\Windows\System32\drivers\etc\hosts
 #---------- C:\Windows\System32\drivers\etc\hosts

@@ -93,7 +93,6 @@ fn main() {
     // This will not compile because `Structure` does not implement
     // fmt::Display
     //println!("This struct `{}` won't print...", Structure(3));
-    // TODO ^ Try uncommenting this line
 
     // For Rust 1.58 and above, you can directly capture the argument from a
     // surrounding variable. Just like the above, this will output

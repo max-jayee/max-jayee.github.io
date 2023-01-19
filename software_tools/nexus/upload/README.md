@@ -10,10 +10,13 @@
 <!-- TODO: nexus upload 추가 -->
 
 # Jenkins 파이프라인 예시
+
 ## 설명
+
 다양한 파이프라인을 구성하는 예시를 공유합니다.
 
 ## WAS 배포 (only jenkins)
+
 ```bash
 p1_download_sources() {
     # ex. git
@@ -58,6 +61,7 @@ main
 ```
 
 ## WEB 배포 (only jenkins)
+
 ```bash
 p1_download_sources() {
     # ex. git
