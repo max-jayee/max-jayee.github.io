@@ -11,14 +11,14 @@
 
 ## 설명
 
-다양한 파이프라인을 구성하는 예시를 공유합니다.
-git 저장소에 jenkins 계정을 생성하고, jenkins 계정의 api token 을 발급합니다.
+다양한 파이프라인을 구성하는 예시를 공유합니다.  
+git 저장소에 jenkins 계정을 생성하고, jenkins 계정의 api token 을 발급합니다.  
 발급한 토큰은 jenkins token 에 추가합니다.
 
 ## git structure
 
-projectcode[3]-syscode[3] > syscode[3]-biz[3]-prjtype[3] - src
-projectcode[3]-ci > spring boot - Jenkinsfile
+projectcode[3]-syscode[3] > syscode[3]-biz[3]-prjtype[3] - src  
+projectcode[3]-ci > spring boot - Jenkinsfile  
 projectcode[3]-cd > syscode[3] > syscode[3]-biz[3]-prjtype[3] - deployment.yaml
 
 ## Jenkins global options
@@ -34,8 +34,8 @@ BRANCH_IDX=13
 
 ## groovy script
 
-pipeline 전역에 environment 를 가질 수 있고, 각 stage 마다 environment 를 가질 수 있습니다.
-각 stage 는 독립적인 관계로, stage 가 끝나면 pwd 나 environment 는 초기화 됩니다.
+pipeline 전역에 environment 를 가질 수 있고, 각 stage 마다 environment 를 가질 수 있습니다.  
+각 stage 는 독립적인 관계로, stage 가 끝나면 pwd 나 environment 는 초기화 됩니다.  
 environment 내에서 정의한 것은 environment 에서 바로 사용할 수 없고, 한 레벨 아래 영역들만 사용할 수 있습니다.
 
 <!-- TODO: groovy 에서는 "" 와 '' 가 환경변수를 처리할 때 다르게 처리되는 것으로 보인다. 
