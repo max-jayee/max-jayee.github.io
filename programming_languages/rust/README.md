@@ -16,6 +16,7 @@ This section is Rust programming language to develop applications.
 | Category | Summary | Note |
 | :--- | :--- | :--- |
 | [Data Type](./data_type/ "https://max-jayee.github.io/programming_language/rust/data_type") | different data type | i32, isize, u32, usize, f32, tuple, etc.. |
+| [Operators](./operators/ "https://max-jayee.github.io/programming_language/rust/operators") | list of operators | `!`, `?`, etc.. |
 | [Output](./output/ "https://max-jayee.github.io/programming_language/rust/output") | different ways for output | stdout, etc.. |
 | [Input](./input/ "https://max-jayee.github.io/programming_language/rust/input") | different ways for input | stdin, etc.. |
 | [Variable](./variable/ "https://max-jayee.github.io/programming_language/rust/variable") | variable usage | let, mut, statyic, const, etc..  |
