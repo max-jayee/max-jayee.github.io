@@ -17,5 +17,6 @@ Jenkins 도구를 매니징에 필요한 정보를 관리합니다.
 
 |영역|옵션|설명|비고|
 | :--- | :--- | :--- | :--- |
-|Authentication|Disable remember me|사용자 로그인 정보를 기억하는 기능 제공 여부|default: enable|
-|Authentication|Security Realm|사용자/그룹을 관리하는 방법|플러그인으로 다양하게 사용할 수 있음, 사용자 가입 허용을 해제하면 로그인 화면에서 회원가입 신청 버튼이 사라짐|
+| Authentication | Disable remember me | 사용자 로그인 정보를 기억하는 기능 제공 여부 | default: enable |
+| Authentication | Security Realm | 사용자/그룹을 관리하는 방법 | 플러그인으로 다양하게 사용할 수 있음, 사용자 가입 허용을 해제하면 로그인 화면에서 회원가입 신청 버튼이 사라짐 |
+| Configure System | Global properties | configure global properties(Environment variables, Prepare jobs environment, Tool Locations, etc..) |  |

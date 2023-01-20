@@ -27,6 +27,9 @@ git config --global ${config attribute} "${config value}"
 ##### 프로젝트에만 값 설정하기
 git config ${config attribute} "${config value}"
 
+##### 프로젝트 clone 하며 원하는 이름으로 root directory 생성하기
+git clone ${git repo} -b ${branch name} ${root directory}
+
 ##### 히스토리 보기
 git log
 

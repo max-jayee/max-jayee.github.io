@@ -9,7 +9,9 @@
 
 # ETC
 
-여긴 낙서장 같은 곳
+## This is a playground
+
+### Temporary things
 
 첫번째 파라미터에 해당하는 파일의 절대 경로 : `SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"`
 
@@ -95,13 +97,26 @@ do
 done <$files
 ```
 
+#### variable arithmetic expansion in shell script
+
+`$((EXPR))`
+ex: `num=$((num1 + num2))` or `num=$((num1 + 3))`
+
+#### indirect parameter in shell script
+
+```bash
+VAR_KEY="KEY"
+VAR_VAL="VAR_KEY"
+${!VAR_VAL} # return KEY
+```
+
 #### cut 명령어
 
 `cut -c 5-7` 맨 첫글짜가 1이고 5-7 번째 문자만 자르기
 
 #### 소문자로 모두 바꾸기
 
-`awk '{print tolower(0)}'`
+`awk '{print tolower($0)}'`
 
 #### 행 문자 바꾸기
 

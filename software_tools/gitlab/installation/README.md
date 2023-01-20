@@ -47,6 +47,7 @@
 3. Gitlab 설치 - ce 버전
 
     ```bash
+    # gitlab package registry : https://packages.gitlab.com/gitlab/gitlab-ce
     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
     sudo yum install -y gitlab-ce
     ```
