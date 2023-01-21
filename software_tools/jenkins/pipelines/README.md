@@ -178,8 +178,13 @@ pipeline {
 }
 ```
 
-### WEB 빌드/배포
-<!-- TODO: 스크립트 추가 -->
+### WEB 빌드/배포 (-> vm)
+
+<!-- TODO: web ci/cd -> vm -->
+
+### WEB 빌드/배포 (-> paas)
+
+<!-- TODO: web ci/cd -> paas -->
 
 ## shell script
 

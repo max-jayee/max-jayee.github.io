@@ -21,3 +21,5 @@ Project 형상관리와 CI/CD 파이프라인을 지원하는 도구로, 프라�
 | [권한관리](./permissions/ "https://max-jayee.github.io/software_tools/gitlab/permissions") | 권한 관리 정보 | [Official Web Site](https://docs.gitlab.com/ee/user/permissions.html "https://docs.gitlab.com/ee/user/permissions.html") |
 | [Rest API](./rest_api/ "https://max-jayee.github.io/software_tools/gitlab/rest_api") | Rest API 사용 방법 | [Official Web Site](https://docs.gitlab.com/ee/api/api_resources.html "https://docs.gitlab.com/ee/api/api_resources.html") |
 | [문제 / 해결](./trouble_shootings/ "https://max-jayee.github.io/software_tools/gitlab/trouble_shootings") | 다양한 문제 해결 방법 | |
+
+<!-- TODO: version upgrade -->
