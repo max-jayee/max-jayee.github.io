@@ -7,8 +7,10 @@
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
-# Podman 설치 방법
+# QEMU 설치 방법
 
 ## 설명
 
-<!-- TODO: kvm installation-->
+본 설치 방법은 공식 사이트에서 제공하는 버전을 기준으로 작성하였습니다.
+
+<!-- TODO: QEMU installation-->
