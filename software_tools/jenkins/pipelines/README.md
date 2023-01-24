@@ -74,7 +74,7 @@ pipeline {
             }
             steps {
                 sh "rm -rf ${GITLAB_REPO_NAME}"
-                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@43.201.131.196:48080/${GITLAB_APPLICATION_GROUP}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME}'
+                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@${GIT_SERVER}/${GITLAB_APPLICATION_GROUP}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME}'
             }
         }
         stage("Build"){
@@ -129,13 +129,14 @@ pipeline {
                 GITLAB_CREDS = credentials('jenkins-system-token')
                 GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
                 GITLAB_APPLICATION_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${SYSTEM_CODE})\"', returnStdout:true).trim()}"
+                GITLAB_CI_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${CI_CODE})\"', returnStdout:true).trim()}"
                 GITLAB_CD_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${CD_CODE})\"', returnStdout:true).trim()}"
                 BRANCH_NAME = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BRANCH_IDX}-$((BRANCH_IDX + 2))', returnStdout:true).trim()}"
             }
             steps {
                 sh "rm -rf ${GITLAB_REPO_NAME} && rm -rf ${GITLAB_REPO_NAME}-${CD_CODE}"
-                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@43.201.131.196:48080/${GITLAB_APPLICATION_GROUP}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME}'
-                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@43.201.131.196:48080/${GITLAB_CD_GROUP}/${SYSTEM_CODE}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME} ${GITLAB_REPO_NAME}-${CD_CODE}'
+                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@${GIT_SERVER}/${GITLAB_APPLICATION_GROUP}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME}'
+                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@${GIT_SERVER}/${GITLAB_CD_GROUP}/${SYSTEM_CODE}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME} ${GITLAB_REPO_NAME}-${CD_CODE}'
             }
         }
         stage("Build"){
@@ -144,7 +145,9 @@ pipeline {
             }
             steps {
                 sh "cd ./${GITLAB_REPO_NAME} && ./gradlew build"
-                // TODO: docker build
+                sh "cp ./${GITLAB_REPO_NAME}/build/libs/${BIZ_CODE}-0.0.1-SNAPSHOT.jar ./"
+                // docker build
+                // podman build -t ${nexus_uploading_url}/${nexus_path}/${app_repo_name}:${app_version} ./${GITLAB_CI_GROUP}/spring-boot/Dockerfile
             }
         }
         stage("Release"){
@@ -152,9 +155,10 @@ pipeline {
                 GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
             }
             steps {
-                sh "cp ./${GITLAB_REPO_NAME}/build/libs/${BIZ_CODE}-0.0.1-SNAPSHOT.jar ./"
-                // TODO: docker image tagging
-                // TODO: docker image push
+                // docker image tagging
+                // podman login -u ${user} -p ${token} ${nexus_uploading_url}
+                // docker image push
+                // podman push ${nexus_uploading_url}/${nexus_path}/${app_repo_name}:${app_version}
             }
         }
         stage("Deploy"){
@@ -164,12 +168,13 @@ pipeline {
             }
             steps {
                 dir ("${GITLAB_REPO_NAME}-${CD_CODE}") {
-                    sh "pwd"
-                    sh "ls -al"
                     sh "sed -i 's/image: ${PROJECT_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:.*/image: ${PROJECT_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:${DEPLOY_VERSION}/g' deployment.yaml"
+                    sh "git config user.email 'jenkins@sample.com'"
+                    sh "git config user.name 'Jenkins System'"
                     sh "git add deployment.yaml"
                     sh "git commit -m 'deploy ${GITLAB_REPO_NAME}-${BRANCH_NAME}:${DEPLOY_VERSION}'"
                     sh "git push"
+                    // git push http://${user_id}:${token}@${git_url}/${path}/${repo}.git
                 }
                 sh "rm -rf ${GITLAB_REPO_NAME} && rm -rf ${GITLAB_REPO_NAME}-${CD_CODE}"
             }
