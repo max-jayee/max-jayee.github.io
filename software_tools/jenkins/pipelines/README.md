@@ -191,6 +191,9 @@ pipeline {
 ### WAS 빌드/배포
 
 ```bash
+# current_dir=`pwd -P`
+# repo_name=`echo ${JOB_NAME} | awk '{print tolower($0)}' | sed 's/_/-/g'`
+
 p1_download_sources() {
     # ex. git
     git clone ${id}:${password / access_token}@${git_url}/${user_name / group_name}/${repo_name}.git -b dev
