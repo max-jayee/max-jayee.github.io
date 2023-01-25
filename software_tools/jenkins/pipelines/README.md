@@ -113,7 +113,8 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_URL = "sample.com"
+        NEXUS_IMAGE_UPLOAD_URL = "sample.com"
+        NEXUS_IMAGE_DOWNLOAD_URL = "sample.com"
         DEPLOY_VERSION = "0.0.${BUILD_ID}"
         PROJECT_KEY = "${sh(script: 'echo ${JOB_NAME} | cut -c ${SYSTEM_IDX}-$((APPLICATION_TYPE_IDX + 2))', returnStdout:true).trim()}"
         SYSTEM_CODE = "${sh(script: 'echo ${JOB_NAME} | cut -c ${SYSTEM_IDX}-$((SYSTEM_IDX + 2)) | awk \'{print tolower($0)}\'', returnStdout:true).trim()}"
@@ -129,7 +130,6 @@ pipeline {
                 GITLAB_CREDS = credentials('jenkins-system-token')
                 GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
                 GITLAB_APPLICATION_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${SYSTEM_CODE})\"', returnStdout:true).trim()}"
-                GITLAB_CI_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${CI_CODE})\"', returnStdout:true).trim()}"
                 GITLAB_CD_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${CD_CODE})\"', returnStdout:true).trim()}"
                 BRANCH_NAME = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BRANCH_IDX}-$((BRANCH_IDX + 2))', returnStdout:true).trim()}"
             }
@@ -147,7 +147,7 @@ pipeline {
                 sh "cd ./${GITLAB_REPO_NAME} && ./gradlew build"
                 sh "cp ./${GITLAB_REPO_NAME}/build/libs/${BIZ_CODE}-0.0.1-SNAPSHOT.jar ./"
                 // docker build
-                // podman build -t ${nexus_uploading_url}/${nexus_path}/${app_repo_name}:${app_version} ./${GITLAB_CI_GROUP}/spring-boot/Dockerfile
+                // podman build -t ${NEXUS_IMAGE_UPLOAD_URL}/${nexus_path}/${app_repo_name}:${app_version} ./
             }
         }
         stage("Release"){
@@ -156,9 +156,9 @@ pipeline {
             }
             steps {
                 // docker image tagging
-                // podman login -u ${user} -p ${token} ${nexus_uploading_url}
+                // podman login -u ${user} -p ${token} ${NEXUS_IMAGE_UPLOAD_URL}
                 // docker image push
-                // podman push ${nexus_uploading_url}/${nexus_path}/${app_repo_name}:${app_version}
+                // podman push ${NEXUS_IMAGE_UPLOAD_URL}/${nexus_path}/${app_repo_name}:${app_version}
             }
         }
         stage("Deploy"){
@@ -168,7 +168,7 @@ pipeline {
             }
             steps {
                 dir ("${GITLAB_REPO_NAME}-${CD_CODE}") {
-                    sh "sed -i 's/image: ${PROJECT_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:.*/image: ${PROJECT_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:${DEPLOY_VERSION}/g' deployment.yaml"
+                    sh "sed -i 's/image: ${NEXUS_IMAGE_DOWNLOAD_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:.*/image: ${NEXUS_IMAGE_DOWNLOAD_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:${DEPLOY_VERSION}/g' deployment.yaml"
                     sh "git config user.email 'jenkins@sample.com'"
                     sh "git config user.name 'Jenkins System'"
                     sh "git add deployment.yaml"
@@ -189,7 +189,80 @@ pipeline {
 
 ### WEB 빌드/배포 (-> paas)
 
-<!-- TODO: web ci/cd -> paas -->
+```groovy
+pipeline {
+    agent any
+
+    environment {
+        NEXUS_IMAGE_UPLOAD_URL = "sample.com"
+        NEXUS_IMAGE_DOWNLOAD_URL = "sample.com"
+        DEPLOY_VERSION = "0.0.${BUILD_ID}"
+        PROJECT_KEY = "${sh(script: 'echo ${JOB_NAME} | cut -c ${SYSTEM_IDX}-$((APPLICATION_TYPE_IDX + 2))', returnStdout:true).trim()}"
+        SYSTEM_CODE = "${sh(script: 'echo ${JOB_NAME} | cut -c ${SYSTEM_IDX}-$((SYSTEM_IDX + 2)) | awk \'{print tolower($0)}\'', returnStdout:true).trim()}"
+        BIZ_CODE = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BIZ_IDX}-$((BIZ_IDX + 2)) | awk \'{print tolower($0)}\'', returnStdout:true).trim()}"
+        CD_CODE = "cd"
+        APPLICATION_TYPE = "${sh(script: 'echo ${JOB_NAME} | cut -c ${APPLICATION_TYPE_IDX}-$((APPLICATION_TYPE_IDX + 2)) | awk \'{print tolower($0)}\'', returnStdout:true).trim()}"
+        JOB_NAME = "${sh(script: 'echo ${JOB_NAME} | awk \'{print tolower($0)}\'', returnStdout:true).trim()}"
+    }
+
+    stages {
+        stage("Prepare"){
+            environment {
+                GITLAB_CREDS = credentials('jenkins-system-token')
+                GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
+                GITLAB_APPLICATION_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${SYSTEM_CODE})\"', returnStdout:true).trim()}"
+                GITLAB_CD_GROUP = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')-$(echo ${CD_CODE})\"', returnStdout:true).trim()}"
+                BRANCH_NAME = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BRANCH_IDX}-$((BRANCH_IDX + 2))', returnStdout:true).trim()}"
+            }
+            steps {
+                sh "rm -rf ${GITLAB_REPO_NAME} && rm -rf ${GITLAB_REPO_NAME}-${CD_CODE}"
+                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@${GIT_SERVER}/${GITLAB_APPLICATION_GROUP}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME}'
+                sh 'git clone http://${GITLAB_CREDS_USR}:${GITLAB_CREDS_PSW}@${GIT_SERVER}/${GITLAB_CD_GROUP}/${SYSTEM_CODE}/${GITLAB_REPO_NAME}.git -b ${BRANCH_NAME} ${GITLAB_REPO_NAME}-${CD_CODE}'
+            }
+        }
+        stage("Build"){
+            environment {
+                GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
+            }
+            steps {
+                sh "cd ./${GITLAB_REPO_NAME} && ./gradlew build"
+                sh "cp ./${GITLAB_REPO_NAME}/build/libs/${BIZ_CODE}-0.0.1-SNAPSHOT.jar ./"
+                // docker build
+                // podman build -t ${NEXUS_IMAGE_UPLOAD_URL}/${nexus_path}/${app_repo_name}:${app_version} ./
+            }
+        }
+        stage("Release"){
+            environment {
+                GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
+            }
+            steps {
+                // docker image tagging
+                // podman login -u ${user} -p ${token} ${NEXUS_IMAGE_UPLOAD_URL}
+                // docker image push
+                // podman push ${NEXUS_IMAGE_UPLOAD_URL}/${nexus_path}/${app_repo_name}:${app_version}
+            }
+        }
+        stage("Deploy"){
+            environment {
+                GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
+                BRANCH_NAME = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BRANCH_IDX}-$((BRANCH_IDX + 2))', returnStdout:true).trim()}"
+            }
+            steps {
+                dir ("${GITLAB_REPO_NAME}-${CD_CODE}") {
+                    sh "sed -i 's/image: ${NEXUS_IMAGE_DOWNLOAD_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:.*/image: ${NEXUS_IMAGE_DOWNLOAD_URL}\\/${GITLAB_REPO_NAME}-${BRANCH_NAME}:${DEPLOY_VERSION}/g' deployment.yaml"
+                    sh "git config user.email 'jenkins@sample.com'"
+                    sh "git config user.name 'Jenkins System'"
+                    sh "git add deployment.yaml"
+                    sh "git commit -m 'deploy ${GITLAB_REPO_NAME}-${BRANCH_NAME}:${DEPLOY_VERSION}'"
+                    sh "git push"
+                    // git push http://${user_id}:${token}@${git_url}/${path}/${repo}.git
+                }
+                sh "rm -rf ${GITLAB_REPO_NAME} && rm -rf ${GITLAB_REPO_NAME}-${CD_CODE}"
+            }
+        }
+    }
+}
+```
 
 ## shell script
 

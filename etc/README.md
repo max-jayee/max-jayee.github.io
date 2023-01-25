@@ -415,3 +415,30 @@ fi
 | :--- | :--- | :--- |
 |11|11|11|
 |22|22|22|
+
+#### array in bash shell
+
+SUB_MODULES = "MOD1 MOD2 MOD3"
+for SUB_MODULE in ${SUB_MODULES}; do echo "hahahoho ${SUB_MODULE} lululala"; done
+
+#### repo port 확인
+
+설정 -> repository -> repositories -> http 에 포트 확인
+
+#### k8s 에서 pinging conatiner registry Get http: server gave HTTP response to HTTPS client 오류날때
+
+```bash
+crictl pull 이미지가  안되고있을것임..
+1
+
+
+In my case, I simply added [[registry]] field into /etc/containers/registries.conf file simply because I was using crio
+
+[[registry]]
+insecure = true
+location = "IP ADDRESS"
+
+and restart crio
+
+systemctl restart crio.service
+```
