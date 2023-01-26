@@ -19,7 +19,9 @@ git 저장소에 jenkins 계정을 생성하고, jenkins 계정의 api token 을
 
 projectcode[3]-syscode[3] > syscode[3]-biz[3]-prjtype[3] - src  
 projectcode[3]-ci > spring boot - Jenkinsfile  
-projectcode[3]-cd > syscode[3] > syscode[3]-biz[3]-prjtype[3] - deployment.yaml
+projectcode[3]-cd > syscode[3] - syscode[3]-biz[3]-prjtype[3] - deployment.yaml
+
+cd 의 경우 syscode 로 끊는게 관리하기가 용이한 이유는 argocd 와 연동할때 git repo 단위라서 저게 많이 쪼개지면 많이 분리가됨
 
 ## Jenkins global options
 
