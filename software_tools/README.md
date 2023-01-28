@@ -7,14 +7,14 @@
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
-# 소프트웨어 도구 관리
+# Software Tools
 
-아래와 같은 소프트웨어 도구들을 관리하는 페이지입니다.
+Introducing various and useful software tools.
 
-## 소프트웨어 도구 목록
+## List for Software Tools
 
-|도구 명|설명|비고|
-|:---|:---|:---|
+| Item | Summary | Note |
+| :--- | :--- | :--- |
 | [Git](./git/ "https://max-jayee.github.io/software_tools/git") | 소스 형상관리를 지원하는 도구 | [Official Web Site](https://git-scm.com/ "https://git-scm.com/") |
 | [Gitlab](./gitlab/ "https://max-jayee.github.io/software_tools/gitlab") | 소스 형상관리나 CI/CD 파이프라인을 지원하는 도구 | [Official Web Site](https://about.gitlab.com "https://about.gitlab.com") |
 | [IntelliJ](./intellij/ "https://max-jayee.github.io/software_tools/intellij") | Java 언어 개발을 지원하는 도구 | [Official Web Site](https://www.jetbrains.com/ko-kr/idea/ "https://www.jetbrains.com/ko-kr/idea/") |
