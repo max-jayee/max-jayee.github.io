@@ -34,14 +34,29 @@ ngninx 컨테이너 이미지 목록: <https://hub.docker.com/_/nginx>
 
 1. Dockerfile 작성
 
-    ```bash
-    FROM nginx:--
+    ```dockerfile
+    FROM nexus-ip-or-domain:5000/los/base/nginx:1.23.3-alpine
 
-    COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+    USER root
 
-    CMD nginx -g 'daemon off;'
+    # Timezone 설정
+    ENV TZ=Asia/Seoul
 
-    EXPOSE 80
+    # application copy & set
+    ARG STATIC_RESOURCE_PATH=ui-result
+    ARG NGINX_CONF_FILE=nginx.conf
+
+    COPY ${NGINX_CONF_FILE} /etc/nginx/nginx.conf
+    COPY ${STATIC_RESOURCE_PATH} /app/ui/src
+
+    RUN chgrp -R root /var/cache/nginx /var/run /var/log/nginx /etc/nginx && \
+        chmod -R 770 /var/cache/nginx /var/run /var/log/nginx /etc/nginx
+
+    RUN rm -rf /etc/nginx/conf.d/*
+
+    EXPOSE 8080
+
+    CMD ["nginx", "-g", "daemon off;"]
     ```
 
 1. 이미지 생성

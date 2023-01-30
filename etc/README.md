@@ -204,7 +204,7 @@ livenessProbe:
 
 <!-- TODO Dockerfile add, copy, run, cmd, env, arg 등.. -->
 ```dockerfile
-FROM dnexus.kblife.co.kr:5000/los/base/openjdk:8-jdk-alpine
+FROM nexus-ip-or-domain:5000/los/base/openjdk:8-jdk-alpine
 
 USER root
 
