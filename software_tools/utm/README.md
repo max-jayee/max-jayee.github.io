@@ -13,6 +13,6 @@ Introducing how to install UTM on iOS and macOS.
 
 ## List for UTM
 
-| 도구 명 | 요약 | 비고 |
+| Item | Summary | Note |
 | :--- | :--- | :--- |
-| [설치 방법](./installation "https://max-jayee.github.io/software_tools/utm/installation") | UTM 를 설치하는 방법 | [Official Web Site](https://docs.getutm.app/installation/installation/ "https://docs.getutm.app/installation/installation/") |
+| [Installation](./installation "https://max-jayee.github.io/software_tools/utm/installation") | How to install UTM | [Official Web Site](https://docs.getutm.app/installation/installation/ "https://docs.getutm.app/installation/installation/") |

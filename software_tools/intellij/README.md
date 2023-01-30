@@ -19,6 +19,6 @@ IntelliJ 를 사용하며 유용하게 사용하는 단축키, 문제 발생시 
 
 | 항목 | 요약 | 비고 |
 | :--- | :--- | :--- |
-| [도구 설정](./settings/ "https://max-jayee.github.io/software_tools/spring_tool_suite/settings") | 도구 설정 정보 | |
+| [도구 설정](./settings/ "https://max-jayee.github.io/software_tools/spring_tool_suite/settings") | 도구 설정 정보 | [Official Web Site](https://www.jetbrains.com/help/idea/getting-started.html "https://www.jetbrains.com/help/idea/getting-started.html") |
 | [단축키](./shortcuts/ "https://max-jayee.github.io/software_tools/spring_tool_suite/shortcuts") | 궁금하거나 사용하기위해 한번이라도 알아본 기본 단축키 모음 | [Official Web Site](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html "https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html") |
 | [문제 / 해결](./trouble_shootings/ "https://max-jayee.github.io/software_tools/spring_tool_suite/trouble_shootings") | 다양한 문제 해결 방법 | |
