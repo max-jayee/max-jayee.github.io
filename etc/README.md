@@ -203,6 +203,21 @@ livenessProbe:
       periodSeconds: 5
 
 <!-- TODO Dockerfile add, copy, run, cmd, env, arg 등.. -->
+```dockerfile
+FROM dnexus.kblife.co.kr:5000/los/base/openjdk:8-jdk-alpine
+
+USER root
+
+# Timezone 설정
+ENV TZ=Asia/Seoul
+
+# application copy & set
+ARG JAR_FILE=app.jar
+
+COPY ${JAR_FILE} /app/devon/app.jar
+
+CMD ["java", "-Dspring.profiles.active=dev", "-jar", "/app/devon/app.jar"]
+```
 
 <!-- TODO jenkins 모든 빌드 히스토리 제거 -->
 Script Console 이동
@@ -441,4 +456,16 @@ location = "IP ADDRESS"
 and restart crio
 
 systemctl restart crio.service
+```
+
+#### java string multiple spaces to single space
+
+```java
+${string}.replaceAll(" +", " ");
+```
+
+#### java remove front, end spaces
+
+```java
+${string}.trim();
 ```
