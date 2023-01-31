@@ -636,3 +636,7 @@ spec:
   selector:
     deployment: template-app-name
 ```
+
+```bash
+podman commit  ContainerID imagename
+```
