@@ -640,3 +640,7 @@ spec:
 ```bash
 podman commit  ContainerID imagename
 ```
+
+```bash
+podman run  -v ${host path}:${pod path}
+```
