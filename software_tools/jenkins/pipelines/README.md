@@ -182,6 +182,8 @@ pipeline {
                     sh "git config user.name 'Jenkins System'"
                     sh "git add ${GITLAB_REPO_NAME}/deployment.yaml"
                     sh "git commit -m 'deploy ${GITLAB_REPO_NAME}-${BRANCH_NAME}:${IMAGE_VERSION}'"
+                    sh "git fetch"
+                    sh "git pull"
                     sh "git push"
                 }
                 sh "rm -rf ${GITLAB_REPO_NAME} && rm -rf ${SYSTEM_CODE}-${CD_CODE}"
@@ -282,6 +284,8 @@ pipeline {
                     sh "git config user.name 'Jenkins System'"
                     sh "git add ${GITLAB_REPO_NAME}/deployment.yaml"
                     sh "git commit -m 'deploy ${GITLAB_REPO_NAME}-${BRANCH_NAME}:${IMAGE_VERSION}'"
+                    sh "git fetch"
+                    sh "git pull"
                     sh "git push"
                 }
                 sh "rm -rf ${GITLAB_REPO_NAME} && rm -rf ${SYSTEM_CODE}-${CD_CODE}"

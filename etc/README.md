@@ -469,3 +469,170 @@ ${string}.replaceAll(" +", " ");
 ```java
 ${string}.trim();
 ```
+
+```bash
+#! /bin/bash
+
+np=1
+if [ $# -ne ${np} ]; then
+    echo "${np} parameters are required."
+    echo "usage 1.) $0 los-cbh-jps-bnd-dev"
+    exit 1
+fi
+
+full_args=$1 # example los-cbh-jps-bnd-dev
+project_code=`echo ${full_args} | cut -c 1-3`
+system_code=`echo ${full_args} | cut -c 5-7`
+biz_code=`echo ${full_args} | cut -c 9-11`
+type_code=`echo ${full_args} | cut -c 13-15`
+env_code=`echo ${full_args} | cut -c 17-19`
+
+template_namespace=${project_code}-${system_code}-${env_code}
+template_app_name=${system_code}-${biz_code}-${type_code}
+template_system_code=${system_code}
+template_part=${system_code}-${biz_code}
+template_env_code=${env_code}
+
+target_files=("deployment.yaml" "route.yaml" "service.yaml")
+template_keys=("template-namespace" "template-app-name" "template-system-code" "template-part", "template-env-code")
+template_values=("${template_namespace}" "${template_app_name}" "${template_system_code}" "${template_part}" "${template_env_code}")
+
+echo "created: ${system_code}/${template_app_name}"
+cp -R template-devon-boot ${system_code}/${template_app_name}
+
+for (( i=0; i<${#target_files[@]}; i++ )); do
+    for (( j=0; j<${#template_keys[@]}; j++ )); do
+        sed -i "s/${template_keys[j]}/${template_values[j]}/g" ${system_code}/${template_app_name}/${target_files[i]}
+    done
+done
+
+pushd ${system_code}/${template_app_name}
+    git fetch
+    git pull
+    git add *
+    git commit -m "add ${template_part}"
+    git push
+popd
+
+```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: template-app-name
+    app.kubernetes.io/component: template-app-name
+    app.kubernetes.io/instance: template-app-name
+    app.kubernetes.io/name: template-app-name
+    app.kubernetes.io/part-of: Front-End
+  name: template-app-name
+  namespace: template-namespace
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: template-app-name
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+        sidecar.istio.io/inject: 'false'
+      creationTimestamp: null
+      labels:
+        app: template-app-name
+        deployment: template-app-name
+        version: v1
+    spec:
+      containers:
+      - image: dnexus.kblife.co.kr:5000/los/template-system-code/template-app-name-template-env-code:0.0.0
+        imagePullPolicy: Always
+        name: template-app-name
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /template-part/health
+            port: 9070
+            scheme: HTTP
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        ports:
+        - containerPort: 9070
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /template-part/health
+            port: 9070
+            scheme: HTTP
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /template-env-code/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+
+```
+
+```yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: template-app-name
+    app.kubernetes.io/component: template-app-name
+    app.kubernetes.io/instance: template-app-name
+    app.kubernetes.io/name: template-app-name
+  name: template-app-name
+  namespace: template-namespace
+spec:
+  host: template-app-name-template-env-code-int.kblife.co.kr
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: template-app-name
+    weight: 100
+  wildcardPolicy: None
+
+```
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: template-app-name
+    app.kubernetes.io/component: template-app-name
+    app.kubernetes.io/instance: template-app-name
+    app.kubernetes.io/name: template-app-name
+  name: template-app-name
+  namespace: template-namespace
+spec:
+  ports:
+  - name: http
+    port: 9070
+    protocol: TCP
+    targetPort: 9070
+  selector:
+    deployment: template-app-name
+```

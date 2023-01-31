@@ -27,6 +27,7 @@ IntelliJ 를 사용하며 어떠한 이유(궁금하거나, 사용하기 위해�
 
 1. 사용하지 않는 패키지 제거 : `ctrl + alt + o`
 2. search a string : `cmd + shift + f`
-3. fully search : `shift` * 2
-4. show context actions : `alt + enter`
-5. 정렬 : `ctrl + alt + l`
+3. replace string A to B : `cmd + shift + r`
+4. fully search : `shift` * 2
+5. show context actions : `alt + enter`
+6. 정렬 : `ctrl + alt + l`
