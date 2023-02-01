@@ -668,3 +668,8 @@ oc adm policy add-scc-to-user anyuid -z default -n ${namespace}
 clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "default"
 oc adm policy add-scc-to-user anyuid -z default -n ${namespace}
 ```
+
+```bash
+# TODO: docker 이미지 다지우기
+# TODO: 특정 이름의 도커 이미지 다지우기
+```
