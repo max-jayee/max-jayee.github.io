@@ -644,3 +644,27 @@ podman commit  ContainerID imagename
 ```bash
 podman run  -v ${host path}:${pod path}
 ```
+
+```bash
+useradd # non-interactive
+adduser # interactive
+
+sudo groupadd -g 2000 appadm # check cat /etc/group
+RUN useradd -ms /bin/bash -g 2000 -u 2020 userid
+
+# in dockerfile
+RUN addgroup -g 2000 groupname
+RUN adduser -s /bin/ash -G groupname -S -D -u 2020 username
+
+RUN mkdir -p /DATA && chmod 774 /DATA && chown username:groupname /DATA
+RUN mkdir -p /LOG && chmod 774 /LOG && chown username:groupname /LOG
+
+USER username
+```
+
+```bash
+# ocp 1000750000 으로만 uid 생성될 때
+oc adm policy add-scc-to-user anyuid -z default -n ${namespace}
+clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "default"
+oc adm policy add-scc-to-user anyuid -z default -n ${namespace}
+```
