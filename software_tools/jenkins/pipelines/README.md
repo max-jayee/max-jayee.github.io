@@ -159,13 +159,14 @@ pipeline {
         }
         stage("Release"){
             environment {
-                NEXUS_JENKINS_TOKEN = "${sh(script: 'cat ~/cicd-home/tokens/jenkins/app-token', returnStdout:true).trim()}"
+                NEXUS_JENKINS_KEY = credentials('nexus-id-credential-id')
+                NEXUS_JENKINS_TOKEN = credentials('nexus-pw-credential-id')
                 GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
                 PROJECT_CODE = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')\"', returnStdout:true).trim()}"
                 BRANCH_NAME = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BRANCH_IDX}-$((BRANCH_IDX + 2))', returnStdout:true).trim()}"
             }
             steps {
-                sh 'podman login -u cor-admin -p ${NEXUS_JENKINS_TOKEN} ${NEXUS_IMAGE_UPLOAD_URL}'
+                sh 'podman login -u ${NEXUS_JENKINS_KEY} -p ${NEXUS_JENKINS_TOKEN} ${NEXUS_IMAGE_UPLOAD_URL}'
                 sh 'podman push ${NEXUS_IMAGE_UPLOAD_URL}/${PROJECT_CODE}/${SYSTEM_CODE}/${GITLAB_REPO_NAME}-${BRANCH_NAME}:${IMAGE_VERSION}'
             }
         }
@@ -258,13 +259,14 @@ pipeline {
         }
         stage("Release"){
             environment {
-                NEXUS_JENKINS_TOKEN = "${sh(script: 'cat ~/cicd-home/tokens/jenkins/app-token', returnStdout:true).trim()}"
+                NEXUS_JENKINS_KEY = credentials('nexus-id-credential-id')
+                NEXUS_JENKINS_TOKEN = credentials('nexus-pw-credential-id')
                 GITLAB_REPO_NAME = "${SYSTEM_CODE}-${BIZ_CODE}-${APPLICATION_TYPE}"
                 PROJECT_CODE = "${sh(script: 'echo \"$(echo ${!PROJECT_KEY} | awk \'{print tolower($0)}\')\"', returnStdout:true).trim()}"
                 BRANCH_NAME = "${sh(script: 'echo ${JOB_NAME} | cut -c ${BRANCH_IDX}-$((BRANCH_IDX + 2))', returnStdout:true).trim()}"
             }
             steps {
-                sh 'podman login -u cor-admin -p ${NEXUS_JENKINS_TOKEN} ${NEXUS_IMAGE_UPLOAD_URL}'
+                sh 'podman login -u ${NEXUS_JENKINS_KEY} -p ${NEXUS_JENKINS_TOKEN} ${NEXUS_IMAGE_UPLOAD_URL}'
                 sh 'podman push ${NEXUS_IMAGE_UPLOAD_URL}/${PROJECT_CODE}/${SYSTEM_CODE}/${GITLAB_REPO_NAME}-${BRANCH_NAME}:${IMAGE_VERSION}'
             }
         }

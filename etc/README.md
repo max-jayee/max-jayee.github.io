@@ -588,7 +588,6 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-
 ```
 
 ```yaml
@@ -611,7 +610,6 @@ spec:
     name: template-app-name
     weight: 100
   wildcardPolicy: None
-
 ```
 
 ```yaml
@@ -670,6 +668,12 @@ oc adm policy add-scc-to-user anyuid -z default -n ${namespace}
 ```
 
 ```bash
-# TODO: docker 이미지 다지우기
-# TODO: 특정 이름의 도커 이미지 다지우기
+# TODO: container 이미지 다지우기
+podman rmi $(podman images -q)
+# TODO: 특정 이름의 container 이미지 다지우기
+podman images -a | grep "pattern" | awk '{print $3}' | xargs podman rmi
+# TODO: stop all container
+podman stop $(podman ps -a -q)
+# TODO: remove all container
+podman rm $(podman ps -a -q)
 ```
