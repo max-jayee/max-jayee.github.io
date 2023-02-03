@@ -7,7 +7,7 @@
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
-# Podman 설치 방법
+# KVM 설치 방법
 
 ## 설명
 
