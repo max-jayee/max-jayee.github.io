@@ -7,7 +7,7 @@
   <script src="/js/bootstrap/5.3.0-alpha1/bootstrap.bundle.js" defer="defer"></script>
 </details>
 
-# MacOS 문제&해결 모음
+# MacOS Trouble Shootings
 
 ## 설명
 
