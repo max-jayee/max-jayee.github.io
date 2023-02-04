@@ -677,3 +677,9 @@ podman stop $(podman ps -a -q)
 # TODO: remove all container
 podman rm $(podman ps -a -q)
 ```
+
+```bash
+# occur "no space left on device" when an image creates
+container management software has limited own storage space.
+It occurs when the storage space used by the image is exceeded, so you can clean up the image.
+```
