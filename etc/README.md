@@ -677,3 +677,11 @@ podman stop $(podman ps -a -q)
 # TODO: remove all container
 podman rm $(podman ps -a -q)
 ```
+
+```java
+annotation definition
+@Retention(RetentionPolicy.RUNTIME)
+public @interface name {
+  
+}
+```
