@@ -691,3 +691,28 @@ public @interface name {
 container management software has limited own storage space.
 It occurs when the storage space used by the image is exceeded, so you can clean up the image.
 ```
+
+```bash
+분 시간 날짜 월 요일 명령
+
+예시
+
+# 매일 오전 3시 실행
+00 03 * * *
+
+# 매월 1일 오후 3시 30분 실행
+30 15 1 * *
+
+# 수요일 새벽 2시 실행
+00 02 * * 3
+(월 : 1, 화 : 2, 수 : 3 ... 일 : 7)
+
+# 30분마다 실행
+*/30 * * * *
+
+# 3시, 8시에 실행
+* 3,8 * * *
+
+# 3시 ~5시 사이 20분마다 실행
+*/20 3-5 * * *
+```
