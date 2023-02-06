@@ -685,3 +685,9 @@ public @interface name {
   
 }
 ```
+
+```bash
+# occur "no space left on device" when an image creates
+container management software has limited own storage space.
+It occurs when the storage space used by the image is exceeded, so you can clean up the image.
+```
