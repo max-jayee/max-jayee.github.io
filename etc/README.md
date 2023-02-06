@@ -716,3 +716,7 @@ It occurs when the storage space used by the image is exceeded, so you can clean
 # 3시 ~5시 사이 20분마다 실행
 */20 3-5 * * *
 ```
+
+omnibus_gitconfig['system'] = {
+ "receive" => ["denyNonFastforwards = true", "denyDeletes = true"],
+}
