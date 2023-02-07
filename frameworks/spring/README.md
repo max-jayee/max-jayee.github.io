@@ -21,3 +21,5 @@ The Spring Framework provides a comprehensive programming and configuration mode
 <!-- TODO: Spring Security -->
 <!-- TODO: Spring Session -->
 <!-- TODO: Spring Batch -->
+
+<!-- @Primary, @Component, @Qualifier, @Service, @Repository, @Autowired, @WebServlet-->
