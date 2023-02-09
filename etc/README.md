@@ -720,3 +720,19 @@ It occurs when the storage space used by the image is exceeded, so you can clean
 omnibus_gitconfig['system'] = {
  "receive" => ["denyNonFastforwards = true", "denyDeletes = true"],
 }
+
+```bash
+#!/bin/bash
+echo "Bash version ${BASH_VERSION}..."
+for i in {0..10..2} # {START..END..INCREMENT}
+do
+  echo "Welcome $i times"
+done
+```
+
+```bash
+for id in {0..1000}
+do
+  curl -X POST ${url}/api/v4/projects/${id}/protected_branches?name=feature/* -H 'PRIVATE-TOKEN: ${value}'
+done
+```
