@@ -720,3 +720,7 @@ It occurs when the storage space used by the image is exceeded, so you can clean
 omnibus_gitconfig['system'] = {
  "receive" => ["denyNonFastforwards = true", "denyDeletes = true"],
 }
+
+```bash
+zip -er dir.zip dir
+```
