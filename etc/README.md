@@ -19,6 +19,8 @@ jpi -> hpi 로 변환 : `ls | grep '.jpi' | cut -d . -f 1 | while read line; do 
 
 파일 전송 : `scp ${local file} ${target account}@${target url}:${target path}`
 
+파일 받기 : `scp ${target account}@${target url}:${target path} ${local file}`
+
 폴더 전송 : `scp -r ${local file}/* ${target account}@${target url}:${target path}/`
 
 Jenkins Execute shell 에서 원격 데몬 실행 명령시 return 올때까지 waiting 걸릴때 해소법 : `ssh -f  ${account}@${server} sh /home/administrator/bin/startServer.sh` 와 같이 -f 옵션 주기
@@ -723,4 +725,24 @@ omnibus_gitconfig['system'] = {
 
 ```bash
 zip -er dir.zip dir
+```
+
+```bash
+#!/bin/bash
+echo "Bash version ${BASH_VERSION}..."
+for i in {0..10..2} # {START..END..INCREMENT}
+do
+  echo "Welcome $i times"
+done
+```
+
+```bash
+for id in {0..1000}
+do
+  curl -X POST ${url}/api/v4/projects/${id}/protected_branches?name=feature/* -H 'PRIVATE-TOKEN: ${value}'
+done
+```
+
+```bash
+Thymeleaf 
 ```
