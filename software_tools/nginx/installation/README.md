@@ -71,6 +71,7 @@ ngninx 컨테이너 이미지 목록: <https://hub.docker.com/_/nginx>
     podman run -itd --name nginx nginx-1.23.3:0.0.1
     #podman run -itd -p 80:80 --name nginx nginx-1.23.3:0.0.1
     # podman run -itd --name nam --priviledge -p 80:80 -v/bcd:/mnt/bcd nginx-1.23.3:0.0.1
+    # podman run -itd --name ${container name} --privileged -p ${host port}:${container port} -v ${host dir}:${container dir} ${image name}:${image tag}
     podman ps
     ```
 

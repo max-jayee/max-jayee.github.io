@@ -724,6 +724,10 @@ omnibus_gitconfig['system'] = {
 }
 
 ```bash
+zip -er dir.zip dir
+```
+
+```bash
 #!/bin/bash
 echo "Bash version ${BASH_VERSION}..."
 for i in {0..10..2} # {START..END..INCREMENT}
