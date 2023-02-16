@@ -746,3 +746,7 @@ done
 ```bash
 Thymeleaf 
 ```
+
+```bash
+gradlew build -Dspring.profiles.active=dev --exclude-task test # build without test
+```
