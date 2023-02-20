@@ -754,4 +754,4 @@ gradlew build --exclude-task test # build without test
 
 <!-- gradle nexus repo publish -->
 
-<!-- nexus snapshot with intellij -->
+<!-- nexus snapshot with intellij https://mycup.tistory.com/357 -->
