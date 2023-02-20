@@ -751,3 +751,5 @@ Thymeleaf
 gradlew build -Pprofile=dev # build with specific profile, systemProperty 'spring.profiles.active', project.getProperties().get('profile') in build.gradle
 gradlew build --exclude-task test # build without test
 ```
+
+<!-- gradle nexus repo publish -->
