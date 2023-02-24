@@ -185,14 +185,14 @@ sudo firewall-cmd --list-ports
 readinessProbe: 서비스가 가능한 상태인지
 livenessProbe: 컨테이너가 살아있는지
 Command probe
- livenessProbe:
+livenessProbe:
       exec:
         command:
         - cat
         - /tmp/healthy
 
 HTTP probe
-eadinessProbe:
+readinessProbe:
           httpGet:
             path: /readiness
             port: 8080
