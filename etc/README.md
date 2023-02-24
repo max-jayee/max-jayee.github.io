@@ -755,3 +755,5 @@ gradlew build --exclude-task test # build without test
 <!-- gradle nexus repo publish -->
 
 <!-- nexus snapshot with intellij https://mycup.tistory.com/357 -->
+
+<!-- dns ifconfig, resolve dns 설정, ifconfig 에 설정안박으면 reboot 시 ifconfig 값으로 원복됨 -->
