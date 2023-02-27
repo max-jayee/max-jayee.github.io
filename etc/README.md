@@ -757,3 +757,65 @@ gradlew build --exclude-task test # build without test
 <!-- nexus snapshot with intellij https://mycup.tistory.com/357 -->
 
 <!-- dns ifconfig, resolve dns 설정, ifconfig 에 설정안박으면 reboot 시 ifconfig 값으로 원복됨 -->
+
+<!--
+yum?
+Yellowdog Updater Modified 의 약자로, RPM 기반의 시스템을 위한 자동 업데이터이자 소프트웨어와 같은 패키지 설치/ 삭제 도구
+Duke 대학교의 물리학과에서 사용하는 Red Hat Linux 시스템의 관리를 편하게 하기 위해 만들어짐
+RPM의 단점인 의존성 문제를 해결하기 위해 제공
+RPM과 다른점은 자동적으로 의존성을 처리해 주며 rpm 패키지들을 안전하게 설치, 삭제 및 업데이트하기 위해 반드시 해야 할 일을 스스로 해결
+단, 인터넷을 통해 필요한 파일을 저장소에서 자동으로 다운로드하여 설치하는 방식이므로 인터넷 연결이 되어있지 않다면 명령어 사용이 불가능
+yum은 간편하고 접근성이 좋은 업데이터이자 설치/ 삭제 툴이다. yum에 대한 사용방법에 대해서는 명령 프롬프트 상에서 yum -h(help)를 치면 사용방법이 자세하게 설명되어 있다.
+yum 명령어
+yum check-update : 현재 인스톨된 프로그램 중 업데이트 된 것을 체크
+yum clean all : 캐시 되어 있는 것을 모두 지움
+yum deplist : yum 패키지에 대한 의존성 테스트
+yum downgrade 패키지 : yum을 통한 패키지 다운그레이드
+yum erase 패키지 : yum을 통한 시스템에서 삭제
+yum groupinfo 그룹 : 그룹패키지의 정보를 보여줌
+yum groupinstall 그룹 : 그룹패키지 설치
+yum grouplist 그룹 : 그룹리스트에 관한 정보 확인
+yum groupremove 그룹 : 그룹리스트에 관해 삭제
+yum help : yum 도움말 확인
+yum info 그룹 또는 패키지 : 패키지 또는 그룹의 패키지를 자세하게 확인
+yum install 패키지 : 시스템으로 패키지의 Install을 실시
+yum install 패키지명1 패키지명2의 형태로 여러 패키지를 한번에 설치 가능
+yum list : 서버에 있는 그룹 및 패키지의 리스트를 보여줌
+yum list installed 패키지명 : 패키지 설치여부 확인
+yum list all: 설치가 가능한 모든 패키지 목록 출력
+yum list updates: 업데이트 목록을 보여줌
+yum localinstall 패키지 : 로컬에 설치
+yum makecache : 캐쉬 다시 올림
+yum provides FilePath명 : 파일이 제공하는 패키지 정보 출력
+yum reinstall 패키지 : 패키지 재인스톨
+yum update 패키지 : 패키지 업데이트
+yum upgrade 패키지 : 패키지 업그레이드
+yum search 키워드 : 키워드로 시작하는 패키지 검색
+yum 옵션
+-h, --help : 해당 명령어의 도움말을 보여주고 실행이 종료됨
+-t, --tolerant : 에러를 자동으로 잡아서 설치
+-C, --cacheonly : 캐시를 업데이트 하지 않고 전체 시스템 캐시 실행
+-c [config file], --config=[config file] : 파일 위치를 알려줌
+-R [minutes], --randomwait=[minutes] : 최대치의 명령어 실행시 기다림
+-d [debug level], --debuglevel=[debug level] : 최종 결과를 디버깅
+--showduplicates : 중복요소를 보여줌
+-e [error level], --errorlevel=[error level] : 결과 중 에러를 보여줌
+--rpmverbosity=[debug level name] : rpm에서 결과물을 디버깅
+--version : Yum 버전을 보여주고 실행이 종료됨
+-y, --assumeyes : 모든 물음에 예를 진행
+-q, --quiet : 모든 작업이 종료됨
+-v, --verbose : 작업을 장황하게 함
+--installroot=[path] : root권한으로 path위치에 인스톨을 진행
+--enablerepo=[repo] : 1개 이상의 저장소 위치에 저장시킴
+--disablerepo=[repo] : 1개 이상의 저장소 위치에 저장시키지 않음
+-x [package], --exclude=[package] : 패키지 이름을 제외시킴
+--disableexcludes=[repo] : 이름으로 플러그인을 설치를 중단
+--obsoletes : 오래된 패키지는 업데이트를 하는 동안 적절히 삭제 및 교체됨
+--noplugins : yum plugin이 없도록 함
+--nogpgcheck : gpg signature를 불가능하게
+--skip-broken : 문제 있는 패키지는 자동으로 스킵해서 넘어감
+--color=COLOR : 컬러가 사용되었을 때 조정
+--releasever=RELEASEVER : $releasever의 값을 yum config와 repo파일에서 조정
+--setopt=SETOPTS : 임의로 config와 repo 옵션값을 지정
+--disablepresto : Presto 플러그인을 중단하고 deltarpm을 다운로드 받지 않음
+-->
