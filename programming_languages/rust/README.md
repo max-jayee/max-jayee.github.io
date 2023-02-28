@@ -22,5 +22,6 @@ This section is Rust programming language to develop applications.
 | [Variable](./variable/ "https://max-jayee.github.io/programming_language/rust/variable") | variable usage | let, mut, statyic, const, etc..  |
 | [Structure](./structure/ "https://max-jayee.github.io/programming_language/rust/structure") | different structures | structure, enum, constannt, etc..  |
 | [Tips](./tips/ "https://max-jayee.github.io/programming_language/rust/tips") | useful tips | hide warnings for unused code, etc..  |
+| [Tools](./tools/ "https://max-jayee.github.io/programming_language/rust/tools") | useful tools | cargo, etc..  |
 
 <!-- TODO: rust input, variable, error handling -->
