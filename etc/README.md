@@ -819,3 +819,23 @@ yum 옵션
 --setopt=SETOPTS : 임의로 config와 repo 옵션값을 지정
 --disablepresto : Presto 플러그인을 중단하고 deltarpm을 다운로드 받지 않음
 -->
+
+<!--
+install some libararies on alpine linux 
+libraries: build-essential, libstc++6, libgd-dev, net-tools, openjdk 8, aptitude
+
+#cmds
+podman pull alpine:3.17.2
+podman run --name alpine-linux -itd alpine:3.17.2 ash
+podman ps -a
+podman exec -it alpine-linux ash
+apk update 
+apk add --no-cache build-base # for build-essential
+apk add --no-cache libstc++6 # for libstc++6
+apk add --no-cache libgd # for libgd-dev
+apk add --no-cache net-tools # for net-tools
+apk add --no-cache openjdk8 # for openjdk 8
+apk add --no-cache aptitude # for aptitude
+
+
+-->
