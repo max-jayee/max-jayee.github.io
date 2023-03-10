@@ -837,5 +837,6 @@ apk add --no-cache net-tools # for net-tools
 apk add --no-cache openjdk8 # for openjdk 8
 apk add --no-cache aptitude # for aptitude
 
-
 -->
+
+<!-- usermod -d /var/www/ testuser # 계정 홈 디렉토리 변경 -->
