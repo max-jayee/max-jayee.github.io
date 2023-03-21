@@ -854,4 +854,7 @@ apk add --upgrade fontconfig
 exit
 podman commit alpine-openjdk-8 openjdk:8-jdk-alpine-fontconfig
 podman save -o openjdk8-alpine-fontconfig.tar openjdk:8-jdk-alpine-fontconfig
+
+usually font path: /usr/share/fonts
+copy ttf directory to font path and renew font config calling `fc-cache -f -v` cmd
 -->
