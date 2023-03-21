@@ -842,3 +842,16 @@ apk add --no-cache aptitude # for aptitude
 <!-- usermod -d /var/www/ testuser # 계정 홈 디렉토리 변경 -->
 
 <!-- mattermost webhook https://developers.mattermost.com/integrate/webhooks/incoming/ -->
+
+<!-- 
+alpine+fontconfig
+
+podman pull openjdk:8-jdk-alpine
+podman run --name alpine-openjdk-8 --privileged -itd openjdk:8-jdk-alpine sleep infinity
+podman exec -it alpine-openjdk-8 ash
+apk update
+apk add --upgrade fontconfig
+exit
+podman commit alpine-openjdk-8 openjdk:8-jdk-alpine-fontconfig
+podman save -o openjdk8-alpine-fontconfig.tar openjdk:8-jdk-alpine-fontconfig
+-->
