@@ -858,3 +858,11 @@ podman save -o openjdk8-alpine-fontconfig.tar openjdk:8-jdk-alpine-fontconfig
 usually font path: /usr/share/fonts
 copy ttf directory to font path and renew font config calling `fc-cache -f -v` cmd
 -->
+
+<!-- 
+gradle snapshot 적용
+
+configurations.all {
+  resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+-->
