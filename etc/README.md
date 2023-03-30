@@ -866,3 +866,11 @@ configurations.all {
   resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 -->
+
+<!--
+jenkins 로그인 없이 접속하려고할때 404 뜨는데 그거 홈으로 바꾸는법
+war 폴더에 WEB-INF 가서 web.xml 에서
+error-page 에
+<error-code>404</error-code> 넣고
+<location>/</location> 으로 적용
+-->
