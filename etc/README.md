@@ -874,3 +874,70 @@ error-page 에
 <error-code>404</error-code> 넣고
 <location>/</location> 으로 적용
 -->
+
+<!--
+svn 서버 설치
+1.1 yum(패키지설치관리도구)을 이용해서 subversion 설치(🦄root 계정으로)
+# yum install subversion
+1.2 Repository 생성
+# mkdir /home/svn 👈 Root 저장소 생성
+# cd /home/svn 👈 생성된 Root 저장소로 이동
+# svnadmin create --fs-type fsfs tmp_repo1 👈 저장소 생성(여기서는 tmp_repo1)
+1.3 SVN 시작 및 체크아웃을 통한 정상설정 확인
+# svnserve –d –r /home/svn/ 👈 svn 시작
+# svn checkout svn://127.0.0.1/tmp_repo1 👈 svn://서버ip/저장소 명
+2. 사용자 생성 및 권한 설정
+2.1 SVN 설정
+# vi cd tmp_repo1/conf 👈 생성된 저장소의 conf 디렉토리로 이동
+# vi svnserve.conf
+
+[general]
+anon-access = none 👈 인증 되지 않은 사용자 접근 거부
+auth-access = write 👈 인증된 사용자 쓰기 권한
+password-db = passwd 👈사용자에 대한 계정정보
+authz-db = authz 👈사용자에 대한 저장소 권한주기. Optional
+2.2 사용자 설정
+# vi passwd
+[users]
+user1 = user1
+user2 = user2
+user3 = user3 👈 계정 = 패스워드
+2.3 권한 설정
+# vi authz
+[groups]
+usergroup = user1, user2 👈 사용자를 usergroup에 추가
+[/] 👈 최상위 디렉토리 권한
+*=rw
+[repository:/tmp_repo1] 👈 저장소 권한
+@usergroup = rw 👈 usergroup 그룹에 rw 권한부여
+user3 = rw 👈 user3 사용자에게 rw 권한부여
+2.4 SVN 권한 설정
+# chmod –R 760(or 764) /home/svn/*
+👉 760 – 파일생성자: RWE, 그룹: RW 부여
+👉 764 – 파일생성자: RWE(Execution), 그룹: RW, 타인: R 부여
+3. 기타 설정
+3.1 서버 부팅시 데몬 띄우기
+# vi /etc/rc.d/rc.local 👈 rc.local 설정파일로 이동
+# svn start
+/usr/bin/svnserve –d –r /home/svn
+3.2 디렉토리 구성
+# svn mkdir svn://127.0.0.1/tmp_repo1/branches
+# svn mkdir svn://127.0.0.1/tmp_repo1/tags
+3.3 .bash_profile 에 SVN_EDITOR 설정
+# cd 👈 홈디렉토리로 이동
+# vi .bash_profile
+
+SVN_EDITOR=/user/bin/vi
+export SVN_EDITOR
+
+# source .bash_profile 👈 .bash_profile 저장 후 실행(설정 적용)
+4. SVN 서비스 시작/중지
+4.1 SVN 서비스 시작
+# svnserve -d -r /home/svn 👈 svn 시작
+# ps -ef | grep svnserve | grep -v grep 👈 서비스 상태 확인
+root      7204     1  0 10:36 ?        00:00:00 svnserve -d -r /home/svn 👈 pid 7204 
+4.2 SVN 서비스 중지
+# kill 7204 👈 svn 중지(pid 종료)
+# ps -ef | grep svnserve | grep -v grep 👈 서비스 상태 확인
+
+-->
