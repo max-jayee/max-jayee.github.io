@@ -884,7 +884,7 @@ svn 서버 설치
 # cd /home/svn 👈 생성된 Root 저장소로 이동
 # svnadmin create --fs-type fsfs tmp_repo1 👈 저장소 생성(여기서는 tmp_repo1)
 1.3 SVN 시작 및 체크아웃을 통한 정상설정 확인
-# svnserve –d –r /home/svn/ 👈 svn 시작
+# svnserve –d –r /home/svn/ 👈 svn 시작 // 3690 << default port >>
 # svn checkout svn://127.0.0.1/tmp_repo1 👈 svn://서버ip/저장소 명
 2. 사용자 생성 및 권한 설정
 2.1 SVN 설정
@@ -940,4 +940,16 @@ root      7204     1  0 10:36 ?        00:00:00 svnserve -d -r /home/svn 👈 pi
 # kill 7204 👈 svn 중지(pid 종료)
 # ps -ef | grep svnserve | grep -v grep 👈 서비스 상태 확인
 
+-->
+
+<!-- 
+home directory 변경
+
+usermod -d 폴더위치 아이디
+usermod -d /var/www/ testuser
+
+or
+
+vi /etc/passwd
+test:x:1001:1001::/home/test:/bin/bash -> 현재 홈디렉토리 /home/test
 -->
