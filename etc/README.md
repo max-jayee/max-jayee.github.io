@@ -964,5 +964,6 @@ Linux -> Windows Server
 5. services 를 관리자 권한으로 실행하여 sshd 재시작
 6. public key 는 로그인할 사용자 명으로 생성
 7. ssh 로 접속
+8. ssh command (ssh id@ip:port "cmd /c ${command}", ex: ssh id@ip:port "cmd /c dir d:")
 
 -->
