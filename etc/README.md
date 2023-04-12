@@ -953,3 +953,16 @@ or
 vi /etc/passwd
 test:x:1001:1001::/home/test:/bin/bash -> 현재 홈디렉토리 /home/test
 -->
+
+<!--
+Linux -> Windows Server
+
+1. SSHD 설치 (openssh, freesshd)
+2. 방화벽 개방 (방화벽 들어가서 개방)
+3. 포트 개방 (인그레스 포트 개방)
+4. sshd 에서 유저 정보 설정
+5. services 를 관리자 권한으로 실행하여 sshd 재시작
+6. public key 는 로그인할 사용자 명으로 생성
+7. ssh 로 접속
+
+-->
