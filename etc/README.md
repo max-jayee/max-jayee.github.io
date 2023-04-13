@@ -967,3 +967,22 @@ Linux -> Windows Server
 8. ssh command (ssh id@ip:port "cmd /c ${command}", ex: ssh id@ip:port "cmd /c dir d:")
 
 -->
+
+<!--
+
+java class reflection
+
+Class objectClass = object.getClass(); // 이런식으로하면 class 정보를 가져올 수 있고 이를 reflection 이라고함
+| 함수명 | 설명 |
+| ----- | ----- |
+| getName() | 패키지 포함한 클래스 이름 리턴 |
+| getSimpleName() | 단순 클래스 이름만 리턴 |
+| getDeclaredFields() | 멤버 함수 목록 리턴 (Field) |
+
+for (Field field : objectClass.getDeclaredFields())
+| 함수명 | 설명 |
+| ----- | ----- |
+| getType() | 멤버 변수 타입의 클래스 리턴 (Class) |
+| getName() | 멤버 변수 명 리턴 |
+| get(Object) | object 에 해당하는 변수 값 리턴 (Object)|
+-->
