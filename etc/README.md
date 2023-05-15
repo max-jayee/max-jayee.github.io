@@ -986,3 +986,23 @@ for (Field field : objectClass.getDeclaredFields())
 | getName() | 멤버 변수 명 리턴 |
 | get(Object) | object 에 해당하는 변수 값 리턴 (Object)|
 -->
+
+
+<!-- 
+gitlab 저장소 변경
+sudo gitlab-ctl stop
+sudo rsync -av /var/opt/gitlab/git-data/repositories /data/git-data/
+vi /etc/gitlab/gitlab.rb
+git_data_dirs({
+   "default" => { "path" => "/data/git-data" }
+})
+sudo gitlab-ctl reconfigure
+sudo gitlab-ctl start
+
+rm -rf /var/opt/gitlab/git-data/repositories
+
+# option, remove cache
+gitlab-rake cache:clear Rails_ENV=production
+# option, grant a permission 
+chown -R git:git /data/git-data/
+-->
