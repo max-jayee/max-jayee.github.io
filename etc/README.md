@@ -1006,3 +1006,21 @@ gitlab-rake cache:clear Rails_ENV=production
 # option, grant a permission 
 chown -R git:git /data/git-data/
 -->
+
+<!--
+[Unit]
+Description=Jenkins Systemd Daemon
+
+[Service]
+Type=simple
+
+Environment=JENKINS_HOME=/APP/jenkins
+ExecStart=java -jar /APP/jenkins/jenkins.war
+SuccessExitStatus=143
+
+User=jenkins
+Group=appadm
+
+[Install]
+WantedBy=multi-user.target
+-->
