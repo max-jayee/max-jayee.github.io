@@ -1024,3 +1024,9 @@ Group=appadm
 [Install]
 WantedBy=multi-user.target
 -->
+
+<!--
+jenkins tmp dir 변경 임시 디렉토리 변경
+XDG_RUNTIME_DIR=/DATA/tmp/runtime-$UID 로 변경
+
+-->
