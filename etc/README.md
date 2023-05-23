@@ -1015,6 +1015,8 @@ Description=Jenkins Systemd Daemon
 Type=simple
 
 Environment=JENKINS_HOME=/APP/jenkins
+Environment=XDG_RUNTIME_DIR=/DATA/tmp/runtime-jenkins
+Environment=CONTAINER_TMPDIR=/DATA/tmp/runtime-jenkins
 ExecStart=java -jar /APP/jenkins/jenkins.war
 SuccessExitStatus=143
 
@@ -1027,6 +1029,19 @@ WantedBy=multi-user.target
 
 <!--
 jenkins tmp dir 변경 임시 디렉토리 변경
-XDG_RUNTIME_DIR=/DATA/tmp/runtime-$UID 로 변경
+XDG_RUNTIME_DIR=/DATA/tmp/runtime-jenkins 로 변경
+CONTAINER_TMPDIR=/DATA/tmp/runtime-jenkins 로 변경
+sudo systemctl daemon-reload
+sudo systemctl restart jenkins.service
+-->
 
+<!--
+jenkins podman 
+특정 UID 안없어 지게 하기 (/run/user/$UID)
+vi /usr/lib/tmpfiles.d/tmp.conf
+d /run/user/${UID} 0700 ${UID} ${GID} -
+
+sudo systemctl restart systemd-tmpfiles 
+or
+reboot
 -->
