@@ -1055,3 +1055,10 @@ vi ~/.bashrc
 export ANT_HOME=/usr/local/lib/apache-ant-1.10.13
 export PATH=$PATH:$ANT_HOME/bin
 -->
+
+<!--
+container image none remove
+podman rmi $(podman images -f "dangling=true" -q)
+of
+podman image prune
+-->
