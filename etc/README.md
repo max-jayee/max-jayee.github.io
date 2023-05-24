@@ -556,7 +556,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: dnexus.kblife.co.kr:5000/los/template-system-code/template-app-name-template-env-code:0.0.0
+      - image: nexus.com:5000/los/template-system-code/template-app-name-template-env-code:0.0.0
         imagePullPolicy: Always
         name: template-app-name
         livenessProbe:
@@ -604,7 +604,7 @@ metadata:
   name: template-app-name
   namespace: template-namespace
 spec:
-  host: template-app-name-template-env-code-int.kblife.co.kr
+  host: template-app-name-template-env-code-int.nexus.com
   port:
     targetPort: http
   to:
