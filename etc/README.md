@@ -1045,3 +1045,13 @@ sudo systemctl restart systemd-tmpfiles
 or
 reboot
 -->
+
+<!--
+apache ant
+tar zxvf apache-ant-1.10.13-bin.tar.gz
+mv apache-ant-1.10.13 /usr/local/lib/
+
+vi ~/.bashrc
+export ANT_HOME=/usr/local/lib/apache-ant-1.10.13
+export PATH=$PATH:$ANT_HOME/bin
+-->
