@@ -1062,3 +1062,14 @@ podman rmi $(podman images -f "dangling=true" -q)
 of
 podman image prune
 -->
+
+<!--
+jenkins 에서 podman build 할 때 /run/user 하위 디렉토리 생성을 못하는 경우
+Error: error creating tmpdir: mkdir /run/user/${UID}: permission denied << error
+조치방법
+vi /etc/systemd/logind.conf
+KillExcludeUsers=root,jenkins
+RemoveIPC=yes
+
+설정
+-->
