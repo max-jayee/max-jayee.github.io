@@ -1069,3 +1069,26 @@ loginctl enable-linger ${user id}
 
 설정하여 로그인 상태 유지
 -->
+
+<!--
+spring boot build.gradle 에서 test 옵션
+```
+test {
+  systemProperty 'user.language', 'ko'
+  systemProperty 'user.country', 'KR'
+  systemProperty 'spring.profiles.active', project.getProperties().get('profile')
+  useJUnitPlatform()
+
+  minHeapSize = "1024m"
+  maxHeapSize = "1024m"
+
+  testLogging {
+    testLogging.showStandardStreams = true
+    showCauses = true
+    showExceptions = true
+    showStrackTraces = true
+    exceptionFormat = 'full'
+  }
+}
+```
+-->
