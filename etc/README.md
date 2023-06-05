@@ -1092,3 +1092,11 @@ test {
 }
 ```
 -->
+
+<!--
+Jenkinsfile 에서 파일 있으면 무언가 처리하는 if 문 실행하는 shell
+
+sh 'if [ -f ${file name with path} ]; then ${execute command}; else ${execute command}; fi'
+
+을 사용한다.
+-->
