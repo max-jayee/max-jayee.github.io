@@ -1100,3 +1100,9 @@ sh 'if [ -f ${file name with path} ]; then ${execute command}; else ${execute co
 
 을 사용한다.
 -->
+
+<!--
+ssh 로 원격접속 했을때 환경변수를 적용하고 싶은 경우엔 아래와같이 ㄱㄱ
+/etc/bashrc 에 적용해야 적용됨
+
+-->
