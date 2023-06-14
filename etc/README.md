@@ -1106,3 +1106,14 @@ ssh 로 원격접속 했을때 환경변수를 적용하고 싶은 경우엔 아
 /etc/bashrc 에 적용해야 적용됨
 
 -->
+
+<!--
+jenkins 에서 console 에 시간을 찍는 방법은
+pipeline {
+  options {
+    timestamps()
+  }
+}
+
+를 추가한다.
+-->
