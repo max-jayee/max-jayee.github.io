@@ -837,6 +837,22 @@ apk add --no-cache net-tools # for net-tools
 apk add --no-cache openjdk8 # for openjdk 8
 apk add --no-cache aptitude # for aptitude
 
+alpine 초기 유용한 모듈 설치
+
+podman run --name nginx -e LANG=ko_KR.UTF-8 -e LC_ALL=ko_KR.UTF-8 -itd nginx:1.23.3-alpine ash
+apk add --no-cache tzdata # for time zone
+cp /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+echo "Asia/Seoul" > /etc/timezone
+apk add --no-cache musl-locales # for ko language pack
+TROUBLE SHOOTING
+vi /etc/apk/repositories
+http://dl-cdn.alpinelinux.org/alpine/v3.17/main
+http://dl-cdn.alpinelinux.org/alpine/v3.17/community
+apk add --no-cache --allow-untrusted musl-locales
+
+apk add --no-cache fontconfig # for font-config
+apk add --no-cache curl # for curl
+
 -->
 
 <!-- usermod -d /var/www/ testuser # 계정 홈 디렉토리 변경 -->
