@@ -1133,3 +1133,56 @@ pipeline {
 
 를 추가한다.
 -->
+
+<!--
+linux 에 스케줄링 작업을 걸 수 있는 간편한 도구 crontab
+cronjob 은 crontab 에 의해 실행되는 job 들을 의미함
+
+crontab -l # cronjob 목록
+crontab -e # cronjob 수정
+/etc/cron.allow # crontab 수정 권한 부여 계정
+
+-->
+
+<!--
+#!/bin/bash
+
+# 디렉토리 존재 유무 확인
+if [ ! -d 디렉토리명 ]; then
+ mkdir 디렉토리명
+fi
+
+# 파일 존재 유무 확인
+if [ ! -e 디렉토리명 ]; then
+ touch 파일명
+fi
+-->
+
+<!--
+tomcat ojdbc (https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html)
+
+$CATALINA_HOME/lib 에 jdbc driver(.jar) 위치
+
+context 파일에 
+```
+<Context>
+  <Resource name="jdbc/myoracle" auth="Container"
+              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+              url="jdbc:oracle:thin:@127.0.0.1:1521:mysid"
+              username="scott" password="tiger" maxTotal="20" maxIdle="10"
+              maxWaitMillis="-1"/>
+
+</Context>
+```
+jdbc 설정
+
+$CATALINA_HOME/web.xml
+```
+<resource-ref>
+ <description>Oracle Datasource example</description>
+ <res-ref-name>jdbc/myoracle</res-ref-name>
+ <res-type>javax.sql.DataSource</res-type>
+ <res-auth>Container</res-auth>
+</resource-ref>
+```
+-->
