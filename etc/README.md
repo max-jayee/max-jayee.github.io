@@ -1195,3 +1195,30 @@ $CATALINA_HOME/web.xml
 </resource-ref>
 ```
 -->
+
+<!--
+nexus docker image 하나 빼고 모두 지우기
+
+#! /bin/bash
+
+declare -A projects
+projects["${SYSTEM_CODE1}"]="${REPO_NAME1} ${REPO_NAME2} ${REPO_NAME3}"
+projects["${SYSTEM_CODE2}"]="${REPO_NAME4} ${REPO_NAME5} ${REPO_NAME6}"
+
+for system_code in "${!projects[@]}"; do
+  for repo_name in ${projects[${system_code}]}; do
+    items=$(curl -s -X GET -H "Authorization: ${auth token}" "nexus:8080/service/rest/v1/search/assets?repository=docker-app&docker.imageName=root%2${system_code}%2F${repo_name}")" | jq ".itmes")
+    length=$(echo $items | jq ". | length")
+
+    for ((i = 0; i < $length - 1; i++>)); do
+      item=$(echo $items | jq ".[$i]")
+      id=$(echo $item | jq -r ".id")
+      lastModified=$(echo $item | jq -r ".lastModified")
+      curl -X DELETE -u userid:userpassword "nexus:8080/service/rest/v1/assets/$id"
+    done
+  done
+done
+
+compact_task_id="asdb"
+curl -X POST -u userid:userpassword "nexus:8080/service/rest/v1/tasks/$compact_task_id/run"
+-->
