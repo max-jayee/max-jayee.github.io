@@ -1222,3 +1222,15 @@ done
 compact_task_id="asdb"
 curl -X POST -u userid:userpassword "nexus:8080/service/rest/v1/tasks/$compact_task_id/run"
 -->
+
+<!--
+표준 에러를 표준 출력으로 출력시키는 방법
+2>&1 
+표준 입력: 0
+표준 출력: 1
+표준 에러: 2
+
+명령어 실행하며 특정 파일에 로그를 기록하는 방법은
+command > logFile.log 2>&1
+이 된다.
+-->
