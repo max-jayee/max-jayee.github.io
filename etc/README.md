@@ -1268,3 +1268,30 @@ for fake_system_code in "${!projects[@]}"; do
 done
 
 -->
+
+<!--
+bash 에서 map 사용
+
+#! /bin/bash
+
+declare -A var_name # 배열 선언할 때 -A 옵션을 주어 연관 배열로 생성
+var_name["key"]="value"
+
+# !var_name[@], !var_name[*] # 모든 key 출력 (스페이스 단위로)
+# var_name[@], var_name[*] # 모든 value 출력 (스페이스 단위로
+# #var_name[@], #var_name[*] # key 갯수 출력
+
+for key in "${!var_name[@]}"; do
+  echo "key=$key, value=${var_name[$key]}"
+done
+
+-->
+
+<!--
+bash 특정 개수 문자 제거
+str="hello"
+new_str="${str:1}" # ello
+
+
+
+-->
