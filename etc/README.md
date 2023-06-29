@@ -1234,3 +1234,37 @@ curl -X POST -u userid:userpassword "nexus:8080/service/rest/v1/tasks/$compact_t
 command > logFile.log 2>&1
 이 된다.
 -->
+
+<!--
+git merge dev 
+자동으로 하려면 (1) ssh 포트 22번이 열려있어야하며, 
+(2) source 의 ssh 를 git 솔루션에 ssh key 등록 해주어야한다. 
+
+#! /bin/bash
+
+source_branch="origin/dev"
+commit_message="merge from dev"
+
+gitlab_url="git@${GITLAB_URL}"
+
+declare -A projects
+projects["1${SYSTEM_CODE1}"]="${REPO_NAME1} ${REPO_NAME2} ${REPO_NAME3}"
+projects["2${SYSTEM_CODE2}"]="${REPO_NAME4} ${REPO_NAME5} ${REPO_NAME6}"
+
+for fake_system_code in "${!projects[@]}"; do
+  system_code="${fake_system_code:1}"
+  for repo_name in ${projects[${fake_system_code}]}; do
+    if [ ! -d ${repo_name} ]; then
+      git clone ${gitlab_url}:${system_code}/${repo_name}.git -b prd
+    fi
+    pushd ${repo_name}
+      git pull
+      git merge ${source_branch} --no-commit
+      git add *
+      git commit -m "${commit_message}"
+      git push
+    popd
+  done
+done
+
+-->
