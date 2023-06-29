@@ -1140,6 +1140,15 @@ cronjob 은 crontab 에 의해 실행되는 job 들을 의미함
 
 crontab -l # cronjob 목록
 crontab -e # cronjob 수정
+* * * * * /excuting/shell/file >> /log/file/path 2>&1
+MINUTE HOUR DOM MONTH DOW
+MINUTE: Minutes within the hour (0-59)
+HOUR: The hour of the day (0-23)
+DOM: The day of the month (1-31)
+MONTH: The month (1-12)
+DOW: DOW The day of the week (0-7) where 0 and 7 are Sunday.
+M-N/X or */X 특정 시점마다 발생
+
 /etc/cron.allow # crontab 수정 권한 부여 계정
 
 -->
