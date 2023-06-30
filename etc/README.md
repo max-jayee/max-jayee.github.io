@@ -1308,3 +1308,83 @@ podman 중 crash
 podman build --no-cache 
 podman rmi -f 
 -->
+
+<!--
+bash special word
+
+| : 명령어 출력을 다른 명령어의 입력으로 전달
+ls -al | grep "file"
+
+> : 명령어의 출력을 파일로 저장 (덮어 쓰기)
+echo "hello" > file.txt
+
+< : 파일의 내용을 명령어의 입력으로 전달
+sort < file.txt
+
+>> : 명령어의 출력을 파일에 추가 (append)
+echo "hello" >> file.txt
+
+* : 임의의 문자열을 대체
+ls *.txt
+
+? : 임의의 한 문자를 대체
+ls file?.txt
+
+~ : 현재 사용자의 홈 디렉토리
+cd ~/Downloads
+
+$ : 변수를 참조
+echo $HOME
+
+\ : 특수 문자를 무시하고 문자 그대로 해석
+echo "hello \"world\""
+
+! : 이전에 실행한 명령어를 빠르게 실행
+!ls
+
+!! : 이전에 실행한 명령어를 다시 실행
+sudo !!
+
+# : 주석
+# this line is a comment.
+
+$() : 명령어의 출력을 변수에 저장
+files=$(ls)
+
+(( )) : 산술 연산을 수행
+((sum = 1 + 2))
+
+[] : 조건식 작성시
+[ -f tile.txt ]
+
+[[ ]] : 확장된 조건식 작성시
+[[ $name == "ms" && $age -gt 10 ]]
+
+{} : 중괄호 확장을 수행
+for i in {1..5}; do \n done
+
+() : sub shell (쓸 필요가 있는지.. 잘 모르겠음)
+(cd /tmp && ls)
+
+; : 명령어 구분, 실패해도 다음 거 실행 o
+echo "hello"; echo "world"
+
+&& : 명령어 구분, 실패하면 다음 거 실행 x
+ls abc && ls -al
+
+"" : 문자열 - 변수 참조 가능
+echo "$var" # var 의 값이 출력
+
+'' : 문자열 - 변수 참조 불가능
+echo '$var' # $var 이 출력
+
+\변수 : 변수명 출력
+echo \$var # $var 출력
+
+${!변수} : 간접 참조
+var1=value1
+var2=var1
+echo ${var2} # var1 출력
+echo ${!var2} # value1 출력
+
+-->
