@@ -1473,3 +1473,33 @@ my_function() {
 result=$(my_function)
 echo $result # hello 출력
 -->
+
+<!--
+bash script keyword
+
+local : 함수 내에서만 사용하는 지역 변수
+a="a"
+my_function() {
+  local a="hello"
+  echo $a # hello 출력
+}
+my_function
+echo $a # a 출력
+
+readonly : 변수를 변경할 수 없게 한다.
+my_var="hello"
+readonly my_var
+
+return : 함수 값 반환
+my_function() {
+  return 0
+}
+my_function
+echo $? # 0 출력
+
+unset : 변수 삭제
+my_var="hello"
+unset my_var
+echo $my_var # 빈 값 출력
+
+-->
