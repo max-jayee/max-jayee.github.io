@@ -1539,13 +1539,55 @@ regular expression (정규 표현식)
 * : 바로 앞 문자나 문자열이 0번 이상 반복
 + : 바로 앞 문자나 문자열이 1번 이상 반복
 ? : 바로 앞 문자나 문자열이 0, 1번 있음
-[] : 대괄호 안에 있는 문자 중 하나와 일치
 () : 괄호 안에 있는 문자열을 하나의 그룹으로 묶음
+{} : 반복 횟수 지정 (a{2} = aa. a{2,4} = aa~aaaa, a{2,} = a 2번 이상 반복)
+[] : 대괄호 안에 있는 문자 중 하나와 일치
 | : 둘 중 하나 선택
 ^ : 문자열의 시작을 의미
 $ : 문자열의 끝을 의미
 
 (\w+) : 하나 이상의 word character 의패턴 매칭 결과를 추출함
 \w : word character(알파벳 대소문자, 숫자, _) 를 의미
+
+-->
+
+<!--
+regular expression example
+
+email regexp format
+^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
+cell phone number regexp format
+^(010|011|016|017|018|019)-[0-9]{3,4}-[0-9]{4}$
+
+phone number regexp format
+^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$ # d = the meta word is same as [0-9]
+
+human id regexp format
+^[0-9]{6}-[1-4][0-9]{6}$
+
+url regexp format
+^(http|https):\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$ # (\/\S*)?
+
+post id regexp format
+^[0-9]{5}(?:-[0-9]{4})?$
+
+ip address regexp format
+^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$
+
+remove html tag regexp format
+/<[^>]+>/g
+
+extract number regexp format
+/\d+/g
+
+remove space regexp format
+/\s+/g
+
+extract file format info regexp format
+/\.[^/.]+$/i
+
+password regexp format
+^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.*[~`\-={}[\]:;"'<>,.?/]).{8,16}$
 
 -->
