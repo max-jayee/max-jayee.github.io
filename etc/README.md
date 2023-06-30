@@ -1435,3 +1435,23 @@ echo ${linked_list["head"]} # node1 출력
 echo ${linked_list[${linked_list["head"]}]} # node2 출력
 
 -->
+
+<!--
+bash function return
+
+# 111111
+my_function() {
+  local result="hello"
+  return 0
+}
+my_function
+echo $? # 0 출력
+
+# 222222
+my_function() {
+  local result="hello"
+  echo $result
+}
+result=$(my_function)
+echo $result # hello 출력
+-->
