@@ -1387,7 +1387,25 @@ var2=var1
 echo ${var2} # var1 출력
 echo ${!var2} # value1 출력
 
-$?
+$? : 이전 명령어의 종료 상태 변수
+ls
+echo $? # 0(성공) 출력
+
+$! : 백그라운드로 실행된 이전 명령어의 PID 를 나타냄
+sleep 10 &
+echo $! # PID 출력
+
+$# : 스크립트에 전달된 아규먼트의 개수
+./my_script.sh arg1 arg2 arg3
+echo $# # 3 출력
+
+$@ : 스크립트에 전달된 인수의 배열
+./my_script.sh arg1 arg2 arg3
+echo $@ # arg1 arg2 arg3 출력
+
+$* : 스크립트에 전달된 인수를 하나의 문자열로 표현
+./my_script.sh arg1 arg2 arg3
+echo $* # arg1 arg2 arg3 출력
 -->
 
 <!--
