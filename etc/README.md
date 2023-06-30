@@ -1387,4 +1387,51 @@ var2=var1
 echo ${var2} # var1 출력
 echo ${!var2} # value1 출력
 
+$?
+-->
+
+<!--
+array
+my_array=(value1 value2 value3)
+echo ${my_array[0]} # value1 출력
+
+associative array ( bash 4.0 ~ )
+declare -A my_assoc_array
+my_assoc_array["key1"]="value1"
+echo ${my_assoc_array["key1"]} # value1 출력
+
+stack
+stack=()
+push=() {
+  stack+=("$1")
+}
+pop() {
+  unset 'stack[${#stack[@]}-1]'
+}
+top() {
+  echo "stack[${#stack[@]-1}]"
+}
+push "value1"
+echo $(top)
+pop
+
+queue
+queue=()
+enqueue() {
+  queue+=("$1")
+}
+dequeue() {
+  unset 'queue[0]'
+  queue=("${queue[@]}")
+}
+enqueue "value1"
+echo ${queue[@]}
+
+linked_list
+declare -A linked_list
+linked_list["head"]="node1"
+linked_list["node1"]="node2"
+echo ${linked_list["head"]} # node1 출력
+echo ${linked_list[${linked_list["head"]}]} # node2 출력
+
 -->
