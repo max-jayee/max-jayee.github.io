@@ -30,8 +30,8 @@ Introducing various and useful software tools.
 <!-- TODO: rpm -->
 <!-- TODO: apt -->
 <!-- TODO: dnf -->
-<!-- TODO: awk -->
-<!-- TODO: sed -->
+<!-- TODO: awk: record, field 단위로 데이터 추출&가공  -->
+<!-- TODO: sed: 스트림 에디터, 특정 패턴을 찾아 다른 패턴으로 대체 -->
 <!-- TODO: perl -->
 <!-- TODO: regexp -->
 <!-- TODO: vim -->
