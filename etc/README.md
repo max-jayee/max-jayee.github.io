@@ -1289,9 +1289,22 @@ done
 
 <!--
 bash 특정 개수 문자 제거
+
 str="hello"
 new_str="${str:1}" # ello
+new_str="${str:0:-1}" # hell
+-->
 
+<!--
+gradle crash
 
+GRADLE_OPTS="-Dorg.gradle.daemon=false"
+gradlew build --no-build-cache
+-->
 
+<!--
+podman 중 crash
+
+podman build --no-cache 
+podman rmi -f 
 -->
