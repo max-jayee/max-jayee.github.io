@@ -50,8 +50,8 @@ while [ ! -z "$contToken" ]; do
     printf "%s\n" "${artifacts[@]}" > artifacts.temp
     sed 's/\"//g' artifacts.temp > artifacts1.temp
     sed 's/,//g' artifacts1.temp > artifacts2.temp
-    sed 's/[][]//g' artifacts2.temp > artifacts3.temp
-    cat artifacts3.temp | grep "$sourceFolder" >> $outputFile
+    sed 's/[][]//g' artifacts2.temp > artifacts.temp
+    cat artifacts.temp | grep "$sourceFolder" >> $outputFile
     contToken=( $(echo $response | sed -n 's|.*"continuationToken" : "\([^"]*\)".*|\1|p') )
 done
 
@@ -1606,4 +1606,13 @@ regular expression meta
 \Z : 문자열의 끝을 나타내는 문자
 \S : 공백이 아닌 모든 문자 
 
+-->
+
+<!--
+linux password 유효기간 변경
+/etc/login.defs 에서 PASS_MAX_DAYS 변경
+
+또는
+sudo chage -M 60 user1 # user1 의 비밀번호를 60일간 유지
+chage -l user1
 -->
