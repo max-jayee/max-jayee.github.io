@@ -1616,3 +1616,46 @@ linux password 유효기간 변경
 sudo chage -M 60 user1 # user1 의 비밀번호를 60일간 유지
 chage -l user1
 -->
+
+<!--
+podman run --name tomcat -e LANGUAGE=ko_KR.UTF-8 -itd tomcat:8.5-jre8-dev bash
+apt update
+apt upgrade
+apt install language-pack-ko
+-->
+
+<!--
+npm bulk download
+
+npm bulk upload
+npm adduser --registry=https://repo/repository/npm-internal
+
+#! /bin/bash
+files="files.out"
+
+username=""
+password=""
+reponame="npm-host"
+nexusurl="nexus:8080/repository${reponame}"
+
+npm login -u $username -p $password --registry $nexusurl --always-auth
+
+find . -name '*.tgz' -type f | cut -c 3- | grep "/" > $files
+
+while read i; do
+  echo "upload ${i} to ${nexusurl}
+  npm publish $i --registry $nexusurl
+done
+
+-->
+
+<!--
+현재 작업중인 directory 명 
+
+pwd | awk -F/ '{print $NF}'
+
+또는
+
+basename "$(pwd)"
+
+-->
