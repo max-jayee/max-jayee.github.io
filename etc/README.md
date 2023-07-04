@@ -1659,3 +1659,8 @@ pwd | awk -F/ '{print $NF}'
 basename "$(pwd)"
 
 -->
+
+<!--
+cer 파일을 pem 으로 변환
+openssl x509 -inform der -in /path/to/your/certificate.cer -out /path/to/converted/certificate.pem
+-->
