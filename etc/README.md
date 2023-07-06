@@ -1664,3 +1664,12 @@ basename "$(pwd)"
 cer 파일을 pem 으로 변환
 openssl x509 -inform der -in /path/to/your/certificate.cer -out /path/to/converted/certificate.pem
 -->
+
+<!--
+java ssl 인증서 추가
+
+cd $JAVA_HOME/jre/lib/security
+cp cacerts cacerts.bak
+keytool -import -alias addingCert -file addingCert.pem -keystore cacerts -storepass changeit
+keytool -list -keystore cacerts
+-->
