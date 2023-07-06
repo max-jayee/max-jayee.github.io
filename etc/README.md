@@ -1670,6 +1670,22 @@ java ssl 인증서 추가
 
 cd $JAVA_HOME/jre/lib/security
 cp cacerts cacerts.bak
-keytool -import -alias addingCert -file addingCert.pem -keystore cacerts -storepass changeit
+keytool -trustcacerts -keystore "/jdk/jre/lib/security/cacerts" -storepass changeit -importcert -alias testalias -file "/opt/ssl/test.crt"
 keytool -list -keystore cacerts
+-->
+
+<!--
+ldap 설치
+
+podman pull osixia/openldap:latest
+podman pull osixia/phpldapadmin:latest
+
+mkdir -p data/certificates
+mkdir -p data/slapd/database
+mkdir -p data/slapd/config
+
+podman run --privileged --name openldap -itd -p 48389:389 -p 48636:636 -v ./data/certificates:/container/service/slapd/assets/certs -v ./data/slapd/database:/var/lib/ldap -v ./data/slapd/config:/etc/ldap/slapd.d -e LDAP_DOMAIN="example.com" -e LDAP_ADMIN_USERNAME="adminld" -e LDAP_ADMIN_PASSWORD="adminld" -e LDAP_CONFIG_PASSWORD="config" -e LDAP_BASE_DN="dc=example,dc=com" -e LDAP_TLS_CRT_FILENAME="ldap.crt" -e LDAP_TLS_KEY_FILENAME="ldap.key" -e LDAP_TLS_CA_CRT_FILENAME="example.com.ca.crt" -e LDAP_READONLY_USER="true" -e LDAP_READONLY_USER_USERNAME="readonly" -e LDAP_READONLY_USER_PASSWORD="readonly" osixia/openldap:latest
+
+podman run --privileged --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest
+
 -->
