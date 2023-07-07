@@ -1716,7 +1716,7 @@ Password: adminld // <PASSWORD>
 
 jenkins LDAP 연동
 
-server: 3.39.19.145:48389
+server: ${server ip}:48389
 root DN: dc=example,dc=com
 User search filter: uid={0}
 Manager DN: cn=admin,dc=example,dc=com
@@ -1726,6 +1726,60 @@ Enable cache: 50, 1m
 jenkins 에 ldap 연계하면 기존 계정은 사라지고 ldap 기준으로 바뀐다.
 이땐 jenkins 서버가서 config.xml 에  <permission>hudson.model.Hudson.Administer</permission> 를 찾고 <assignedSIDs> 에 <sid>권한 줄 계정 명</sid> 을 준다.
 
+gitlab LDAP 연동
+
+vi /etc/gitlab/gitlab.rb
+
+gitlab_rails['ldap_enabled'] = true
+# gitlab_rails['prevent_ldap_sign_in'] = false
+
+gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
+   main: # 'main' is the GitLab 'provider ID' of this LDAP server
+     label: 'LDAP'
+     host: '${server ip}'
+     port: 48389
+     uid: 'uid'
+     bind_dn: 'cn=admin,dc=example,dc=com'
+     password: ''
+     encryption: 'plain' # "start_tls" or "simple_tls" or "plain"
+     verify_certificates: false
+     smartcard_auth: false
+     active_directory: false
+     allow_username_or_email_login: true
+     lowercase_usernames: true
+     block_auto_created_users: false
+     base: 'dc=example,dc=com'
+     user_filter: ''
+EOS
+
+------------------- OR --------------------------
+
+gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
+    main: # 'main' is the GitLab 'provider ID' of this LDAP server
+      label: 'LDAP'
+      host: '${server ip}'
+      port: 48389
+      uid: 'uid'
+      bind_dn: 'cn=admin,dc=example,dc=com'
+      password: ''
+      encryption: 'plain' # "start_tls" or "simple_tls" or "plain"
+      verify_certificates: false
+      smartcard_auth: true
+      active_directory: false
+      allow_username_or_email_login: true
+      lowercase_usernames: false
+      block_auto_created_users: false
+      base: 'dc=example,dc=com'
+      user_filter: ''
+      attributes:
+       username: ['uid', 'userid', 'sAMAccountName']
+       email:    ['mail', 'email', 'userPrincipalName']
+       name:      'cn'
+       first_name: 'givenName'
+       last_name:  'sn'
+EOS
+
+sudo gitlab-ctl reconfigure
 -->
 
 <!--
