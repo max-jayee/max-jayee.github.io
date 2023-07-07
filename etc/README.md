@@ -1675,6 +1675,24 @@ keytool -list -keystore cacerts
 -->
 
 <!--
+podman network 정보
+
+podman network ls
+1. bridge : 네트워크는 하나의 호스트 컴퓨터 내에서 여러 컨테이너들이 서로 소통할 수 있도록 해줍니다.
+2. host : 네트워크는 컨터이너를 호스트 컴퓨터와 동일한 네트워크에서 컨테이너를 돌리기 위해서 사용됩니다.
+3. overlay : 네트워크는 여러 호스트에 분산되어 돌아가는 컨테이너들 간에 네트워킹을 위해서 사용됩니다.
+
+podman network create ${nework name}
+podman network rm ${network name}
+
+podman run --name ${conatiner name} --network ${network name}
+
+or
+podman network connect ${network name} ${container name}
+podman network discconect bridge ${container name}
+-->
+
+<!--
 ldap 설치
 
 podman pull osixia/openldap:latest
@@ -1684,9 +1702,17 @@ mkdir -p data/certificates
 mkdir -p data/slapd/database
 mkdir -p data/slapd/config
 
-podman run --privileged --name openldap -itd -p 48389:389 -p 48636:636 -v ./data/certificates:/container/service/slapd/assets/certs -v ./data/slapd/database:/var/lib/ldap -v ./data/slapd/config:/etc/ldap/slapd.d -e LDAP_DOMAIN="example.com" -e LDAP_ADMIN_USERNAME="adminld" -e LDAP_ADMIN_PASSWORD="adminld" -e LDAP_CONFIG_PASSWORD="config" -e LDAP_BASE_DN="dc=example,dc=com" -e LDAP_TLS_CRT_FILENAME="ldap.crt" -e LDAP_TLS_KEY_FILENAME="ldap.key" -e LDAP_TLS_CA_CRT_FILENAME="example.com.ca.crt" -e LDAP_READONLY_USER="true" -e LDAP_READONLY_USER_USERNAME="readonly" -e LDAP_READONLY_USER_PASSWORD="readonly" osixia/openldap:latest
+podman network create openldap-net
 
-podman run --privileged --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest
+podman run --privileged --network openldap-net -h openldap --name openldap -itd -p 48389:389 -p 48636:636 -v ./data/certificates:/container/service/slapd/assets/certs -v ./data/slapd/database:/var/lib/ldap -v ./data/slapd/config:/etc/ldap/slapd.d -e LDAP_DOMAIN="example.com" -e LDAP_ADMIN_USERNAME="adminld" -e LDAP_ADMIN_PASSWORD="adminld" -e LDAP_CONFIG_PASSWORD="config" -e LDAP_BASE_DN="dc=example,dc=com" -e LDAP_TLS_CRT_FILENAME="ldap.crt" -e LDAP_TLS_KEY_FILENAME="ldap.key" -e LDAP_TLS_CA_CRT_FILENAME="example.com.ca.crt" -e LDAP_READONLY_USER="true" -e LDAP_READONLY_USER_USERNAME="readonly" -e LDAP_READONLY_USER_PASSWORD="readonly" osixia/openldap:latest
+
+podman run --privileged --network openldap-net -h phpldapadmin --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest
+
+podman exec phpldapadmin sh -c "echo '10.89.0.2 openldap' >> /etc/hosts"
+
+browser -> localhost:48081
+Login DN: cn=admin,dc=example,dc=com // cn=<USER>,dc=<DOMAIN_NAME>,dc=<TOP_LEVEL_DOMAIN>
+Password: adminld // <PASSWORD>
 
 -->
 
@@ -1698,4 +1724,12 @@ uname -a
 cat /proc/version
 
 hostnamectl
+-->
+
+<!--
+ifconfig, nslookup, ping 설치
+
+apt install net-tools # ifconfig
+apt install dnsutils # nslookup
+apt install iputils-ping # ping 
 -->
