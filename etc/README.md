@@ -1714,6 +1714,9 @@ browser -> localhost:48081
 Login DN: cn=admin,dc=example,dc=com // cn=<USER>,dc=<DOMAIN_NAME>,dc=<TOP_LEVEL_DOMAIN>
 Password: adminld // <PASSWORD>
 
+jenkins 에 ldap 연계하면 기존 계정은 사라지고 ldap 기준으로 바뀐다.
+이땐 jenkins 서버가서 config.xml 에  <permission>hudson.model.Hudson.Administer</permission> 를 찾고 <assignedSIDs> 에 <sid>권한 줄 계정 명</sid> 을 준다.
+
 -->
 
 <!--
