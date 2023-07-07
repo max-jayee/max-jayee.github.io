@@ -1689,3 +1689,13 @@ podman run --privileged --name openldap -itd -p 48389:389 -p 48636:636 -v ./data
 podman run --privileged --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest
 
 -->
+
+<!--
+linux version 확인
+
+uname -a
+
+cat /proc/version
+
+hostnamectl
+-->
