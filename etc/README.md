@@ -1802,3 +1802,9 @@ apt install net-tools # ifconfig
 apt install dnsutils # nslookup
 apt install iputils-ping # ping 
 -->
+
+<!--
+watch 로 pipe 명령어 실행하기
+
+watch $'ls -q | wc -l'
+-->
