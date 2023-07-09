@@ -1074,10 +1074,13 @@ export PATH=$PATH:$ANT_HOME/bin
 -->
 
 <!--
-container image none remove
+container image none remove / remove none image 
+
 podman rmi $(podman images -f "dangling=true" -q)
-of
+or
 podman image prune
+or
+podman images -a | grep "<none>" | awk '{ print $3; }' | xargs podman rmi -f
 -->
 
 <!--
