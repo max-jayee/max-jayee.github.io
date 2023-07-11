@@ -1692,7 +1692,25 @@ podman run --name ${conatiner name} --network ${network name}
 
 or
 podman network connect ${network name} ${container name}
-podman network discconect bridge ${container name}
+podman network disconnect ${network name} ${container name}
+-->
+
+<!--
+busybox 실행
+
+podman run -itd --network openldap-net --name bb busybox
+-->
+
+<!-- 
+ip 주소만 출력
+
+ip addr show eth0 | grep 'inet ' | awk '{print $2}' | sed 's/\/.*//'
+-->
+
+<!--
+특정 문자 뒤 제거
+
+sed 's/\/.*//'
 -->
 
 <!--
@@ -1709,9 +1727,11 @@ podman network create openldap-net
 
 podman run --privileged --network openldap-net -h openldap --name openldap -itd -p 48389:389 -p 48636:636 -v ./data/certificates:/container/service/slapd/assets/certs -v ./data/slapd/database:/var/lib/ldap -v ./data/slapd/config:/etc/ldap/slapd.d -e LDAP_DOMAIN="example.com" -e LDAP_ADMIN_USERNAME="adminld" -e LDAP_ADMIN_PASSWORD="adminld" -e LDAP_CONFIG_PASSWORD="config" -e LDAP_BASE_DN="dc=example,dc=com" -e LDAP_TLS_CRT_FILENAME="ldap.crt" -e LDAP_TLS_KEY_FILENAME="ldap.key" -e LDAP_TLS_CA_CRT_FILENAME="example.com.ca.crt" -e LDAP_READONLY_USER="true" -e LDAP_READONLY_USER_USERNAME="readonly" -e LDAP_READONLY_USER_PASSWORD="readonly" osixia/openldap:latest
 
-podman run --privileged --network openldap-net -h phpldapadmin --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest
+podman run --privileged --network openldap-net -h phpldapadmin --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest 
 
-podman exec phpldapadmin sh -c "echo '10.89.0.2 openldap' >> /etc/hosts"
+openldap_ip_addr=$(podman exec openldap ip addr show eth0 | grep 'inet ' | awk '{print $2}' | sed 's/\/.*//')
+
+podman run --privileged --network openldap-net -h phpldapadmin --add-host openldap:${openldap_ip_addr} --name phpldapadmin -itd -p 48081:80 -e PHPLDAPADMIN_LDAP_HOSTS="openldap" -e PHPLDAPADMIN_HTTPS="false" osixia/phpldapadmin:latest
 
 browser -> localhost:48081
 Login DN: cn=admin,dc=example,dc=com // cn=<USER>,dc=<DOMAIN_NAME>,dc=<TOP_LEVEL_DOMAIN>
@@ -1735,6 +1755,7 @@ vi /etc/gitlab/gitlab.rb
 
 gitlab_rails['ldap_enabled'] = true
 # gitlab_rails['prevent_ldap_sign_in'] = false
+gitlab_rails['ldap_sync_worker_cron'] = "0 */1 * * *" # m, h, d, M, D
 
 gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
    main: # 'main' is the GitLab 'provider ID' of this LDAP server
@@ -1807,4 +1828,57 @@ apt install iputils-ping # ping
 watch 로 pipe 명령어 실행하기
 
 watch $'ls -q | wc -l'
+-->
+
+<!--
+openldap podman-compose
+
+version: "3.8"
+
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./data/certificates:/container/service/slapd/assets/certs
+      - ./data/slapd/database:/var/lib/ldap
+      - ./data/slapd/config:/etc/ldap/slapd.d
+    environment:
+      LDAP_LOG_LEVEL: "256"
+      LDAP_ORGANISATION:
+      LDAP_DOMAIN: "example.com"
+      LDAP_ADMIN_USERNAME: "admin"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_CONFIG_PASSWORD: "config"
+      LDAP_BASE_DN: "dc=example,dc=com"
+      LDAP_TLS_CRT_FILENAME: "ldap.crt"
+      LDAP_TLS_KEY_FILENAME: "ldap.key"
+      LDAP_TLS_CA_CRT_FILENAME: "example.com.ca.crt"
+      LDAP_READONLY_USER: "true"
+      LDAP_READONLY_USER_USERNAME: "readonly"
+      LDAP_READONLY_USER_PASSWORD: "readonly"
+    networks:
+      - openldap
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    hostname: phpldapadmin
+    ports:
+      - "8080:80"
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+      PHPLDAPADMIN_HTTPS: "false"
+    depends_on:
+      - openldap
+    networks:
+      - openldap
+
+networks:
+  openldap:
+    driver: bridge
+
 -->
