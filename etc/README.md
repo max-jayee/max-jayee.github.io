@@ -1855,3 +1855,35 @@ networks:
     driver: bridge
 
 -->
+
+<!--
+gitlab ldap 관련 설정 정보
+
+gitlab_rails['ldap_enabled'] = true / false # ldap 사용 여부
+gitlab_rails['ldap_servers'] = YAML.load <<-'EOS' # ldap 서버 정보
+   main: # 'main' is the GitLab 'provider ID' of this LDAP server
+     label: 'LDAP' # ldap 서버의 이름
+     host: '' # ldap 서버의 host
+     port: 48389 # ldap 포트 기본 389, ssl 636
+     uid: 'uid' # 사용자 식별 필드 # default: sAMAccountName
+     method: '' # ssl, plain(default)
+     bind_dn: 'cn=admin,dc=example,dc=com' # binding dn
+     password: 'adminld' # ldap binding pw
+     encryption: 'plain' # "start_tls" or "simple_tls" or "plain"
+     verify_certificates: false # ssl 인증서 검증 여부
+     smartcard_auth: false
+     active_directory: false # active directory 여부
+     allow_username_or_email_login: true # username, email 허용 여부
+     lowercase_usernames: true
+     block_auto_created_users: false # 자동 생성된 사용자 차단 여부
+     base: 'dc=example,dc=com' # ldap 사용자 검색할 dn
+     user_filter: '' # user 검색에 사용되는 필터 설정
+     group_base: '' # group 검색할 base dn
+     admin_group: '' # 관리자 그룹의 dn
+     sync_ssh_keys: true / false(default) # ssh 키 동기화 여부
+     sync_time: 3600 # ldap 동기화 수행 주기
+     timeout: 10 # timeout 시간
+EOS
+
+
+-->
