@@ -1755,7 +1755,7 @@ vi /etc/gitlab/gitlab.rb
 
 gitlab_rails['ldap_enabled'] = true
 # gitlab_rails['prevent_ldap_sign_in'] = false
-gitlab_rails['ldap_sync_worker_cron'] = "0 */1 * * *" # m, h, d, M, D
+gitlab_rails['ldap_sync_worker_cron'] = "0 */1 * * *" # m, h, d, M, D, default: 30 1 * * *
 
 gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
    main: # 'main' is the GitLab 'provider ID' of this LDAP server
@@ -1774,27 +1774,6 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
      block_auto_created_users: false
      base: 'dc=example,dc=com'
      user_filter: ''
-EOS
-
-------------------- OR --------------------------
-
-gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
-    main: # 'main' is the GitLab 'provider ID' of this LDAP server
-      label: 'LDAP'
-      host: '${server ip}'
-      port: 48389
-      uid: 'uid'
-      bind_dn: 'cn=admin,dc=example,dc=com'
-      password: ''
-      encryption: 'plain' # "start_tls" or "simple_tls" or "plain"
-      verify_certificates: false
-      smartcard_auth: true
-      active_directory: false
-      allow_username_or_email_login: true
-      lowercase_usernames: false
-      block_auto_created_users: false
-      base: 'dc=example,dc=com'
-      user_filter: ''
 EOS
 
 sudo gitlab-ctl reconfigure
