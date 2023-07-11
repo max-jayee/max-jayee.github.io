@@ -1795,12 +1795,6 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
       block_auto_created_users: false
       base: 'dc=example,dc=com'
       user_filter: ''
-      attributes:
-       username: ['uid', 'userid', 'sAMAccountName']
-       email:    ['mail', 'email', 'userPrincipalName']
-       name:      'cn'
-       first_name: 'givenName'
-       last_name:  'sn'
 EOS
 
 sudo gitlab-ctl reconfigure
