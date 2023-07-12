@@ -1885,5 +1885,14 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS' # ldap 서버 정보
      timeout: 10 # timeout 시간
 EOS
 
+-->
 
+<!--
+haproxy
+-->
+
+<!--
+systemctl start nginx
+systemctl reload nginx
+systemctl restart nginx
 -->
