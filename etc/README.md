@@ -1896,3 +1896,26 @@ systemctl start nginx
 systemctl reload nginx
 systemctl restart nginx
 -->
+
+<!--
+kubectl commands
+
+kubectl namespaces
+
+-->
+
+<!--
+vi 선택 영역 주석하기
+
+v 로 선택
+shift + : 입력
+'<,'>s/^/#/ 엔터
+-->
+
+<!--
+vi 선택 영역 주석 풀기
+
+v 로 선택
+shift + : 입력
+'<,'>s/^#// 엔터
+-->
