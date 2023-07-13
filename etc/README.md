@@ -1081,6 +1081,8 @@ or
 podman image prune
 or
 podman images -a | grep "<none>" | awk '{ print $3; }' | xargs podman rmi -f
+or 
+podman images -a | grep "<none>" | awk '{ print $3; }' | xargs -l {} sh -c 'for none_image in {}; do podman rmi -f $none_image; done'
 -->
 
 <!--
