@@ -1921,3 +1921,68 @@ v 로 선택
 shift + : 입력
 '<,'>s/^#// 엔터
 -->
+
+<!--
+file type check
+
+file -bi ${file name}
+-->
+
+<!--
+alpine apk repo path
+
+/etc/apk/repositories
+-->
+
+<!--
+apk edge repo 추가
+
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+apk update --allow-untrusted
+apk upgrade
+-->
+
+<!--
+alpine cat 으론 한글이 정상인데, vi 편집기에서만 한글이 점으로 보일 때
+
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+apk update --allow-untrusted
+apk upgrade
+
+apk add --no-cache font-noto-cjk
+
+-->
+
+<!--
+nginx map
+
+--nginx.conf--
+...
+http {
+  ...
+  map ${정규 표현에 검사 할 변수명} ${값을 부여받을 변수명} {
+    regex1 ${regex1 이 통과했을때 설정할 값1}
+    regex2 ${regex2 이 통과했을때 설정할 값2}
+    default ${모두 통과하지 않았을때 default 로 설정할 값}
+  }
+  ...
+}
+...
+
+-->
+
+<!--
+nginx client ip 만 보내기
+
+http {
+  map $http_x_forwarded_for $real_client_ip {
+    "~^([^,]+)" $1; # , 기준으로 맨 앞 ip 추출
+    default $http_x_forwarded_for
+  }
+  server {
+    location / {
+      proxy_set_header X-Forwarded-For $real_client_ip;
+    }
+  }
+}
+-->
