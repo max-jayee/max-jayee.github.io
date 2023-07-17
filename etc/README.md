@@ -1992,3 +1992,24 @@ tar 로 현재 폴더 압축
 
 tar zcf tt.tar.gz *
 -->
+
+<!--
+ubuntu 한글 설치
+
+grep -n . /etc/*-release
+apt-get -y update
+apt-get install -y locales 
+locale -a # 사용할 수 있는 locale 확인
+apt-get install -y language-pack-ko
+locale-gen ko_KR.utf8
+dpkg-reconfigure locales # ko.KR.UTF-8 번호 기억
+
+# Locales to be generated 가 뜨면 기억한 번호 입력
+# Default locale 에서는 3 입력
+
+vi ~/.bashrc
+export LANGUAGE=ko_KR.UTF-8
+export LANG=ko_KR.UTF-8
+
+source ~/.bashrc
+-->
