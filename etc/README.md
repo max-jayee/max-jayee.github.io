@@ -837,6 +837,9 @@ apk add --no-cache libgd # for libgd-dev
 apk add --no-cache net-tools # for net-tools
 apk add --no-cache openjdk8 # for openjdk 8
 apk add --no-cache aptitude # for aptitude
+apk add --no-cache gcompat
+apk add --no-cache wget
+apk add --no-cache curl
 
 alpine 초기 유용한 모듈 설치
 
@@ -849,6 +852,8 @@ TROUBLE SHOOTING
 vi /etc/apk/repositories
 http://dl-cdn.alpinelinux.org/alpine/v3.17/main
 http://dl-cdn.alpinelinux.org/alpine/v3.17/community
+apk update --allow-untrusted
+apk upgrade --allow-untrusted
 apk add --no-cache --allow-untrusted musl-locales
 
 apk add --no-cache fontconfig # for font-config
@@ -2012,4 +2017,10 @@ export LANGUAGE=ko_KR.UTF-8
 export LANG=ko_KR.UTF-8
 
 source ~/.bashrc
+-->
+
+<!--
+IHS (IBM Http Server)
+
+aix
 -->
