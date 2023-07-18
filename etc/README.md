@@ -1948,13 +1948,16 @@ apk upgrade
 -->
 
 <!--
-alpine cat 으론 한글이 정상인데, vi 편집기에서만 한글이 점으로 보일 때
+alpine linux cat 으론 한글이 정상인데, vi 편집기에서만 한글이 점으로 보일 때
 
-echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-apk update --allow-untrusted
-apk upgrade
+alpine linux 는 vim 이 아닌 vi 로 설치되어있고 vi 에는 한글 팩이 존재하지 않음
 
-apk add --no-cache font-noto-cjk
+apk add vim
+
+vi /etc/profile
+alias vi='vim'
+
+source /etc/profile
 
 -->
 
