@@ -1957,7 +1957,8 @@ apk add vim
 vi /etc/profile
 alias vi='vim'
 
-source /etc/profile
+vi Dockerfile
+ENV ENV=/etc/profile # 주의점은 기본 환경 설정이 싹- 바껴서 새로 잡아주어야함
 
 -->
 
@@ -2026,4 +2027,11 @@ source ~/.bashrc
 IHS (IBM Http Server)
 
 aix
+-->
+
+<!--
+container 에서 환경 유지하는 방법
+
+vi Dockerfile
+ENV ENV=/etc/profile
 -->
