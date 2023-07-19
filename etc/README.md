@@ -2035,3 +2035,9 @@ container 에서 환경 유지하는 방법
 vi Dockerfile
 ENV ENV=/etc/profile
 -->
+
+<!--
+du --max-depth 안될떄
+
+du -sg *
+-->
