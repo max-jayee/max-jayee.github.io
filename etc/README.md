@@ -2041,3 +2041,29 @@ du --max-depth 안될떄
 
 du -sg *
 -->
+
+<!--
+git checkout specific tag
+
+git fetch --all --tags
+
+git tag
+
+git checkout tags/${tag name} -b ${tag name}
+-->
+
+<!--
+date format 변경
+
+#24 시간: %H
+#12시간: %I
+#분: %M
+#초: %S
+#오전/오후: %p
+#unix time stamp: %s(소문자)
+
+date "+%Y-%m-%d" # YYYY-MM-DD
+date "+%Y-%m-%d %H:%M:%S" # YYYY-MM-DD HH24:MI:SS
+date "+%Y-%m-%d %I:%M:%S %p"# 오전/오후를 추가하려면 %H 를 %I 로 오전/오후 표시하는 %p
+data +%s # unix timestamp
+-->
