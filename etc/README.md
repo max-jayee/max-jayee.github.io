@@ -1960,6 +1960,10 @@ alias vi='vim'
 vi Dockerfile
 ENV ENV=/etc/profile # 주의점은 기본 환경 설정이 싹- 바껴서 새로 잡아주어야함
 
+vi mouse drag copy 안될때 
+vi /etc/vim/vimrc 
+set mouse=r # 마우스 속성 활성화
+
 -->
 
 <!--
