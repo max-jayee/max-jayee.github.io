@@ -1682,6 +1682,30 @@ cd $JAVA_HOME/jre/lib/security
 cp cacerts cacerts.bak
 keytool -trustcacerts -keystore "/jdk/jre/lib/security/cacerts" -storepass changeit -importcert -alias testalias -file "/opt/ssl/test.crt"
 keytool -list -keystore cacerts
+
+1.show-cert-list.sh
+#! /bin/bash
+
+if (($# < 1>)); then
+  echo "usage: $0 cacert_file"
+  exit 1
+fi
+
+cacert_file=$1
+keytool -list -keystore $cacert_file -storepass $changeit
+
+2.add-cert.sh
+#! /bin/bash
+
+if (($# < 3>)); then
+  echo "usage: $0 cacert_file cert_file cert_alias"
+  exit 1
+fi
+
+cacert_file=$1
+cert_file=$2
+cert_alias=$3
+keytool -trustcacerts -keystore $cacert_file -storepass changeit -importcert -alias $cert_alias -file "$cert_file"
 -->
 
 <!--
@@ -2077,4 +2101,14 @@ linux sub group linux secondary group
 
 usermod -G ${group1 name},${group2 name} ${account name}
 id ${account name} # check
+-->
+
+<!--
+selinux nginx 8090 port
+
+semanage port -l | grep http_port_t
+http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
+
+semanage port -a -t http_port_t  -p tcp 8090
+
 -->
