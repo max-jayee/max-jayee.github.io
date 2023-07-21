@@ -2112,3 +2112,11 @@ http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
 semanage port -a -t http_port_t  -p tcp 8090
 
 -->
+
+<!--
+linux 에서 file 있는데 실행하면 not found 뜨면서 안될 때
+
+관련 라이브러리가 없어서 안되는 경우
+ldd file 하면 얘가 참고하는 library 들이 나옴
+없는 라이브러리들을 설정해주어야함
+-->
