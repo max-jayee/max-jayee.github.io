@@ -1686,7 +1686,7 @@ keytool -list -keystore cacerts
 1.show-cert-list.sh
 #! /bin/bash
 
-if (($# < 1>)); then
+if (($# < 1)); then
   echo "usage: $0 cacert_file"
   exit 1
 fi
@@ -1697,15 +1697,27 @@ keytool -list -keystore $cacert_file -storepass $changeit
 2.add-cert.sh
 #! /bin/bash
 
-if (($# < 3>)); then
-  echo "usage: $0 cacert_file cert_file cert_alias"
+if (($# < 3)); then
+  echo "usage: $0 cacert_file add_cert_file add_cert_alias"
   exit 1
 fi
 
 cacert_file=$1
-cert_file=$2
-cert_alias=$3
-keytool -trustcacerts -keystore $cacert_file -storepass changeit -importcert -alias $cert_alias -file "$cert_file" -noprompt
+add_cert_file=$2
+add_cert_alias=$3
+keytool -trustcacerts -keystore $cacert_file -storepass changeit -importcert -alias $add_cert_alias -file "$add_cert_file" -noprompt
+
+3.del-cert.sh
+#! /bin/bash
+
+if (($# < 2)); then
+  echo "usage: $0 cacert_file del_cert_alias"
+  exit 1
+fi
+
+cacert_file=$1
+del_cert_alias=$2
+keytool -delete -alias $del_cert_alias -keystore $cacert_file
 -->
 
 <!--
