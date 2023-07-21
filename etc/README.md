@@ -2071,3 +2071,10 @@ date "+%Y-%m-%d %H:%M:%S" # YYYY-MM-DD HH24:MI:SS
 date "+%Y-%m-%d %I:%M:%S %p"# 오전/오후를 추가하려면 %H 를 %I 로 오전/오후 표시하는 %p
 data +%s # unix timestamp
 -->
+
+<!--
+linux sub group linux secondary group
+
+usermod -G ${group1 name},${group2 name} ${account name}
+id ${account name} # check
+-->
