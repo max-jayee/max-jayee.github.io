@@ -2165,3 +2165,50 @@ command 2>&1 # 표준 에러 파일 디스크립터(2) 을 표준 출력 파일 
 (1) 파일에 리디렉션을 해도 에러가 나면 표준에러는 파일에 쌓이지 않는데 쌓기 위해서 함
 (2) 표준에러 발생시 에러 메시지를 출력하고 멈추는데 >> /dev/null 로 출력을 버리고 계속 진행할 때 사용
 -->
+
+<!--
+nginx cache 끄기 제거
+
+server {
+  ...
+  location / {
+    root /your/site/public;
+    index index.html;
+
+    # kill cache
+    add_header Last-Modified $date_gmt;
+    add_header Cache-Control 'no-store, no-cache';
+    if_modified_since off;
+    expires off;
+    etag off;
+  }
+
+  location / {
+    root /your/site/public;
+    index index.html;
+
+    # kill cache
+    expires -1;
+  }
+
+  location ~* \.(js|pdf)$ {
+    expires -1;
+  }
+
+  location / {
+    # don't cache it
+    proxy_no_cache 1;
+    # even if cached, don't try to use it
+    proxy_cache_bypass 1; 
+  }
+}
+
+-->
+
+<!--
+system service restart
+
+service nginx reload #debian/ubuntu
+systemctl restart nginx #redhat/centos
+
+-->
