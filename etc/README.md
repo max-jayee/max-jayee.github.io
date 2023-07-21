@@ -1705,7 +1705,7 @@ fi
 cacert_file=$1
 cert_file=$2
 cert_alias=$3
-keytool -trustcacerts -keystore $cacert_file -storepass changeit -importcert -alias $cert_alias -file "$cert_file"
+keytool -trustcacerts -keystore $cacert_file -storepass changeit -importcert -alias $cert_alias -file "$cert_file" -noprompt
 -->
 
 <!--
