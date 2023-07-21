@@ -2141,7 +2141,7 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-export pushd popd
+export pushd popd # apply entire system
 -->
 
 <!--
