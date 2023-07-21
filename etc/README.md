@@ -2212,3 +2212,29 @@ service nginx reload #debian/ubuntu
 systemctl restart nginx #redhat/centos
 
 -->
+
+<!--
+nginx multi sub domains
+
+http or https 안에 server 가 각 sub domain 임
+http or https {
+  ...
+  server { # a sub domain
+    ...
+    server_name a.domain.com;
+    location / {
+      root /var/www/root; # document root
+      index index.html index2.html; # index file
+    }
+    ...
+  }
+  server { # b sub domain
+    ...
+    server_name b.domain.com;
+    location /alias/ {
+      alias /var/www/alias/; # url mapping
+    }
+    ...
+  }
+}
+-->
