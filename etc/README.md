@@ -2120,3 +2120,36 @@ linux 에서 file 있는데 실행하면 not found 뜨면서 안될 때
 ldd file 하면 얘가 참고하는 library 들이 나옴
 없는 라이브러리들을 설정해주어야함
 -->
+
+<!--
+aix 에서 포트로 프로세스 찾기
+
+1. netstat -Aan | grep ${port}
+2. rmsock ${id} tcpcb
+3. ps -ef | grep ${pid}
+
+-->
+
+<!--
+pushd, popd echo 지우기
+
+pushd () {
+    command pushd "$@" > /dev/null
+}
+
+popd () {
+    command popd "$@" > /dev/null
+}
+
+export pushd popd
+-->
+
+<!--
+2>&1 표준에러를 표준출력으로 리디렉션
+
+command 2>&1 # 표준 에러 파일 디스크립터(2) 을 표준 출력 파일 디스크립터(1)을 선택(&)하여 디리렉션(>) 하는 것으로 모두 이어서 사용해야 적용됨
+
+표준에러를 표준출력으로 리디렉션하는 이유는
+(1) 파일에 리디렉션을 해도 에러가 나면 표준에러는 파일에 쌓이지 않는데 쌓기 위해서 함
+(2) 표준에러 발생시 에러 메시지를 출력하고 멈추는데 >> /dev/null 로 출력을 버리고 계속 진행할 때 사용
+-->
