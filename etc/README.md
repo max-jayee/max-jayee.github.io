@@ -2238,3 +2238,10 @@ http or https {
   }
 }
 -->
+
+<!--
+linux 특정 문자열이 존재하는지 확인
+
+string="I like a banana."
+if [[ $string =! "e a ba" ]]; then echo "true"; else echo "false" fi
+-->
