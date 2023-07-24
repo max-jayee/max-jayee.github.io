@@ -240,6 +240,20 @@ item.builds.each() { build ->
 }
 item.updateNextBuildNumber(1)
 
+<!--
+jenkins script : 특정 job name 의 최근 n 개의 빌드 히스토리만 남기고 모두 제거하는 script
+
+def jobName = "${job name}"
+def maxBuildsToKeep = n
+
+def job = Jenkins.instance.getItem(jobName)
+def builds = job.getBuilds()
+
+for (int i = 0; i < builds.size() - maxBuildsToKeep; i++) {
+  builds[i].delete()
+}
+-->
+
 <!-- TODO: sts 에서 remote branch 추가하기 -->
 git -> project 우클릭 -> Fetch from ... -> Configure -> Advanced... -> 'All Branches' or 'All Tags' 클릭해서 설정
 
