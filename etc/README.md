@@ -2273,3 +2273,22 @@ linux 특정 문자열이 존재하는지 확인
 string="I like a banana."
 if [[ $string =! "e a ba" ]]; then echo "true"; else echo "false" fi
 -->
+
+<!--
+podman storage corrupted
+
+podman stop $(podman ps -a -q)
+
+mv /var/lib/containers /var/lib/containers-bak
+mv ~/.local/share/containers/cache ~/.local/share/containers/cache-bak
+mv ~/.local/share/containers/storage ~/.local/share/containers/storage-bak
+
+podman system reset --force
+systemctl restart podman
+systemctl status podman
+
+podman pull all
+
+rm -rf /var/lib/containers-bak
+rm -rf ~/.local/share/containers/cache-bak ~/.local/share/containers/storage-bak
+-->
