@@ -227,7 +227,7 @@ Script Console 이동
 Jenkins 관리 → Script Console 이동 후 아래 스크립트 수행
 
 모든 아이템의 빌드 히스토리 제거
-item = Jenkins.instance.getAllItems().each() { item ->
+Jenkins.instance.getAllItems().each() { item ->
   item.builds.each() { build ->
     build.delete()
   }
@@ -251,6 +251,18 @@ def builds = job.getBuilds()
 
 for (int i = 0; i < builds.size() - maxBuildsToKeep; i++) {
   builds[i].delete()
+}
+
+jenkins script : 모든 job 의 최근 n 개의 빌드 히스토리만 남기고 모두 제거하는 script
+
+def maxBuildsToKeep = n
+
+Jenkins.instance.getAllItems().each() { item ->
+  def builds = item.getBuilds()
+
+  for (int i = 0; i < builds.size() - maxBuildsToKeep; i++) {
+    builds[i].delete()
+  }
 }
 -->
 
