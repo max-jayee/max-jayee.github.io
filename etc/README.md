@@ -249,7 +249,7 @@ def maxBuildsToKeep = n
 def job = Jenkins.instance.getItem(jobName)
 def builds = job.getBuilds()
 
-for (int i = 0; i < builds.size() - maxBuildsToKeep; i++) {
+for (int i = builds.size() - 1; i >= maxBuildsToKeep; i--) {
   builds[i].delete()
 }
 
@@ -260,10 +260,12 @@ def maxBuildsToKeep = n
 Jenkins.instance.getAllItems().each() { item ->
   def builds = item.getBuilds()
 
-  for (int i = 0; i < builds.size() - maxBuildsToKeep; i++) {
+  for (int i = builds.size() - 1; i >= maxBuildsToKeep; i--) {
     builds[i].delete()
   }
 }
+
+println("success")
 -->
 
 <!-- TODO: sts 에서 remote branch 추가하기 -->
