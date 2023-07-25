@@ -2292,3 +2292,13 @@ podman pull all
 rm -rf /var/lib/containers-bak
 rm -rf ~/.local/share/containers/cache-bak ~/.local/share/containers/storage-bak
 -->
+
+<!--
+umask 파일, 디렉토리 생성시 초기 접근권한 설정
+
+umask 8진수 3자리로 구성되고
+기본 파일의 권한은 666, 디렉토리는 777 임
+umask 값이 0001 이면 저기서 까는거임 즉, 파일의 권한은 665, 디렉토리응 776 이 되는거지
+설정은 root 의 경우 /etc/profile, 사용자는 .profile, .cshrc, .bashrc, .login 같은 프로필에서 설정가능
+
+-->
