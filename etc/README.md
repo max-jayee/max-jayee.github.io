@@ -2302,3 +2302,9 @@ umask 값이 0001 이면 저기서 까는거임 즉, 파일의 권한은 665, �
 설정은 root 의 경우 /etc/profile, 사용자는 .profile, .cshrc, .bashrc, .login 같은 프로필에서 설정가능
 
 -->
+
+<!--
+maven library 는 https://mvnrepository.com/ 에서 받아서
+
+group id, artifactid, version 사용
+-->
