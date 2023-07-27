@@ -1701,6 +1701,12 @@ basename "$(pwd)"
 <!--
 cer 파일을 pem 으로 변환
 openssl x509 -inform der -in /path/to/your/certificate.cer -out /path/to/converted/certificate.pem
+openssl x509 -inform PEM -text -in ${certfile} # linux
+
+keytool -list -v -keystore WebSphere/AppServer/profile/AppSrv01/config/cells/hostname01/trust.p12 -storetype PKCS12 -storepass WebAS
+
+crt 파일을 pkcs12 로 변환
+openssl pkcs12 -export -out draddev.p12 -inkey server_private.key -in server.crt -certfile CACert.crt
 -->
 
 <!--
@@ -1811,9 +1817,9 @@ Password: adminld // <PASSWORD>
 jenkins LDAP 연동
 
 server: ${server ip}:48389
-root DN: dc=example,dc=com
+root DN: dc=example,dc=com # only ldap server
 User search filter: uid={0}
-Manager DN: cn=admin,dc=example,dc=com
+Manager DN: cn=admin,dc=example,dc=com # with admin account + ldap server
 Manager Password: 
 Enable cache: 50, 1m
 
@@ -1834,8 +1840,8 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
      host: '${server ip}'
      port: 48389
      uid: 'uid'
-     bind_dn: 'cn=admin,dc=example,dc=com'
-     password: ''
+     bind_dn: 'cn=admin,dc=example,dc=com' # with admin account + ldap server
+     password: '' # plain 입력, sha256 해싱 값 입력 가능
      encryption: 'plain' # "start_tls" or "simple_tls" or "plain"
      verify_certificates: false
      smartcard_auth: false
@@ -1843,7 +1849,7 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
      allow_username_or_email_login: true
      lowercase_usernames: true
      block_auto_created_users: false
-     base: 'dc=example,dc=com'
+     base: 'dc=example,dc=com' # only ldap server
      user_filter: ''
 EOS
 
