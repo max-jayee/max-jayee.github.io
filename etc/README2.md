@@ -102,3 +102,15 @@ Environment= # 서비스 실행시 환경 변수
 # 리소스: LimitCPU, LimitFSIZE, LimitDATA, LimitCORE 등..
 
 -->
+
+<!--
+git remote 브랜치를 특정 tag 로 강제 이동시키기 (for force deploy)
+
+git checkout origin/${branch name} -b ${branch name}
+git fetch --all --tags
+git tag
+git reset --hard tags/${tag name}
+curl -X DELETE "${gitlab url}/api/v4/projects/${project name}/repository/${branch name}" -H "PRIVATE-TOKEN: ${token}" # project name =  URL-encoded path 로 해야하고 이건 / 를 %2F 로 파싱한거임
+git ${branch name}
+
+-->
