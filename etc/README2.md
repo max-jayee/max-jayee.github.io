@@ -111,6 +111,6 @@ git fetch --all --tags
 git tag
 git reset --hard tags/${tag name}
 curl -X DELETE "${gitlab url}/api/v4/projects/${project name}/repository/${branch name}" -H "PRIVATE-TOKEN: ${token}" # project name =  URL-encoded path 로 해야하고 이건 / 를 %2F 로 파싱한거임
-git ${branch name}
+git push ${branch name}
 
 -->
