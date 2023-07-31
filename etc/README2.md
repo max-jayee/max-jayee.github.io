@@ -146,3 +146,19 @@ ls -ial
 mv ../original ./
 ls -ial
 -->
+
+<!--
+redirect 와 forward 비교
+
+redirect:
+client 에게 새로운 url 로 이동하라고 요청
+server -> client 에게 3xx(301, 302, 307)을 반환해서 redirect 알림
+client 는 새로운 url 로 리퀘스트 수행
+client 의 브라우저에서는 redirect 된 주소로 나옴
+
+forward:
+server 가 새로운 url 로 가서 직접 처리
+client 에서는 이전 요청과 동일한 요청에서 처리된 것으로 생각
+server 가 자체적으로 처리하므로 client 는 어떻게 되었는지 모름
+client 의 브라우저에서는 최초 url 과 동일한 주소로 나옴
+-->
