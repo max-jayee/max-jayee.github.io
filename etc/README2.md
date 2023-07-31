@@ -114,3 +114,35 @@ curl -X DELETE "${gitlab url}/api/v4/projects/${project name}/repository/${branc
 git push ${branch name}
 
 -->
+
+<!--
+hard link, symbolic link
+
+hard link: ln ${linking target file} ${link file}
+
+symbolic link: ln -s ${linking target file} ${link file}
+
+original file, hard link -> inode1 -> original data
+symbolic link -> inode2 -> original file -> inode1 -> original data
+
+inode: 파일의 소유권, 허가권, 파일종류 등의 정보와 해당파일의 실제 데이터가 어디있는지 주소정보
+inode block: inode가 모여있는 디스크 공간
+data block: 실제 데이터가 저장되어있는 디스크 공간
+
+--test--
+mkdir ~/play/link
+cd ~/play/link
+echo hahahoho > originalfile
+ln originalfile hardlink
+ln -s originalfile symboliclink
+
+ls -ial
+cat hardlink
+cat symboliclink
+
+mv original ../
+ls -ial
+
+mv ../original ./
+ls -ial
+-->
