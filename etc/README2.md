@@ -162,3 +162,20 @@ client 에서는 이전 요청과 동일한 요청에서 처리된 것으로 생
 server 가 자체적으로 처리하므로 client 는 어떻게 되었는지 모름
 client 의 브라우저에서는 최초 url 과 동일한 주소로 나옴
 -->
+
+<!--
+gitlab 에서 권장하는 ldap 정보 숨기는 방법
+
+gitlab-rake gitlab:ldap:secret:edit EDITOR=vi 명령어를 이용하여 정보 관리
+이러면 gitlab.rb 에선 정보를 제거할 수 있음
+-->
+
+<!--
+linux hash 명령어
+
+sha256 = echo -n 'string' | openssl dgst -sha256
+md5 = echo -n 'string' | md5sum
+ntlm = echo -n 'string' | iconv -t utf16le | openssl dgst -md4
+aes = echo -n 'string' | openssl enc -aes-256-cbc -pass pass: -e -base64
+
+-->
