@@ -179,3 +179,10 @@ ntlm = echo -n 'string' | iconv -t utf16le | openssl dgst -md4
 aes = echo -n 'string' | openssl enc -aes-256-cbc -pass pass: -e -base64
 
 -->
+
+<!--
+linux os type 확인
+
+cat /etc/*release
+getconf LONG_BIT # linux os bit 확인
+-->
