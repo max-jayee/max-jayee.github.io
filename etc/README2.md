@@ -186,3 +186,13 @@ linux os type 확인
 cat /etc/*release
 getconf LONG_BIT # linux os bit 확인
 -->
+
+<!--
+linux bash 특정 문자열 포함 여부 파악하기
+
+if [[ "ab de ssdf" =~ "ss" ]]; then
+  echo "true"
+else
+  echo "false"
+fi
+-->
