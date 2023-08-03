@@ -1960,6 +1960,8 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS' # ldap 서버 정보
      sync_ssh_keys: true / false(default) # ssh 키 동기화 여부
      sync_time: 3600 # ldap 동기화 수행 주기
      timeout: 10 # timeout 시간
+     attributes:
+      name: 'displayName' # 속성 값
 EOS
 
 -->
