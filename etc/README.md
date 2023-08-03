@@ -1839,7 +1839,7 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
      label: 'LDAP'
      host: '${server ip}'
      port: 48389
-     uid: 'uid'
+     uid: 'uid' # 'uid' or 'sAMAccountName'
      bind_dn: 'cn=admin,dc=example,dc=com' # with admin account + ldap server
      password: '' # plain 입력, sha256 해싱 값 입력 가능
      encryption: 'plain' # "start_tls" or "simple_tls" or "plain"
