@@ -207,3 +207,13 @@ super() 를 사용하는 이유는 기본적으로 java 는 자식 생성자가 
 이땐 super(파라미터 값) 이런식으로 해주어야한다.
 
 -->
+
+<!--
+java 버전에 따른 https protocol 버전
+
+java 5 ~ 7 은 TLSv1.0 or SSLv3
+Java 8 ~ 16 은 TLSv1.2
+
+Java 5 ~ 7 에서 Java 8 ~ 16 과 https 통신하려면 -Dhttps.protocols=TLSv1.2 를 설정해주어야함
+
+-->
