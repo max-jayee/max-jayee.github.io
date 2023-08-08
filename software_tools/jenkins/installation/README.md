@@ -139,7 +139,7 @@
 7. 배포 타겟 서버에 전자서명 키 공유
 
     ```bash
-    ssh-keygen -t rsa -b 4096 -C "account@url or ip" # in jenkins 서버
+    ssh-keygen -t rsa -b 4096 -C "account@url or ip" -m pem # in jenkins 서버, -m pem 을 안하면 openssh 에서만 사용가능한 key pair 생성
     ssh-copy-id remote_username@server_ip_address # in jenkins 서버, remote = 타겟 서버
     ```
 
@@ -236,6 +236,6 @@
 7. 배포 타겟 서버에 전자서명 키 공유
 
     ```bash
-    ssh-keygen -t rsa -b 4096 -C "account@url or ip" # in jenkins 서버
+    ssh-keygen -t rsa -b 4096 -C "account@url or ip" -m pem # in jenkins 서버, -m pem 을 안하면 openssh 에서만 사용가능한 key pair 생성
     ssh-copy-id remote_username@server_ip_address # in jenkins 서버, remote = 타겟 서버
     ```
