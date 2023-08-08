@@ -217,3 +217,13 @@ Java 8 ~ 16 은 TLSv1.2
 Java 5 ~ 7 에서 Java 8 ~ 16 과 https 통신하려면 -Dhttps.protocols=TLSv1.2 를 설정해주어야함
 
 -->
+
+<!--
+nginx data size
+
+http {
+  client_header_buffer_size 1k; # default: 1k - 클라이언트로부터 수신한 헤더 크기, 헤더 크기를 넘기면 연결이 종료될 수 있음
+  client_body_buffer_size 1m; # default: 16k or 8k - 클라이언트로부터 수신한 body 데이터의 버퍼 크기로 메모리 사용량 조절
+  client_max_body_size 100m; # default: 1m - 클라이언트로부터 전송되는 요청의 최대 body 크기를 조절
+}
+-->
