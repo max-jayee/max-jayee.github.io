@@ -227,3 +227,16 @@ http {
   client_max_body_size 100m; # default: 1m - 클라이언트로부터 전송되는 요청의 최대 body 크기를 조절
 }
 -->
+
+<!--
+windows memory 사용하지 않는데 점유중일때
+
+1. windows key + R
+2. mdsched.exe + enter
+3. restart now (recommended)
+4. F1
+5. move arrow to down & select Extended
+6. F10 
+7. memo error report
+8. Esc (to restart)
+-->
