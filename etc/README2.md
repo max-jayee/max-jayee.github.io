@@ -240,3 +240,39 @@ windows memory 사용하지 않는데 점유중일때
 7. memo error report
 8. Esc (to restart)
 -->
+
+<!--
+모니터 보호기 무력화
+
+import java.awt.MouseInfo;
+import java.awt.PointerInfo;
+import java.awt.Robot;
+
+public class Nwl {
+  public static void main(String[] args) throws Exception {
+    System.out.println("Running...");
+
+    PointerInfo pointerInfo = null;
+    Robot robot = new Robot();
+
+    boolean isPending = false;
+    while (true) {
+      try {
+        pointerInfo = MouseInfo.getPointerInfo();
+        robot.mouseMove(pointerInfo.getLocation().x, pointerInfo.getLocation().y);
+
+        if (isPending) {
+          System.out.println("Restore...");
+        }
+        isPending = false;
+      } catch (Throwable t) {
+        if (!isPending) {
+          System.out.println("Pending...");
+        }
+        isPending = true;
+      }
+      Thread.sleep((5 * 60 * 1000) - 10);
+    }
+  }
+}
+-->
