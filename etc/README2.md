@@ -282,3 +282,12 @@ git log 원하는 날짜기간동안 조회
 
 git log --stat --oneline --after="xxxx-xx-xx" --before="xxxx-xx-xx" --pretty=format:"%cd - %s"
 -->
+
+<!--
+gitlab timezone 변경
+
+vi /etc/gitlab/gitlab.rb
+gitlab_rails['time_zone']='Asia/Seoul' # 로 변경(기존엔 UTC 임)
+
+gitlab-ctl reconfigure
+-->
