@@ -1395,6 +1395,7 @@ files=$(ls)
 
 [] : 조건식 작성시
 [ -f tile.txt ]
+[ ! -d dirpath ]
 
 [[ ]] : 확장된 조건식 작성시
 [[ $name == "ms" && $age -gt 10 ]]
