@@ -1632,6 +1632,13 @@ extract file format info regexp format
 password regexp format
 ^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.*[~`\-={}[\]:;"'<>,.?/]).{8,16}$
 
+yyyy-mm-dd or yyyy-m-d regexp format
+^[0-9]{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$
+if [[ $date =~ ^[0-9]{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$ ]]; then
+  echo "true"
+else
+  echo "false
+fi
 -->
 
 <!--
