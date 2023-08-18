@@ -358,3 +358,11 @@ pushd $project_name
   done
 popd
 -->
+
+<!--
+excel 에서 row, column 구분자
+
+excel 에 넣을때 그냥 echo "문자열" > aa.csv 하면 한 셀에 쏵 들어간다
+이때 row 는 \n 단위로 끊어져서 들어가고
+column 은 ,(콤마) 단위로 끊어져서 들어간다.
+-->
