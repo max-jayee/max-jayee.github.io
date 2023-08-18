@@ -291,3 +291,12 @@ gitlab_rails['time_zone']='Asia/Seoul' # 로 변경(기존엔 UTC 임)
 
 gitlab-ctl reconfigure
 -->
+
+<!--
+eclipse 에서 gradle 프로젝트에서 다른 프로젝트 참조하기
+
+1. 참조하는 프로젝트 우클릭 -> Properties 선택
+2. 왼쪽 트리 메뉴 Java Build Path 선택
+3. Project 탭 선택 -> Add... 버튼 클릭 -> 참조 당하는 프로젝트 선택 -> OK 선택
+4. Order and Export 탭 선택 -> 참조 당하는 프로젝트 선택 -> Top -> Apply -> Apply and Close 버튼 선택
+-->
