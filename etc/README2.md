@@ -330,3 +330,31 @@ eclipse 에서 gradle 프로젝트에서 다른 프로젝트 참조하기
 3. Project 탭 선택 -> Add... 버튼 클릭 -> 참조 당하는 프로젝트 선택 -> OK 선택
 4. Order and Export 탭 선택 -> 참조 당하는 프로젝트 선택 -> Top -> Apply -> Apply and Close 버튼 선택
 -->
+
+<!--
+git 기간별 변경된 파일 이력 엑셀로 출력
+
+#! /bin/bash
+
+if [ $# -ne 3 ]; then
+  echo "wrong command line."
+  echo "usage) $0 project_name 2023-08-09 2023-08-11"
+  exit 1;
+fi
+
+project_name=$1
+start_date=$2
+end_date=$3
+excel_file="$(echo $start_date | cut -c 6-7)$(echo $start_date | cut -c 9-10)-$(echo $end_date | cut -c 6-7)$(echo $end_date | cut -c 9-10)"
+pushd $project_name
+  echo "project_name" > $excel_file.csv
+  for line in $(git log --oneline --name-only --after="$start_date" --before="$end_date" --pretty=format:%cd --date=format:'%Y-%m-%d'); do
+    if [[ $line =~ ^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$ ]];
+    then
+      cur_date=$line
+    else
+      echo "$cur_date,$line" >> $excel_file.csv;
+    fi
+  done
+popd
+-->
