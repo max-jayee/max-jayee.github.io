@@ -336,27 +336,36 @@ git 기간별 변경된 파일 이력 엑셀로 출력
 
 #! /bin/bash
 
-if [ $# -ne 3 ]; then
+if [ $# -ne 2 ]; then
   echo "wrong command line."
-  echo "usage) $0 project_name 2023-08-09 2023-08-11"
+  echo "usage) $0 2023-08-09 2023-08-11"
   exit 1;
 fi
+echo "========== 로그 수집 시작 =========="
 
-project_name=$1
-start_date=$2
-end_date=$3
+start_date=$1
+end_date=$2
 excel_file="$(echo $start_date | cut -c 6-7)$(echo $start_date | cut -c 9-10)-$(echo $end_date | cut -c 6-7)$(echo $end_date | cut -c 9-10)"
-pushd $project_name
-  echo "project_name" > $excel_file.csv
-  for line in $(git log --oneline --name-only --after="$start_date" --before="$end_date" --pretty=format:%cd --date=format:'%Y-%m-%d'); do
-    if [[ $line =~ ^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$ ]];
-    then
-      cur_date=$line
-    else
-      echo "$cur_date,$line" >> $excel_file.csv;
-    fi
-  done
-popd
+echo "Project Name,Commit Date,Source Path,File Name" > $excel_file.csv
+for original_project_name in $(ls -d */); do
+  project_name=$(echo ${original_project_name%%/});
+  project_name=$(echo ${project_name/\//});
+  pushd $project_name
+    git pull
+    for line in $(git log --oneline --name-only --after="$start_date" --before="$end_date" --pretty=format:%cd --date=format:'%Y-%m-%d'); do
+      if [[ $line =~ ^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$ ]];
+      then
+        cur_date=$line
+      else
+        modified_file=$(echo ${line/*\//})
+        modified_file=$(echo ${modified_file/\.*/})
+        echo "$project_name,$cur_date,$line,$modified_file" >> ../$excel_file.csv;
+      fi
+    done
+  popd
+done
+
+echo "========== 로그 수집 종료 =========="
 -->
 
 <!--
