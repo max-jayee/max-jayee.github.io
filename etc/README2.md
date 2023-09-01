@@ -375,3 +375,11 @@ excel 에 넣을때 그냥 echo "문자열" > aa.csv 하면 한 셀에 쏵 들�
 이때 row 는 \n 단위로 끊어져서 들어가고
 column 은 ,(콤마) 단위로 끊어져서 들어간다.
 -->
+
+<!--
+bash shell split by token
+
+IN="bla@some.com;john@home.com"
+arrIN=(${IN//;/ })
+echo ${arrIN[1]}                  # Output: john@home.com
+-->
