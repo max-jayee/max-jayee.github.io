@@ -168,6 +168,10 @@ gitlab 에서 권장하는 ldap 정보 숨기는 방법
 
 gitlab-rake gitlab:ldap:secret:edit EDITOR=vi 명령어를 이용하여 정보 관리
 이러면 gitlab.rb 에선 정보를 제거할 수 있음
+
+main:
+  password: ''
+  bind_dn: ''
 -->
 
 <!--
