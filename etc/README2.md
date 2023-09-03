@@ -387,3 +387,9 @@ IN="bla@some.com;john@home.com"
 arrIN=(${IN//;/ })
 echo ${arrIN[1]}                  # Output: john@home.com
 -->
+
+<!--
+bash shell official description
+
+https://www.gnu.org/software/bash/manual/html_node/index.html#SEC_Contents
+-->
