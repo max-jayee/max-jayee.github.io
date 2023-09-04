@@ -393,3 +393,19 @@ bash shell official description
 
 https://www.gnu.org/software/bash/manual/html_node/index.html#SEC_Contents
 -->
+
+<!--
+linux 폴더 내 모든 파일 조회
+
+#!/bin/bash
+for file in 경로/*
+do
+        if [ -d $file ]
+        then
+                echo "$file is directory"
+        elif [ -f $file ]
+        then
+                echo "$file is file"
+        fi
+done
+-->
