@@ -1037,7 +1037,6 @@ for (Field field : objectClass.getDeclaredFields())
 | get(Object) | object 에 해당하는 변수 값 리턴 (Object)|
 -->
 
-
 <!-- 
 gitlab 저장소 변경
 sudo gitlab-ctl stop

@@ -409,3 +409,36 @@ do
         fi
 done
 -->
+
+<!--
+CORS(Cross-Origin Resource Sharing) 문제
+
+a 도메인에서 b 도메인의 서비스를 호출할 때 b 도메인의 서비스에서 기본적으로 보안 정책상으로 막는걸 해제하는 것
+
+a 도메인에서 b 도메인으로 보낼 때 절차는 아래와 같음
+1. a -> b 로 preflight 를 날린다. (preflight 는 a 가 b 에게 요청을 보내면 처리해줄 것인지 물어보는 것과 유사함)
+2. 실제 데이터를 a -> b 로 전송
+
+기본적으로 외부 도메인에서 타고들어올땐 서비스에서 막게끔 되어있다.
+이를 허용하려면 cors 를 추가해주어야한다.
+
+이는 java spring boot 기준으로는 WebMvcConfigurer 인터페이스를 개발하여 addCorsMappings(CorsRegistry registry) 함수를 override 한다.
+그리고 아래와 같이 설정한다.
+```
+@Override
+public void addCorsMappings(CorsRegistry registry) {
+  registry.addMapping("/**")
+    .allowedMethods("*")
+    .allowedOriginPatterns("*")
+    .allowedHeaders("*")
+    .allowedCredentials(true)
+    .exposedHeaders("Content-Disposition"); // for exbuilder
+}
+
+```
+
+이때 1번 과정에서는 http method 를 OPTIONS 로 보내게 된다. 즉, b 서비스에서는 OPTIONS 가 왔을때 200 status 를 보내주어야 preflight 를 pass 할 수 있음
+
+string boot 기준으로 interceptor 에서 request.getMethod().equals("OPTIONS") 일때 return true; 와 같이 주어 preflight 를 pass 시킨다.
+
+-->
