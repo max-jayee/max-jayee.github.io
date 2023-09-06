@@ -54,19 +54,18 @@ chmod 600 /etc/jenkins/jenkins.jks
 <!--
 젠킨스 ssl 인증서 config 파일 설정
 
-# 1. config 파일 접속
-sudo vi /etc/sysconfig/jenkins
+# 1. war 실행시 옵션 추가 (사용자 root 여야 443 가능)
+sudo vi /etc/systemd/system/jenkins.service
 
-아래와 같이 변경하기
-JENKINS_PORT="-1"	# http 포트 비활성화
-JENKINS_HTTPS_PORT="9090"	# 젠킨스 포트 설정 (다른 포트여도 ㄱㅊ)
-JENKINS_HTTPS_KEYSTORE="/etc/jenkins/jenkins.jks" # 앞서 변환한 .jks 인증서 경로
-JENKINS_HTTPS_KEYSTORE_PASSWORD="<인증서 비밀번호>"
-JENKINS_HTTPS_LISTEN_ADDRESS="0.0.0.0"	# 모든 ip에서 접근할 수 있도록 변경
-JENKINS_ENABLE_ACCESS_LOG="yes"	# 초기 admin 비밀번호를 확인할 수 있도록 로그 활성화
+ExecStart=java -jar /app/jenkins/jenkins.war --httpPort=-1 --httpsPort=443 --httpsKeyStore=${jks 파일 위치} --httpsKeyStorePassword=${jps 파일 비밀번호}
+
+User=root
+Group=root
 
 # 2. 젠킨스 재실행
+sudo systemctl daemon-reload
 sudo systemctl restart jenkins
+netstat -anp | grep LISTEN | grep 443
 -->
 
 <!--
