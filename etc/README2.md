@@ -441,3 +441,31 @@ public void addCorsMappings(CorsRegistry registry) {
 string boot 기준으로 interceptor 에서 request.getMethod().equals("OPTIONS") 일때 return true; 와 같이 주어 preflight 를 pass 시킨다.
 
 -->
+
+<!--
+gitlab ssl 적용
+# 제일 중요한 점은 적용하는 인증서 파일(${dns name}.crt) 에 server, intermediate, root 인증서가 한 파일에 모두 들어가있어야한다.
+# 그리고 순서가 반드시 맨위 server, 그 다음 intermediate 1, 그 다음 intermediate 2, 그 다음 root 이렇게 구성이 되어있어야 chain 을 물어서 인증이 된다.
+# 여러 인증서를 하나의 인증서로 만드는 방법은 cat 같은걸로 >> 리다이렉션을 통해 넣고, 인증서마다 엔터가 잘 안들어가있으면 넣어주어야한다.
+# 이렇게 만들어진 인증서는 아래 '도움이 되는 도구' 를 이용하여 조회함으로써 확인할 수 있다.
+
+mkdir -p /etc/gitlab/ssl
+cp ${dns name}.crt ${dns name}.key /etc/gitlab/ssl/
+cp password.txt /etc/gitlab/ssl/
+
+vi /etc/gitlab/gitlab.rb
+
+external_url "https://${dns name}"
+letsencrypt['enable'] = false
+nginx['ssl_password_file'] = '/etc/gitlab/ssl/password.txt'
+nginx['enable'] = true
+nginx['redirect_http_to_https'] = true
+
+gitlab-ctl reconfigure
+gitlab-ctl restart
+
+도움이 되는 도구
+echo | /opt/gitlab/embedded/bin/openssl s_client -connect HOSTNAME:port # 서버의 인증서 조회
+/opt/gitlab/embedded/bin/openssl x509 -in /path/to/certificate.crt -text -noout # 특정 인증서의 정보 확인
+echo | /opt/gitlab/embedded/bin/openssl s_client -connect HOSTNAME:port | /opt/gitlab/embedded/bin/openssl x509 -text -noout # 특정 서버의 인증서 정보 확인
+-->
