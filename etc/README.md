@@ -1654,10 +1654,11 @@ regular expression meta
 -->
 
 <!--
-linux password 유효기간 변경
+linux password 유효기간 변경, password 만료
 /etc/login.defs 에서 PASS_MAX_DAYS 변경
 
 또는
+sudo chage -m 60 user1 # user1 의 비밀번호를 60일간 유지
 sudo chage -M 60 user1 # user1 의 비밀번호를 60일간 유지
 chage -l user1
 -->
