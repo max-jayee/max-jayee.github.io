@@ -49,8 +49,9 @@
   3. network layer: 다른 네트워크와 통신하기 위한 경로 설정 & 논리 주소 결정
     protocols: IP, IPX
     unit: IP Packet
-  4. transport layer: 신뢰할 수 있는 통신 구현
-    protocols: TCP, UDP, SPX
+  4. transport layer: 신뢰할 수 있는 통신(데이터 손상, 유실 등을 관리) 구현, 목적지 어플리케이션 식별
+    protocols: TCP(연결형 통신), UDP(비연결형 통신), SPX
+    unit: Segment(TCP header), Datagram(UDP header)
   5. session layer: 세션 체결, 통신 방식 결정
     protocols: NetBIOS, SAP, SDP, NWLink
   6. presentation layer: 문자 코드, 압축, 암호화 등의 데이터 변환
@@ -104,10 +105,24 @@
 - router: 3 계층에서 다른 네트워크 간 통신을 가능하게 하는 장비
   즉, switch 는 2 계층에서 활동하기에 다른 네트워크 까지는 관여할 수가 없다.
   네트워크를 식별하기 위한 주소로는 IP 주소를 사용한다.
-  라우터는 목적지 IP 주소까지 어떤 경로로 데이터를 보낼지 결정하는 라우팅을 수행한다.
-  routing table 을 가지고 있어 경로를 관리한다.
+  라우터는 목적지 IP 주소까지 어떤 경로로 데이터를 보낼지 결정하는 routing을 수행한다.
+  routing table 을 가지고 있어 최적의 경로를 관리한다.
+  이러한 라우팅 정보를 교환하기 위한 프로토콜을 routing protocol 이라고하며, RIP, OSPE, BGP 등이 있다.
+- gateway: 다른 네트워크에 데이터를 전송하려면 라우터의 ip 를 설정해야하는데 이를 default gateway 라고한다.
 - IP address: Internet Protocol 의 줄임말로, 어떤 네트워크의 어떤 컴퓨터인지를 구분할 수 있도록 하는 주소
-  3 계층에서 캡슐화하는 헤더는 (1) version, (2) header length, (3) service type, (4) total length, (5) identification, (6) flags, (7) fragment offset, (8) TTL, (9) protocol, (10) header checksum, (11) source IP address, (12) destination IP address 순서로 구성된다.
+  3 계층에서 캡슐화하는 헤더는 12 개가 순서대로 있다.
+  1. version
+  2. header length
+  3. service type
+  4. total length
+  5. identification
+  6. flags
+  7. fragment offset
+  8. TTL
+  9. protocol
+  10. header checksum
+  11. source IP address(32비트)
+  12. destination IP address(32비트)
   ISP 에게 부여받을 수 있으며 IPv4(32비트), IPv6(128비트) 이 있다.
   8비트 단위로 나누어 왼쪽에서부터 1옥텟, 2옥텟, 3옥텟, 4옥텟 으로도 표현한다.
 - IP structure: ip 주소는 network id 와 host id 가 합쳐져 구성되어 있고, 여러 A~E 클래스로 관리된다.
@@ -131,3 +146,34 @@
 - subnet mask: network id 와 host id 를 식별하기 위한 값
   A 클래스의 경우 255.0.0.0, B 클래스의 경우 255.255.0.0, C 클래스의 경우 255.255.255.0 이 되고, 이를 prefix 표기법으로 사용하면 슬래쉬(/)를 사용하면된다.
   예를 들어 C 클래스의 network id 를 28 비트로 설정하면 host id 에서 4 비트를 사용하는 것이 되어 network id: 24 비트, subnet id: 4 비트, host id: 4 비트가 되고, 이를 subnet mask prefix 표기법으로 바꾸면 255.255.255.240/28 이 된다.
+- TCP: Transmission Control Protocol 의 줄임말로, 신뢰를 보장하는 연결형 통신 프로토콜
+  신뢰를 제공하는 TCP 헤더는 다음의 순서로 구성되고, TCP 헤더로 캡슐화되면 세그먼트 라고 한다.
+  1. source port number(16비트): 출발지 어플리케이션 주소로, 포트번호는 0~1023번은 이미 예약된 well-known ports 라고하고 1024는 예약되어있지만 사용하지않는다.
+  1025번 이상은 랜덤 포트라고해서 클라이언트 측의 송신 포트로 사용한다.
+  2. destination port number(16비트): 목적지 어플리케이션 주소, well-known ports 중 대표적으로는 ssh 22, smtp 25, dns 53, http 80, pop3 110, https 443 등이 있다.
+  3. sequence number(32비트): 송신자가 수신자에게 이 데이터가 몇 번째 데이터인지 알려주기 위해 사용
+  4. acknowledgement number(32비트): 수신자가 몇 번째 데이터를 수신했는지 송신자에게 알려주기 위해 사용, 다음 번호의 데이터를 요청함(예: 10번 받으면 11번을 작성해서 요청)
+  5. header length(4비트)
+  6. reserved bits(6비트)
+  7. code bits(flags)(6비트): urg, ack(연결 확인 응답), psh, rst, syn(연결 요청), fin(연결 종료) 각 1비트씩 사용
+  8. window size(16비트): 버퍼 크기로 n 개의 세그먼트를 저장할 수 있는 공간의 크기로, 3-way handshake 를 할 때 서로 교환하여 알고 있게 된다.
+  9. checksum(16비트)
+  10. urgent pointer(16비트)
+  11. options(0-40비트)
+- 3-way handshake: 신뢰할 수 있는 연결을 하기 위한 3 단계 연결 방법
+  1. source -> destination: syn(연결 요청)
+  2. source <- destination: ack(연결 확인 응답) + syn(연결 요청)
+  3. source -> destination: ack(연결 확인 응답)
+- 종료 handshake: 신뢰할 수 있는 종료를 하기 위한 종료 방법
+  1. source -> destination: fin(종료 요청)
+  2. source <- destination: ack(연결 종료 응답)
+  3. source <- destination: fin(종료 요청)
+  4. source -> destination: ack(연결 종료 응답)
+- UDP: User Datagram Protocol 의 줄임말로, 신뢰를 보장하지 않는 비연결형 통신 프로토콜
+  데이터의 정확성보단 효율성을 우선시하여 보통 스트리밍 방식으로 전송하는 동영상 서비스와 같은 곳에서 사용된다.
+  UDP 헤더는 아래 4가지를 갖고, UDP 헤더로 캡슐화되면 데이터그램 이라고 한다.
+  1. source port number(16비트)
+  2. destination port number(16비트)
+  3. length(16비트)
+  4. checksum(16비트)
+- broadcast: 랜에 있는 컴퓨터나 네트워크 장비에 데이터를 일괄로 전송한다는 단어로 UDP 를 사용한다.
