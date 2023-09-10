@@ -47,7 +47,7 @@
     protocols: Ethernet, Token Ring, FDDI, Apple Talk
     unit: Frame
   3. network layer: 다른 네트워크와 통신하기 위한 경로 설정 & 논리 주소 결정
-    protocols: IP, IPX
+    protocols: IP, IPX, ICMP(ping)
     unit: IP Packet
   4. transport layer: 신뢰할 수 있는 통신(데이터 손상, 유실 등을 관리) 구현, 목적지 어플리케이션 식별
     protocols: TCP(연결형 통신), UDP(비연결형 통신), SPX
@@ -57,7 +57,7 @@
   6. presentation layer: 문자 코드, 압축, 암호화 등의 데이터 변환
     protocols: ASCII, MPEG, JPEG, MIDI
   7. application layer: 이메일 & 파일 전송, 웹 사이트 조회 등 애플리케이션에 대한 서비스 제공
-    protocols: HTTP, SMTP, FTP, Telnet
+    protocols: HTTP, SMTP(메일 보낼 때), POP3(메일 받을 때), FTP, Telnet
 - TCP/IP model: OSI 7 계층을 더 크게 묶어 4 계층으로 표현한 것
   1. network layer: OSI 1 + 2
   2. internet layer: OSI 3
@@ -155,7 +155,7 @@
   4. acknowledgement number(32비트): 수신자가 몇 번째 데이터를 수신했는지 송신자에게 알려주기 위해 사용, 다음 번호의 데이터를 요청함(예: 10번 받으면 11번을 작성해서 요청)
   5. header length(4비트)
   6. reserved bits(6비트)
-  7. code bits(flags)(6비트): urg, ack(연결 확인 응답), psh, rst, syn(연결 요청), fin(연결 종료) 각 1비트씩 사용
+  7. code bits(flags)(6비트): urg(긴급 데이터), ack(연결 확인 응답), psh(밀어넣기 push), rst(초기화-즉시 종료), syn(연결 요청), fin(연결 종료) 각 1비트씩 사용
   8. window size(16비트): 버퍼 크기로 n 개의 세그먼트를 저장할 수 있는 공간의 크기로, 3-way handshake 를 할 때 서로 교환하여 알고 있게 된다.
   9. checksum(16비트)
   10. urgent pointer(16비트)
@@ -177,3 +177,53 @@
   3. length(16비트)
   4. checksum(16비트)
 - broadcast: 랜에 있는 컴퓨터나 네트워크 장비에 데이터를 일괄로 전송한다는 단어로 UDP 를 사용한다.
+- HTTP: HyperText Transfer Protocol 의 줄임말로, 웹 사이트를 볼 때 사용하는 프로토콜
+- FTP: File Transfer Protocol 의 줄임말로, 파일을 전송할 때 사용하는 프로토콜
+- SMTP: Simple Mail Transfer Protocol 의 줄임말로, 메일을 보낼 때 사용하는 프로토콜
+  송신자 컴퓨터에서 메일서버로 메일을 보내는 과정은 다음과 같다. (송신자 컴퓨터 -> 메일 서버)
+  1. 세션 시작 통지
+  2. 송신자 메일 주소 통지
+  3. 수신자 메일 주소 통지
+  4. 메일 본문 전송 통지
+  5. 메일 본문 송신
+  6. 세션 종료 통지
+- POP3: Post Office Protocol version 의 줄임말로, 메일을 받을 때 사용하는 프로토콜
+  메일 서버에는 메일 박스라고 하는 메일을 보관해주는 기능이 존재한다.
+  수신자 컴퓨터에서 메일 서버로부터 메일을 받는 과정은 다음과 같다. (수신자 컴퓨터 -> 메일 서버)
+  1. 세션 시작 통지
+  2. 수신자 사용자 이름 통지
+  3. 수신자 비밀번호 통지
+  4. 메일 확인 (메일이 있는지 없는지 확인, 있으면 있음 없으면 없음)
+  5. 메일 전송 요청 (메일 서버에 있는 메일을 수신자 컴퓨터로 내려받음)
+  6. 세션 종료 통지
+- DNS: Domain Name System 의 줄임말로, 컴퓨터나 네트워크 장비에 붙여진 이름을 기반으로 ip 주소를 name resolution 하는 시스템
+- WWW: World Wide Web 의 줄임말로, html, url, http 라는 세 가지 기술이 사용된다.
+- HTML: HyperText Markup Language 의 줄임말로, 웹 페이지에서 문장 주고나 문자를 꾸미는 태그를 사용하여 HyperText 를 작성할 수 있는 마크업 언어이다.
+- hyperlink: 보통 link 라고 부르는데 다른 사이트로 이동할 수 있는 경로이다.
+- URL: Uniform Resource Locator 의 줄임말로, 프로토콜을 포함한 식별 정보이다. (예: <http://example.com/blog?type=a>, file://example.com/blog?type=a)
+- URI: Uniform Resource Identifier 의 줄임말로, 식별 정보이다. (예: example.com/blog?type=a, <http://example.com/blog?type=a>)
+- URN: Uniform Resource Name 의 줄임말로, 리소스 정보를 의미한다. (예: blog?type=a)
+- request: 클라이언트가 서버에게 데이터를 요청하는 것
+- response: 서버가 클라이언트에게 클라이언트가 요청한 정보를 제공하는 것
+- keepalive: HTTP/1.1 버전에 추가된 것으로 수립한 연결을 건건이 끊지않고 데이터를 모두 수신할 때까지 연결을 유지하는 기능
+- HTTP/2 특징: response 를 request 순서에따라 보내지 않고 그냥 보내서 속도가 향상됨
+  이는 앞선 오래걸리는 컨텐츠에 의해 전체적인 성능 지연이 개선 됨
+- ping: ICMP(internet control message protocol)이라는 프로토콜을 사용하여 목적지 컴퓨터에 ICMP 패킷을 전송하고 패킷에 대한 응답이 제대로 오는지 확인하는 도구
+  ICMP 프로토콜은 3계층에 속한 프로토콜로 ip 까지만 관여한다.
+- WAP: Wireless Access Point 의 줄임말로, 무선 랜 칩과 무선 랜 어댑터를 이용하여 선없이 네트워크를 제공하는 장비, 무선 공유기 같은 것들
+- wireless client: 컴퓨터 또는 스마트폰과 같이 선 없이 네트워크에 연결되는 클라이언트
+- infrastructure type: 무선 액세스 포인트(무선 공유기)를 중심으로 기기들이 접속하는 방식
+- ad hoc type: 무선 클라이언트끼리 직접 통신하는 방식
+- 무선 규격: IEEE802.11ad, IEEE802.n 등.. 속도와 주파수별로 여러가지 있다.
+- beacon: 자기를 알리는 신호로 wap 은 네트워크에 있는 모든 기기에 주기적으로 전송하고, 이 신호를 무선 클라이언트가 잡아서 연결한다.
+- SSID: Service Set IDentifier 의 줄임말로, 액세스 포인트의 고유이름
+  네트워크 이름, 인증, 암호화, 암호화 키 등을 설정해놓아야 무선 클라이언트가 자동으로 무선 액세스 포인트를 찾아 통신할 수 있다.
+  무선 공유기와 컴퓨터가 연결하는 과정은 다음과 같다.
+  1. 무선 공유기 -> 컴퓨터: 비컨 전송
+  2. 무선 공유기 <- 컴퓨터: 같은 SSID 인지 질의
+  3. 무선 공유기 -> 컴퓨터: 같은 SSID 여부 회신
+  4. 무선 공유기 <-> 컴퓨터: 인증 과정 수행
+  5. 무선 공유기 <- 컴퓨터: 접속 요구
+  6. 무선 공유기 -> 컴퓨터: 승인 응답
+- channel: 여러 기기가 동시에 연결할 수 있도록 주파수 대역을 분할하였을 때 분할된 주파수 대역
+  주로 2대 이상의 wap 을 구축했을때 분리되는데, 두 wap 의 전파가 겹치면서 같은 채널로 설정되어 있으면 주파수가 겹치면서 전파 간섭이 생기고 통신 속도가 느려진다.
