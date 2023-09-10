@@ -57,7 +57,7 @@ chmod 600 /etc/jenkins/jenkins.jks
 # 1. war 실행시 옵션 추가 (사용자 root 여야 443 가능)
 sudo vi /etc/systemd/system/jenkins.service
 
-ExecStart=java -jar /app/jenkins/jenkins.war --httpPort=-1 --httpsPort=443 --httpsKeyStore=${jks 파일 위치} --httpsKeyStorePassword=${jps 파일 비밀번호}
+ExecStart=java -jar /app/jenkins/jenkins.war --httpsRedirectHttp --httpPort=80 --httpsPort=443 --httpsKeyStore=${jks 파일 위치} --httpsKeyStorePassword=${jps 파일 비밀번호}
 
 User=root
 Group=root
