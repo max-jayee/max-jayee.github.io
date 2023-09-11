@@ -469,3 +469,9 @@ echo | /opt/gitlab/embedded/bin/openssl s_client -connect HOSTNAME:port # 서버
 /opt/gitlab/embedded/bin/openssl x509 -in /path/to/certificate.crt -text -noout # 특정 인증서의 정보 확인
 echo | /opt/gitlab/embedded/bin/openssl s_client -connect HOSTNAME:port | /opt/gitlab/embedded/bin/openssl x509 -text -noout # 특정 서버의 인증서 정보 확인
 -->
+
+<!--
+sts 에서 https 에 연결시 git: authentication not supported 라는 에러와 함께 git 관련 아무 작업이 되지 않을 때
+
+Window -> Preferences -> Version Control -> Git -> Configuration 에 http.sslVerify = false 를 넣어준다.
+-->
