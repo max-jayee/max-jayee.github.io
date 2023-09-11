@@ -475,3 +475,38 @@ sts 에서 https 에 연결시 git: authentication not supported 라는 에러�
 
 Window -> Preferences -> Version Control -> Git -> Configuration 에 http.sslVerify = false 를 넣어준다.
 -->
+
+<!--
+svn command 명령어
+
+svn checkout svn://${URI} ${repo dir name} # 소스코드 최초로 받기
+
+svn import ${repo dir name} svn://${URI} # 아무것도 들어있지 않은 원격 저장소에 최초 파일 업로드
+
+svn export svn://${URI} # 메타데이터 빼고 순수 파일들만 내려받기
+
+svn update # 최신 버전 내려받기
+
+svn add ${file name} # 파일 등록
+
+svn commit -m "${message}" # 서버로 전송
+
+svn status ${file name} # 파일 상태 확인
+
+svn diff -r 1 # 현재 작업중인 프로젝트와 리비전 1과 비교 확인
+svn diff -r 1:2 # 비교 확인
+svn diff -r 1 ${file name} # 리비전 1과 현재 file 의 비교 확인
+
+svn log # 로그 확인
+svn log -r 1 # 리비전 1의 로그 보기
+
+svn mkdir ${new dir} # 새로운 디렉토리 생성
+
+svn delete ${file / dir name} # 파일 또는 폴터 삭제
+
+svn move ${file name} ${directory} # 파일 이동
+
+svn rename ${old file name} ${new file name} # 파일명 변경
+
+svn switch --relocate ${old url} ${new url} # 소스 서버 변경
+-->
