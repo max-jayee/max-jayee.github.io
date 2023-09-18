@@ -510,3 +510,10 @@ svn rename ${old file name} ${new file name} # 파일명 변경
 
 svn switch --relocate ${old url} ${new url} # 소스 서버 변경
 -->
+
+<!--
+yum 기본적인 개발 도구 설치
+
+yum groupinstall "Development Tools" // basic
+yum groupinstall "Additional Development" // extension
+-->
