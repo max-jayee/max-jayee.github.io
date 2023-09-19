@@ -517,3 +517,16 @@ yum 기본적인 개발 도구 설치
 yum groupinstall "Development Tools" // basic
 yum groupinstall "Additional Development" // extension
 -->
+
+<!--
+npm install ${모듈} 하는 중 permission 이나 install 에러가 발생하는 경우
+보통 root 로 실행하는 것을 많이 막아둔 selinux 에서 종종 발생한다.
+
+--unsafe-perm 옵션을 넣어준다.
+-->
+
+<!--
+npm init example
+
+npm run install:dev --unsafe-perm --no-audit --verbose --sass-binary-path= --registry http://nexus.com/repo/
+-->
