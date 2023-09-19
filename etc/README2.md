@@ -522,7 +522,19 @@ yum groupinstall "Additional Development" // extension
 npm install ${모듈} 하는 중 permission 이나 install 에러가 발생하는 경우
 보통 root 로 실행하는 것을 많이 막아둔 selinux 에서 종종 발생한다.
 
+경험한 경우로는 internal/modules/cjs/loader.js:905 에서 throw err; 에러가 발생하여 node-sass 가 설치가 안되고 있었음
+
+인터넷에서는 아래와 같은 에러가 발생하여 설정해주었다고한다.
+```
+EACCESS: permission denied
+npm ERR! spawn ENOENT
+npm ERR! code ELIFECYCLE
+sh: 1: node: Permission denied
+```
+
 --unsafe-perm 옵션을 넣어준다.
+또는 npm config set unsafe-perm true
+또는 .npmrc 에 unsafe-perm=true 를 넣어주어도 된다고한다.
 -->
 
 <!--
