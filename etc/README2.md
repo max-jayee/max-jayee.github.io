@@ -542,3 +542,19 @@ npm init example
 
 npm run install:dev --unsafe-perm --no-audit --verbose --sass-binary-path= --registry http://nexus.com/repo/
 -->
+
+<!--
+jenkins 원격 실행 jenkins remote
+
+job 조회(GET)
+${jenkins}/job/${job name}/api/json --user ${id}:${token}
+
+job 빌드(POST)
+${jenkins}/job/${job name}/build --user ${id}:${token}
+
+job 빌드 결과 조회(GET)
+${jenkins}/job/${job name}/${build number}/api/json --user ${id}:${token}
+
+job 마지막 빌드 결과 조회(GET)
+${jenkins}/job/${job name}/lastStableBuild/api/json --user ${id}:${token}
+-->
