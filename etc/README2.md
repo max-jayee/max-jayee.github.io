@@ -552,6 +552,9 @@ ${jenkins}/job/${job name}/api/json --user ${id}:${token}
 job 빌드(POST)
 ${jenkins}/job/${job name}/build --user ${id}:${token}
 
+job 빌드 with 파라미터(POST)
+${jenkins}/job/${job name}/buildWithParameters --data param1=value1 --data param2=value2 --user ${id}:${token}
+
 job 빌드 결과 조회(GET)
 ${jenkins}/job/${job name}/${build number}/api/json --user ${id}:${token}
 
