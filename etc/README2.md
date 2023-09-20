@@ -558,3 +558,10 @@ ${jenkins}/job/${job name}/${build number}/api/json --user ${id}:${token}
 job 마지막 빌드 결과 조회(GET)
 ${jenkins}/job/${job name}/lastStableBuild/api/json --user ${id}:${token}
 -->
+
+<!--
+oracle error
+
+ORA-12518: TSN:리스너는 클라이언트 연결을 처리할 수 없습니다.
+ -> dbms 리스너가 고장난 것으로 메모리 부족, 세션 부족 등과 같은 문제를 의심해 볼 수 있다.
+-->
