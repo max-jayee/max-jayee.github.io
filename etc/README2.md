@@ -570,11 +570,15 @@ ORA-12518: TSN:리스너는 클라이언트 연결을 처리할 수 없습니다
 -->
 
 <!--
-jvm option
+java jvm heap option
 
 -Xms1024m = 최소 jvm heap size
 -Xmx1024m = 최대 jvm heap size
 -XX:InitialRAMPercentage=70.0 = 초기화하는 jvm heap size 비율
 -XX:MinRAMPercentage=70.0 = 200m 미만의 메모리에서 최대 jvm heap size 비율
 -XX:MaxRAMPercentage=70.0 = 200m 이상의 메모리에서 최대 jvm heap size 비율
+-->
+
+<!--
+kubernetes anti affinity 한 노드에 pod 가 몰리지 않게 하기
 -->
