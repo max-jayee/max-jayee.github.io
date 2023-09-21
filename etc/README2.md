@@ -568,3 +568,13 @@ oracle error
 ORA-12518: TSN:리스너는 클라이언트 연결을 처리할 수 없습니다.
  -> dbms 리스너가 고장난 것으로 메모리 부족, 세션 부족 등과 같은 문제를 의심해 볼 수 있다.
 -->
+
+<!--
+jvm option
+
+-Xms1024m = 최소 jvm heap size
+-Xmx1024m = 최대 jvm heap size
+-XX:InitialRAMPercentage=70.0 = 초기화하는 jvm heap size 비율
+-XX:MinRAMPercentage=70.0 = 200m 미만의 메모리에서 최대 jvm heap size 비율
+-XX:MaxRAMPercentage=70.0 = 200m 이상의 메모리에서 최대 jvm heap size 비율
+-->
