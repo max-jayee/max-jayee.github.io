@@ -602,7 +602,13 @@ arthas
 <!--
 container iamge 관련 /var/lib/containers/storage 가 찰 때
 
-/etc/containers/storage.conf 에 graphroot 항목으로 인해 쌓이는 것으로 설정
+/etc/containers/storage.conf 에 graphroot 항목으로 인해 쌓이는 것으로 해당 경로를 다른 곳으로 설정
 
 rootless 계정들도 설정할 수 있으니 해당 conf 파일을 살펴 볼 것
+-->
+
+<!--
+gitlab log directory
+
+/etc/gitlab/gitlab.rb 에서 log_directory 로 검색해서 나오는 것들을 바꿔주면됨
 -->
