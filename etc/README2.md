@@ -631,3 +631,9 @@ SELINUX=disabled # 하고
 
 reboot
 -->
+
+<!--
+selinux 설정 확인
+
+sestatus
+-->
