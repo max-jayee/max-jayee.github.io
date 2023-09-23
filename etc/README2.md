@@ -201,6 +201,16 @@ fi
 -->
 
 <!--
+bash script boolean check
+
+if [ "$variable" = true ]; then
+  echo "true"
+else
+  echo "false"
+fi
+-->
+
+<!--
 java 에서 super = 부모를 의미함
 
 super.a = 부모의 멤버 변수 a
