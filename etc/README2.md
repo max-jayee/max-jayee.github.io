@@ -612,3 +612,22 @@ gitlab log directory
 
 /etc/gitlab/gitlab.rb 에서 log_directory 로 검색해서 나오는 것들을 바꿔주면됨
 -->
+
+<!--
+gitlab log rotate
+
+/etc/gitlab/gitlab.rb 에서 logging['logrotate_dateformat']="-%Y-%m-%d" 와 같이 설정할 수 있음
+-->
+
+<!--
+linux container log 에서 /lib/ld-musl-x86_64.so.1: RELRO protection failed: Permission denied 발생시
+
+SElinux 가 설정되어있을 수 있음
+/etc/selinux/config # RHEL/CentOS 8
+/etc/sysconfig/selinux # RHEL/CentOS 7 이전
+에서
+
+SELINUX=disabled # 하고
+
+reboot
+-->
