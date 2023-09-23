@@ -203,7 +203,7 @@ fi
 <!--
 bash script boolean check
 
-if [ "$variable" = true ]; then
+if [ "$variable" = true ]; then # or if [ "$variable" != true ]; then
   echo "true"
 else
   echo "false"
