@@ -637,3 +637,17 @@ selinux 설정 확인
 
 sestatus
 -->
+
+<!--
+catalina.sh 로 실행시 java.lang.NoSuchFieldError: INCLUDE_ALL 에러 발생하는 경우
+
+library 가 충돌된 경우가 많음으로 아래와 같이 library 를 확인한다.
+/${project root}/WEB-INF/lib 에 가서
+버전이 없는거랑 있는게 동시에 존재하는지 확인해보고 존재하면 버전이 없는게 안들어가게끔 설정한다.
+
+ex) ls | grep jersey 했을 때
+jersey-client.jar
+jersey-client-2.22.1.jar 
+
+이렇게 2개가 나오면 버전이 없는 jersey-client.jar 가 빌드시 포함안되도록 빼도록 한다.
+-->
