@@ -651,3 +651,25 @@ jersey-client-2.22.1.jar
 
 이렇게 2개가 나오면 버전이 없는 jersey-client.jar 가 빌드시 포함안되도록 빼도록 한다.
 -->
+
+<!--
+vi 가 없는 환경에서 multiline 으로 파일 생성 및 추가하는 방법
+
+# create
+cat > ${파일명} << EOL
+line 1
+line 2
+line 3
+line 4
+line 5
+EOL
+
+# append
+cat >> ${파일명} << EOL
+line 6
+line 7
+line 8
+line 9
+line 10
+EOL
+-->
