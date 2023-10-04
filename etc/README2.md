@@ -673,3 +673,27 @@ line 9
 line 10
 EOL
 -->
+
+<!--
+kubernetes 에서 container 가 graceful 하게 죽지 않을 때
+아래와 같이 preStop, terminationGracePeriodSeconds 설정을 확인한다.
+
+preStop 은 k8s 에 api 로 terminate 명령이 내려오면 pod 의 port 와 네트워크부터 차단하는데, 그전에 terminate 명령이 들어오자마자 실행하는 단계라고 보면된다.
+
+terminationGracePeriodSeconds 는 파드가 graceful 하게 죽을때 까지 기다리는 시간으로 저 시간을 초과하면 pc 를 강제 전원 off 하듯 pod 를 삭제시켜버린다.
+즉, 이 시간전에 graceful 하게 끝나야 안전하게 종료되고, 저 시간을 초과하면 client 측에서는 503 을 return 받을 수 있다.
+
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      containers:
+      - image: ${image name}
+        imagePullPolicy: IfNotPresent
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/bash", "-c", "kill `ps -ef | grep java | grep -v grep | awk '{print $1}'`"]
+      terminationGracePeriodSeconds: 300
+-->
