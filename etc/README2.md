@@ -716,3 +716,20 @@ zip -r dir.zip dir # normal
 
 unzip dir.zip
 -->
+
+<!--
+linux kill 명령어
+
+kill 은 프로세스에 시그널에 보내는 명령어로 signal 을 받은 프로세스의 기본 동작이 종료이기 때문에 kill 이라고 이름 지어졌다.
+signal 은 software interrupt 의 일종으로 어떤 이벤트가 발생했음을 프로세스에게 알려주는 매커니즘이다.
+
+`kill -l` 명령어를 수행하면 보낼 수 있는 시그널을 확인할 수 있다.
+kill 명령어는 `kill -${시그널 숫자} ${PID}` 또는 `kill -${SIG 를 제외한 시그널 명} ${PID}` 로 수행할 수 있다.
+
+kill 명령어의 default signal 은 15(SIGTERM) 이며, 종료하라는 의미의 시그널을 전송한다.
+
+타겟이 되는 프로그램은 개발자에 의해 signal handler 를 등록하여 signal 을 수신했을 때 동작해야하는 프로세스를 구축할 수 있다.
+
+별도의 signal handler 를 작성하지 않으면 기본 동작을 수행하는데, 이는 term: 프로세스 종료, ign: 시그널 무시, core: 프로세스 종료하며 core dump 생성, stop: 프로세스 정지, cont: 중지된 프로세스 재시작 등이 있다.
+
+-->
