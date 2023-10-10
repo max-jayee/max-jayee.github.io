@@ -697,3 +697,14 @@ spec:
               command: ["/bin/bash", "-c", "kill `ps -ef | grep java | grep -v grep | awk '{print $1}'`"]
       terminationGracePeriodSeconds: 300
 -->
+
+<!--
+private network 에서 ocp 리파지토리 연결할 때
+
+/etc/yum.repos.d/ 하위에 redhat.repo 가 있을것이다.
+그거를 옮기고
+거기에 물린 /etc/pki/entitlement 하위에 파일들을 넣어주면
+
+redhat 에서 제공한 repo 를 물고 사용할 수 있다
+
+-->
