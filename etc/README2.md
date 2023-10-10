@@ -708,3 +708,11 @@ private network 에서 ocp 리파지토리 연결할 때
 redhat 에서 제공한 repo 를 물고 사용할 수 있다
 
 -->
+
+<!--
+linux zip 압축하기
+
+zip -r dir.zip dir # normal
+
+unzip dir.zip
+-->
