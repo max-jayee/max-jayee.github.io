@@ -733,3 +733,12 @@ kill 명령어의 default signal 은 15(SIGTERM) 이며, 종료하라는 의미�
 별도의 signal handler 를 작성하지 않으면 기본 동작을 수행하는데, 이는 term: 프로세스 종료, ign: 시그널 무시, core: 프로세스 종료하며 core dump 생성, stop: 프로세스 정지, cont: 중지된 프로세스 재시작 등이 있다.
 
 -->
+
+<!--
+git tag pull
+
+git checkout dev
+git fetch --tags -f
+git pull
+git checkout tags/${tag 명}
+-->
