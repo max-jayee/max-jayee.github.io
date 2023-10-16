@@ -742,3 +742,13 @@ git fetch --tags -f
 git pull
 git checkout tags/${tag 명}
 -->
+
+<!--
+gitlab data 경로
+
+default: /var/opt/gitlab
+
+gitlab log 경로
+
+default: /var/log/gitlab
+-->
