@@ -756,5 +756,5 @@ default: /var/log/gitlab
 <!--
 jenkins war log path
 
-nohup java -jar /home/ubuntu/jenkins.war >> /home/log/jenkins/$(date +\%m\%d).log 2>&1 &
+nohup java -jar /home/ubuntu/jenkins.war >> /home/log/jenkins/$(date +\%Y\%m\%d)-$(date +\%H\%M).log 2>&1 &
 -->
