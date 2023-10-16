@@ -752,3 +752,9 @@ gitlab log 경로
 
 default: /var/log/gitlab
 -->
+
+<!--
+jenkins war log path
+
+nohup java -jar /home/ubuntu/jenkins.war >> /home/log/jenkins/$(date +\%m\%d).log 2>&1 &
+-->
