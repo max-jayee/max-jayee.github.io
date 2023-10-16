@@ -758,3 +758,14 @@ jenkins war log path
 
 nohup java -jar /home/ubuntu/jenkins.war >> /home/log/jenkins/$(date +\%Y\%m\%d)-$(date +\%H\%M).log 2>&1 &
 -->
+
+<!--
+gradle refresh 중 Synchronize Gradle Projects with workspace failed
+해서 지우고 다시 깔았는데 Could not resolve all dependencies for configuration ':detachedConfiguration40' 와 같은 에러 발생시
+
+캐싱된 라이브러리가 충돌난 것으로 제거해준다.
+라이브러리는 오류 메시지중에 있다.
+예로는 C:\Users\PC계정\.gradle\caches\modules-2\metadata-2.97\descriptors\라이브러리명\패키지
+등이 있으면 라이브러리명으로 가서 패키지를 제거한 다음 refresh gradle 하면된다.
+
+-->
