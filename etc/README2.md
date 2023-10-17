@@ -775,3 +775,24 @@ container image 충돌나서 Error: checking if image "hash111" is dangling: loc
 
 conatiners 경로에가서 꼬인 이미지를 podman(docker) rmi -f hash 명령어로 제거한다.
 -->
+
+<!--
+ls 특정 파일 출력하지 않을때
+
+ls --ignore=*.sh 과 같이 패턴 입력
+-->
+
+<!--
+위 컨테이너 이미지를 모두 제거할 땐 아래 script 나 명령어를 수행한다.
+
+####################### script file
+#! /bin/bash
+
+images=$(ls --ignore=*.* | xargs)
+for image in $images; do 
+  echo $image; 
+done
+
+####################### command line
+for image in $(ls --ignore=*.* | xargs); do echo $image; done
+-->
