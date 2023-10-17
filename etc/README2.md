@@ -769,3 +769,9 @@ gradle refresh 중 Synchronize Gradle Projects with workspace failed
 등이 있으면 라이브러리명으로 가서 패키지를 제거한 다음 refresh gradle 하면된다.
 
 -->
+
+<!--
+container image 충돌나서 Error: checking if image "hash111" is dangling: locating item named "manifest" for image with ID "hash222" (consider removing the image to resolve the issue): file does not exist
+
+conatiners 경로에가서 꼬인 이미지를 podman(docker) rmi -f hash 명령어로 제거한다.
+-->
