@@ -796,3 +796,12 @@ done
 ####################### command line
 for image in $(ls --ignore=*.* | xargs); do echo $image; done
 -->
+
+<!--
+intellij spring boot command line is too long 문제
+
+1. click the 'Edit Configuration' 
+2. click the 'Modify options'  && check 'Shorten command line'
+3. select the 'JAR manifest'
+
+-->
