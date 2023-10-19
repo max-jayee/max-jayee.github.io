@@ -805,3 +805,16 @@ intellij spring boot command line is too long 문제
 3. select the 'JAR manifest'
 
 -->
+
+<!--
+spring boot @value default value in yaml variable
+
+@value("${onedepth.twodepth:${defaultonedepth.defulttwodepth}}")
+private String abcd;
+
+-------------------in yaml-------------
+ondedepth:
+  #twodepth: hahahoho
+defaultonedepth:
+  defulttwodepth: defaultString
+-->
