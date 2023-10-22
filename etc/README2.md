@@ -201,6 +201,16 @@ fi
 -->
 
 <!--
+bash script boolean check
+
+if [ "$variable" = true ]; then # or if [ "$variable" != true ]; then
+  echo "true"
+else
+  echo "false"
+fi
+-->
+
+<!--
 java 에서 super = 부모를 의미함
 
 super.a = 부모의 멤버 변수 a
@@ -509,4 +519,302 @@ svn move ${file name} ${directory} # 파일 이동
 svn rename ${old file name} ${new file name} # 파일명 변경
 
 svn switch --relocate ${old url} ${new url} # 소스 서버 변경
+-->
+
+<!--
+yum 기본적인 개발 도구 설치
+
+yum groupinstall "Development Tools" // basic
+yum groupinstall "Additional Development" // extension
+-->
+
+<!--
+npm install ${모듈} 하는 중 permission 이나 install 에러가 발생하는 경우
+보통 root 로 실행하는 것을 많이 막아둔 selinux 에서 종종 발생한다.
+
+경험한 경우로는 internal/modules/cjs/loader.js:905 에서 throw err; 에러가 발생하여 node-sass 가 설치가 안되고 있었음
+
+인터넷에서는 아래와 같은 에러가 발생하여 설정해주었다고한다.
+```
+EACCESS: permission denied
+npm ERR! spawn ENOENT
+npm ERR! code ELIFECYCLE
+sh: 1: node: Permission denied
+```
+
+--unsafe-perm 옵션을 넣어준다.
+또는 npm config set unsafe-perm true
+또는 .npmrc 에 unsafe-perm=true 를 넣어주어도 된다고한다.
+-->
+
+<!--
+npm init example
+
+npm run install:dev --unsafe-perm --no-audit --verbose --sass-binary-path= --registry http://nexus.com/repo/
+-->
+
+<!--
+jenkins 원격 실행 jenkins remote
+
+job 조회(GET)
+${jenkins}/job/${job name}/api/json --user ${id}:${token}
+
+job 빌드(POST)
+${jenkins}/job/${job name}/build --user ${id}:${token}
+
+job 빌드 with 파라미터(POST)
+${jenkins}/job/${job name}/buildWithParameters --data param1=value1 --data param2=value2 --user ${id}:${token}
+
+job 빌드 결과 조회(GET)
+${jenkins}/job/${job name}/${build number}/api/json --user ${id}:${token}
+
+job 마지막 빌드 결과 조회(GET)
+${jenkins}/job/${job name}/lastStableBuild/api/json --user ${id}:${token}
+-->
+
+<!--
+oracle error
+
+ORA-12518: TSN:리스너는 클라이언트 연결을 처리할 수 없습니다.
+ -> dbms 리스너가 고장난 것으로 메모리 부족, 세션 부족 등과 같은 문제를 의심해 볼 수 있다.
+-->
+
+<!--
+java jvm heap option
+
+-Xms1024m = 최소 jvm heap size
+-Xmx1024m = 최대 jvm heap size
+-XX:InitialRAMPercentage=70.0 = 초기화하는 jvm heap size 비율
+-XX:MinRAMPercentage=70.0 = 200m 미만의 메모리에서 최대 jvm heap size 비율
+-XX:MaxRAMPercentage=70.0 = 200m 이상의 메모리에서 최대 jvm heap size 비율
+-->
+
+<!--
+kubernetes anti affinity 한 노드에 pod 가 몰리지 않게 하기
+-->
+
+<!--
+java process provisioning tool
+
+arthas
+-->
+
+<!--
+container iamge 관련 /var/lib/containers/storage 가 찰 때
+
+/etc/containers/storage.conf 에 graphroot 항목으로 인해 쌓이는 것으로 해당 경로를 다른 곳으로 설정
+
+rootless 계정들도 설정할 수 있으니 해당 conf 파일을 살펴 볼 것
+-->
+
+<!--
+gitlab log directory
+
+/etc/gitlab/gitlab.rb 에서 log_directory 로 검색해서 나오는 것들을 바꿔주면됨
+-->
+
+<!--
+gitlab log rotate
+
+/etc/gitlab/gitlab.rb 에서 logging['logrotate_dateformat']="-%Y-%m-%d" 와 같이 설정할 수 있음
+-->
+
+<!--
+linux container log 에서 /lib/ld-musl-x86_64.so.1: RELRO protection failed: Permission denied 발생시
+
+SElinux 가 설정되어있을 수 있음
+/etc/selinux/config # RHEL/CentOS 8
+/etc/sysconfig/selinux # RHEL/CentOS 7 이전
+에서
+
+SELINUX=disabled # 하고
+
+reboot
+-->
+
+<!--
+selinux 설정 확인
+
+sestatus
+-->
+
+<!--
+catalina.sh 로 실행시 java.lang.NoSuchFieldError: INCLUDE_ALL 에러 발생하는 경우
+
+library 가 충돌된 경우가 많음으로 아래와 같이 library 를 확인한다.
+/${project root}/WEB-INF/lib 에 가서
+버전이 없는거랑 있는게 동시에 존재하는지 확인해보고 존재하면 버전이 없는게 안들어가게끔 설정한다.
+
+ex) ls | grep jersey 했을 때
+jersey-client.jar
+jersey-client-2.22.1.jar 
+
+이렇게 2개가 나오면 버전이 없는 jersey-client.jar 가 빌드시 포함안되도록 빼도록 한다.
+-->
+
+<!--
+vi 가 없는 환경에서 multiline 으로 파일 생성 및 추가하는 방법
+
+# create
+cat > ${파일명} << EOL
+line 1
+line 2
+line 3
+line 4
+line 5
+EOL
+
+# append
+cat >> ${파일명} << EOL
+line 6
+line 7
+line 8
+line 9
+line 10
+EOL
+-->
+
+<!--
+kubernetes 에서 container 가 graceful 하게 죽지 않을 때
+아래와 같이 preStop, terminationGracePeriodSeconds 설정을 확인한다.
+
+preStop 은 k8s 에 api 로 terminate 명령이 내려오면 pod 의 port 와 네트워크부터 차단하는데, 그전에 terminate 명령이 들어오자마자 실행하는 단계라고 보면된다.
+
+terminationGracePeriodSeconds 는 파드가 graceful 하게 죽을때 까지 기다리는 시간으로 저 시간을 초과하면 pc 를 강제 전원 off 하듯 pod 를 삭제시켜버린다.
+즉, 이 시간전에 graceful 하게 끝나야 안전하게 종료되고, 저 시간을 초과하면 client 측에서는 503 을 return 받을 수 있다.
+
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      containers:
+      - image: ${image name}
+        imagePullPolicy: IfNotPresent
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/bash", "-c", "kill `ps -ef | grep java | grep -v grep | awk '{print $1}'`"]
+      terminationGracePeriodSeconds: 300
+-->
+
+<!--
+private network 에서 ocp 리파지토리 연결할 때
+
+/etc/yum.repos.d/ 하위에 redhat.repo 가 있을것이다.
+그거를 옮기고
+거기에 물린 /etc/pki/entitlement 하위에 파일들을 넣어주면
+
+redhat 에서 제공한 repo 를 물고 사용할 수 있다
+
+-->
+
+<!--
+linux zip 압축하기
+
+zip -r dir.zip dir # normal
+
+unzip dir.zip
+-->
+
+<!--
+linux kill 명령어
+
+kill 은 프로세스에 시그널에 보내는 명령어로 signal 을 받은 프로세스의 기본 동작이 종료이기 때문에 kill 이라고 이름 지어졌다.
+signal 은 software interrupt 의 일종으로 어떤 이벤트가 발생했음을 프로세스에게 알려주는 매커니즘이다.
+
+`kill -l` 명령어를 수행하면 보낼 수 있는 시그널을 확인할 수 있다.
+kill 명령어는 `kill -${시그널 숫자} ${PID}` 또는 `kill -${SIG 를 제외한 시그널 명} ${PID}` 로 수행할 수 있다.
+
+kill 명령어의 default signal 은 15(SIGTERM) 이며, 종료하라는 의미의 시그널을 전송한다.
+
+타겟이 되는 프로그램은 개발자에 의해 signal handler 를 등록하여 signal 을 수신했을 때 동작해야하는 프로세스를 구축할 수 있다.
+
+별도의 signal handler 를 작성하지 않으면 기본 동작을 수행하는데, 이는 term: 프로세스 종료, ign: 시그널 무시, core: 프로세스 종료하며 core dump 생성, stop: 프로세스 정지, cont: 중지된 프로세스 재시작 등이 있다.
+
+-->
+
+<!--
+git tag pull
+
+git checkout dev
+git fetch --tags -f
+git pull
+git checkout tags/${tag 명}
+-->
+
+<!--
+gitlab data 경로
+
+default: /var/opt/gitlab
+
+gitlab log 경로
+
+default: /var/log/gitlab
+-->
+
+<!--
+jenkins war log path
+
+nohup java -jar /home/ubuntu/jenkins.war >> /home/log/jenkins/$(date +\%Y\%m\%d)-$(date +\%H\%M).log 2>&1 &
+-->
+
+<!--
+gradle refresh 중 Synchronize Gradle Projects with workspace failed
+해서 지우고 다시 깔았는데 Could not resolve all dependencies for configuration ':detachedConfiguration40' 와 같은 에러 발생시
+
+캐싱된 라이브러리가 충돌난 것으로 제거해준다.
+라이브러리는 오류 메시지중에 있다.
+예로는 C:\Users\PC계정\.gradle\caches\modules-2\metadata-2.97\descriptors\라이브러리명\패키지
+등이 있으면 라이브러리명으로 가서 패키지를 제거한 다음 refresh gradle 하면된다.
+
+-->
+
+<!--
+container image 충돌나서 Error: checking if image "hash111" is dangling: locating item named "manifest" for image with ID "hash222" (consider removing the image to resolve the issue): file does not exist
+
+conatiners 경로에가서 꼬인 이미지를 podman(docker) rmi -f hash 명령어로 제거한다.
+-->
+
+<!--
+ls 특정 파일 출력하지 않을때
+
+ls --ignore=*.sh 과 같이 패턴 입력
+-->
+
+<!--
+위 컨테이너 이미지를 모두 제거할 땐 아래 script 나 명령어를 수행한다.
+
+####################### script file
+#! /bin/bash
+
+images=$(ls --ignore=*.* | xargs)
+for image in $images; do 
+  echo $image; 
+done
+
+####################### command line
+for image in $(ls --ignore=*.* | xargs); do echo $image; done
+-->
+
+<!--
+intellij spring boot command line is too long 문제
+
+1. click the 'Edit Configuration' 
+2. click the 'Modify options'  && check 'Shorten command line'
+3. select the 'JAR manifest'
+
+-->
+
+<!--
+spring boot @value default value in yaml variable
+
+@value("${onedepth.twodepth:${defaultonedepth.defulttwodepth}}")
+private String abcd;
+
+-------------------in yaml-------------
+ondedepth:
+  #twodepth: hahahoho
+defaultonedepth:
+  defulttwodepth: defaultString
 -->
