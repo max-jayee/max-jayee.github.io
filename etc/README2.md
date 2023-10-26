@@ -846,5 +846,19 @@ diff_token="에만:"
 diff -r $original_dir $new_dir | grep "^$original_dir.*$diff_token" | awk '{print $1$2}' | sed "s/$diff_token/\//" > $removing_list_dir
 diff -r $original_dir $new_dir | grep "^$new_dir.*$diff_token" | awk '{print $1$2}' | sed "s/$diff_token/\//" > $creating_list_dir
 diff -r $original_dir $new_dir | grep "diff -r " | awk '{print $4}' > $modifying_list_dir
+
+for removing_file in $(cat $removing_list_dir | xargs); do
+  echo $removing_file
+done
+
+for creating_file in $(cat $creating_list_dir | xargs); do
+  echo $creating_file
+done
+
+for modifying_file in $(cat $modifying_list_dir | xargs); do
+  echo $modifying_file
+done
+
+diff -r $original_dir $new_dir
 ```
 >
