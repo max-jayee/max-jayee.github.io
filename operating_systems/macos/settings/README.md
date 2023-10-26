@@ -113,6 +113,8 @@ vi ~/.zshrc
 PS1="{% raw %}%{%F{033}%}%n%{%f%}@%{%F{green}%}%m:%{%F{yellow}%}%~%{$%f%}%{% endraw %}  "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+bindkey '\e[H'    beginning-of-line
+bindkey '\e[F'    end-of-line
 #----------
 
 # minimum dev tools isntallation
