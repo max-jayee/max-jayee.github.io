@@ -824,3 +824,9 @@ git log 현재 hash 값만 출력
 
 git log --pretty-format:"%H" -1
 -->
+
+<!--
+diff 내용 없이 파일만 비교할 때
+
+diff -rq dir1 dir2
+-->
