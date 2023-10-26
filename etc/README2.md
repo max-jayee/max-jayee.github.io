@@ -830,3 +830,21 @@ diff 내용 없이 파일만 비교할 때
 
 diff -rq dir1 dir2
 -->
+
+<!--
+diff 로 삭제, 변경, 생성분만 반영하기
+
+한글일때
+```bash
+original_dir=$1
+new_dir=$2
+removing_list_dir="removing-list"
+creating_list_dir="creating-list"
+modifying_list_dir="modifying-list"
+diff_token="에만:"
+
+diff -r $original_dir $new_dir | grep "^$original_dir.*$diff_token" | awk '{print $1$2}' | sed "s/$diff_token/\//" > $removing_list_dir
+diff -r $original_dir $new_dir | grep "^$new_dir.*$diff_token" | awk '{print $1$2}' | sed "s/$diff_token/\//" > $creating_list_dir
+diff -r $original_dir $new_dir | grep "diff -r " | awk '{print $4}' > $modifying_list_dir
+```
+>
