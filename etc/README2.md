@@ -818,3 +818,9 @@ ondedepth:
 defaultonedepth:
   defulttwodepth: defaultString
 -->
+
+<!--
+git log 현재 hash 값만 출력
+
+git log --pretty-format:"%H" -1
+-->
