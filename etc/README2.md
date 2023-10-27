@@ -829,10 +829,51 @@ git log --pretty-format:"%H" -1
 diff 내용 없이 파일만 비교할 때
 
 diff -rq dir1 dir2
+
+UNIX 는.. q 옵션이 보통 없음..
 -->
 
 <!--
 diff 로 삭제, 변경, 생성분만 반영하기
+
+영어일떄
+```bash
+original_dir=$1
+new_dir=$2
+removing_list_file="removing-list"
+creating_list_file="creating-list"
+modifying_list_file="modifying-list"
+creating_dir_list_file="creating-dir-list"
+diff_token="Onli in"
+
+diff -r $original_dir $new_dir | grep "^$diff_token $original_dir/.*" | awk '{print $3,$4}' | sed "s/: /\//" > $removing_list_file
+
+diff -r $original_dir $new_dir | grep "^$diff_token $new_dir/.*" | awk '{print $3,$4}' | sed "s/$new_dir//" | sed "s/: /\//" > $creating_list_file
+
+diff -r $original_dir $new_dir | grep "^$diff_token $new_dir/.*" | awk '{print $3}' | sed "s/$new_dir/$original_dir/" | sed "s/://" > $creating_dir_list_file
+
+diff -r $original_dir $new_dir | grep "Files $original_dir " | awk '{print $4}' | sed "s/$new_dir//" > $modifying_list_file
+
+for removing_file in $(cat $removing_list_file | xargs); do
+  rm -fr $removing_file
+done
+
+for creating_dir in $(cat $creating_dir_list_file | xargs); do
+  mkdir -p $creating_dir
+done
+
+for creating_file in $(cat $creating_list_file | xargs); do
+  cp -R $new_dir/$creating_file $original_dir/$creating_file
+done
+
+for modifying_file in $(cat $modifying_list_file | xargs); do
+  cp -R $new_dir/$modifying_file $original_dir/$modifying_file
+done
+
+rm $removing_list_file $creating_dir_list_file $creating_list_file $modifying_list_file
+
+diff -r $original_dir $new_dir
+```
 
 한글일때
 ```bash
@@ -881,4 +922,12 @@ find ${경로} -type f -exec ls -l {} \;
 
 linux 특정 일자에 변경된 모든 파일 조회
 find ${경로} -type f -exec ls -l {} \; | grep "${날짜}"
->
+-->
+
+<!--
+파이프라인시 ssh 로 명령 수행하면 시스템 변수를 먹게된다.
+이를 계정 로컬 profile 을 먹이는 방법은
+
+. ~/.profile 또는 source ~/.profile 을 명시적으로 명령에 넣어주는 것이다.
+예시: ssh id@ip ". ~/.profile;echo 'hi'" / ssh id@ip "source ~/.profile;echo 'hi'"
+-->
