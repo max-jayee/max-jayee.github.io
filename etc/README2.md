@@ -873,3 +873,12 @@ rm $removing_list_file $creating_dir_list_file $creating_list_file $modifying_li
 diff -r $original_dir $new_dir
 ```
 >
+
+<!--
+linux 모든 디렉토리를 돌며 명령 수행
+
+find ${경로} -type f -exec ls -l {} \;
+
+linux 특정 일자에 변경된 모든 파일 조회
+find ${경로} -type f -exec ls -l {} \; | grep "${날짜}"
+>
