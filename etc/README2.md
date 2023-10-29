@@ -931,3 +931,12 @@ find ${경로} -type f -exec ls -l {} \; | grep "${날짜}"
 . ~/.profile 또는 source ~/.profile 을 명시적으로 명령에 넣어주는 것이다.
 예시: ssh id@ip ". ~/.profile;echo 'hi'" / ssh id@ip "source ~/.profile;echo 'hi'"
 -->
+
+<!--
+tar: Cowardly refusing to create an empty archive 빈 파일 생성
+
+tar 는 기본적으로 빈 파일은 묶을 수 없다.
+아래와 같이 빈 파일 목록을 담은 파일을 읽어 tar 를 생성하면 가능하다.
+touche empty-file-list
+tar -cT empty-file-list -f empty-files.tar
+-->
