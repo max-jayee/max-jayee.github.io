@@ -1448,7 +1448,7 @@ echo $* # arg1 arg2 arg3 출력
 -->
 
 <!--
-array
+bash array
 my_array=(value1 value2 value3)
 echo ${my_array[0]} # value1 출력
 
