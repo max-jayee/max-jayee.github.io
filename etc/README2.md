@@ -940,3 +940,11 @@ tar 는 기본적으로 빈 파일은 묶을 수 없다.
 touche empty-file-list
 tar -cT empty-file-list -f empty-files.tar
 -->
+
+<!--
+git 변경 내용 확인
+
+git diff HEAD~$prev_number HEAD
+
+git show 로 특정 commit 확인 가능
+-->
