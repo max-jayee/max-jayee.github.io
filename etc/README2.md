@@ -948,3 +948,15 @@ git diff HEAD~$prev_number HEAD
 
 git show 로 특정 commit 확인 가능
 -->
+
+<!--
+bash directory 조회
+
+for directory in $(ls -d */); do
+  # 현재 directory 에는 맨끝에 슬래쉬('/') 가 붙은 형태로 저장 되어있어서 아래와같이 변경해주는게 좋음
+  project=${directory%%/}
+  pushd $project
+    echo $project
+  popd
+done
+-->
