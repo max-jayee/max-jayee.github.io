@@ -960,3 +960,17 @@ for directory in $(ls -d */); do
   popd
 done
 -->
+
+<!--
+git 특정 파일만 staging 에 안나올때
+
+이클립스에서는 v 표시로 나타나는데 이는 assume unchanged 가 된것이다.
+이는 반영하지 않겠다는 것이고, 이를 해제하기 위해선 no assume unchange 를 하면된다.
+
+git 명령어로는 다음과 같다.
+`git update-index --assume-unchanged 파일경로`
+`git update-index --no-assume-unchanged 파일경로`
+
+수정사항 무시 파일 조회
+`git ls-files -v|grep '^h'`
+-->
