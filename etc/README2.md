@@ -996,3 +996,14 @@ recur_dir() {
 recur_dir "$1"
 ```
 -->
+
+<!--
+linux umask
+
+umask 로 사용자의 default 파일 권한을 지정할 수 있다.
+0002 면 file 인 경우 664, directory 인 경우 775 로 적용된다고 보면된다. 
+즉, 7 에서 뺴는것이다.
+
+현재 umask 값 확인은 `umask` 를 실행하면되고
+설정은 /etc/profile 에 umask 0002; export umask 를 하면된다.
+-->
