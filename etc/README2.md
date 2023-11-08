@@ -974,3 +974,25 @@ git 명령어로는 다음과 같다.
 수정사항 무시 파일 조회
 `git ls-files -v|grep '^h'`
 -->
+
+<!--
+linux directory 하위까지 모두 조회하기
+linux recursive retrieve dir
+
+```bash
+#! /bin/bash
+
+recur_dir() {
+  local directory=$1
+  for item in "$directory"/*; do
+    if [ -f $item ]; then
+      echo "$item is file."
+    elif [ -d $item ]; then
+      echo "$item is dir."
+      recur_dir "$item"
+    fi
+  done
+}
+recur_dir "$1"
+```
+-->
