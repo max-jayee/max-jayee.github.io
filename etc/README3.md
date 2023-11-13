@@ -19,3 +19,65 @@ hosts 파일
 linux: /etc/hosts
 windows: C:\Windows\System32\drivers\etc\hosts
 -->
+
+<!--
+argocd all sync disable
+
+```
+#! /bin/bash
+
+NS_ENV="prd"
+EXCEPTION_LIST="istio-system|virtual|config-map"
+APPLICATION_LIST=`kubectl get applications.argoproj.io -n openshift-gitops --no-headers | awk '{print $1}' | egrep -v "${EXCEPTION_LIST}" | grep ${NS_ENV}`
+
+# autosync disable
+for app in $APPLICATION_LIST; do 
+  echo " ### $app ### "
+  kubectl patch applications $app --type=merge -p '{"spec":{"syncPolicy":{"automated":null}}}' -n openshift-gitops
+  sleep 1
+done
+```
+-->
+
+<!--
+argocd all sync enable
+
+```
+#! /bin/bash
+
+NS_ENV="prd"
+EXCEPTION_LIST="istio-system|virtual|config-map"
+APPLICATION_LIST=`kubectl get applications.argoproj.io -n openshift-gitops --no-headers | awk '{print $1}' | egrep -v "${EXCEPTION_LIST}" | grep ${NS_ENV}`
+
+# autosync disable
+for app in $APPLICATION_LIST; do 
+  echo " ### $app ### "
+  kubectl patch applications $app --type=merge -p '{"spec":{"syncPolicy":{"automated":{"prune":true,"selfHeal":false}}}}' -n openshift-gitops
+  sleep 3
+done
+```
+-->
+
+<!--
+pod all down
+
+```
+#! /bin/bash
+
+PROFILE="prd"
+
+func_systemcode_appcode ()
+{
+  NAMESPACE="네임스페이스"
+  DEPLOYMENTS=`kubectl get deployment -n ${NAMESPACE} --no-headers | awk '{print $1}'`
+
+  for app in $DEPLOYMENTS; do
+    echo " ### $app pod down ###"
+    kubectl scale --replicas=0 deploy/$app -n $NAMESPACE
+    sleep 1
+  done
+}
+
+func_systemcode_appcode
+```
+-->
