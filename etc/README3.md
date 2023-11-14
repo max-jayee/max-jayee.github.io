@@ -81,3 +81,22 @@ func_systemcode_appcode ()
 func_systemcode_appcode
 ```
 -->
+
+<!--
+systemd service log path 로그 경로
+
+```bash
+[Service]
+...
+ExecStart=
+StandardOutput=/LOG/system/system.log
+StandardError=/LOG/system/err-system.log
+...
+```
+
+일반 리눅스(strftime 을 사용하는)에서는 % 을 이용하여 날짜를 넣을 수 있다함
+```bash
+StandardOutput=/LOG/system/system-%Y-%m-%d_%H-%M-%S.log
+StandardError=/LOG/system/err-system.log
+```
+-->
