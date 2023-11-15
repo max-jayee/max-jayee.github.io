@@ -100,3 +100,11 @@ StandardOutput=/LOG/system/system-%Y-%m-%d_%H-%M-%S.log
 StandardError=/LOG/system/err-system.log
 ```
 -->
+
+<!--
+git diff 직전꺼 변경분 확인
+
+git diff --name-only --diff-filter=AMR head~1 head | tee modified
+git diff --name-only --diff-filter=D head~1 head | tee removed
+git diff --name-only --diff-filter=R head head~1 | tee -a removed
+-->
