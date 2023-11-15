@@ -104,9 +104,9 @@ StandardError=/LOG/system/err-system.log
 <!--
 git diff 직전꺼 변경분 확인
 
-git diff --name-only --diff-filter=AMR head~1 head | tee modified
-git diff --name-only --diff-filter=D head~1 head | tee removed
-git diff --name-only --diff-filter=R head head~1 | tee -a removed
+git diff --name-only --diff-filter=AMR HEAD~1 HEAD | tee modified
+git diff --name-only --diff-filter=D HEAD~1 HEAD | tee removed
+git diff --name-only --diff-filter=R HEAD HEAD~1 | tee -a removed
 -->
 
 <!--
