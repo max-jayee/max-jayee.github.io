@@ -108,3 +108,15 @@ git diff --name-only --diff-filter=AMR head~1 head | tee modified
 git diff --name-only --diff-filter=D head~1 head | tee removed
 git diff --name-only --diff-filter=R head head~1 | tee -a removed
 -->
+
+<!--
+bash shell script 변수 길이
+
+${#변수명}
+-->
+
+<!--
+bash shell script 다중 변수 길이
+
+retval=$((${#변수명1}+${#변수명2}+${#변수명3}))
+-->
