@@ -110,13 +110,21 @@ git diff --name-only --diff-filter=R head head~1 | tee -a removed
 -->
 
 <!--
-bash shell script 변수 길이
+bash shell script var length / 변수 길이
 
 ${#변수명}
 -->
 
 <!--
-bash shell script 다중 변수 길이
+bash shell script multiple var length / 다중 변수 길이
 
 retval=$((${#변수명1}+${#변수명2}+${#변수명3}))
+-->
+
+<!--
+bash shell script check directory / 디렉토리 확인
+
+if [ ! -d 디렉토리명 ]; then
+ mkdir 디렉토리명
+fi
 -->
