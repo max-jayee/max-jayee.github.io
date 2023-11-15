@@ -104,9 +104,11 @@ StandardError=/LOG/system/err-system.log
 <!--
 git diff 직전꺼 변경분 확인
 
-git diff --name-only --diff-filter=AMR HEAD~1 HEAD | tee modified
-git diff --name-only --diff-filter=D HEAD~1 HEAD | tee removed
-git diff --name-only --diff-filter=R HEAD HEAD~1 | tee -a removed
+# A(추가), M(수정), R(이름 바뀌며 새로 생성)
+git diff --name-only --diff-filter=AMR ${브랜치 또는 HEAD}~1 ${브랜치 또는 HEAD} | tee modified
+# D(삭제) or R(이름 바뀌며 제거)
+git diff --name-only --diff-filter=D ${브랜치 또는 HEAD}~1 ${브랜치 또는 HEAD} | tee removed
+git diff --name-only --diff-filter=R ${브랜치 또는 HEAD} ${브랜치 또는 HEAD}~1 | tee -a removed
 -->
 
 <!--
