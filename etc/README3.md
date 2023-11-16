@@ -130,3 +130,10 @@ if [ ! -d 디렉토리명 ]; then
  mkdir 디렉토리명
 fi
 -->
+
+<!--
+tar empty
+
+touch empty-file-list
+tar -cT empty-file-list -f empty-files.tar
+-->
