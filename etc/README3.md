@@ -137,3 +137,12 @@ tar empty
 touch empty-file-list
 tar -cT empty-file-list -f empty-files.tar
 -->
+
+<!--
+bash shell script parameter count check / 파라미터 확인
+
+if (($# < 1)); then
+  echo "usage: $0 올바른 파라미터"
+  exit 1
+fi
+-->
