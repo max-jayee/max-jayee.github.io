@@ -146,3 +146,15 @@ if (($# < 1)); then
   exit 1
 fi
 -->
+
+<!--
+bash shell script string comparison / 문자열 비교
+
+if [ "aa" == "bb" ]; then
+  echo "correct!"
+fi
+
+if [ "aa" != "bb" ]; then
+  echo "incorrect!"
+fi
+-->
