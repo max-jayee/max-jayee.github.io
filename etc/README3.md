@@ -158,3 +158,10 @@ if [ "aa" != "bb" ]; then
   echo "incorrect!"
 fi
 -->
+
+<!--
+kubernetes hpa remove all / 전체 제거
+
+kubectl delete hpa --all
+kubectl delete hpa -A
+-->
