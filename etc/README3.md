@@ -165,3 +165,15 @@ kubernetes hpa remove all / 전체 제거
 kubectl delete hpa --all
 kubectl delete hpa -A
 -->
+
+<!--
+dbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(LOAD_BALANCE=OFF)(FAILOVER=ON)(PROTOCOL=TCP)(HOST=192.167.20.174)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=192.167.20.173)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ora9i)))</value>
+
+# 해당 url에 RAC로 구성된 서버의 vip 2개와 각각의 포트 그리고 대표 service name을 입력한다 LOAD_BALANCE는 client 단에서 로드 밸런싱 여부를 뜻하고 FAILOVER의 경우 CTF기능을 사용할지 말지를 뜻한다
+-->
+
+<!--
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=192.167.20.174)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=192.167.20.173)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ora9i)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC))(RETRIES=5)(DELAY=10)))</value>
+
+# 앞의 jdbc.......................(CONNECT_DATA=(SERVICE_NAME=ora9i) 부분은 CTF 설정과 동일하다. 그러나 FAILOVER_MODE 뒤에 정의되는 부분이 TAF의 mode와 method, RETRIES, DELAY 를 설정하는 부분이다.(RETRIES와 DELAY는 굳이 설정할 필요는 없다) 해당 옵션의 동작은 앞을 참조하라
+-->
