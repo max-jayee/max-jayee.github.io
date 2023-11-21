@@ -194,3 +194,13 @@ gitlab default permission setting / 초기 권한 설정
  - User restrictions : 체크 해제
 
 -->
+
+<!--
+nginx environment variable / nginx 환경변수 사용하기
+
+envsubst 를 사용하여 시스템 환경 변수를 지정하여 반영할 수 있다.
+
+envsubst '$환경변수명1 $환경변수명2' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
+
+nginx # 기동
+-->
