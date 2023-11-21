@@ -177,3 +177,20 @@ jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADD
 
 # 앞의 jdbc.......................(CONNECT_DATA=(SERVICE_NAME=ora9i) 부분은 CTF 설정과 동일하다. 그러나 FAILOVER_MODE 뒤에 정의되는 부분이 TAF의 mode와 method, RETRIES, DELAY 를 설정하는 부분이다.(RETRIES와 DELAY는 굳이 설정할 필요는 없다) 해당 옵션의 동작은 앞을 참조하라
 -->
+
+<!--
+gitlab default permission setting / 초기 권한 설정
+
+프로젝트 생성 막기
+ - 이동 : Admin - General - Visibility and access controls
+ - Default project creation protection : Maintainers 로 변경
+ - 그룹에 멤버 추가할땐 무조건 Reporter 로 권한 부여
+
+ - 이동 : Admin - General - Account and limit
+ - Default projects limit : 0 으로 설정
+
+그룹 생성 막기
+ - 이동 : Admin - General - Account and limit
+ - User restrictions : 체크 해제
+
+-->
