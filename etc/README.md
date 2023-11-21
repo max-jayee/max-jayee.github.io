@@ -475,8 +475,6 @@ for SUB_MODULE in ${SUB_MODULES}; do echo "hahahoho ${SUB_MODULE} lululala"; don
 
 ```bash
 crictl pull 이미지가  안되고있을것임..
-1
-
 
 In my case, I simply added [[registry]] field into /etc/containers/registries.conf file simply because I was using crio
 
