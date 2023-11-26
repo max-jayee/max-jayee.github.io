@@ -176,6 +176,9 @@
   2. destination port number(16비트)
   3. length(16비트)
   4. checksum(16비트)
+- unicast: 네트워크 상에 위치한 송신, 수신 노드간 일대일 통신을 의미한다.
+- anycast: 네트워크 상에 위치한 가장 가까운 노드에 통신을 의미한다.
+- multicast: 네트워크 상에 위치한 특정 그룹 단위의 다수 노드에 통신을 의미힌다.
 - broadcast: 랜에 있는 컴퓨터나 네트워크 장비에 데이터를 일괄로 전송한다는 단어로 UDP 를 사용한다.
 - HTTP: HyperText Transfer Protocol 의 줄임말로, 웹 사이트를 볼 때 사용하는 프로토콜
 - FTP: File Transfer Protocol 의 줄임말로, 파일을 전송할 때 사용하는 프로토콜
