@@ -14,6 +14,7 @@
 - network: 무언가를 주고 받기위해 어떠한 것들이 연결되어있는 형태
   컴퓨터간 연결되어 서로 데이터를 주고받는 형태를 컴퓨터 네트워크라고 하며, IT 에서는 그냥 네트워크라고 표현한다.
 - internet: 전 세계의 큰 네트워크부터 작은 네트워크까지 연결하는 가장 큰 네트워크이다.
+- NAT: Network Access Translation 의 줄임말로, 자신을 지나는 데이터의 private ip 를 자신의 public ip 로 바꾸어 중계한다.
 - packet: 컴퓨터간 데이터를 주고받을 때 네트워크를 통해 전송되는 데이터의 가장 작은 단위
   아무리 큰 데이터를 전송한다고 하더라도 패킷 단위로 나누어 전송한다.
   네트워크내에서 패킷은 순서가 보장되지 않은 상태로 전달되기에 패킷 별 번호를 붙여 수신자가 번호로 정렬하여 데이터를 조립할 수 있게 한다.
@@ -81,7 +82,7 @@
   - MA: 케이블에 데이터가 흐르고 있지 않다면 데이터를 보내도 좋다.
   - CD: 충돌이 발생하고 있는지를 확인한다.
 - MAC: Media Access Control Address 의 줄임말로, 랜 카드별 가지고 있는 물리 주소
-  AB-CD-EF-01-23-45 가 있으면 AB~EF 까지의 24비트는 랜카드 제조사 번호, 01~45 까지의 24비트는 제조가사 붙인 일련번호로 전세계 유일한 주소가 된다.
+  AB-CD-EF-01-23-45 가 있으면 AB~EF 까지의 24비트는 랜카드 제조사 번호(Organizationally Unizue Identifier), 01~45 까지의 24비트는 제조가사 붙인 일련번호로 전세계 유일한 주소가 된다.
   2계층에서 적용되고 헤더에 (1) 목적지 MAC 주소(6바이트), (2) 출발지 MAC 주소(6바이트), (3) 유형(2바이트) 가 추가된다.
   유형은 3계층의 프로토콜의 종류가 된다. (0800-IPv4, 0806-ARP, 8035-RARP, 814C-SNMP over Ethernet, 86DD-IPv6)
 - FCS: Frame Check Sequence 의 줄임말로, 데이터 전송 도중에 오류가 발생하는지 확인하는 용도의 2계층에서 붙이는 트레일러
@@ -109,6 +110,7 @@
   routing table 을 가지고 있어 최적의 경로를 관리한다.
   이러한 라우팅 정보를 교환하기 위한 프로토콜을 routing protocol 이라고하며, RIP, OSPE, BGP 등이 있다.
 - gateway: 다른 네트워크에 데이터를 전송하려면 라우터의 ip 를 설정해야하는데 이를 default gateway 라고한다.
+  NAT 기능을 수행하는 네트워크 장비를 보통 gateway 라고 한다.
 - IP address: Internet Protocol 의 줄임말로, 어떤 네트워크의 어떤 컴퓨터인지를 구분할 수 있도록 하는 주소
   3 계층에서 캡슐화하는 헤더는 12 개가 순서대로 있다.
   1. version
@@ -150,16 +152,16 @@
   신뢰를 제공하는 TCP 헤더는 다음의 순서로 구성되고, TCP 헤더로 캡슐화되면 세그먼트 라고 한다.
   1. source port number(16비트): 출발지 어플리케이션 주소로, 포트번호는 0~1023번은 이미 예약된 well-known ports 라고하고 1024는 예약되어있지만 사용하지않는다.
   1025번 이상은 랜덤 포트라고해서 클라이언트 측의 송신 포트로 사용한다.
-  2. destination port number(16비트): 목적지 어플리케이션 주소, well-known ports 중 대표적으로는 ssh 22, smtp 25, dns 53, http 80, pop3 110, https 443 등이 있다.
-  3. sequence number(32비트): 송신자가 수신자에게 이 데이터가 몇 번째 데이터인지 알려주기 위해 사용
-  4. acknowledgement number(32비트): 수신자가 몇 번째 데이터를 수신했는지 송신자에게 알려주기 위해 사용, 다음 번호의 데이터를 요청함(예: 10번 받으면 11번을 작성해서 요청)
-  5. header length(4비트)
-  6. reserved bits(6비트)
-  7. code bits(flags)(6비트): urg(긴급 데이터), ack(연결 확인 응답), psh(밀어넣기 push), rst(초기화-즉시 종료), syn(연결 요청), fin(연결 종료) 각 1비트씩 사용
-  8. window size(16비트): 버퍼 크기로 n 개의 세그먼트를 저장할 수 있는 공간의 크기로, 3-way handshake 를 할 때 서로 교환하여 알고 있게 된다.
-  9. checksum(16비트)
-  10. urgent pointer(16비트)
-  11. options(0-40비트)
+  1. destination port number(16비트): 목적지 어플리케이션 주소, well-known ports 중 대표적으로는 ssh 22, smtp 25, dns 53, http 80, pop3 110, https 443 등이 있다.
+  2. sequence number(32비트): 송신자가 수신자에게 이 데이터가 몇 번째 데이터인지 알려주기 위해 사용
+  3. acknowledgement number(32비트): 수신자가 몇 번째 데이터를 수신했는지 송신자에게 알려주기 위해 사용, 다음 번호의 데이터를 요청함(예: 10번 받으면 11번을 작성해서 요청)
+  4. header length(4비트)
+  5. reserved bits(6비트)
+  6. code bits(flags)(6비트): urg(긴급 데이터), ack(연결 확인 응답), psh(밀어넣기 push), rst(초기화-즉시 종료), syn(연결 요청), fin(연결 종료) 각 1비트씩 사용
+  7. window size(16비트): 버퍼 크기로 n 개의 세그먼트를 저장할 수 있는 공간의 크기로, 3-way handshake 를 할 때 서로 교환하여 알고 있게 된다.
+  8. checksum(16비트)
+  9.  urgent pointer(16비트)
+  10. options(0-40비트)
 - 3-way handshake: 신뢰할 수 있는 연결을 하기 위한 3 단계 연결 방법
   1. source -> destination: syn(연결 요청)
   2. source <- destination: ack(연결 확인 응답) + syn(연결 요청)
