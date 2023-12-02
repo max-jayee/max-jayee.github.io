@@ -208,7 +208,8 @@ nginx # 기동
 <!--
 gitlab migration
 
-sudo gitlab-backup create
+sudo gitlab-backup create # 에러가 발생하면 로그중 정답이 있으니 볼 것, no space left 는 백업 파일 생성할 곳에 용량이 부족한 것으로 늘려줄것
+# sudo gitlab-backup create STRATEGY=copy # 누군가 백업 중 데이터를 조작하고있으면 백업이 안되는데 이를 방지하기 위해 copy 하는 방식으로 전략을 바꿔주는것
 ls /var/opt/gitlab/backups
 
 (optional copy) /etc/gitlab/gitlab-secrets.json
