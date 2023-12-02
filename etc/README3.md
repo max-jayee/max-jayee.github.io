@@ -225,3 +225,26 @@ sudo gitlab-backup restore BACKUP=11493107454_2018_04_25_10.6.4-ce
 sudo gitlab-ctl restart
 sudo gitlab-rake gitlab:check SANITIZE=true # wait for a minute
 -->
+
+<!--
+argocd application yaml 등록
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations:
+    managed-by: argocd.argoproj.io
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  name: repo명
+  namespace: openshift-gitops
+stringData:
+  name: repo명
+  password: gitlab 비밀번호
+  project: default
+  type: git
+  url: https://gitlaburl.git
+  username: gitlab ID
+```
+-->
