@@ -212,7 +212,7 @@ sudo gitlab-backup create # 에러가 발생하면 로그중 정답이 있으니
 # sudo gitlab-backup create STRATEGY=copy # 누군가 백업 중 데이터를 조작하고있으면 백업이 안되는데 이를 방지하기 위해 copy 하는 방식으로 전략을 바꿔주는것
 ls /var/opt/gitlab/backups
 
-(optional copy) /etc/gitlab/gitlab-secrets.json
+(optional copy) /etc/gitlab/gitlab-secrets.json # 얘는 해줘야 기존 리파지토리를 수정할 수 있음
 (optional copy) /etc/gitlab/gitlab.rb
 
 sudo cp 11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar /var/opt/gitlab/backups/
