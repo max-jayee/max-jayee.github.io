@@ -211,8 +211,8 @@ gitlab migration
 sudo gitlab-backup create
 ls /var/opt/gitlab/backups
 
-/etc/gitlab/gitlab-secrets.json
-/etc/gitlab/gitlab.rb
+(optional copy) /etc/gitlab/gitlab-secrets.json
+(optional copy) /etc/gitlab/gitlab.rb
 
 sudo cp 11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar /var/opt/gitlab/backups/
 sudo chown git:git /var/opt/gitlab/backups/11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar
