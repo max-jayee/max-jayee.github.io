@@ -204,3 +204,23 @@ envsubst '$환경변수명1 $환경변수명2' < /etc/nginx/nginx.conf.template 
 
 nginx # 기동
 -->
+
+<!--
+gitlab migration
+
+sudo gitlab-backup create
+ls /var/opt/gitlab/backups
+
+/etc/gitlab/gitlab-secrets.json
+/etc/gitlab/gitlab.rb
+
+sudo cp 11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar /var/opt/gitlab/backups/
+sudo chown git:git /var/opt/gitlab/backups/11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar
+sudo gitlab-ctl stop puma
+sudo gitlab-ctl stop sidekiq
+# Verify
+sudo gitlab-ctl status
+sudo gitlab-backup restore BACKUP=11493107454_2018_04_25_10.6.4-ce
+sudo gitlab-ctl restart
+sudo gitlab-rake gitlab:check SANITIZE=true # wait for a minute
+-->
