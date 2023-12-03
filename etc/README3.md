@@ -212,7 +212,7 @@ sudo gitlab-backup create # 에러가 발생하면 로그중 정답이 있으니
 # sudo gitlab-backup create STRATEGY=copy # 누군가 백업 중 데이터를 조작하고있으면 백업이 안되는데 이를 방지하기 위해 copy 하는 방식으로 전략을 바꿔주는것
 ls /var/opt/gitlab/backups
 
-(optional copy) /etc/gitlab/gitlab-secrets.json # 얘는 해줘야 기존 리파지토리를 수정할 수 있음
+(optional copy) /etc/gitlab/gitlab-secrets.json # 얘는 해줘야 기존 리파지토리를 수정할 수 있음 # 주의 얘를 바꾸는경우 secret 으로 만드는 모든 데이터를 복호화 할 수 없어 시크릿 정보들을 이용할 수 없음: ldap secret 경로: /var/opt/gitlab/gitlab-rails/shared/encrypted_settings/ldap.yaml.enc
 (optional copy) /etc/gitlab/gitlab.rb
 
 sudo cp 11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar /var/opt/gitlab/backups/
