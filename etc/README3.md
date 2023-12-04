@@ -262,3 +262,10 @@ for secret in $(kubectl get secret -n kubernetes-gitops | awk '{print $1}'); do
 done
 ```
 -->
+
+<!--
+spring boot 의 embedded tomcat 사용시 외부에서 context path 잡는법
+
+export SERVER_SERVLET_CONTEXT_PATH=/context-path
+java -jar file_name.jar
+-->
