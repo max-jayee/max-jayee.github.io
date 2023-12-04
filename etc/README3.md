@@ -268,4 +268,11 @@ spring boot 의 embedded tomcat 사용시 외부에서 context path 잡는법
 
 export SERVER_SERVLET_CONTEXT_PATH=/context-path
 java -jar file_name.jar
+
+kunernetes deployment 에서는 아래와 같이 설정하면 됨
+```yaml
+  env:
+    - name: SERVER_SERVLET_CONTEXT_PATH
+      value: "/context-path"
+```
 -->
