@@ -248,3 +248,17 @@ stringData:
   username: gitlab ID
 ```
 -->
+
+<!--
+kubectl 특정 값을 갖는 특정 secret 일괄 제거
+
+```bash
+#! /bin/bash
+
+for secret in $(kubectl get secret -n kubernetes-gitops | awk '{print $1}'); do
+  if [ "" != "$(kubectl get secret $secret -n kubernetes-gitops -o yaml | grep ${특정 secret 변수} | awk '{print $2}' | base64 -d | grep ${특정 secret 값})" ]; then
+    kubectl delete secret $secret -n kubernetes-gitops
+  fi
+done
+```
+-->
