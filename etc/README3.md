@@ -276,3 +276,10 @@ kunernetes deployment 에서는 아래와 같이 설정하면 됨
       value: "/context-path"
 ```
 -->
+
+<!--
+gitlab rest api user modification
+
+curl -X PUT -H 'PRIVATE-TOKEN: ${token}' "https://gitlab.com/api/users/:id?can_create_group=false"
+curl -X PUT -H 'PRIVATE-TOKEN: ${token}' "https://gitlab.com/api/users/:id?projects_limit=0"
+-->
