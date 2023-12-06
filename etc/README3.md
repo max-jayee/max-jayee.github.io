@@ -227,7 +227,7 @@ sudo gitlab-rake gitlab:check SANITIZE=true # wait for a minute
 -->
 
 <!--
-argocd application yaml 등록
+argocd repository yaml 등록
 
 ```
 apiVersion: v1
@@ -246,6 +246,30 @@ stringData:
   type: git
   url: https://gitlaburl.git
   username: gitlab ID
+```
+-->
+
+<!--
+argocd application yaml 등록
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${application name}
+  namespace: ${namespace name}
+spec:
+  destination:
+    (optional) namespace: ${target namespace name}
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: .
+    repoURL: ${cd gitlab url}.git
+    targetRevision: dev
+  syncPolicy:
+    automated:
+      selfHeal: true
 ```
 -->
 
