@@ -314,3 +314,39 @@ linux sub group 에 user 추가
 usermod -aG ${user 를 추가할 sub groups by ,(comma)} ${추가할 user name}
 id # check user info
 -->
+
+<!--
+nginx host not found in upstream 문제
+
+nginx 의 upstream 를 container 환경에서 사용시 발생되는 오류로 공유받음
+ - resolver 를 사용하여 해결 가능하다고 공유받음
+-->
+
+<!--
+jenkinsfile script 태그에서 변수 사용하기
+
+```gradle
+def accounts = [
+  "sys-bz1": 11111
+  , "sys-bz2": 22222
+]
+
+pipeline {
+  stages {
+    stage("stage 1") {
+      environment {
+        SYSTEM_CODE = "sys"
+        BIZ_CODE = "bz1"
+      }
+      steps {
+        script {
+          sh '''
+          podman build --build-arg ACCOUNT_ID=''' + accounts["${SYSTEM_CODE}-${BIZ_CODE}"] + ''' -t image-name:version ./
+          '''
+        }
+      }
+    }
+  }
+}
+```
+-->
