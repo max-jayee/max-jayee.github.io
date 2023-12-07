@@ -307,3 +307,10 @@ gitlab rest api user modification
 curl -X PUT -H 'PRIVATE-TOKEN: ${token}' "https://gitlab.com/api/users/:id?can_create_group=false"
 curl -X PUT -H 'PRIVATE-TOKEN: ${token}' "https://gitlab.com/api/users/:id?projects_limit=0"
 -->
+
+<!--
+linux sub group 에 user 추가
+
+usermod -aG ${user 를 추가할 sub groups by ,(comma)} ${추가할 user name}
+id # check user info
+-->
