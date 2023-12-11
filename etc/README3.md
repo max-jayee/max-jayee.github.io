@@ -350,3 +350,12 @@ pipeline {
 }
 ```
 -->
+
+<!--
+gitlab 기타 브랜치 막기
+
+gitlab 의 protected 권한은 가장 낮은게 먹고
+gitlab 의 group, repository 권한은 repository 권한을 우선으로 먹는다.
+
+따라서 특정 브랜치외에 다른 브랜치 사용을 막고자하는 경우 * 로 push, merge 를 막고, 특정 브랜치별 권한 제어로 가능하다.
+-->
