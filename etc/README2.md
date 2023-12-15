@@ -934,11 +934,15 @@ find ${경로} -type f -exec ls -l {} \; | grep "${날짜}"
 
 <!--
 tar: Cowardly refusing to create an empty archive 빈 파일 생성
+empty tar 생성
+빈 tar 생성
 
 tar 는 기본적으로 빈 파일은 묶을 수 없다.
 아래와 같이 빈 파일 목록을 담은 파일을 읽어 tar 를 생성하면 가능하다.
 touch empty-file-list
 tar -cT empty-file-list -f empty-files.tar
+
+위와 같이 만들면 빈 tar 지만 10KB 를 사용한다.
 -->
 
 <!--
