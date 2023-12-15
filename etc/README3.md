@@ -367,3 +367,11 @@ TODO: local 에 jar 를 받을때 dns 명을 기반으로 캐싱하는 것으로
 그래서 일괄적으로 변경하여 동시에 많은이들이 한꺼번에 받게되면 네트워크 대역이 부족하여 jar 가 안받아 질 수 있음
 그런경우 순차적으로 dns 를 변경하는 방법으로 우회할 수 있다.
 -->
+
+<!--
+jenkins rest api
+
+jenkins rest api 사용법은 ".../api/" 라고 하면 나온다.
+이는 공식 도큐먼트인 https://www.jenkins.io/doc/book/using/remote-access-api/ 에서 가이드하고 있다.
+예를 들어 https://ci.jenkins.io/job/Websites/job/jenkins.io/job/master/lastSuccessfulBuild/ 와 같은 상황에서 사용할 수 있는 api 는 끝에 /api 를 붙인 https://ci.jenkins.io/job/Websites/job/jenkins.io/job/master/lastSuccessfulBuild/api/  에서 확인 가능하다.
+-->
