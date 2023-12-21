@@ -375,3 +375,11 @@ jenkins rest api 사용법은 ".../api/" 라고 하면 나온다.
 이는 공식 도큐먼트인 https://www.jenkins.io/doc/book/using/remote-access-api/ 에서 가이드하고 있다.
 예를 들어 https://ci.jenkins.io/job/Websites/job/jenkins.io/job/master/lastSuccessfulBuild/ 와 같은 상황에서 사용할 수 있는 api 는 끝에 /api 를 붙인 https://ci.jenkins.io/job/Websites/job/jenkins.io/job/master/lastSuccessfulBuild/api/  에서 확인 가능하다.
 -->
+
+<!--
+linux 소문자를 대문자로
+
+```
+echo "hi hello" | tr '[:lower:]' '[:upper:]'
+```
+-->
