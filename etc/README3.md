@@ -393,3 +393,27 @@ Apache Flink
 4. 일괄처리 기능도 제공하지만 스트림 프로세싱을 목적으로 주로 사용
 5. 프로세스: 소스(수신) -> 트랜스포메이션(가공) -> 싱크(송신)
 -->
+
+<!--
+gitlab version upgrade
+
+major 15 version -> major 16 version
+
+```
+sudo dnf install gitlab-ce-15.11.13-ce.0.el8
+sudo dnf install gitlab-ce-16.3.6-ce.0.el8 (turning point)
+sudo dnf install gitlab-ce-16.7.0-ce.0.el8
+```
+
+Creating configuration backup archive: gitlab_config_1703577591_2023_12_26.tar
+/etc/gitlab/
+/etc/gitlab/gitlab-secrets.json
+/etc/gitlab/trusted-certs/
+/etc/gitlab/gitlab.rb.bak-before-ldap
+/etc/gitlab/gitlab.rb
+Configuration backup archive complete: /etc/gitlab/config_backup/gitlab_config_1703577591_2023_12_26.tar
+
+rpm 으로 설치시 명령어
+sudo yum localinstall -y ${package 명 .rpm 포함}
+sudo dnf install -y ${package 명 .rpm 포함}
+-->
