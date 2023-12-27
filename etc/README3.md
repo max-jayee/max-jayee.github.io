@@ -428,4 +428,12 @@ crontab -r
 활성화
 crontab crontab-backup.txt
 crontab -l
+
+-->
+
+<!--
+linux comment / uncomment
+
+To comment, command is `:%s/^/#/`. In all lines (%), it substitutes (s///) the begin of line (^) with a hash (#).
+To uncomment, command is `:%s/^#//`
 -->
