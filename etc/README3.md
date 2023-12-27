@@ -417,3 +417,15 @@ rpm 으로 설치시 명령어
 sudo yum localinstall -y ${package 명 .rpm 포함}
 sudo dnf install -y ${package 명 .rpm 포함}
 -->
+
+<!--
+crontab 활성 / 비활성화
+
+비활성화
+crontab -l > crontab-backup.txt
+crontab -r
+
+활성화
+crontab crontab-backup.txt
+crontab -l
+-->
