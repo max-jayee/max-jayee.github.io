@@ -437,3 +437,9 @@ linux comment / uncomment
 To comment, command is `:%s/^/#/`. In all lines (%), it substitutes (s///) the begin of line (^) with a hash (#).
 To uncomment, command is `:%s/^#//`
 -->
+
+<!--
+visual studio code 에서 markdown 문법 체크를 하는데, 특정 규칙을 비활성화 할 수 있다.
+
+이는 프로젝트 root 에 .markdownlint.json 파일을 만들어 규칙을 false 로 주면 된다.
+-->
