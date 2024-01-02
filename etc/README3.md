@@ -443,3 +443,11 @@ visual studio code 에서 markdown 문법 체크를 하는데, 특정 규칙을 
 
 이는 프로젝트 root 에 .markdownlint.json 파일을 만들어 규칙을 false 로 주면 된다.
 -->
+
+<!--
+
+catalina 로그를 바꾸려면 /usr/local/tomcat/conf 에서 logging.properties 에서
+java.util.logging.ConsoleHanlder.formatter 를 pattern 형태의 클래스로 바꿔주고
+해당 클래스의 pattern 을 정의해주어야한다.
+
+-->
