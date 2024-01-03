@@ -445,11 +445,13 @@ visual studio code 에서 markdown 문법 체크를 하는데, 특정 규칙을 
 -->
 
 <!--
-
 catalina 로그를 바꾸려면 /usr/local/tomcat/conf 에서 logging.properties 에서
 java.util.logging.ConsoleHanlder.formatter 를 pattern 형태의 클래스로 바꿔주고
 해당 클래스의 pattern 을 정의해주어야한다.
 
+아니면 더 업그레이드된 juli 를 쓰려면 아래와 같이 설정한다.
+java.util.logging.ConsoleHandler.formatter = org.apache.juli.OneLineFormatter
+org.apache.juli.OnLineFormatter.timeFormat = yyyy-MM-dd HH:mm:ss
 -->
 
 <!--
