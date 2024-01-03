@@ -451,3 +451,17 @@ java.util.logging.ConsoleHanlder.formatter 를 pattern 형태의 클래스로 �
 해당 클래스의 pattern 을 정의해주어야한다.
 
 -->
+
+<!--
+gradle build multi thread
+
+< v6.0
+settings.gradle
+gradle.startParameter.parallel = true
+gradle.startParameter.maxParallelForks = 4
+
+> v6.0
+gradle.properties
+org.gradle.parallel=true
+org.gradle.workers.max=4
+-->
