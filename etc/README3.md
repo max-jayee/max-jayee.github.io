@@ -488,3 +488,38 @@ spring boot embedded tomcat 에서 umask 0002 설정하는 방법
 
 entrypoint.sh 에서 umask 0002 를 주입
 -->
+
+<!--
+gitlab 전체 프로젝트에 전체 브랜치에 protected 권한 부여하기
+
+#! /bin/bash
+
+# 0 => No access
+# 30 => Developer access
+# 40 => Maintainer access
+# 60 => Admin access
+
+branch_name="*"
+merge_access_level=60
+push_access_level=60
+
+for id in {0..530}
+do
+  curl -X POST -H 'PRIVATE-TOKEN: gplat-asdfkjhadskjfh' "https://gitlab.com/api/v4/projects/${id}/protected_branches?name=${branch_name}&merge_access_level=${merge_access_level}&push_access_level=${push_access_level}"
+done
+
+-->
+
+<!--
+gitlab 전체 프로젝트에 특정 브랜치에 protected 권한 회수하기
+
+#! /bin/bash
+
+branch_name="*"
+
+for id in {0..530}
+do
+  curl -X DELETE -H 'PRIVATE-TOKEN: gplat-asdfkjhadskjfh' "https://gitlab.com/api/v4/projects/${id}/protected_branches/${branch_name}"
+done
+
+-->
