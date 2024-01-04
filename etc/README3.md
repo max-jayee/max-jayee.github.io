@@ -475,3 +475,10 @@ ps -ef | grep ${프로세스명} # 여기서 pid 획득
 
 cat /proc/${pid}/status | grep Umask
 -->
+
+<!--
+tomcat 에 umask 0002 설정하는 방법
+
+UMASK=0002 로 환경변수 잡거나
+catalina.sh 에 상위에 umask 0002 명령어 주입
+-->
