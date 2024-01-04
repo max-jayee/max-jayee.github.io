@@ -482,3 +482,9 @@ tomcat 에 umask 0002 설정하는 방법
 UMASK=0002 로 환경변수 잡거나
 catalina.sh 에 상위에 umask 0002 명령어 주입
 -->
+
+<!--
+spring boot embedded tomcat 에서 umask 0002 설정하는 방법
+
+entrypoint.sh 에서 umask 0002 를 주입
+-->
