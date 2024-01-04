@@ -467,3 +467,11 @@ gradle.properties
 org.gradle.parallel=true
 org.gradle.workers.max=4
 -->
+
+<!--
+process umask 확인 하기
+
+ps -ef | grep ${프로세스명} # 여기서 pid 획득
+
+cat /proc/${pid}/status | grep Umask
+-->
