@@ -54,7 +54,7 @@
   
     ````bash
     Some text
-    
+
     ```
     Code block
     ```
@@ -73,3 +73,21 @@
 - 예시  
   - 문제: https://github.com/updownpress/markdown-lint
   - 해결: <https://github.com/updownpress/markdown-lint>
+
+## MD047 - Files should end with a single newline character
+
+- 규칙: 파일 끝에 빈 줄이 존재하도록 제한한다.
+- 방안: 파일 끝에 빈 줄을 추가한다.
+- 예시  
+  - 문제  
+
+    ````bash
+    This file ends without a newline.
+    ````
+
+  - 해결
+  
+    ````bash
+    This file ends without a newline.
+    
+    ````
