@@ -492,6 +492,7 @@ entrypoint.sh 에서 umask 0002 를 주입
 <!--
 gitlab 전체 프로젝트에 전체 브랜치에 protected 권한 부여하기
 
+```bash
 #! /bin/bash
 
 # 0 => No access
@@ -507,7 +508,7 @@ for id in {0..530}
 do
   curl -X POST -H 'PRIVATE-TOKEN: gplat-asdfkjhadskjfh' "https://gitlab.com/api/v4/projects/${id}/protected_branches?name=${branch_name}&merge_access_level=${merge_access_level}&push_access_level=${push_access_level}"
 done
-
+```
 -->
 
 <!--
