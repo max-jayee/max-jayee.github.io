@@ -539,3 +539,14 @@ LocalDateTime now = LocalDateTime.now();
 now.format(yyyyMMdd);
 now.format(HHmmss);
 -->
+
+<!--
+sed 모음집
+
+sed '/APP/d' file_name : APP 문자가 포함된 줄을 삭제하여 출력한다.
+sed '/^APP/d' file_name : APP 문자로 시작하는 줄을 삭제하여 출력한다.
+sed '/APP/!d' file_name : APP 문자가 있는 줄만 지우지 않는다.
+sed '/^APP/!d' file_name : APP 문자로 시작하는 줄만 지우지 않는다.
+sed '1,2d' file_name : 처음 1줄, 2줄을 지운다.
+sed '/^$/d file_name : 공백라인을 삭제하는 명령이다. 
+-->
