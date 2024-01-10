@@ -550,3 +550,16 @@ sed '/^APP/!d' file_name : APP 문자로 시작하는 줄만 지우지 않는다
 sed '1,2d' file_name : 처음 1줄, 2줄을 지운다.
 sed '/^$/d file_name : 공백라인을 삭제하는 명령이다. 
 -->
+
+<!--
+tar 모음집
+
+tar xf ${file}.tar || exit 1 : tar 해제 실패시 에러 리턴
+-->
+
+<!--
+shell command 모음집
+
+A && B : A 가 exit status 가 0 일때 B 실행
+A || B : A 가 exit status 가 0 이 아닐때 B 실행
+-->

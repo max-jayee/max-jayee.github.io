@@ -28,3 +28,7 @@
 - `[dependencies]` is the start of a section for you to list any of your project’s dependencies. In Rust, packages of code are referred to as crates.
 
 - Cargo expects your source files to live inside the src directory. The top-level project directory is just for README files, license information, configuration files, and anything else not related to your code.
+
+- `use`: bring a library.
+- `prelude`: are produced some libraries basically.
+- 
