@@ -524,3 +524,18 @@ do
 done
 
 -->
+
+<!--
+Java thread safe Date 클래스
+
+SimpleDateFormat 은 thread safe 하지않아서 multi thread 상황에서 성능 저하 요인이 될 수 있다고 한다.
+
+그래서 DateTimeFormatter 를 사용하는 것이 좋으며 간략한 사용방법은 다음과 같다.
+
+DateTimeFormatter yyyyMMdd = DateTimeFormatter.ofPattern("yyyyMMdd");
+DateTimeFormatter HHmmss = DateTimeFormatter.ofPattern("HHmmss");
+
+LocalDateTime now = LocalDateTime.now();
+now.format(yyyyMMdd);
+now.format(HHmmss);
+-->
