@@ -563,3 +563,7 @@ shell command 모음집
 A && B : A 가 exit status 가 0 일때 B 실행
 A || B : A 가 exit status 가 0 이 아닐때 B 실행
 -->
+
+<!--
+// TODO: cargo new 로 만든 프로젝트가 git 에 트래킹이 안되는 이유
+-->
