@@ -150,8 +150,13 @@ let second = a[1];
 
 - crate is a collection of Rust source code files.
 - `^x.y.z`: means any version that is at least `x.y.z` but below `x.y+1.0`.
-- `Shadowing`: lets us reuse the `guess` variable name rather than forcing us to create two unique variables, such as `guess_str` and `guess`.
+- `Shadowing`: lets us reuse the `guess` variable name rather than forcing us to create two unique variables, such as `guess_str` and `guess`.  
+  You can declare a new variable with the same name as a previous variable.  
+  We can change the type of the value but reuse the same name.
 - `_`: means catch all value.
+
+- Constants can be declared in any scope, including the global scope, which makes them useful for values that many parts of code need to know about.
+- The last difference is that constants may be set only to a constant expression, not the result of a value that could only be computed at runtime.
 
 ## Keywords
 
