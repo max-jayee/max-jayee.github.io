@@ -31,6 +31,23 @@
     Some more text here
     ```
 
+## MD026 - Trailing punctuation in heading
+
+- 규칙: Heading 에 구두점('.,;:!。，；：！')이 위치하는 것을 제한한다.
+- 방안: Heading 에서 구두점을 제거한다.
+- 예시  
+  - 문제  
+
+    ```bash
+    # This is a heading.
+    ```
+
+  - 해결
+  
+    ```bash
+    # This is a heading
+    ```
+
 ## MD031 - Fenced code blocks should be surrounded by blank lines
 
 - 규칙: 코드 블록 앞뒤에 문장을 구분하기 위해 빈 줄이 들어가도록 제한한다.
