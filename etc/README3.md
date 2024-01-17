@@ -567,3 +567,15 @@ A || B : A 가 exit status 가 0 이 아닐때 B 실행
 <!--
 // TODO: cargo new 로 만든 프로젝트가 git 에 트래킹이 안되는 이유
 -->
+
+<!--
+git 모음집
+
+git add ${FILE_NAME}
+error: '${FILE_NAME}' does not have a commit checked out
+fatal: adding files failed
+
+원인: 로컬 저장소(내 컴퓨터)에 .git 파일이 여러 개 있어서 sub module 로 관리되어 부모에서 잡을 수 없게됨  
+  일반적으로 PL 도구를 이용하여 생성한 git 프로젝트의 경우 자동으로 .git 설정이 들어가며 발생하는 경우가 많음
+해결: 중복 생성된 .git을 찾아서 삭제한다.
+-->

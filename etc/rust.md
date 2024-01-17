@@ -9,11 +9,119 @@
 
 # RUST
 
+## Data Types
+
+Keep in mind that Rust is a statically typed language, which means that it must know the types of all variables at compile time.
+
+### Scalar Types
+
+#### Integer Types
+
+| Length | Signed | Unsigned |
+|---|---|---|
+| 8-bit | i8 | u8 |
+| 16-bit | i16 | u16 |
+| 32-bit | i32(default) | u32 |
+| 64-bit | i64 | u64 |
+| 128-bit | i128 | u128 |
+| arch | isize | usize |
+
+- Number literals
+
+Number literals can also use `_` as a visual separator to make the number easier to read, such as `1_000`, which will have the same value as if you had specified `1000`.
+
+| Number literals | Example |
+|---|---|
+| Decimal | 98_222 |
+| Hex | 0xff |
+| Octal | 0o77 |
+| Binary | 0b1111_0000 |
+| Byte (u8 only) | b'A' |
+
+#### Floating-Point Types
+
+Rust’s floating-point types are `f32` and `f64(default)`, which are 32 bits and 64 bits in size, respectively.
+
+#### Numeric Operations
+
+```rust
+// addition
+let sum = 5 + 10;
+
+// subtraction
+let difference = 95.5 - 4.3;
+
+// multiplication
+let product = 4 * 30;
+
+// division
+let quotient = 56.7 / 32.2;
+let truncated = -5 / 3; // Results in -1
+
+// remainder
+let remainder = 43 % 5;
+```
+
+#### The Boolean Type
+
+```rust
+let t = true;
+
+let f: bool = false; // with explicit type annotation
+```
+
+#### The Character Type
+
+```rust
+let c = 'z';
+let z: char = 'ℤ'; // with explicit type annotation
+let heart_eyed_cat = '😻';
+```
+
+### Compound Types
+
+#### The Tuple Type
+
+The tuple without any values has a special name, unit.
+The first index in a tuple is 0.
+
+```rust
+let tup: (i32, f64, u8) = (500, 6.4, 1); // with explicit type annotation
+let tup = (500, 6.4, 1);
+
+let (x, y, z) = tup;
+
+println!("The value of y is: {y}");
+
+let x: (i32, f64, u8) = (500, 6.4, 1);
+
+let five_hundred = x.0;
+
+let six_point_four = x.1;
+
+let one = x.2;
+```
+
+#### The Array Type
+
+Arrays in Rust have a fixed length.
+
+```rust
+let a: [i32; 5] = [1, 2, 3, 4, 5]; // with explicit type annotation
+let a = [1, 2, 3, 4, 5];
+
+let a = [3; 5]; // == [3, 3, 3, 3, 3]
+
+let first = a[0];
+let second = a[1];
+```
+
 ## Notes
 
 - The `main` function is special: it is always the first code that runs in every executable Rust program.
 - Function parameters are in ().
 - Function body are in {}.
+- `panic`: runtime error.
 
 - Rust style is to indent with four spaces, not a tab.
 
@@ -99,3 +207,28 @@
 - `unsized`
 - `virtual`
 - `yield`
+
+## Trouble shootings
+
+- error[E0282]: type annotations needed  
+  원인: 변수 타입이 무엇인지 정보가 부족한 경우  
+  
+  ```rust
+  let guess = "42".parse().expect("Not a number!");
+  ```
+
+  해결: 변수 타입을 지정  
+
+  ```rust
+  let guess: u32 = "42".parse().expect("Not a number!");
+  ```
+
+- error[E0384]: cannot assign twice to immutable variable `x`  
+  원인: immutable x 변수에 값을 두번 할당할 수 없음  
+  해결: x 변수를 mutable 하게 변경  
+
+  ```rust
+  let mut x = 6;
+
+  x = 5;
+  ```
