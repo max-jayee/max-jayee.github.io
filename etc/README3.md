@@ -579,3 +579,11 @@ fatal: adding files failed
   일반적으로 PL 도구를 이용하여 생성한 git 프로젝트의 경우 자동으로 .git 설정이 들어가며 발생하는 경우가 많음
 해결: 중복 생성된 .git을 찾아서 삭제한다.
 -->
+
+<!--
+jvm 옵션 주는 방법
+
+export JAVA_OPTS=""
+
+JAVA_OPTS 환경 변수에 설정하면 jvm 옵션이 먹는다.
+-->
