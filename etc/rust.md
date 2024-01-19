@@ -154,9 +154,13 @@ let second = a[1];
   You can declare a new variable with the same name as a previous variable.  
   We can change the type of the value but reuse the same name.
 - `_`: means catch all value.
+- We can define functions to have parameters, which are special variables that are part of a function’s signature.  
+  Technically, the concrete values are called arguments, but in casual conversation, people tend to use the words parameter and argument interchangeably for either the variables in a function’s definition or the concrete values passed in when you call a function.
+- In function signatures, you must declare the type of each parameter.
 
 - Constants can be declared in any scope, including the global scope, which makes them useful for values that many parts of code need to know about.
 - The last difference is that constants may be set only to a constant expression, not the result of a value that could only be computed at runtime.
+- Rust code uses snake case as the conventional style for function and variable names, in which all letters are lowercase and underscores separate words.
 
 ## Keywords
 
