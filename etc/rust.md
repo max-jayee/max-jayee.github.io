@@ -166,6 +166,10 @@ let second = a[1];
   - **Expressions** evaluate to a resultant value. Let’s look at some examples. Expressions do not include ending semicolons.
   - Functions can return values to the code that calls them. We don’t name return values, but we must declare their type after an arrow (`->`).
 
+- Rust has three kinds of loops: `loop`, `while`, and `for`.  
+  - The loop keyword tells Rust to execute a block of code over and over again forever or until you explicitly tell it to stop.
+  - You can optionally specify a loop label on a loop that you can then use with break or continue to specify that those keywords apply to the labeled loop instead of the innermost loop.
+
 ## Keywords
 
 - `as` - perform primitive casting, disambiguate the specific trait containing an item, or rename items in use statements
