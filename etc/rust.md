@@ -161,6 +161,10 @@ let second = a[1];
 - Constants can be declared in any scope, including the global scope, which makes them useful for values that many parts of code need to know about.
 - The last difference is that constants may be set only to a constant expression, not the result of a value that could only be computed at runtime.
 - Rust code uses snake case as the conventional style for function and variable names, in which all letters are lowercase and underscores separate words.
+- Function bodies are made up of a series of statements optionally ending in an expression.  
+  - **Statements** are instructions that perform some action and do not return a value.
+  - **Expressions** evaluate to a resultant value. Let’s look at some examples. Expressions do not include ending semicolons.
+  - Functions can return values to the code that calls them. We don’t name return values, but we must declare their type after an arrow (`->`).
 
 ## Keywords
 
