@@ -179,6 +179,12 @@ let second = a[1];
 - We need a way of returning this memory to the allocator when we’re done with our `String`.
 - When a variable goes out of scope, Rust calls a special function for us. This function is called `drop`, and it’s where the author of String can put the code to return the memory. Rust calls `drop` automatically at `the closing curly bracket`. The `drop` function in Rust will be familiar to you if you’ve used c++'s RAII(Resource Acquisition Is Initialization) patterns.
 - When we assign `s1` to `s2`, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. We do not copy the data on the heap that the pointer refers to.
+- Here are some of the types that implement Copy:  
+  1. All the integer types, such as u32.
+  2. The Boolean type, bool, with values true and false
+  3. All the floating-point types, such as f64.
+  4. The character type, char.
+  5. Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
 
 ## Keywords
 
@@ -258,4 +264,13 @@ let second = a[1];
   let mut x = 6;
 
   x = 5;
+  ```
+
+- error[E0382]: borrow of moved value: `s1`  
+  원인: 소유권이 이동된 s1 변수를 사용할 수 없음  
+  해결: 소유권을 이동하는 것이 아닌 clone 하여 메모리를 새로 할당 시켜주기  
+
+  ```rust
+  let s1 = String::from("hello");
+  let s2 = s1.clone();
   ```
