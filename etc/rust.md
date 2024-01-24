@@ -175,6 +175,10 @@ let second = a[1];
 - When the owner goes out of scope, the value will be dropped.
 - When s comes into scope, it is valid.
 - It remains valid until it goes out of scope.
+- The memory must be requested from the memory allocator at runtime.
+- We need a way of returning this memory to the allocator when we’re done with our `String`.
+- When a variable goes out of scope, Rust calls a special function for us. This function is called `drop`, and it’s where the author of String can put the code to return the memory. Rust calls `drop` automatically at `the closing curly bracket`. The `drop` function in Rust will be familiar to you if you’ve used c++'s RAII(Resource Acquisition Is Initialization) patterns.
+- When we assign `s1` to `s2`, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. We do not copy the data on the heap that the pointer refers to.
 
 ## Keywords
 
