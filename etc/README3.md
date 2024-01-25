@@ -526,6 +526,27 @@ done
 -->
 
 <!--
+gitlab 전체 프로젝트에 protected tag 권한 부여하기
+
+```bash
+#! /bin/bash
+
+# 0 => No access
+# 30 => Developer access
+# 40 => Maintainer access
+# 60 => Admin access
+
+tag_name="*-*"
+create_access_level=60
+
+for id in {0..530}
+do
+  curl -X POST -H 'PRIVATE-TOKEN: gplat-asdfkjhadskjfh' "https://gitlab.com/api/v4/projects/${id}/protected_tags?name=${tag_name}&create_access_level=${create_access_level}"
+done
+```
+-->
+
+<!--
 Java thread safe Date 클래스
 
 SimpleDateFormat 은 thread safe 하지않아서 multi thread 상황에서 성능 저하 요인이 될 수 있다고 한다.

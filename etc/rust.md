@@ -186,6 +186,15 @@ let second = a[1];
   4. The character type, char.
   5. Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
 
+- A `reference` is like a pointer in that it’s an address we can follow to access the data stored at that address; that data is owned by some other variable. Unlike a pointer, a `reference` is guaranteed to point to a valid value of a particular type for the life of that reference.
+- These `ampersands(&)` represent references, and they allow you to refer to some value without taking ownership of it.
+- Note: The opposite of referencing by using & is dereferencing, which is accomplished with the dereference operator, *. We’ll see some uses of the dereference operator in Chapter 8 and discuss details of dereferencing in Chapter 15.
+- A data race is similar to a race condition and happens when these three behaviors occur:  
+  1. Two or more pointers access the same data at the same time.
+  2. At least one of the pointers is being used to write to the data.
+  3. There’s no mechanism being used to synchronize access to the data.
+
+
 ## Keywords
 
 - `as` - perform primitive casting, disambiguate the specific trait containing an item, or rename items in use statements
