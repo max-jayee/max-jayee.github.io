@@ -194,6 +194,8 @@ let second = a[1];
   2. At least one of the pointers is being used to write to the data.
   3. There’s no mechanism being used to synchronize access to the data.
 
+1. At any given time, you can have either one mutable reference or any number of immutable references.
+2. References must always be valid.
 
 ## Keywords
 
