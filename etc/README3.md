@@ -608,3 +608,44 @@ export JAVA_OPTS=""
 
 JAVA_OPTS 환경 변수에 설정하면 jvm 옵션이 먹는다.
 -->
+
+<!--
+copy 쉘 스크립트 예시
+
+#! /bin/bash
+
+current_date_time=`date +"%Y%m%d_%H%M%S"`
+echo "current_date_time=${current_date_time}"
+
+echo ""
+echo "####################################################"
+echo "## usage: ./file-copy.sh <source_dir> <target_dir> ##"
+echo "####################################################"
+echo ""
+
+source_dir=$1
+target_dir=$2
+
+if [ -z ${source_dir} ]; then
+  echo "source dir 가 입력되지 않았습니다."
+  exit 1
+fi
+
+if [ -z ${target_dir} ]; then
+  echo "target dir 가 입력되지 않았습니다."
+  exit 1
+fi
+
+log_file=file-copy-${current_date_time}.log
+
+cp -Rv ${source_dir} ${target_dir} > 로그경로/${log_file} 2>&1
+
+retval=$?
+
+if [ 0 = "${retval}" ]; then
+  echo "success"
+else
+  echo "fail"
+fi
+
+-->
