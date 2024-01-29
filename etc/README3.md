@@ -649,3 +649,15 @@ else
 fi
 
 -->
+
+<!--
+java.base@17.0.2 에러 / java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module 에러
+
+jdk 9 부터 발생하는 에러로 버전 확인이 필요함
+종종 시스템에 설치된 jdk 경로와 STS 에서 사용하는 jdk 경로가 다른 경우 발생
+
+1. STS -> Window -> Preferences -> Java -> Installed JREs 에 설정된 jdk 확인
+2. 1.8.0 이 아닌경우
+3. cmd 창에서 `where java` 를 쳐서 나온 경로 중 bin 상위 폴더까지의 경로를 Add 해서 잡아주고
+4. Apply and Close & STS 재부팅
+-->
