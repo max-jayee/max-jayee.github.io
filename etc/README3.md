@@ -547,6 +547,21 @@ done
 -->
 
 <!--
+gitlab 전체 프로젝트에 protected tag 해제하기
+
+```bash
+#! /bin/bash
+
+tag_name="*-*"
+
+for id in {0..530}
+do
+  curl -X DELETE -H 'PRIVATE-TOKEN: gplat-asdfkjhadskjfh' "https://gitlab.com/api/v4/projects/${id}/protected_tags/${tag_name}"
+done
+```
+-->
+
+<!--
 Java thread safe Date 클래스
 
 SimpleDateFormat 은 thread safe 하지않아서 multi thread 상황에서 성능 저하 요인이 될 수 있다고 한다.
