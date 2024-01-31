@@ -683,3 +683,10 @@ gitlab repository name 으로 repository id 가져오기
 curl -X GET -H 'PRIVATE-TOKEN: ${personal access token}' "https://gitlab/api/v4/projects?search=${project name}" | jq .[0].id
 
 -->
+
+<!--
+gitlab repository name (namespace 포함) 으로 repository id 가져오기
+
+curl -X GET -H 'PRIVATE-TOKEN: ${personal access token}' "https://gitlab/api/v4/projects?search_namespaces=true&search=${project group}/${project name}" | jq .[0].id
+
+-->
