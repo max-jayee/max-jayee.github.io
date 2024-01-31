@@ -676,3 +676,10 @@ jdk 9 부터 발생하는 에러로 버전 확인이 필요함
 3. cmd 창에서 `where java` 를 쳐서 나온 경로 중 bin 상위 폴더까지의 경로를 Add 해서 잡아주고
 4. Apply and Close & STS 재부팅
 -->
+
+<!--
+gitlab repository name 으로 repository id 가져오기
+
+curl -X GET -H 'PRIVATE-TOKEN: ${personal access token}' "https://gitlab/api/v4/projects?search=${project name}" | jq .[0].id
+
+-->
