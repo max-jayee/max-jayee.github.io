@@ -690,3 +690,11 @@ gitlab repository name (namespace 포함) 으로 repository id 가져오기
 curl -X GET -H 'PRIVATE-TOKEN: ${personal access token}' "https://gitlab/api/v4/projects?search_namespaces=true&search=${project group}/${project name}" | jq .[0].id
 
 -->
+
+<!--
+자동으로 프로젝트에 protected tag 걸기
+
+project_id=$(curl -X GET -H "PRIVATE-TOKEN: ${personal access token}" "https://gitlab/api/v4/projects?search_namespaces=true&search=${project group}/${project name}" | jq .[0].id)
+
+curl -X POST -H "PRIVATE-TOKEN: ${personal access token}" "https://gitlab/api/v4/projects/${project_id}/protected_tags?name=${태그명}&create_access_level=0"
+-->
