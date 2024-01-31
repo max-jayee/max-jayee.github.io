@@ -698,3 +698,14 @@ project_id=$(curl -X GET -H "PRIVATE-TOKEN: ${personal access token}" "https://g
 
 curl -X POST -H "PRIVATE-TOKEN: ${personal access token}" "https://gitlab/api/v4/projects/${project_id}/protected_tags?name=${태그명}&create_access_level=0"
 -->
+
+<!--
+gitlab 16 이상 버전에서 personal access token 만료기한 없애기
+
+서버에 들어가서
+sudo gitlab-rails console
+
+token = PersonalAccessToken.find_by_token('${토큰 이름}')
+token.update!(expires_at: nil)
+exit
+-->
