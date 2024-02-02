@@ -709,3 +709,26 @@ token = PersonalAccessToken.find_by_token('${토큰 이름}')
 token.update!(expires_at: nil)
 exit
 -->
+
+<!--
+nginx 기본 취약점 해소
+
+1. 버전 노출 제한
+```
+http{
+ ...
+ server_tokens off;
+ ...
+}
+```
+
+2. symbolic link 제한
+```
+http{
+ ...
+ disable_symlinks on;
+ ...
+}
+```
+
+-->
