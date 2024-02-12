@@ -738,3 +738,9 @@ jenkins 버전 업그레이드하면서 JSONObject["scm"] is not a JSONObject. �
 
 build-timeout, token-macro, workflow-api, workflow-job 플러그인 최신화로 해결
 -->
+
+<!--
+kafdrop 에서 delete topic 기능 해제하는 방법
+
+kafdrop jar 실행시 옵션에 --topic.deleteEnabled=false 추가
+-->
