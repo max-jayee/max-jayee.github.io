@@ -766,3 +766,8 @@ Java class file version - Java version
 64 = Java 20
 65 = Java 21
 -->
+
+<!--
+// TODO SSLv2, SSLv3, TLS1.0, TLS1.1, TLS1.2 차이
+
+-->
