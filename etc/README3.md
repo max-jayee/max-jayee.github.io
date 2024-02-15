@@ -736,7 +736,7 @@ http{
 <!--
 jenkins 버전 업그레이드하면서 JSONObject["scm"] is not a JSONObject. 에러
 
-build-timeout, token-macro, workflow-api, workflow-job 플러그인 최신화로 해결
+build-timeout:1.32, token-macro:384.vf35b_f26814ec, workflow-api:1215.v2b_ee3e1b_dd39, workflow-job:1308.v58d48a_763b_31, role-strategy:633.v836e5b_3e80a_5 플러그인 최신화로 해결
 -->
 
 <!--
