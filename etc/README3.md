@@ -771,3 +771,14 @@ Java class file version - Java version
 // TODO SSLv2, SSLv3, TLS1.0, TLS1.1, TLS1.2 차이
 
 -->
+
+<!--
+gitlab delete source branch disable
+
+1. /opt/gitlab/embedded/service/gitlab-rails/app/views/shared/issuable/form/_merge_params.html.haml
+에서 force_remove_source_branch render 에 checked: 항목을 아래와 같이 변경
+checked: !issuable.force_remove_source_branch?
+
+2. /opt/gitlab/embedded/service/gitlab-rails/app/views/projects/settings/merge_requests/_merge_request_merge_options_settings.html.haml 에서 Enable "Delete source branch" 항목을 아래와 같이 변경
+Disable "Delete source branch"
+-->
