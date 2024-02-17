@@ -782,3 +782,15 @@ checked: !issuable.force_remove_source_branch?
 2. /opt/gitlab/embedded/service/gitlab-rails/app/views/projects/settings/merge_requests/_merge_request_merge_options_settings.html.haml 에서 Enable "Delete source branch" 항목을 아래와 같이 변경
 Disable "Delete source branch"
 -->
+
+<!--
+http1.0 기본적으로 keep-alive 되지 않음
+http1.1 기본적으로 keep-alive 됨
+
+http1.1에서 http1.0 서버로 java 의 proxy 기능을 써서 호출하는 경우 멍때릴 수 있음 (아래 참고)
+
+http 헤더에 "Connection" "Close"를 넣어줘서 해결가능
+
+======================================
+https://www.rfc-editor.org/rfc/rfc7230#appendix-A.1.2
+-->
