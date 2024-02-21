@@ -794,3 +794,41 @@ http 헤더에 "Connection" "Close"를 넣어줘서 해결가능
 ======================================
 https://www.rfc-editor.org/rfc/rfc7230#appendix-A.1.2
 -->
+
+<!--
+jenkins pipeline 실패시 오류 event catch
+
+stages {
+  ...
+}
+
+post {
+  failure {
+    sh '''
+
+    '''
+  }
+}
+
+또는
+
+stages {
+  stage("") {
+    steps {
+      ...
+    }
+
+    post {
+      failure {
+        sh '''
+
+        '''
+      }
+    }
+  }
+}
+
+이렇게 post 스테이지를 이용한다.
+
+성공은 success 스테이지를 이용한다.
+-->
