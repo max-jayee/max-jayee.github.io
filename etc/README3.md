@@ -59,6 +59,20 @@ done
 -->
 
 <!--
+argocd application 일괄 다운로드
+
+for app in `kubectl get applications.argoproj.io -n openshift-gitops --no-headers |awk '{print $1}'| grep dev` ; do echo $app ; kubectl get applications.argoproj.io $app -oyaml -n openshift-gitops > $app-argocd.yaml ; done
+
+불필요한 라인 제거
+sed -i '/  creationTimestamp:/d' *.yaml
+sed -i '/  generation:/d' *.yaml
+sed -i '/  resourceVersion:/d' *.yaml
+sed -i '/  uid:/d' *.yaml
+sed -i '/^status:/,%d' *.yaml
+
+-->
+
+<!--
 pod all down
 
 ```
