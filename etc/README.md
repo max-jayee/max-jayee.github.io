@@ -268,6 +268,18 @@ Jenkins.instance.getAllItems().each() { item ->
 println("success")
 -->
 
+<!--
+Jenkins script : 특정 job 의 빌드 히스토리 제거하고 1로 초기화
+
+item = Jenkins.instance.getItemByFullName("아이템 명")
+item.builds.each() { build ->
+  build.delete()
+}
+item.updateNextBuildNumber(1)
+
+println("success")
+-->
+
 <!-- TODO: sts 에서 remote branch 추가하기 -->
 git -> project 우클릭 -> Fetch from ... -> Configure -> Advanced... -> 'All Branches' or 'All Tags' 클릭해서 설정
 
