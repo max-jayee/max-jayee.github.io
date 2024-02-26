@@ -846,3 +846,17 @@ stages {
 
 성공은 success 스테이지를 이용한다.
 -->
+
+<!--
+git merge 명령어
+
+git checkout 브랜치
+git fetch --tags -f
+git pull
+git merge origin/feature/123 --no-commit
+git status
+"Unmerged paths" 해소
+git add *
+git commit -m "merge feature/123"
+git push
+-->
