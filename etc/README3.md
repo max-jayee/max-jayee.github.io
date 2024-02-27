@@ -860,3 +860,44 @@ git add *
 git commit -m "merge feature/123"
 git push
 -->
+
+<!--
+jenkins pipeline multijob parallelly
+
+def parallelStages = [:]
+def projectsToBuild = []
+def jobNames = JOB_NAMES
+pipeline {
+  agent any
+  stages {
+    stage("Merge") {
+      steps {
+        build 'GIT_MERGE'
+      }
+    }
+
+    stage("Build Multi Jobs") {
+      steps {
+        script {
+          def jobName = jobNames.split(",")
+          jobName.each { job ->
+            projectsToBuild.add(job)
+          }
+
+          projectsToBuild.each { p ->
+            parallelStages[p] = {
+              node {
+                stage(p) {
+                  build p
+                }
+              }
+            }
+          }
+
+          parallel parallelStages
+        }
+      }
+    }
+  }
+}
+-->
