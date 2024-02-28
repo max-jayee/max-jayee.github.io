@@ -901,3 +901,9 @@ pipeline {
   }
 }
 -->
+
+<!--
+현재 디렉토리 파일 모두 적용
+
+for file in *; do kubectl apply -f $file; done
+-->
