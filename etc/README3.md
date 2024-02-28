@@ -912,3 +912,10 @@ pipeline {
 
 for file in *; do kubectl apply -f $file; done
 -->
+
+<!--
+sts 에서 git 권한도 있고 브랜치도 있는데 git 이 잘 안될때
+Remote origin did not advertise Ref for branch refs/heads/뭐시기. This Ref may not exist in the remote or may be hidden by permission settings. 오류
+
+Git repositories view 에서 해당 리포 마우스 우 클릭 -> Properties -> remote/origin 의 fetch 영역이 `+refs/heads/*:refs/remotes/origin/*` 로 되어있어야 정상적으로 됨
+-->
