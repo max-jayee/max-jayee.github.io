@@ -70,6 +70,11 @@ sed -i '/  resourceVersion:/d' *.yaml
 sed -i '/  uid:/d' *.yaml
 sed -i '/^status:/,%d' *.yaml
 
+alert 추가
+sed -i 's/metadata:/metadata:\n  annotations:\n    notifications.argoproj.io\/subscribe.on-sync-failed.server-post-prod: ""/' *.yaml
+
+for file in *; do oc apply -f $file; done
+
 -->
 
 <!--
