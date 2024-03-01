@@ -927,3 +927,21 @@ db 계정 비번에 $가 들어가 있어서
 혹시나 비번에 $ 들어있으면요
 
 -->
+
+<!--
+bash shell script map tuple
+
+#! /bin/bash
+
+declare -A mvar
+
+keys="key1 key2"
+mvar["key1"]="value11,value33"
+mvar["key2"]="value22,value44"
+
+IFS=, read -r var1 var2 <<< "${mvar["key1"]}"
+echo "$var1, $var2"
+
+IFS=, read -r var1 var2 <<< "${mvar["key2"]}"
+echo "$var1, $var2"
+-->
