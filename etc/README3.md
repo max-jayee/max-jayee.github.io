@@ -919,3 +919,11 @@ Remote origin did not advertise Ref for branch refs/heads/뭐시기. This Ref ma
 
 Git repositories view 에서 해당 리포 마우스 우 클릭 -> Properties -> remote/origin 의 fetch 영역이 `+refs/heads/*:refs/remotes/origin/*` 로 되어있어야 정상적으로 됨
 -->
+
+<!--
+db 계정 비번에 $가 들어가 있어서
+패스워드 암호화를 서버에서 하면 암호화 복호화가 정상적으로 안되는 경우가 있습니다
+\$ 이런식으로 역슬러쉬를 넣어줘야 됩니다
+혹시나 비번에 $ 들어있으면요
+
+-->
