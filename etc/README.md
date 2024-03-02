@@ -1255,7 +1255,7 @@ projects["${SYSTEM_CODE2}"]="${REPO_NAME4} ${REPO_NAME5} ${REPO_NAME6}"
 
 for system_code in "${!projects[@]}"; do
   for repo_name in ${projects[${system_code}]}; do
-    items=$(curl -s -X GET -H "Authorization: ${auth token}" "nexus:8080/service/rest/v1/search/assets?repository=docker-app&docker.imageName=root%2${system_code}%2F${repo_name}")" | jq ".itmes")
+    items=$(curl -s -X GET -H "Authorization: ${auth token}" "nexus:8080/service/rest/v1/search/assets?repository=docker-app&docker.imageName=root%2${system_code}%2F${repo_name}")&sort=version&direction=asc" | jq ".itmes")
     length=$(echo $items | jq ". | length")
 
     for ((i = 0; i < $length - 1; i++>)); do
