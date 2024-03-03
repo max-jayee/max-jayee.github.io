@@ -945,3 +945,13 @@ echo "$var1, $var2"
 IFS=, read -r var1 var2 <<< "${mvar["key2"]}"
 echo "$var1, $var2"
 -->
+
+<!--
+bash shell multi array 배열에 토큰 단위로 여러 종류 값 넣기
+
+SERVER_INFOS="ip1,instance1,script1 ip2,instance2,script2"
+for SERVER_INFO in ${SERVER_INFOS}; do
+  IFS=, read -r ip instance script <<< "${SERVER_INFO}"
+  echo "ip: ${ip}, instance: ${instance}, script: ${script}"
+done
+-->
