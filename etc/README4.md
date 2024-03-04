@@ -19,3 +19,9 @@ jenkins Role-based Authorization Strategy 의 기본 그룹
 1. authenticated (users who logged in)
 2. anonymous (any user, including ones who have not logged in)
 -->
+
+<!--
+ssh Connection to ip closed by remote host. error
+
+remote server 에서 /etc/hosts.allow, /etc/hosts.deny 로 막혀있지 않은지 확인
+-->
