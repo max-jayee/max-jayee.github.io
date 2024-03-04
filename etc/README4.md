@@ -12,3 +12,10 @@
 ## This is a playground
 
 ### Temporary things
+
+<!--
+jenkins Role-based Authorization Strategy 의 기본 그룹
+
+1. authenticated (users who logged in)
+2. anonymous (any user, including ones who have not logged in)
+-->
