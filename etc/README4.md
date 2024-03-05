@@ -101,3 +101,22 @@ jq usage, jq 사용법
   - jq '.' filename.json
 
 -->
+
+<!--
+jenkinsfile 후행 job 설정
+
+```
+stages {
+  stage('trigger another job') {
+    steps {
+      script {
+        build job: 'job name', parameters: [
+          string(name: 'param1', value: env.SYSTEM_ENV_VAR1),
+          string(name: 'param1', value: env.SYSTEM_ENV_VAR1)
+        ], wait: true // wait: true 은 해당 job 이 끝날때까지 기다리고싶을때 사용
+      }
+    }
+  }
+}
+```
+-->
