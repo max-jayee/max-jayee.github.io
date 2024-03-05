@@ -51,3 +51,53 @@ command > file.txt
 >> 는 표준 출력을 파일에 추가하여 파일이 존재하는 경우 추가로 작성함
 command >> file.txt
 -->
+
+<!--
+jq usage, jq 사용법
+
+- 전체 출력하기
+  - echo $json | jq '.'
+
+- 특정 키의 값 출력하기
+  - echo $json | jq '.key'
+
+- 여러 키의 값 출력하기
+  - echo $json | jq '.key1, .key2'
+
+- 배열 모든 요소 출력하기
+  - echo $json | jq '.[]'
+
+- 배열 특정 인덱스 요소 출력하기
+  - echo $json | jq '.[1]'
+
+- 배열의 길이 출력하기
+  - echo $json | jq 'length'
+
+- 객체 배열에서 특정 키의 모든 값 출력하기
+  - echo $json | jq '.[].name'
+
+- 객체 배열을 특정 키의 값으로 정렬하기
+  - echo $json | jq 'sort_by(.name)'
+
+- 특정 조건을 만족하는 요소만 찾기
+  - echo $json | jq '.[]| select(.age > 25)'
+
+- 맵(map)을 사용하여 배열의 각 요소에 대한 새 배열 생성하기
+  - echo $json | jq 'map({fullName: .name, birthYear: (2023 - .age)})'
+
+- 리듀스(reduce)를 사용하여 배열의 합계 계산하기
+  - echo $json | jq 'reduce .[]as $num (0: . + $num)'
+
+- 변수를 사용하여 중간 결과 저장하기
+  - echo $json | jq '(.details | .age) as $age | "Age is \($age)"'
+
+- 텍스트로 변환하기
+  - echo $json | jq -r '.name'
+
+- 문자열 인터폴레이션을 사용하여 출력 형식 지정하기
+  - echo $json | jq -r '"The name is \(.name) and the age is \(.age)"'
+
+- 파일에서 json 데이터 읽기
+  - jq '.' filename.json
+
+-->
