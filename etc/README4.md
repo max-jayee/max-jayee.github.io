@@ -25,3 +25,19 @@ ssh Connection to ip closed by remote host. error
 
 remote server 에서 /etc/hosts.allow, /etc/hosts.deny 로 막혀있지 않은지 확인
 -->
+
+<!--
+bash shell <, << ,<<< 차이
+
+< 는 input redirection 으로 파일의 내용을 입력으로 사용
+command < file.txt
+
+<< 는 here document 로 사용자가 입력한 값을 입력으로 사용
+command <<EOT
+line 1
+line 2
+EOT
+
+<<< 는 문자열을 명령어의 표준 입력으로 사용
+command <<< "input string"
+-->
