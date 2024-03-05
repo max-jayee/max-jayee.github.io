@@ -41,3 +41,13 @@ EOT
 <<< 는 문자열을 명령어의 표준 입력으로 사용
 command <<< "input string"
 -->
+
+<!--
+bash shell >, >> 차이
+
+> 는 표준 출력을 파일로 redirect 하고 파일이 존재하는 경우 덮어 씀
+command > file.txt
+
+>> 는 표준 출력을 파일에 추가하여 파일이 존재하는 경우 추가로 작성함
+command >> file.txt
+-->
