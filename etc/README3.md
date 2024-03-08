@@ -955,3 +955,36 @@ for SERVER_INFO in ${SERVER_INFOS}; do
   echo "ip: ${ip}, instance: ${instance}, script: ${script}"
 done
 -->
+
+<!--
+bash array 
+
+```
+## declare an array variable
+declare -a arr=("element1" "element2" "element3")
+
+## now loop through the above array
+for i in "${arr[@]}"
+do
+   echo "$i"
+   # or do whatever with individual element of the array
+done
+
+# You can access them using echo "${arr[0]}", "${arr[1]}" also
+```
+
+```
+#!/bin/bash
+## declare an array variable
+declare -a array=("one" "two" "three")
+
+# get length of an array
+arraylength=${#array[@]}
+
+# use for loop to read all values and indexes
+for (( i=0; i<${arraylength}; i++ ));
+do
+  echo "index: $i, value: ${array[$i]}"
+done
+```
+-->
