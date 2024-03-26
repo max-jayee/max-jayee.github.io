@@ -107,3 +107,34 @@ spec:
           number: ${pod2 service port}    
 ```
 -->
+
+<!--
+configmap
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${resource name}
+  namespace: ${k8s namespace}
+data:
+  ${ENV_VAR_NAME1}: '${value1}'
+  ${ENV_VAR_NAME2}: '${value2}'
+```
+-->
+
+<!--
+secret
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ${resource name}
+  namespace: ${k8s namespace}
+data:
+  ${secret name}: '${base64 encoded value}'
+  ${secret name}: '${base64 encoded value}'
+type: Opaque
+```
+-->
