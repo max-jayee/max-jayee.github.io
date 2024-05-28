@@ -163,3 +163,67 @@ $: 문자열의 끝
 !=: 문자열 일치하지 않음
 !~: 정규표현식 불일치
 -->
+
+<!--
+yaml structure yaml 구조
+
+기본 구조
+1. 스칼라(scalars): 단일 데이터 값
+2. 리스트(lists): 일련의 순차적인 아이템을 배열 형태로 표현
+3. 딕셔너리(dictionaries): 키-값 쌍으로 구성된 구조
+
+1. 스칼라
+
+```
+string: "hello"
+integer: 25
+float: 3.14
+boolean: true
+```
+
+2. 리스트
+- 를 기반으로 구성
+```
+fruits:
+  - Apple
+  - Banana
+  - Cherry
+```
+
+3. 딕셔너리
+key 다음에 : 으로 구분
+```
+person:
+  name: John
+  age: 25
+  city: Seoul
+```
+
+4. 리스트 & 딕셔너리 중첩
+
+```
+employees:
+  - name: John
+    job: Developer
+    skills:
+      - Python
+      - JavaScript
+  - name: Jane
+    job: Designer
+    skills:
+      - Illustrator
+      - Photoshop
+```
+
+5. 주석
+
+# 을 이용함
+
+6. 고급
+
+```
+& = anchors and alias
+| = Literal blocks
+> = folded blocks
+```
+-->
