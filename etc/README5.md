@@ -162,6 +162,28 @@ $: 문자열의 끝
 =~: 정규표현식 일치
 !=: 문자열 일치하지 않음
 !~: 정규표현식 불일치
+
+- sum : calculate sum over dimensions
+- min : select minimum over dimensions
+- max : select maximum over dimensions
+- avg : calculate the average over dimensions
+- stddev : calculate population standard deviation over dimensions
+- stdvar : calculate population standard variance over dimensions
+- count : count number of elements in the vector
+- count_values : count number of elements with the same value
+- bottomk : smallest k elements by sample value
+- topk : largest k elements by sample value
+- quantile : calculate φ-quantile (0 ≤ φ ≤ 1) over dimensions
+
+- without : label1, label2 를 빼고 추출
+sum without (label1, label2) (field{label3="label3 value"})
+- by : label1, label2 기준으로 추출
+sum by (label1, label2) (field{label3="label3 value"})
+
+- on : 
+- ignoring : 
+
+
 -->
 
 <!--
