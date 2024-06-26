@@ -9,6 +9,17 @@
 
 # Kafka confluent
 
+## key sharing
+
+```bash
+ssh-keygen
+enter
+enter
+enter
+
+# copy ~/.ssh/id_rsa.pub to VM1~3:~/.ssh/authorized_keys
+```
+
 ## Install with ansible
 
 ### redhat 9
@@ -39,6 +50,68 @@ git fetch
 git checkout 7.6.1-post # specific version
 ansible-galaxy collection build # create tar ball
 ls -l confluent-platform-7.6.1.tar.gz # check created tar ball
-ansible-galaxy collection install confluent-platform-7.6.1.tar.gz # install collection
+ansible-galaxy collection install confluent-platform-7.6.1.tar.gz # install collection - ~/.ansible/collections/ansible_collectrions 에 설치됨
+```
 
+#### configure inventory
+
+```bash
+mkdir ~/inventories
+cd ~/inventories
+vi hosts.yml
+
+```
+
+```yml
+# hosts.yml
+---
+all:
+  vars:
+    ansible_connection: ssh
+    ansible_user: ec2-user
+    ansible_become: true
+    ansible_ssh_private_key_file: /tmp/certs/ssh_priv.pem
+
+kafka_controller:
+  hosts:
+    VM1 IP:
+    VM2 IP:
+    VM3 IP:
+
+kafka_broker:
+  hosts:
+    VM1 IP:
+    VM2 IP:
+    VM3 IP:
+
+zookeeper:
+  hosts:
+    VM1 IP:
+    VM2 IP:
+    VM3 IP:
+
+schema_registry:
+  hosts:
+    VM1 IP:
+
+kafka_rest:
+  hosts:
+    VM1 IP:
+
+ksql:
+  hosts:
+    VM1 IP:
+    VM2 IP:
+
+kafka_connect:
+  hosts:
+    VM1 IP:
+
+control_center:
+  hosts:
+    VM1 IP:
+```
+
+```bash
+ansible -i hosts.yml all -m ping # check hosts.yml and vm connections
 ```
