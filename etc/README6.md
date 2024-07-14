@@ -154,3 +154,38 @@ ansible-playbook -i hosts.yml confluent.platform.all --tags=kafka_connect
 ansible-playbook -i hosts.yml confluent.platform.all --tags=ksql
 ansible-playbook -i hosts.yml confluent.platform.all --tags=control_center # 최소 얘정도는 8기가 머신기준으로는 메모리가 부족해서 다른 서버에 띄우는걸 추천함
 ```
+
+```bash
+# community version
+
+sudo firewall-cmd --permanent --zone=public --add-port={2888/tcp,3888/tcp,2181/tcp}
+sudo firewall-cmd --reload
+
+mkdir backups
+cp hosts.yml backups/
+```
+
+```bash
+
+---
+all:
+  vars:
+    ansible_connection: ssh
+    ansible_user: ec2-user
+    ansible_become: true
+    installation_method: archive
+    confluent_archive_file_source: /home/ec2-user/kafka-confluent/confluent-community-7.6.1.tar
+    confluent_archive_file_remote: false
+
+zookeeper:
+  hosts:
+    192.168.0.59:
+    192.168.0.175:
+    192.168.0.214:
+
+kafka_broker:
+  hosts:
+    192.168.0.59:
+    192.168.0.175:
+    192.168.0.214:
+```
